@@ -1,0 +1,216 @@
+<!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<preferences>
+
+    <category
+        key="connection_setting"
+        title="@string/preference_connection">
+
+        <item
+            key="useTCP"
+            summaryOff="@string/use_udp_summary"
+            summaryOn="@string/use_tcp_summary"
+            title="@string/use_tcp"
+            type="toggle" />
+
+        <item
+            defaultValue="false"
+            key="portforwarding"
+            summary="@string/portforwarding_summary"
+            title="@string/portforwarding"
+            type="toggle" />
+
+        <item
+            key="rport"
+            summary="@string/rportsummary"
+            title="@string/remote_port"
+            type="options_dialog" />
+
+        <item
+            key="lport"
+            title="@string/local_port"
+            type="text_dialog" />
+
+        <item
+            defaultValue="@bool/usemssfix"
+            key="mssfix"
+            summary="@string/usemssfix"
+            title="@string/mssfixsummary"
+            type="toggle" />
+
+        <item
+            key="vpn_log"
+            title="@string/preference_vpn_log_title"
+            summary="@string/preference_vpn_log_summary"
+            type="fragment" />
+
+        <item
+            key="developer_mode"
+            summary="Alter advanced configurations on the vpn"
+            title="Developer settings"
+            type="fragment" />
+
+    </category>
+
+    <category
+        key="proxy_settings"
+        title="@string/proxy_settings_title"
+        >
+        <item
+            defaultValue="false"
+            key="useproxy"
+            title="@string/preference_connect_proxy"
+            summary="@string/preference_connect_proxy_summary"
+            type="toggle"/>
+
+        <android.support.v7.preference.PreferenceScreen
+            key="excluded_proxy_app"
+            title="@string/preference_connect_proxy_app"
+            />
+
+        <android.support.v7.preference.PreferenceScreen
+            dependency="useproxy"
+            key="proxyport"
+            title="@string/preference_proxy_port" />
+
+    </category>
+
+    <category
+        key="blocking"
+        title="@string/preference_blocking">
+
+        <item
+            key="pia_mace"
+            summary="@string/settings_mace_summary"
+            title="@string/settings_mace"
+            type="toggle" />
+
+        <item
+            defaultValue="false"
+            key="killswitch"
+            summary="@string/killswitchsummary"
+            title="@string/killswitch"
+            type="toggle" />
+
+        <item
+            key="oreoalwayson"
+            summary="@string/androidalwaysonsummary"
+            title="@string/androidalwayson"
+            type="dialog" />
+
+        <item
+            defaultValue="@bool/useblockipv6"
+            key="blockipv6"
+            summary="@string/blockipv6_summary"
+            title="@string/blockipv6"
+            type="toggle" />
+
+        <item
+            defaultValue="true"
+            key="blockLocalLan"
+            summaryOff="@string/block_locallan_off"
+            summaryOn="@string/block_locallan_on"
+            title="@string/block_locallan"
+            type="toggle" />
+
+    </category>
+
+    <category
+        title="@string/preference_encryption">
+
+        <item
+            key="cipher"
+            title="@string/data_encyrption"
+            type="options_dialog" />
+
+        <item
+            key="auth"
+            title="@string/data_auth"
+            type="options_dialog" />
+
+
+        <item
+            key="tlscipher"
+            title="@string/handshake"
+            type="options_dialog" />
+
+    </category>
+
+    <category
+        key="app_settings"
+        title="@string/preference_application_settings">
+        <item
+            key="autoconnect"
+            summary="@string/connect_onstart"
+            title="@string/oneclickconnect"
+            type="toggle" />
+        <item
+            key="autostart"
+            title="@string/connect_on_boot"
+            summary="@string/preference_connect_on_boot_summary"
+            type="toggle" />
+
+        <item
+            key="connectOnAppUpdated"
+            title="@string/preference_app_update_title"
+            summary="@string/preference_app_update_message"
+            defaultValue="false"
+            type="toggle"/>
+
+        <item
+            key="hapticFeedback"
+            title="@string/preference_haptic_title"
+            summary="@string/preference_haptic_feedback_summary"
+            defaultValue="true"
+            type="toggle" />
+
+        <item
+            key="darktheme"
+            title="@string/preference_app_theme"
+            defaultValue="false"
+            type="toggle" />
+
+        <item
+            title="@string/preferences_widget_title"
+            summary="@string/preferences_widget_summary"
+            key="widgetConfiguration"
+            type="fragment"/>
+
+        <item
+            key="resetToDefault"
+            title="@string/preference_reset_settings"
+            type="action" />
+
+    </category>
+
+    <category
+        key="app_info_cat"
+        title="@string/application_information">
+
+        <item
+            title="@string/version"
+            key="version_info"
+            type="action" />
+
+        <item
+            title="@string/send_debug_log"
+            key="send_log"
+            type="action" />
+    </category>
+</preferences>

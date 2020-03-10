@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<resources>
+    <string name="launcher_name">PIA VPN</string>
+    <string name="app_name">Private Internet Access 虛擬私人網路</string>
+    <string name="menu_settings">設定</string>
+    <!-- Please keep the %s, this is a formatted text. %s is a port number (ei 1024) -->
+    <string name="rportsummary">正在使用%s連接埠連線</string>
+    <!-- Please keep the %s, this is a formatted text. %s is a port number (ei 1024) -->
+    <string name="lportsummary">正在使用本地連接埠「%s」連線</string>
+    <string name="lportrandom">正在使用隨機的本地連接埠連線</string>
+    <string name="server_selection">伺服器選擇</string>
+    <string name="auto_rport">正在使用自動連接埠選擇</string>
+    <string name="automatic_server_selection_main">自動</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is a server location (ei London, Berlin) -->
+    <string name="automatic_server_selection_main_region">自動（%1$s）</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is an IP (ei 126.0.1.10)  -->
+    <string name="prompt_login">例：p1234567</string>
+    <string name="use_udp_summary">將會使用 UDP 進行連線</string>
+    <string name="use_tcp_summary">將會使用 TCP 進行連線</string>
+    <string name="use_tcp">使用 TCP</string>
+    <string name="select_port">請選取連接 privateinternetaccess.com 的連接埠</string>
+    <string name="remote_port">遠端連接埠</string>
+    <string name="remote_port_cap">已轉送連接埠</string>
+    <string name="remote_port_vpn_ip">VPN IP</string>
+    <string name="local_port">本地連接埠</string>
+    <string name="connect_onstart">當 App 啟動時進行連線</string>
+    <string name="oneclickconnect">一鍵連線</string>
+    <string name="connect_on_boot">開機時進行連線</string>
+    <string name="portforwarding">要求連接埠轉送</string>
+    <string name="portforwarding_summary">將允許經外部連接埠的外來連線進入您的行動裝置</string>
+    <!-- Please keep the %s, this is a formatted text. %s is an error message.  -->
+    <string name="portfwderror">要求轉送連接埠時發生錯誤：%s</string>
+    <string name="mace_toggle">Mace 廣告封鎖器</string>
+    <string name="killswitch">VPN 切斷開關</string>
+    <string name="killswitchsummary">當 VPN 連線解除時，您的網路即會斷線。</string>
+    <string name="killswitchtext">網路切斷開關已開啟</string>
+    <string name="killswitchstatus_description">我們的網路切斷開關不允許不受保護的網路活動。若要恢復網路連線，請等待重新連線、連線至我們的 VPN 服務，或停用切斷開關功能。</string>
+    <string name="requestingportfw">正在要求已轉送連接埠…</string>
+    <string name="killswitch_button">停用</string>
+    <string name="action_sign_in_short">登入</string>
+    <string name="login">登入</string>
+    <string name="logout">登出</string>
+    <string name="state_gen_config">正在產生配置</string>
+    <string name="user_pw_invalid">使用者名稱／密碼不正確</string>
+    <string name="replace_login_title">取代登入資料</string>
+    <!-- Please keep the %1$s %2$s, this is a formattered text. %1$s %2$s are usernames.  -->
+    <string name="replace_login_msg">您要用新登入資料取代現有的登入資料嗎？
+（新使用者名稱：%1$s；舊使用者名稱：%2$s）</string>
+    <string name="subscription_expires_in">您的訂購計劃有效期限尚餘</string>
+    <string name="subscription_expired">您的訂購計劃</string>
+    <string name="per_app_settings">個別 App 設定</string>
+    <string name="tv_per_app_settings">個別 App 設定</string>
+    <string name="username_password_already_saved">使用者名稱及密碼已儲存！</string>
+    <string name="invalid_email_signup">您必須提供一個有效的電子郵件地址</string>
+    <string name="buyvpn_url_localized">https://www.privateinternetaccess.com/pages/buy-vpn/</string>
+    <string name="localport_warning">本地連接埠必須介於 1024 及 65535 之間</string>
+    <string name="notanumber_localport">非法的本地連接埠號碼格式</string>
+    <string name="notanumber_proxyport">代理伺服器連接埠的數字格式不符合規定</string>
+    <string name="thankyou_monthly">感謝您購買 VPN 月繳方案！</string>
+    <string name="thankyou_yearly">感謝您購買 VPN 年繳方案！</string>
+    <string name="purchase_signing_up">註冊中…</string>
+    <string name="purchase_loading">載入中</string>
+    <string name="logout_confirmation">登出確認</string>
+    <string name="logout_confirmation_text">登出將終止目前使用中的 VPN 連線並令您不再受保護。</string>
+    <string name="expiry_notification_title">您的訂購計劃即將到期。</string>
+    <string name="expiry_notification_onnemonth">您的計劃只剩下不足一個月，立即續約，保障自己的網路安全！</string>
+    <string name="expiry_notification_oneweek">您的計劃只剩下不足一星期，立即續約，保障自己的網路安全！</string>
+    <string name="expirty_notification_threedays">您的計劃只剩下不足三日，立即續約，保障自己的網路安全！</string>
+    <string name="expirty_notification_oneday">您的計劃只剩下不足一日，立即續約，保障自己的網路安全！</string>
+    <string name="error_renew_trial">試用版帳號不符合續約資格，若您希望帳號到期後仍能繼續使用服務，請購買一個新帳戶。</string>
+    <string name="error_renew_expired">由於您的帳戶已沒有使用，因此不能接受新的付款。請登出並重新註冊以建立一個新帳戶。</string>
+    <string name="pending_purchase_found">發現有待辦 App 內購買項目，請登入以進行續約。</string>
+    <string name="account_not_renewable">您的帳戶無法進行續約或已自動續約。</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is an error message.  -->
+    <string name="error_subscribing">"購買時發生錯誤：%1$s "</string>
+    <string name="error_active_subscription">您已經擁有一個使用中的訂購計劃！</string>
+    <string name="usemssfix">將稍微降低 IP 封包大小以提高與部分路由器及行動網路的相容性。</string>
+    <string name="mssfixsummary">使用小封包</string>
+    <string name="settings_account_bottom_text">您只要在您的其他裝置上安裝 Private Internet Access App，然後使用以上的使用者名稱登入，即可保障您的網路連線安全。</string>
+    <string name="settings_account_bottom_text_4">為您的其他裝置安裝 Private Internet Access App，然後使用上方的使用者名稱及密碼登入，以保障您的網路連線安全。</string>
+    <string name="update_email">更新 Email</string>
+    <string name="email_sucessfully_changed">電子郵件地址已成功變更</string>
+    <string name="copy_toast_text">已將文字複製到剪貼簿</string>
+    <string name="current_region">目前區域</string>
+    <string name="full_licenses">完整許可權</string>
+    <string name="email">Email</string>
+    <string name="account_details_password_bottom_text">點一下眼睛圖示即可顯示密碼，再點一下即可將密碼複製到剪貼簿。</string>
+    <string name="user_x_vs_p_error">請確定您正在使用主要使用者名稱登入，它應該是「p」開頭的（例：p12345）</string>
+    <string name="vpn_revoke_text">PIA 的 VPN 許可已註銷。VPN、網路切斷開關及安全防護已停用。請按此以重新啟動本服務，保障您的網路連線安全。</string>
+    <string name="vpn_revoke_title">PIA VPN 已停止</string>
+    <!-- Please keep the % elements, this is a formatted text. %1$s is Private Internet Access, %2$s is version number(ei 1.4), %3$s is the version code (ei 114)  -->
+    <string name="login_operation_failed">登入失敗，請稍後再試。</string>
+    <string name="no_internet_connection_available">沒有可用的網路連線</string>
+    <string name="no_username_or_password">您必須輸入使用者名稱及密碼</string>
+    <string name="please_unlock_your_device">請解鎖您的裝置</string>
+    <string name="please_unlock_your_device_message">以檢視密碼或更新您的帳戶資料。</string>
+    <string name="settings_mace">PIA MACE™</string>
+    <string name="settings_mace_summary">當您連線到 VPN 時，將封鎖廣告、追蹤器及惡意程式</string>
+    <string name="qs_title">連線到 PIA</string>
+    <string name="not_logged_in">尚未登入</string>
+    <!-- Please keep the %s, this is a formatted text. %s is a server name.  -->
+    <string name="qs_disconnect">解除 VPN 連線（%s）</string>
+    <string name="qs_disconnect_nolocation">解除 VPN 連線</string>
+    <string name="menu_about">關於</string>
+    <string name="reconnect_vpn">重新連接 VPN 以套用此變更</string>
+    <string name="error_account_info">找不到帳戶資料</string>
+    <string name="allows_port_forwarding">允許連接埠轉送</string>
+    <string name="about_privacy_policy">隱私權政策</string>
+    <string name="version">版本</string>
+    <string name="application_information">應用程式資料</string>
+    <string name="data_encyrption">資料加密</string>
+    <string name="data_auth">資料驗證</string>
+    <string name="handshake">Handshake</string>
+    <string name="dismiss">關閉</string>
+    <string name="recent_changes">最近的變更</string>
+    <string name="refresh">重新整理</string>
+    <string name="open_in_browser">使用瀏覽器開啟</string>
+    <string name="copy_link">複製連結</string>
+    <string name="text_failed_to_copy">無法複製文字</string>
+    <string name="link_copied_to_clipboard">連結已複製到剪貼簿</string>
+    <string name="search_apps">搜尋 App</string>
+    <string name="account_trail">試用版</string>
+    <string name="account_yearly">年繳</string>
+    <string name="account_montly">月繳</string>
+    <string name="account_termination">您的帳戶已被終止</string>
+    <string name="preference_connection">連線</string>
+    <string name="preference_encryption">加密</string>
+    <string name="vpn_stop">停止</string>
+    <string name="change_server">變更伺服器</string>
+    <string name="click_to_connect">點一下以連線</string>
+    <string name="widget_long_title">矩形連線</string>
+    <string name="widget_square_connect">正方形連線</string>
+    <string name="widget_small_connect">小型連線</string>
+    <string name="mace_enabled">MACE 已啟用</string>
+    <string name="send_debug_log">將偵錯資料傳送到支援中心</string>
+    <!-- Please keep the %s, this is a formatted text. %s is an error message.  -->
+    <string name="failure_sending_log">無法傳送除錯資料：%s</string>
+    <string name="log_send_done_title">已提交除錯資料。</string>
+    <string name="log_send_done_msg">除錯資料已成功提交。\nID：%s\n請記下此 ID，我們的支援團隊將需要它來處理您的個案。</string>
+    <string name="sending_debug_log">正在傳送除錯資料…</string>
+    <string name="nought_always_on_warning">如果您沒有看到 VPN 確認對話框，您可能為另一個 App 啟用了「永遠在 VPN 上」。如果是這樣的話，那就只有該 App 能連線至 VPN 了。若要檢查，請前往 [設定] &gt; [網路] &gt; [更多…] &gt; [VPN] &gt;</string>
+    <string name="open_settings">開啟設定</string>
+    <string name="settings_widget_configuration">小工具配置</string>
+    <string name="preferences_widget_title">小工具設定</string>
+    <string name="preferences_widget_summary">讓我們的小工具可以在您的主畫面上開啟</string>
+    <string name="widget_flag_alpha">Flag Alpha</string>
+    <string name="widget_background">背景色彩</string>
+    <string name="widget_color">文字色彩</string>
+    <string name="widget_cc">PIA 指令中心</string>
+    <string name="clear">清除</string>
+    <string name="save">儲存</string>
+    <string name="saved">已儲存</string>
+    <string name="speeds_shown_are_all_traffic_over_our_connection">所顯示的速度為您的 VPN 連線流量</string>
+    <string name="ip_short">IP</string>
+    <string name="login_throttled_text">此使用者名稱登入失敗次數太多，請稍後再試。</string>
+    <string name="tap_to_connect">點一下以連線</string>
+    <string name="building_configration">正在建立配置…</string>
+    <!-- Please keep the %1$d, this is a formatted text. %1$d is a number (ei 1-31) -->
+    <string name="days_left">%d 日</string>
+    <string name="one_day_left">1 日</string>
+    <!-- Please keep the %1$d, this is a formatted text. %1$d is a number (ei 1-31) -->
+    <string name="hours_left">%d 小時</string>
+    <string name="one_hour_left">1 小時</string>
+    <!-- Please keep the %1$d, this is a formatted text. %1$d is a number (ei 1-31) -->
+    <string name="minutes_left">%d 分鐘</string>
+    <string name="one_minute_left">1 分鐘</string>
+    <string name="timeleft_expired">已過期</string>
+    <string name="sign_in_to_your_account">登入帳戶</string>
+    <string name="username_only">使用者名稱</string>
+    <string name="submit">提交</string>
+    <string name="please_enter_your_email_address">請輸入您的電子郵件地址</string>
+    <string name="select_vpn_plan">選擇 VPN 方案</string>
+    <string name="_7_day_money_back_guarantee">7 天退款保證</string>
+    <string name="monthly">月繳</string>
+    <string name="yearly">年繳</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is a currency (ei 1-31) -->
+    <string name="yearly_sub_text">每年 %1$s</string>
+    <string name="forgot_password">忘記密碼</string>
+    <string name="tap_to_disconnect">點一下以解除連線</string>
+    <string name="drawer_account">帳戶</string>
+    <string name="drawer_refer_friend">推薦一位朋友</string>
+    <string name="drawer_region_selection">區域選擇</string>
+    <string name="drawer_about">關於</string>
+    <string name="drawer_home_page">首頁</string>
+    <string name="drawer_contact_support">聯絡支援中心</string>
+    <string name="n_a_port_forwarding">---</string>
+    <!-- This string is going to be formatted by us so the "Buy now" is colored green. Please do not change the &lt;emph> or &lt;/emph> as that is formatting for us to find the buy now text. -->
+    <string name="dont_have_an_account">沒有帳號？&lt;emph>立即購買&lt;/emph></string>
+    <string name="buy_now">立即購買！</string>
+    <string name="buy_now_button">立即購買</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is a currency (ei 1-31) -->
+    <string name="purchasing_monthly_ending">每月 %1$s</string>
+    <!-- Please keep the %1$s %2$s, this is a formatted text. %1$s is a currency (ei 1-31), %2$s is the currency (move this in front or keep it there depending on currency -->
+    <string name="purchasing_yearly_month_ending">每月 %2$s%1$s</string>
+    <string name="change_region">變更區域</string>
+    <!--Please keep the %1$s, this is a formatted text. %1$s is the up and down speeds on the connection. /s is per second-->
+    <string name="graph_under_formatting">%1$s/秒</string>
+    <string name="allowed_apps_protected_text">PIA VPN 將自動為您的 App 提供保護</string>
+    <string name="allowed_apps_unprotected_text">選擇哪些 App 要使用 PIA VPN</string>
+    <string name="allowed_apps_spotlight_text">一次將所有 App 預設為使用或不使用 PIA VPN。</string>
+    <string name="allowed_apps_spotlight_title">個別 App 開關</string>
+    <string name="toast_allowed_apps_default_positive">預設使用 PIA VPN 的 App</string>
+    <string name="toast_allowed_apps_default_negative">預設不使用 PIA VPN 的 App</string>
+    <!-- Please keep %1$s %2%s as those are formatted numbers. %1$s is a version number like 2.0, %2$s is the version code like 141 -->
+    <string name="drawer_version">版本 %1$s (%2$s)</string>
+    <string name="cancel">取消</string>
+    <!-- Keep the <![CDATA[...]], translate everything in between-->
+    <string name="settings_port_number_restriction"><![CDATA[連接埠號碼必須介於 1024 及 65535 之間]]></string>
+    <!-- Keep the <![CDATA[...]], translate everything in between-->
+    <string name="settings_lport_hint"><![CDATA[介於 1024 及 65535 之間的連接埠]]></string>
+    <string name="startup_support_title">同時支援 5 台裝置</string>
+    <string name="startup_support_message">即使同時使用 5 台裝置也能獲得保護。</string>
+    <string name="startup_region_title">輕易就能連線到任何地區</string>
+    <string name="startup_region_message">我們的伺服器遍佈全球，能為您提供全面保護。</string>
+    <string name="startup_ads_title">免受廣告滋擾</string>
+    <string name="startup_ads_message">只要啟用 PIA MACE，廣告立馬消失。</string>
+    <string name="startup_connection_title">個別 App 安全防護</string>
+    <string name="startup_connection_message">您可以透過管控哪些 App 能通過我們的服務，來自訂您的使用體驗（需要 Android 5.0 以上）。</string>
+    <string name="speed_graph">效能</string>
+    <string name="data_usage_over_time">使用統計資料</string>
+    <!-- Please add in what word is the color red as we color it in code.  -->
+    <string name="per_app_warning">App 呈現紅色，即表示當中包含了一些可引起問題的功能，它們可能會繞過我們的服務或令您易受攻擊。</string>
+    <string name="purchasing_bottom">已有帳號？&lt;emph>請登入&lt;/emph></string>
+    <string name="ok">OK</string>
+    <string name="killswitch_title">網路切斷開關已啟動</string>
+    <string name="skip">跳過</string>
+    <string name="next">下一步</string>
+    <string name="done">完成</string>
+    <string name="update_account">更新帳戶</string>
+    <string name="local_port_titla">本地連接埠</string>
+    <string name="preference_application_settings">應用程式設定</string>
+    <string name="preference_haptic_title">連線觸覺反應</string>
+    <string name="preference_dialog_graph_title">選擇圖表的量度單位</string>
+    <string name="preference_connect_on_boot_summary">系統啟動時自動連線</string>
+    <string name="preference_haptic_feedback_summary">點擊連線時震動</string>
+    <string name="best_value">最超值 - 免費試用</string>
+    <string name="port_number">連接埠號碼</string>
+    <!-- Please keep the %s, this is a formatted text. %1$s is an app name -->
+    <string name="allowed_apps_toast_removed">%1$s 將會受到保護</string>
+    <!-- Please keep the %s, this is a formatted text. %1$s is an app name -->
+    <string name="allowed_apps_toast_added">%1$s 不會受到保護</string>
+    <string name="shorthand_bytecount">%2$s %1$s</string>
+    <string name="preference_widget_icon_upload_title">上傳圖示色彩</string>
+    <string name="preference_widget_icon_download_title">下載圖示色彩</string>
+    <string name="preference_graph_unit">圖表單位</string>
+    <string name="no">否</string>
+    <string name="color_picker_dialog_title">選擇色彩</string>
+    <string name="username_example">使用者名稱（例：p1234567）</string>
+    <string-array name="preference_graph_titles">
+        <item>位元</item>
+        <item>位元組</item>
+        <item>千位元（kb）</item>
+        <item>千位元組（KB）</item>
+        <item>百萬位元（Mb）</item>
+        <item>百萬位元組（MB）</item>
+        <item>十億位元（Gb）</item>
+        <item>十億位元組（GB）</item>
+    </string-array>
+    <!-- Logic in code uses the first and last letter to decide the unit to change the graph too. Be care what to use-->
+    <string name="channel_name_background">連線統計</string>
+    <string name="channel_description_background">顯示已建立的 PIA VPN 的持續統計資料</string>
+    <string name="channel_name_status">連線狀態變動</string>
+    <string name="channel_description_status">顯示 PIA VPN 狀態的變動（連線中、驗證中……）</string>
+    <string name="no_internet_click_here">找不到網路連線，無法取得價格資料，請點此重新整理頁面。</string>
+    <string name="failure_to_connect_alert">無法連線到我們或 Google 的伺服器，請連線上網。</string>
+    <string name="blockipv6_summary">使用另一個方法來防止 IPv6 洩漏。
+在 Android 5.0 以上的作業系統堵截 IPv6 洩漏所需。</string>
+    <string name="blockipv6">進取地封鎖 IPv6</string>
+    <string name="purchase_renew_title">請購買新帳戶</string>
+    <string name="purchase_renew_message">您的帳號不符合續訂資格。若您希望繼續使用服務，請購買一個新帳戶。</string>
+    <string name="purchase">購買</string>
+    <string name="purchase_complete">購買完成</string>
+    <string name="purchase_complete_message">感謝您註冊我們的服務！我們已將您的帳戶使用者名稱和密碼寄送到您的電子郵件地址：%1$s</string>
+    <string name="password_only">密碼</string>
+    <string name="account_creation_failure">帳戶建立失敗</string>
+    <string name="account_creation_failure_message">我們目前無法建立您的帳戶。我們已為您建立一張支援單（ID：%1$s），我們的支援客服人員很快就會與您聯繫。您稍後也可以試著重新啟動 App，看看能否完成帳戶建立程序。</string>
+    <string name="get_started">開始使用</string>
+    <string name="no_internet_message">找不到網路連線。請確定您已連線上網，然後點選下方按鈕重試。\n\n您可以稍後再回來完成程序。</string>
+    <string name="no_internet_title">噢！</string>
+    <string name="retry">重試</string>
+    <string name="go_to_login">前往登入頁面</string>
+    <string name="unable_change_email">我們目前無法更改您的電子郵件地址，請稍後再試。</string>
+    <string name="preference_reset_settings">重設為預設設定</string>
+    <string name="pref_reset_settings">要重設為預設設定嗎？</string>
+    <string name="pref_reset_settings_message">此操作會將應用程式重設為預設狀態。所有您所作的變更都將會被清除。</string>
+    <string name="reset">重設</string>
+    <string name="settings_reset">重設設定</string>
+    <string name="widget_radius">小工具半徑</string>
+    <string name="widget_text">文字小工具</string>
+    <string name="account_creation_failure_message_no_ticket_id">我們目前未能建立帳戶，請稍後再試。\n\n應用程式將在重新啟動時再次嘗試建立帳戶。</string>
+    <string name="try_again">重試</string>
+    <string name="default_base">預設</string>
+    <string name="confirm_purchase">確認購買</string>
+    <string name="purchase_failed">購買失敗</string>
+    <string name="confirming_purchase">我們的系統正確認您的購買交易，可能需要停留在此畫面幾分鐘時間。</string>
+    <!-- %1$d and %2$d are numbers. Example of this string would be Attempt 1 of 5, 2 of 5, 3 of 5. -->
+    <string name="attempt">嘗試次數：%1$d / %2$d</string>
+    <string name="piaaccountneeded">您需要 privateinternetaccess.com 帳號以登入</string>
+    <string name="piaaccountneeded_samsung">請前往 privateinternetaccess.com 註冊此服務。</string>
+    <string name="piaaccountneeded_amazon">請前往 privateinternetaccess.com 註冊此服務。</string>
+    <string name="vpn_permisions_top_text">PIA 需要存取您的 VPN 配置來確保流量</string>
+    <string name="vpn_permissions_middle_text">您將看到 PIA VPN 的提示並允許存取 VPN 配置。如要繼續，請點擊「確定」</string>
+    <string name="vpn_permission_network">我們不會監控、過濾或記錄任何網絡活動。</string>
+    <string name="vpn_permission_title">PIA</string>
+    <string name="contact">聯繫</string>
+    <string name="permissions_message">需要允許使用此應用程式才能運作。如果需要幫忙，請聯絡客戶支援。</string>
+    <string name="send_email">發送電郵</string>
+    <string-array name="themes_list">
+        <item>明亮</item>
+        <item>黑暗</item>
+    </string-array>
+    <string name="preference_app_theme">黑色主題</string>
+    <string name="auth_setby_gcm">AEAD 密碼有如 AES-GCM 是使用集成認證機制</string>
+    <string name="block_locallan_off">區域網路存取將會被允許。部分應用程式如 Google app 可能會洩露並報告您的真實 IP。</string>
+    <string name="block_locallan_on">區域網路存取將會被封鎖</string>
+    <string name="block_locallan">封鎖區域網路</string>
+    <string name="pref_block_dialog_title">允許本地網絡存取</string>
+    <string name="pref_block_dialog_message">請注意，允許訪問本地網絡時，部分應用程式如 Google app 可能會繞過 VPN。</string>
+    <string name="killswitch_notification_title">網路切斷開關已啟動</string>
+    <string name="open_android_settings">開啟 Android 設定</string>
+    <string name="data_in">往下</string>
+    <string name="data_out">往上</string>
+    <string name="pia_channel_name">PIA</string>
+    <string name="pia_channel_description">一般事件及通知</string>
+    <string name="tv_startup_press_right">按右鍵</string>
+    <string name="androidalwayson">永遠開啟 Android VPN</string>
+    <string name="androidalwaysonsummary">Android 8.0+ 包含替代網路切斷開關功能的更佳選擇，點一下可瞭解詳情</string>
+    <string name="block_connection_wo_vpn">不經 VPN 封鎖連線</string>
+    <string name="always_oreo_message">Android 8.0 或以上版本本身包含「不經 VPN 封鎖連線」的選項。這個內置於 Android 作業系統的網路切斷開關功能，可以在 PIA VPN App 當機或停止運作，甚至 PIA 未啟動時發揮作用，因此效能更為出色。\n\n我們建議啟用「一律使用 VPN」和「不經 VPN 封鎖連線」，作為「網路切斷開關」功能的輔助或替代選項。</string>
+    <string name="preference_blocking">封鎖中</string>
+    <string name="preference_connect_proxy">透過代理伺服器連線</string>
+    <string name="preference_connect_proxy_app">所選代理伺服器應用程式</string>
+    <string name="preference_connect_proxy_summary">請確保您已在個別 App 設定中將用來連線的 App 排除在外</string>
+    <string name="preference_proxy_port">代理伺服器連接埠</string>
+    <string name="proxy_selection_title">選擇代理伺服器應用程式</string>
+    <string name="app_is_proxy">此 App 為您的代理伺服器 App，需排除在外方能運作。</string>
+    <string name="app_must_be_selected">您必須選擇一個 App 才能進行儲存。</string>
+    <string name="proxy_settings_title">代理伺服器設定</string>
+    <string name="enable_proxy_dialog_title">設定您的代理伺服器 App</string>
+    <string name="enable_proxy_dialog_message">為了與代理伺服器搭配使用，我們需要知道您打算使用哪一個 App。</string>
+    <string name="vpn_activity_title">VPN 錯誤偵測紀錄</string>
+    <string name="preference_vpn_log_title">檢視 VPN 錯誤偵測紀錄</string>
+    <string name="preference_vpn_log_summary">VPN 紀錄為進階使用者資料</string>
+    <string name="preference_orbot_title">您的代理伺服器 App 是 Orbot</string>
+    <string name="preference_orbot_summary">使用 Orbot 整合</string>
+    <string name="settings_orbot_udp_problem_message">您需要啟用 TCP，Orbot 方能運作。要啟用 TCP 嗎？</string>
+    <string name="settings_orbot_udp_problem_title">代理伺服器需求</string>
+    <!-- %d is a digit for ping latency(ie, 0-10000). ms is milliseconds. -->
+    <string name="ping_string">%d 毫秒</string>
+    <string name="status_server_ping">正在尋找最佳伺服器</string>
+    <!-- &lt;emph> and &lt;/emph> should not be touched. These are how we know what to color in this string. -->
+    <string name="trial_account">有禮品卡或試用卡嗎？&lt;emph>立即兌換&lt;/emph></string>
+    <!-- &lt;emph> and &lt;/emph> should not be touched. These are how we know what to color in this string. -->
+    <string name="trial_remember_password">記得您的密碼嗎？&lt;emph>請登入&lt;/emph></string>
+    <string name="trial_card_pin">卡片 PIN 碼</string>
+    <string name="trial_screen_redeem">兌換禮品卡</string>
+    <string name="trial_screen_message">於下方輸入您的電子郵件地址及禮品卡或試用卡的 16 位數 PIN 碼。</string>
+    <string name="card_pin_invalid">卡片 PIN 碼無效</string>
+    <string name="confirming_trial_account">我們的系統正在確認您的卡片 PIN 碼。這可能需要一點時間，請稍候。</string>
+    <string name="trial_success_message">您將很快收到一封包含您的用戶名稱和密碼的電子郵件。</string>
+    <string name="trial_success_title">完成！</string>
+    <string name="trial_failure_redeemed_title">此卡已被使用</string>
+    <string name="trial_failure_redeemed_message">這張卡似乎已經被另一個帳戶使用。您可以嘗試輸入不同的 PIN 碼。</string>
+    <string name="trial_failure_invalid_title">無效的卡片 PIN 碼</string>
+    <string name="trial_failure_invalid_message">您似乎輸入了一個無效的卡片 PIN 碼，請再試一次。</string>
+    <string name="trial_failure_expired_title">卡片已過期</string>
+    <string name="trial_failure_expired_message">您可嘗試輸入不同的 PIN 碼。</string>
+    <string name="trial_failure_throttled_title">嘗試次數過多</string>
+    <string name="trial_failure_throttled_message">您嘗試太多次了，請稍後再試。</string>
+    <string name="trial_failure_email_title">電子郵件無效</string>
+    <string name="trial_failure_email_message">您似乎輸入了一個無效的電子郵件地址，請再試一次。</string>
+    <!-- Keep %1$s and %2$s. This is a formatted text and %1$s is Terms of Service and %2$s is Privacy Policy -->
+    <string name="tos_pos_text" formatted="true">註冊即代表您同意 %1$s 及 %2$s。</string>
+    <string name="tos_text">服務條款</string>
+    <string name="pp_text">隱私權政策</string>
+    <string name="website_isnt_protected">網站未受保護。</string>
+    <string name="api_check_failure_title">連線失敗</string>
+    <string name="api_check_message">我們無法連線至此私人網址。這可能是因為您的網路連線狀態不佳，或我們的服務在您的國家遭到封鎖。</string>
+    <string name="invalid_qr_code">QR 碼序號無效，請重試。</string>
+    <string name="empty_qr_code">QR 內容為空，請重試。</string>
+    <string name="your_plan_will_expire_on">您的方案將於以下日期到期：</string>
+    <!-- TV specific strings -->
+    <string name="favorites_title">管理收藏</string>
+    <string name="favorites_panel_title">收藏</string>
+    <string name="logout_title">登出</string>
+    <string name="pia_access">PIA 存取權限</string>
+    <string name="preference_app_update_title">App 完成更新後自動連線</string>
+    <string name="preference_app_update_message">當 App 完成更新後，將自動連線，確保您受到保護</string>
+    <string name="server_search">搜尋</string>
+    <string name="tile_killswitch">網路切斷開關已啟動</string>
+    <string name="auto_dns_setting_summary">PIA DNS</string>
+    <string-array name="dns_names">
+        <item>PIA DNS</item>
+        <item>自訂 DNS</item>
+    </string-array>
+    <string name="edit_custom_dns">編輯</string>
+    <string name="custom_dns">自訂 DNS</string>
+    <string name="custom_dns_warning_body">使用非 PIA DNS 可導致您的 DNS 傳輸資料洩露予第三方，對您的隱私造成損害。</string>
+    <string name="custom_dns_warning_title">@string/custom_dns</string>
+    <string name="custom_primary_dns">主要 DNS</string>
+    <string name="custom_secondary_dns">次要 DNS（非必須）</string>
+    <string name="custom_primary_dns_invalid">主要 DNS 無效</string>
+    <string name="custom_secondary_dns_invalid">次要 DNS 無效</string>
+    <string name="custom_dns_mace_warning">若要啟用 MACE，必須使用預設 DNS。您希望將 DNS 重設為預設值嗎？</string>
+    <string name="custom_dns_disabling_mace">使用自訂 DNS 會停用 MACE。</string>
+    <string name="password_required">需要 PIA 密碼</string>
+    <string name="password_required_body">基於安全考量，您必須輸入 PIA 密碼才能變更帳戶。請輸入您的 PIA 密碼以繼續。</string>
+    <string name="password_empty">密碼不能為空</string>
+    <string name="trusted_cellular_title">信任流動網絡</string>
+    <string name="trusted_cellular_message">使用手機數據時自動解除 VPN 連線</string>
+    <string name="trusted_wifi_title">信任無線網絡</string>
+    <string name="trusted_wifi_message">除了使用者設定的白名單外，使用其他無線網絡時將會自動解除 VPN 連線</string>
+    <string name="trusted_wifi_enable_message">連線到信任網絡時停用 VPN</string>
+    <string name="trusted_wifi_header">信任網絡</string>
+    <string name="available_wifi_header">可用網絡</string>
+    <string name="trusted_wifi_no_wifi">請啟用無線網絡以選擇信任網絡。</string>
+    <string name="trusted_wifi_no_permission">信任網絡需要位置存取權限，以檢測附近的無線網絡。\n如果該權限被註銷，此功能將無法啟用。\n\n如需使用此功能，請前往設定 &gt; Apps &gt; PIA VPN，確保已啟用位置存取權限</string>
+    <string name="no_permission_title">需要權限</string>
+    <string name="trusted_wifi_not_available">無可用網絡</string>
+    <string name="trusted_wifi_no_trusted">沒有信任網絡</string>
+    <string name="network_permisions_top_text">PIA 需要您的位置存取權限，以檢測附近的無線網絡。</string>
+    <string name="network_permissions_middle_text">您將看到詢問位置存取權限的提示。如要繼續，請點擊「確定」</string>
+    <string name="network_permission_network">我們不會監控、過濾或記錄任何網絡活動。</string>
+    <!-- PIAX Specific Strings -->
+    <string name="buy_account">購買帳戶</string>
+    <string name="redeem_gift_card">兌換禮品卡</string>
+    <string name="email_address">電子郵件地址</string>
+    <string name="gift_card_pin">禮品卡 PIN 碼</string>
+    <string name="redeemed_successful">已成功兌換禮品卡</string>
+    <string name="redeemed_login_header">您的登入詳情</string>
+    <string name="redeeming_gift_card">我們的系統正在確認您的禮品卡碼。這可能需要一點時間，請稍候。</string>
+    <string name="redeeming_gift_title">正在與伺服器進行確認</string>
+    <string name="redeemed_to_login">繼續前往登入頁面</string>
+    <string name="username_enter">輸入使用者名稱</string>
+    <string name="password_enter">輸入密碼</string>
+    <string name="total_cost">總收費</string>
+    <string name="confirm_your_purchase">確認購買</string>
+    <string name="enter_email">請輸入您的電子郵件地址</string>
+    <string name="you_are_purchasing">您正在購買 %1$s 方案</string>
+    <string name="continue_only">繼續</string>
+    <string name="plan_only">方案</string>
+    <string name="yearly_only">年繳</string>
+    <string name="monthly_only">月繳</string>
+    <string name="search_region">搜尋區域</string>
+    <string name="region_dialog_header">區域排序依據</string>
+    <string name="menu_filters">篩選</string>
+    <string name="menu_update">更新</string>
+    <string name="menu_reorder">整理</string>
+    <string name="port_not_available">無法使用</string>
+    <!-- Referrals -->
+    <string name="refer_friend_button">推薦一位朋友</string>
+    <string name="refer_friend_banner_title">推薦一位朋友。享有 30 天免費。</string>
+    <string name="refer_friend_banner_details">推薦您的親友。每一位親友註冊後，我們都會提供您和親友 30 天免費試用。</string>
+    <string name="refer_friend_invite_section_header">透過電郵邀請您的親友</string>
+    <string name="refer_friend_name_hint">全名</string>
+    <string name="refer_friend_email_hint">電子郵件地址</string>
+    <string name="refer_friend_send_invite">傳送邀請</string>
+    <string name="refer_friend_share_header">分享您獨有的推薦連結</string>
+    <string name="refer_copy">複製</string>
+    <string name="refer_share">分享</string>
+    <string name="refer_copied">已複製到剪貼簿</string>
+    <string name="refer_process_title">正在傳送邀請…</string>
+    <string name="refer_process_description">請等待，傳送您的邀請中</string>
+    <string name="refer_send_success_title">已送出邀請</string>
+    <string name="refer_send_success_desc">我們已成功送出邀請至您所提供的電子郵件地址</string>
+    <string name="refer_send_success_button">傳送另一個邀請</string>
+    <string name="refer_send_fail_title">未能傳送邀請</string>
+    <string name="refer_send_fail_desc">送出邀請時發生錯誤。請稍後重試。</string>
+    <string name="refer_send_fail_button">重試</string>
+    <string name="refer_view_invites">檢視已送出的邀請</string>
+    <string name="refer_terms">若點選此框，即代表您同意親友推薦計畫的所有條件與條款。</string>
+    <string name="refer_free_header">已獲得免費天數</string>
+    <string name="refer_free_count">%s 日</string>
+    <string name="refer_sent_invite">您已送出 %s 個邀請</string>
+    <string name="refer_sent_invites">您已送出 %s 個邀請</string>
+    <string name="refer_pending_invites">%s 個邀請擱置中</string>
+    <string name="refer_signed_up">%s 次註冊</string>
+    <string name="refer_length_terms">請注意，基於隱私權考量，我們將刪除超過 30 天的邀請。</string>
+    <string name="refer_signed_up_header">已註冊</string>
+    <string name="refer_reward_header">已發送獎勵</string>
+    <string name="refer_yes">是</string>
+    <string name="refer_no">否</string>
+    <string name="refer_invites_title">已送出邀請</string>
+    <string name="refer_pending_title">擱置的邀請</string>
+    <string name="refer_signups_title">註冊</string>
+    <string name="refer_email_required">電郵為必須</string>
+    <string name="refer_terms_required">您必須同意條件與條款以傳送推薦邀請。</string>
+    <string-array name="region_filters">
+        <item>名稱</item>
+        <item>延遲</item>
+        <item>收藏</item>
+    </string-array>
+    <!-- Free Trial Strings -->
+    <string name="free_trial_header">免費試用 7 天！</string>
+    <string name="free_trial_cost">每年只需 %s</string>
+    <string name="free_trial_guarantee">7 天退款保證</string>
+    <string name="free_trial_protection_header">1 年隱私和身份保護</string>
+    <string name="free_trial_protection_text">匿名瀏覽並隱藏您的 IP</string>
+    <string name="free_trial_devices_header">同時支援 10 台裝置</string>
+    <string name="free_trial_devices_text">最多同時保護您的 10 台裝置</string>
+    <string name="free_trial_region_header">輕易就能連線到任何地區</string>
+    <string name="free_trial_region_text">遍佈 32 個國家超過 3300 個伺服器</string>
+    <string name="free_trial_start">立即訂閱</string>
+    <string name="free_trial_see_all">查看所有計劃</string>
+</resources>

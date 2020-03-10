@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<resources>
+    <!-- Updater strings -->
+    <string name="updater_alert_title">有新的更新</string>
+    <string name="updater_alert_body">現在有一個新版本，要更新嗎？</string>
+    <string name="updater_alert_confirm">下載</string>
+    <string name="updater_alert_dismiss">稍後再提醒我</string>
+    <string name="updater_notification_title">立即更新</string>
+    <string name="updater_notification_body">Private Internet Access 有新版本。</string>
+    <string name="pia_update_channel_title">PIA 更新</string>
+    <string name="pia_update_channel_description">App 更新通知</string>
+</resources>

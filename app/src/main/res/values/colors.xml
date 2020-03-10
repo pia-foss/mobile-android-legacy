@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<resources>
+    <!-- General colors -->
+    <color name="transparent">#00000000</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="pia_gen_green">#29CC41</color>
+    <color name="pia_green_half">#5529CC41</color>
+    <color name="pia_gen_green_dark">#009a18</color>
+    <color name="pia_gen_orange">#F7941D</color>
+    <color name="pia_gen_dark_blue">#002645</color>
+    <color name="pia_gen_dark_blue_muted">#272f44</color>
+    <color name="pia_gen_dark_blue_light">#264662</color>
+    <color name="pia_gen_gray">@color/pia_text_light_white_10_percent</color>
+    <color name="pia_gen_red">#DC1A25</color>
+    <color name="pia_notification_green">#4CB649</color>
+    <color name="pia_dark_yellow">#b37005</color>
+
+    <!-- Latency colors -->
+    <color name="latency_green_faded">#5529CC41</color>
+    <color name="latency_yellow_faded">#EAD995</color>
+    <color name="latency_red_faded">#b2352d</color>
+
+    <color name="server_fade">#DDDDDD</color>
+    <color name="text_fade">#ACA5B9</color>
+
+    <!-- Primary light and dark -->
+    <color name="pia_text_dark_primary">@color/pia_text_dark_87_percent</color>
+    <color name="pia_text_dark_secondary">@color/pia_text_dark_67_percent</color>
+    <color name="pia_text_light_primary">@color/pia_text_light_white_87_percent</color>
+    <color name="pia_text_light_secondary">@color/pia_text_light_white_67_percent</color>
+
+    <!-- PIA 3.0 styles -->
+    <!-- Colors -->
+    <color name="pia_text_dark_87_percent">#de001b31</color>
+    <color name="pia_text_dark_67_percent">#ab001b31</color>
+    <color name="pia_text_dark_37_percent">#5e001b31</color>
+    <color name="pia_text_light_white_87_percent">#deffffff</color>
+    <color name="pia_text_light_white_67_percent">#abffffff</color>
+    <color name="pia_text_light_white_37_percent">#5effffff</color>
+
+    <!-- Dark Text -->
+    <color name="pia_text_dark_100_percent">#001b31</color>
+    <color name="pia_text_dark_10_percent">#1A001b31</color>
+
+    <!-- Light Text -->
+    <color name="pia_text_light_white_100_percent">#FFFFFF</color>
+    <color name="pia_text_light_white_10_percent">#1AFFFFFF</color>
+
+    <!-- Specfic colors -->
+    <color name="round_rect_outlines">#CCCCCC</color>
+    <color name="selected_unselected_grey">#E6E6E6</color>
+    <color name="windowBackground">@color/grey92</color>
+    <color name="textColorPrimary">@color/grey20</color>
+    <color name="textColorSecondary">@color/grey55</color>
+    <color name="textColorPrimaryDark">@color/pia_text_light_white_87_percent</color>
+    <color name="textColorSecondaryDark">@color/pia_text_light_white_67_percent</color>
+    <color name="connecting_orange">#FFA500</color>
+    <color name="graph_color_up">#29CC41</color>
+    <color name="graph_color_down">#F7941D</color>
+    <color name="startup_unselected">#44000000</color>
+    <color name="startup_selected">#29CC41</color>
+    <color name="killswitch_background">#40FFFFFF</color>
+    <color name="drawer_renew_background">#f7941d</color>
+    <color name="drawer_renew_bottom_text">#f7941d</color>
+    <color name="login_underline_color">#b1b1b1</color>
+    <color name="per_app_divider">#e3e3e3</color>
+    <color name="widget_background_default">#FFFAFAFA</color>
+    <color name="widget_text_default">#99001b31</color>
+    <color name="widget_upload_default">#FF29CC41</color>
+    <color name="widget_download_default">#FFF7941D</color>
+    <color name="pia_action_bar_background">#FAFAFA</color>
+    <color name="killswitch_image_tint">@color/pia_text_dark_87_percent</color>
+    <color name="status_bar_color">#000000</color>
+
+    <!-- PIAX Colors -->
+    <color name="grey15">#22252e</color>
+    <color name="grey18">#2b2e39</color>
+    <color name="grey20">#323642</color>
+    <color name="grey40">#5c6370</color>
+    <color name="grey40A">#885c6370</color>
+    <color name="grey55">#889099</color>
+    <color name="grey85">#d7d8d9</color>
+    <color name="grey92">#eeeeee</color>
+    <color name="greendark50">#037900</color>
+    <color name="greendark20">#4cb649</color>
+    <color name="green">#5ddf5a</color>
+    <color name="yellow">#f9cf01</color>
+    <color name="yellowdark">#e6b400</color>
+    <color name="red">#f24458</color>
+    <color name="reddark">#b2352d</color>
+    <color name="greenlight">#7afa78</color>
+    <color name="greendark30">#40993d</color>
+    <color name="yellowlight">#f9d001</color>
+    <color name="orange">#f5a623</color>
+    <color name="dark">#1f212a</color>
+    <color name="coolgrey13">#21939ba3</color>
+    <color name="coolgrey">#939ba3</color>
+    <color name="darktwo">#191b21</color>
+    <color name="dark_two">#292c38</color>
+
+    <color name="trial_bold">#323642</color>
+
+    <color name="connecting_start">#f9d001</color>
+    <color name="failed_start">#f5515f</color>
+    <color name="failed_end">#c82b3c</color>
+
+    <color name="connecting_yellow">#E6B400</color>
+
+    <color name="referral_divider">#d7d8d9</color>
+    <color name="referral_copied">#D94cb649</color>
+
+    <color name="referral_invite_background">#FFFFFF</color>
+
+    <!-- TV Colors -->
+    <color name="tv_grey_15">#22252E</color>
+    <color name="tv_grey_18">#2B2E39</color>
+    <color name="tv_grey_20">#323642</color>
+    <color name="tv_grey_40">#5C6370</color>
+    <color name="tv_grey_55">#889099</color>
+    <color name="tv_grey_92">#EEEEEE</color>
+
+    <color name="tv_green">#5DDF5A</color>
+    <color name="tv_green_dark_20">#4CB649</color>
+    <color name="tv_green_dark_50">#037900</color>
+    <color name="tv_green_gradient_top">#5DDF5A</color>
+    <color name="tv_green_gradient_bottom">#4CB649</color>
+
+    <color name="tv_yellow">#F9CF01</color>
+    <color name="tv_yellow_dark">#E6B400</color>
+
+    <color name="tv_red">#F24458</color>
+    <color name="tv_red_dark_40">#B2352D</color>
+
+    <color name="tv_search_grey">#121417</color>
+
+    <!-- Snooze Widget -->
+    <color name="snooze_border">@color/grey40</color>
+
+</resources>

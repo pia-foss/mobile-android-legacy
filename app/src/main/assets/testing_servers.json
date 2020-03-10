@@ -1,0 +1,43 @@
+{"toronto": {
+"country": "CA",
+"dns": "tacobell.londontrustmedia.com",
+"name": "tacobell",
+"openvpn_tcp": {
+"best": "172.98.67.133:500"
+},
+"openvpn_udp": {
+"best": "172.98.67.133:8080"
+},
+"ping": "172.98.67.133:8888",
+"port_forward": false,
+"serial": "68faf0b2aba2b5820e2c6ebbeaaac36b"
+},
+"chipotle251": {
+"country": "US",
+"dns": "chipotle251.londontrustmedia.com",
+"name": "chipotle251",
+"openvpn_tcp": {
+"best": "108.61.57.211:500"
+},
+"openvpn_udp": {
+"best": "108.61.57.211:8080"
+},
+"ping": "108.61.57.211:8888",
+"port_forward": false,
+"serial": "e2ec3a086fa3f80da60b8a4940be1e"
+},
+"stream-uk": {
+  "country": "GB",
+  "dns": "sharingan.londontrustmedia.com",
+  "name": "stream-uk",
+  "openvpn_tcp": {
+    "best": "185.195.200.20:500"
+  },
+  "openvpn_udp": {
+    "best": "185.195.200.20:8080"
+  },
+  "ping": "185.195.200.20:8888",
+  "port_forward": false,
+  "serial": "b05320fc0446b9ff2f3a5fb513c842f3"
+}
+}

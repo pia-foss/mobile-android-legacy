@@ -1,0 +1,65 @@
+<!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:aapt="http://schemas.android.com/aapt"
+        android:width="403dp"
+        android:height="444dp"
+        android:viewportWidth="403.3"
+        android:viewportHeight="444.9">
+    <path
+        android:pathData="M421.8,132L421.8,132l-19.2,11.1l-9.9,-17.2C343.5,40.7 234.1,11.7 148.4,61.2c-85.7,49.5 -115.3,158.7 -66.1,244l9.9,17.2L73,333.4c-20.2,11.6 -27.1,37.3 -15.5,57.3l81.8,141.7c5.5,9.4 10,15.9 16.6,18.8c6.7,2.8 14.2,0.9 23.8,-4.7l30.9,-17.8l47.8,71.9c0.1,0.2 0.3,0.5 0.5,0.8c1.2,2 4,6.4 9,9.3c5,3 12.5,3.9 20.8,-1l78.4,-45.3l15.8,-66.7l30.4,-17.6l65.1,21.8l1.1,-0.6c0,0 14.3,-8.2 30,-17.4c15.8,-9.1 33.1,-19.1 39.2,-22.6l0,0l0,0c6,-3.5 11.7,-6.6 14.7,-12.4c3,-5.9 2.4,-13.5 -2.1,-24.6c-6.7,-16.2 -30,-57.6 -39.1,-75.5l30.8,-17.8c9.5,-5.5 15.1,-10 16.7,-16.7c1.3,-6.6 -1.8,-13.2 -7.2,-22.7l-83.4,-144.4C467.6,127.2 441.9,120.4 421.8,132z"
+        android:fillColor="#349334"/>
+    <path
+        android:pathData="M557.7,294.4c5.4,9.3 7.5,15 6.6,18.7c-0.7,3.7 -4.7,7.6 -14,13l-35.5,20.5l1.2,2.4c8.6,16.9 33.3,61 40.1,77.5c4.4,10.7 4.2,16.3 2.3,20c-1.8,3.8 -6.4,6.6 -12.5,10.1l0,0c-11.2,6.5 -60.2,34.7 -68.1,39.4L412.7,474l-34.7,20.1l-15.8,66.7l-76.3,44.1c-7,4 -11.5,3 -15.2,1c-3.6,-2.1 -6.1,-5.7 -7,-7.2c-0.3,-0.5 -0.4,-0.7 -0.4,-0.7l-0.1,-0.2l-50.9,-76.5l-35.4,20.4c-9.2,5.3 -14.6,6.2 -18.8,4.4c-4.3,-1.7 -8.6,-7.2 -14,-16.5L62.4,388c-10,-17.4 -4,-39.6 13.5,-49.7l24.1,-13.9l-12.7,-22c-47.5,-82.6 -19,-188.2 64,-236.3c83.1,-47.8 188.8,-19.8 236.7,62.7l12.7,22l24.1,-13.9c17.5,-10 39.7,-4.2 49.7,13.2L557.7,294.4z"
+        android:fillColor="#4DB749"/>
+    <path
+        android:pathData="M215.7,514.2l292.1,-168.7l5.5,9.5l-292.1,168.7z"
+        android:fillColor="#118011"/>
+    <path
+        android:pathData="M212.8,520.4l-105.7,-182.9l4.9,-2.8l105.6,182.9l-4.8,2.8z"
+        android:fillColor="#118011"/>
+    <path
+        android:pathData="M509.7,348.9l-105.6,-182.9l4.8,-2.8l105.7,182.9l-4.9,2.8z"
+        android:fillColor="#118011"/>
+    <path
+        android:pathData="M347.6,185.8l-16.2,-28C301,105.2 233.7,87.1 181,117.6c-52.7,30.4 -70.7,97.8 -40.3,150.5l16.2,28L347.6,185.8z"
+        android:fillColor="#FFFFFF"/>
+    <path
+        android:pathData="M286,195.9l-85.1,49.1l-5.7,-10l85,-49.1z"
+        android:fillColor="#000000"
+        />
+    <path
+        android:pathData="M161.6,198.2a20.4,20.4 50.7,1 0,35.3 -20.4a20.4,20.4 50.7,1 0,-35.3 20.4z"
+        android:fillColor="#000000"/>
+    <path
+        android:pathData="M259.7,141.6c5.6,9.7 2.3,22.2 -7.5,27.8s-22.2,2.3 -27.8,-7.5c-5.6,-9.7 -2.3,-22.2 7.4,-27.8S254.1,131.8 259.7,141.6z"
+        android:fillColor="#000000"/>
+    <path
+        android:pathData="M279.3,367l64,-37l27.6,47.8l-64,37z"
+        android:fillColor="#FFFFFF"/>
+    <path
+        android:pathData="M286.3,356.5c-2.9,-11.8 1.8,-24.2 12.3,-30.3c10.6,-6.1 23.7,-3.9 32.4,4.5l7.6,-4.4c-11.2,-12.3 -29.5,-15.9 -44.2,-7.4c-14.7,8.5 -20.8,26.2 -15.7,42L286.3,356.5z"
+        android:fillColor="#FFFFFF"/>
+    <path
+        android:pathData="M560.8,333c1.7,-1 3.2,-1.9 4.7,-2.9l-3.1,-5.3c-2.5,2 -5.6,4 -9.3,6.2l-30.8,17.8c4.5,8.9 12.5,23.6 20.3,38.1l5,-2.9c-6.9,-12.8 -13.6,-25.3 -17.6,-33.1L560.8,333z"
+        android:fillColor="#118011"/>
+    <path
+        android:pathData="M210.6,528.7l-30.9,17.8c-4.8,2.8 -9,4.6 -12.9,5.5l3.6,6.2c2.1,-0.9 4.3,-2 6.6,-3.4l30.9,-17.8l20.7,31.1l5.9,-3.4L210.6,528.7z"
+        android:fillColor="#118011"/>
+</vector>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<resources>
+
+    <string name="copyright_blinktgui" translatable="false">Copyright 2012-2016\nArne Schwabe &lt;arne@rfc2549.org></string>
+    <string name="opevpn_copyright" translatable="false">Copyright © 2002–2010 OpenVPN Technologies, Inc. &lt;sales@openvpn.net>\n\n"OpenVPN" is a trademark of OpenVPN Technologies, Inc.</string>
+    <string name="lzo_copyright" translatable="false">Copyright © 1996 – 2011 Markus Franz Xaver Johannes Oberhumer</string>
+    <string name="copyright_openssl" translatable="false">        This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit\nCopyright © 1998-2018 The OpenSSL Project. All rights reserved.\n\nThis product includes cryptographic software written by Eric Young (eay@cryptsoft.com)\nCopyright © 1995-1998 Eric Young (eay@cryptsoft.com) All rights reserved.</string>
+    <string name="openvpn" translatable="false">OpenVPN</string>
+    <string name="lzo" translatable="false">LZO</string>
+    <string name="openssl" translatable="false">OpenSSL</string>
+    <string name="gpl_compliance_header" translatable="false">GPL Compliance</string>
+    <string name="openvpn_for_android" translatable="false">OpenVPN for Android</string>
+    <string name="unknown_state" translatable="false">Unknown state</string>
+    <string name="copyright" translatable="false">Copyright © 2012-2017 Private Internet Access Inc.</string>
+    <string name="privacy_policy" translatable="false"><a href="https://www.privateinternetaccess.com/pages/privacy-policy/">Privacy Policy</a></string>
+    <string name="website" translatable="false"><a href="https://www.privateinternetaccess.com/">www.privateinternetaccess.com</a></string>
+    <string name="bouncy_castle" translatable="false">Bouncy Castle Crypto APIs</string>
+    <string name="copyright_bouncycastle" translatable="false">Copyright © 2000–2012 The Legion Of The Bouncy Castle (http://www.bouncycastle.org)</string>
+    <!-- Please keep the % elements, this is a formatted text. %1$s is Private Internet Access, %2$s is version number(ei 1.4), %3$s is the version code (ei 114)  -->
+    <string name="version_info" translatable="false">%1$s v%2$s (%3$d) - %4$s</string>
+
+    <string-array name="rport_list">
+        <item>auto</item>
+        <item>1194</item>
+        <item>8080</item>
+        <item>9201</item>
+    </string-array>
+
+    <string-array name="ciphers_values">
+        <item>AES-128-CBC</item>
+        <item>AES-256-CBC</item>
+        <item>AES-128-GCM</item>
+        <item>AES-256-GCM</item>
+        <item>none</item>
+    </string-array>
+
+    <string-array name="cipher_list">
+        <item>AES-128-CBC</item>
+        <item>AES-256-CBC</item>
+        <item>AES-128-GCM</item>
+        <item>AES-256-GCM</item>
+        <item>None</item>
+    </string-array>
+
+    <string-array name="auth_values">
+        <item>SHA1</item>
+        <item>SHA256</item>
+        <item>none</item>
+    </string-array>
+
+    <string-array name="auth_list">
+        <item>HMAC-SHA1</item>
+        <item>HMAC-SHA256</item>
+        <item>None</item>
+    </string-array>
+
+    <string-array name="tls_cipher" >
+        <item>RSA-2048</item>
+        <item>RSA-3072</item>
+        <item>RSA-4096</item>
+        <item>ECC-256k1</item>
+        <item>ECC-256r1</item>
+        <item>ECC-521</item>
+    </string-array>
+
+    <string-array name="tls_values" >
+        <item>rsa2048</item>
+        <item>rsa3072</item>
+        <item>rsa4096</item>
+        <item>ecdsa256k1</item>
+        <item>ecdsa256</item>
+        <item>ecdsa521</item>
+    </string-array>
+
+    <string name="license_gpl" translatable="false">The software included in this product contains copyrighted software that is licensed under the GPL.
+        \nA copy of that license is included as license.txt.
+        \nYou may obtain the complete Corresponding Source code from us for a period of three years after our last shipment of this product, which will be no earlier than 2011-08-01, by sending a money order or check for $5 to:
+        \n\nGPL Compliance Division
+        \nPrivate Internet Access Inc.
+        \n2885 Sanford Ave SW Suite 20138
+        \nGrandville MI 49418
+        \n\nPlease write "source for Private Internet Access GPL" in the memo line of your payment.
+        \n\nYou may also find a copy of the source at %s
+        \n\nThis offer is valid to anyone in receipt of this information.</string>
+
+    <string-array name="themes_values" >
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+
+
+    <!--{"app_version": "3.0 (170)","device":"SM-T820 (msm8996) samsung","os_version":"Android API 24"}-->
+    <string name="mobile_info_report" translatable="false">sysinfo\n{\"app_version\": \"%10$s (%9$s) %11$s\", \"device\":\"%1$s (%2$s) %3$s %5$s (%6$s)\", \"os_version\": \"Android API (%4$s)\"}\n</string>
+
+    <string-array name="dns_options">
+        <item></item>
+    </string-array>
+
+    <string name="dns_pref_header">DNS</string>
+
+</resources>

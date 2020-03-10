@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="pia_theme_3_0" parent="MaterialDrawerTheme.Light">
+        <item name="colorPrimary">@color/green</item>
+        <item name="colorPrimaryDark">@color/black</item> <!-- notification color -->
+        <item name="colorAccent">@color/greendark20</item>
+
+        <item name="android:windowBackground">@color/windowBackground</item>
+
+        <item name="android:textColorPrimary">@color/textColorPrimary</item>
+        <item name="android:textColorSecondary">@color/textColorSecondary</item>
+
+        <!-- MaterialDrawer specific values -->
+        <item name="material_drawer_background">@color/windowBackground</item>
+        <item name="material_drawer_primary_text">@color/textColorPrimary</item>
+        <item name="material_drawer_primary_icon">@color/material_drawer_primary_icon</item>
+        <item name="material_drawer_secondary_text">@color/textColorSecondary</item>
+        <item name="material_drawer_hint_text">@color/material_drawer_hint_text</item>
+        <item name="material_drawer_divider">@color/material_drawer_divider</item>
+        <item name="material_drawer_selected">@color/greendark20</item>
+        <item name="material_drawer_selected_text">@color/textColorPrimary</item>
+        <item name="material_drawer_header_selection_text">@color/grey20</item>
+
+        <item name="preferenceTheme">@style/SettingsFragmentStyle</item>
+
+        <item name="colorControlNormal">@color/grey20</item>
+        <item name="colorControlActivated">@color/pia_gen_green</item>
+        <item name="colorControlHighlight">@color/pia_gen_green</item>
+
+        <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
+        <item name="android:editTextColor">@android:color/white</item>
+
+        <item name="splash_background">@drawable/map_bg</item>
+        <item name="buy_account_button">@drawable/shape_rounded_border_green</item>
+        <item name="edit_background">@drawable/shape_round_top_fill_white</item>
+        <item name="scan_background">@drawable/shape_rounded_scan</item>
+
+        <item name="tos_color">@color/greendark20</item>
+        <item name="piax_edit_text_color">@color/black</item>
+        <item name="piax_edit_underline_color">@color/grey85</item>
+
+        <item name="grey20_white">@color/grey20</item>
+
+        <item name="checkmark_icon">@drawable/ic_selection</item>
+        <item name="checkmark_icon_selected">@drawable/ic_selection_checked</item>
+
+        <item name="purchasing_finalize_background">@drawable/shape_purchasing_finalize</item>
+        <item name="search_background">@color/white</item>
+        <item name="region_selection_background">@color/grey85</item>
+        <item name="region_list_item_background">@color/grey92</item>
+        <item name="dialog_header_background">@color/grey85</item>
+        <item name="dialog_body_background">@color/grey92</item>
+    </style>
+
+    <style name="OverFlow" parent="@android:style/Widget.Holo.ActionButton.Overflow">
+        <item name="android:src">@drawable/ic_dark_overflow</item>
+    </style>
+
+    <style name="PIAButton">
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:layout_marginBottom">4dp</item>
+        <item name="android:background">@drawable/shape_round_rect_accent</item>
+        <item name="android:textAppearance">?android:textAppearanceLargeInverse</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="PIAButton.Green">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="PIAButton.Green.Small">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:layout_height">40dp</item>
+    </style>
+
+    <style name="SwipeBackLayout">
+        <item name="edge_size">50dip</item>
+        <item name="shadow_left">@drawable/ic_shadow_left</item>
+        <item name="shadow_right">@drawable/ic_shadow_right</item>
+        <item name="shadow_bottom">@drawable/ic_shadow_left</item>
+    </style>
+
+
+    <!-- PIA 3.0 styles -->
+
+    <!-- Wrappers - Notice that android need style-wappers for line-height to work properly -->
+    <style name="PiaTextTitleStyle">
+        <item name="android:lineSpacingExtra">10dp</item>
+    </style>
+
+    <style name="TextPiaSubheadingStyle">
+        <item name="android:lineSpacingExtra">10dp</item>
+    </style>
+
+    <style name="PiaTextBody1Style">
+        <item name="android:lineSpacingExtra">6dp</item>
+    </style>
+
+    <style name="PiaTextBody2Style">
+        <item name="android:lineSpacingExtra">9dp</item>
+    </style>
+
+    <style name="PiaTextHintAndInputStyle">
+        <item name="android:lineSpacingExtra">12dp</item>
+    </style>
+
+    <!-- Styles -->
+
+    <style name="PiaTextAppbar">
+        <item name="android:textSize">@dimen/text_pia_app_bar</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">10sp</item>
+        <item name="android:textColor">@color/pia_text_dark_87_percent</item>
+    </style>
+
+    <style name="PiaTextTitle">
+        <item name="android:textSize">@dimen/text_pia_title</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">10sp</item>
+        <item name="android:textColor">@color/pia_text_dark_87_percent</item>
+    </style>
+
+    <style name="PiaTextSubheading">
+        <item name="android:textSize">@dimen/text_pia_subheading</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">9sp</item>
+        <item name="android:textColor">@color/pia_text_dark_67_percent</item>
+    </style>
+
+    <style name="PiaTextInput">
+        <item name="android:textSize">@dimen/text_pia_input</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">5sp</item>
+        <item name="android:textColor">@color/pia_text_dark_67_percent</item>
+        <item name="android:textColorHint">@color/pia_text_dark_37_percent</item>
+    </style>
+    <style name="PiaTextInputHint">
+        <item name="android:textSize">@dimen/text_pia_input_hint</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">5sp</item>
+        <item name="android:textColor">@color/pia_text_dark_37_percent</item>
+        <item name="android:textColorHint">@color/pia_text_dark_37_percent</item>
+    </style>
+    <style name="PiaTextButton">
+        <item name="android:textSize">@dimen/text_pia_button</item>
+        <item name="fontPath">fonts/Roboto-RobotoMedium.ttf</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">0sp</item>
+        <item name="android:textColor">@color/pia_gen_green</item>
+    </style>
+    <style name="PiaTextButtonGreen">
+        <item name="android:textSize">@dimen/text_pia_button</item>
+        <item name="fontPath">fonts/Roboto-RobotoMedium.ttf</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">0sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@color/pia_gen_green_dark</item>
+    </style>
+    <style name="PiaTextBody1">
+        <item name="android:textSize">@dimen/text_pia_body1</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">6sp</item>
+        <item name="android:textColor">@color/pia_text_dark_67_percent</item>
+    </style>
+    <style name="PiaTextBody2">
+        <item name="android:textSize">@dimen/text_pia_body2</item>
+        <item name="fontPath">fonts/Roboto-RobotoMedium.ttf</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">10sp</item>
+        <item name="android:textColor">@color/pia_text_dark_87_percent</item>
+    </style>
+    <style name="PiaTextHighlighted">
+        <item name="android:textSize">@dimen/text_pia_highlighted</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">0sp</item>
+        <item name="android:textColor">@color/pia_gen_green</item>
+    </style>
+    <style name="PiaTextSmallInfo">
+        <item name="android:textSize">@dimen/text_pia_small_info</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">0sp</item>
+        <item name="android:textColor">@color/pia_text_dark_37_percent</item>
+    </style>
+    <style name="PiaTextCaption">
+        <item name="android:textSize">@dimen/text_pia_caption</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">0sp</item>
+        <item name="android:textColor">@color/pia_text_dark_67_percent</item>
+    </style>
+    <style name="PiaTextCaptionSmall">
+        <item name="android:textSize">@dimen/text_pia_caption_small</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">0sp</item>
+        <item name="android:textColor">@color/pia_text_dark_37_percent</item>
+    </style>
+    <style name="PiaTextLabel">
+        <item name="android:textSize">@dimen/text_pia_label</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">0sp</item>
+        <item name="android:textColor">@color/pia_text_dark_37_percent</item>
+    </style>
+
+    <style name="PiaBottomAlignedStyle" parent="PiaTextBody1Style">
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:textAppearance">@style/PiaTextBody1</item>
+        <item name="android:layout_marginBottom">@dimen/login_bottom_margin</item>
+        <item name="android:paddingBottom">@dimen/widget_buy_now_bottom</item>
+    </style>
+
+    <!-- Component styling -->
+
+    <style name="piaToolbarOverflow" parent="Theme.AppCompat.Light">
+        <item name="actionMenuTextColor">@color/textColorPrimary</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <!-- This will set the fade in animation on all your activities by default -->
+    <style name="WindowAnimationTransition">
+        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>
+        <item name="android:windowExitAnimation">@android:anim/fade_out</item>
+    </style>
+
+    <!-- PIAX Styles -->
+    <style name="Style05">
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">2sp</item>
+        <item name="android:textColor">@color/red</item>
+    </style>
+    <style name="Style04">
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">2sp</item>
+        <item name="android:textColor">@color/greendark20</item>
+    </style>
+    <style name="Style03">
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">2sp</item>
+        <item name="android:textColor">@color/grey55</item>
+    </style>
+    <style name="Style02">
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">2sp</item>
+        <item name="android:textColor">@color/grey20</item>
+    </style>
+    <style name="Style01">
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">2sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="Style10">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">4sp</item>
+        <item name="android:textColor">@color/red</item>
+    </style>
+    <style name="Style09">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">4sp</item>
+        <item name="android:textColor">@color/greendark20</item>
+    </style>
+    <style name="Style08">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">4sp</item>
+        <item name="android:textColor">@color/grey55</item>
+    </style>
+    <style name="Style07">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">4sp</item>
+        <item name="android:textColor">@color/grey20</item>
+    </style>
+    <style name="Style06">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">4sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="Style15">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">4sp</item>
+        <item name="android:textColor">@color/red</item>
+    </style>
+    <style name="Style14">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">4sp</item>
+        <item name="android:textColor">@color/greendark20</item>
+    </style>
+    <style name="Style13">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">4sp</item>
+        <item name="android:textColor">@color/grey55</item>
+    </style>
+    <style name="Style12">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">4sp</item>
+        <item name="android:textColor">@color/grey20</item>
+    </style>
+    <style name="Style11">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">4sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="Style20">
+        <item name="android:textSize">10sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">5sp</item>
+        <item name="android:textColor">@color/red</item>
+    </style>
+    <style name="Style19">
+        <item name="android:textSize">10sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">5sp</item>
+        <item name="android:textColor">@color/greendark20</item>
+    </style>
+    <style name="Style18">
+        <item name="android:textSize">10sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">5sp</item>
+        <item name="android:textColor">@color/grey55</item>
+    </style>
+    <style name="Style17">
+        <item name="android:textSize">10sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">5sp</item>
+        <item name="android:textColor">@color/grey20</item>
+    </style>
+    <style name="Style16">
+        <item name="android:textSize">10sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">5sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="PiaxGreenButton">
+        <item name="android:background">@drawable/shape_rounded_solid_green</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:lineSpacingExtra">4sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="PiaxWhiteButton">
+        <item name="android:background">@drawable/shape_rounded_solid_white</item>
+        <item name="android:textSize">9sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/greendark20</item>
+        <item name="android:lineSpacingExtra">4sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="BuyAccountButton">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/greendark20</item>
+        <item name="android:lineSpacingExtra">4sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="RedeemButton">
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/greendark20</item>
+        <item name="android:lineSpacingExtra">2sp</item>
+        <item name="android:gravity">center_horizontal</item>
+    </style>
+
+    <style name="RedeemGiftCardTitle">
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:lineSpacingExtra">2sp</item>
+        <item name="android:textColor">@color/grey20</item>
+    </style>
+
+    <style name="EditTextHint">
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/grey55</item>
+        <item name="android:lineSpacingExtra">6sp</item>
+    </style>
+
+    <style name="SettingsFragmentStyle" parent="@style/PreferenceTheme">
+        <item name="android:textColorSecondary">@color/grey55</item>
+        <item name="android:textColor">@color/grey20</item>
+
+        <item name="android:preferenceCategoryStyle">@style/SettingsFragmentStyle.Category</item>
+        <item name="android:switchPreferenceStyle">@style/SettingsFragmentStyle.Switch</item>
+        <item name="switchPreferenceCompatStyle">@style/SettingsFragmentStyle.Switch</item>
+    </style>
+
+    <style name="SettingsFragmentStyle.Category" parent="@style/Preference.Category.Material">
+        <item name="android:textColor">@color/grey20</item>
+    </style>
+
+</resources>

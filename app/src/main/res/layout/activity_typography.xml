@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:padding="15dp"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="This is a title"
+                android:textAppearance="@style/PiaTextTitle"
+                style="@style/PiaTextTitleStyle" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/about_distance" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Subheading here"
+                android:textAppearance="@style/PiaTextSubheading"
+                style="@style/TextPiaSubheadingStyle" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/about_distance" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Body 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+                android:textAppearance="@style/PiaTextBody1"
+                style="@style/PiaTextBody1Style" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/about_distance" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Body 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                android:textAppearance="@style/PiaTextBody2"
+                style="@style/PiaTextBody2Style" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/about_distance" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Caption"
+                style="@style/PiaTextCaption" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/about_distance" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Caption Small"
+                style="@style/PiaTextCaptionSmall" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/about_distance" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Text Button"
+                style="@style/PiaTextButton" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/about_distance" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Label"
+                style="@style/PiaTextLabel" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/about_distance" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Input Font Hint"
+                android:textAppearance="@style/PiaTextInputHint"
+                style="@style/PiaTextHintAndInputStyle" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/about_distance" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Input font"
+                android:textAppearance="@style/PiaTextInput"
+                style="@style/PiaTextHintAndInputStyle" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/about_distance" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Highlighted text on top of input field etc"
+                android:textAppearance="@style/PiaTextHighlighted" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/about_distance" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Small infos"
+                android:textAppearance="@style/PiaTextSmallInfo" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/about_distance" />
+
+            <Button
+                style="@style/PiaTextButton"
+                android:layout_width="wrap_content"
+                android:text="Button Label (large)"
+                />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/about_distance" />
+
+            <Button
+                style="@style/PiaTextButton"
+                android:layout_width="wrap_content"
+                tools:text="Button"
+                android:layout_marginLeft="50dp"
+                />
+
+        </LinearLayout>
+
+        <!-- light -->
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/pia_gen_dark_blue"
+            android:padding="15dp"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="This is a title"
+                android:textAppearance="@style/PiaTextTitle"
+                android:textColor="@color/pia_text_light_white_87_percent"
+                style="@style/PiaTextTitleStyle" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/about_distance" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Subheading here"
+                android:textAppearance="@style/PiaTextSubheading"
+                android:textColor="@color/pia_text_light_white_87_percent"
+                style="@style/TextPiaSubheadingStyle" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/about_distance" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Body 1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. "
+                android:textAppearance="@style/PiaTextBody1"
+                android:textColor="@color/pia_text_light_white_87_percent"
+                style="@style/PiaTextBody1Style" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/about_distance" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Body 2 Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+                android:textAppearance="@style/PiaTextBody2"
+                android:textColor="@color/pia_text_light_white_67_percent"
+                style="@style/PiaTextBody2Style" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/about_distance" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Caption"
+                style="@style/PiaTextCaption"
+                android:textColor="@color/pia_text_light_white_67_percent"/>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/about_distance" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Caption Small"
+                style="@style/PiaTextCaptionSmall"
+                android:textColor="@color/pia_text_light_white_37_percent"/>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/about_distance" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Text Button"
+                style="@style/PiaTextButton" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/about_distance" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Label"
+                style="@style/PiaTextLabel"
+                android:textColor="@color/pia_text_light_white_37_percent"/>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/about_distance" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Input Font Hint"
+                android:textAppearance="@style/PiaTextInputHint"
+                style="@style/PiaTextHintAndInputStyle"
+                android:textColor="@color/pia_text_light_white_37_percent"/>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/about_distance" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Input font"
+                android:textAppearance="@style/PiaTextInput"
+                style="@style/PiaTextHintAndInputStyle"
+                android:textColor="@color/pia_text_light_white_67_percent"/>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/about_distance" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Highlighted text on top of input field etc"
+                android:textAppearance="@style/PiaTextHighlighted"/>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/about_distance" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Small infos"
+                android:textAppearance="@style/PiaTextSmallInfo"
+                android:textColor="@color/pia_text_light_white_67_percent"/>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/about_distance" />
+
+            <Button
+                style="@style/PiaTextButton"
+                android:layout_width="wrap_content"
+                android:text="Button Label (large)"
+                />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/about_distance" />
+
+            <Button
+                style="@style/PiaTextButton"
+                android:layout_width="wrap_content"
+                tools:text="Button"
+                android:layout_marginLeft="50dp"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

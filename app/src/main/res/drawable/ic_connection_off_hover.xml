@@ -1,0 +1,42 @@
+<!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:width="316dp"
+        android:height="316dp"
+        android:viewportWidth="316.0"
+        android:viewportHeight="316.0">
+    <path
+        android:pathData="M158,158m-136,0a136,136 0,1 1,272 0a136,136 0,1 1,-272 0"
+        android:strokeColor="#F9CF01"
+        android:fillType="evenOdd"
+        android:fillColor="#22252E"
+        android:strokeWidth="8"/>
+    <path
+        android:pathData="M158,158m-149,0a149,149 0,1 1,298 0a149,149 0,1 1,-298 0"
+        android:fillType="evenOdd"
+        android:strokeColor="#17181C"
+        android:fillColor="#00000000"
+        android:strokeWidth="18"/>
+    <path
+        android:pathData="M196,157.62C196,177.69 179.18,194 158.5,194C137.82,194 121,177.69 121,157.62C121,151.35 122.7,145.13 125.92,139.66C126.82,138.12 128.83,137.58 130.42,138.45C132,139.33 132.55,141.29 131.65,142.83C129,147.35 127.6,152.46 127.6,157.62C127.6,174.14 141.46,187.58 158.5,187.58C175.54,187.58 189.4,174.14 189.4,157.62C189.4,152.46 188,147.35 185.35,142.83C184.45,141.29 185,139.33 186.59,138.45C188.17,137.58 190.18,138.12 191.08,139.65C194.3,145.14 196,151.35 196,157.62ZM154.38,122.41C154.38,120.53 155.94,119 157.87,119C159.79,119 161.36,120.53 161.36,122.41L161.36,152.73C161.36,154.61 159.79,156.14 157.87,156.14C155.94,156.14 154.38,154.61 154.38,152.73L154.38,122.41Z"
+        android:strokeColor="#00000000"
+        android:fillType="nonZero"
+        android:fillColor="#F9CF01"
+        android:strokeWidth="1"/>
+</vector>

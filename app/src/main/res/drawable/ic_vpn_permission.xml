@@ -1,0 +1,54 @@
+<!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="250dp"
+    android:height="330dp"
+    android:viewportWidth="250.0"
+    android:viewportHeight="330.0">
+    <path
+        android:pathData="M231.8,326H18.2c-7.6,0 -13.9,-6.2 -13.9,-13.9V17.8C4.3,10.2 10.6,4 18.2,4h213.6c7.6,0 13.9,6.2 13.9,13.9v294.3C245.7,319.8 239.4,326 231.8,326zM18.2,14c-2.1,0 -3.9,1.7 -3.9,3.9v294.3c0,2.1 1.7,3.9 3.9,3.9h213.6c2.1,0 3.9,-1.7 3.9,-3.9V17.8c0,-2.1 -1.7,-3.9 -3.9,-3.9H18.2z"
+        android:fillColor="#0C8643"/>
+    <path
+        android:pathData="M201.4,64.3H48.6c-3.8,0 -6.8,-3.1 -6.8,-6.8v0c0,-3.8 3.1,-6.8 6.8,-6.8h152.8c3.8,0 6.8,3.1 6.8,6.8v0C208.2,61.3 205.2,64.3 201.4,64.3z"
+        android:fillColor="#DCDCDF"/>
+    <path
+        android:pathData="M201.4,91.3H48.6c-3.8,0 -6.8,-3.1 -6.8,-6.8v0c0,-3.8 3.1,-6.8 6.8,-6.8h152.8c3.8,0 6.8,3.1 6.8,6.8v0C208.2,88.3 205.2,91.3 201.4,91.3z"
+        android:fillColor="#DCDCDF"/>
+    <path
+        android:pathData="M201.4,135.3H48.6c-3.8,0 -6.8,-3.1 -6.8,-6.8v0c0,-3.8 3.1,-6.8 6.8,-6.8h152.8c3.8,0 6.8,3.1 6.8,6.8v0C208.2,132.3 205.2,135.3 201.4,135.3z"
+        android:fillColor="#DCDCDF"/>
+    <path
+        android:pathData="M201.4,162.3H48.6c-3.8,0 -6.8,-3.1 -6.8,-6.8v0c0,-3.8 3.1,-6.8 6.8,-6.8h152.8c3.8,0 6.8,3.1 6.8,6.8v0C208.2,159.3 205.2,162.3 201.4,162.3z"
+        android:fillColor="#DCDCDF"/>
+    <path
+        android:pathData="M201.4,189.3H48.6c-3.8,0 -6.8,-3.1 -6.8,-6.8v0c0,-3.8 3.1,-6.8 6.8,-6.8h152.8c3.8,0 6.8,3.1 6.8,6.8v0C208.2,186.3 205.2,189.3 201.4,189.3z"
+        android:fillColor="#DCDCDF"/>
+    <path
+        android:pathData="M201.4,216.3H48.6c-3.8,0 -6.8,-3.1 -6.8,-6.8v0c0,-3.8 3.1,-6.8 6.8,-6.8h152.8c3.8,0 6.8,3.1 6.8,6.8v0C208.2,213.3 205.2,216.3 201.4,216.3z"
+        android:fillColor="#DCDCDF"/>
+    <path
+        android:pathData="M196.2,279.3H53.8c-6.6,0 -12,-5.4 -12,-12v-15c0,-6.6 5.4,-12 12,-12h142.5c6.6,0 12,5.4 12,12v15C208.2,273.9 202.8,279.3 196.2,279.3z"
+        android:fillColor="#4CB648"/>
+    <path
+        android:pathData="M124.4,260.9c0,2.2 -0.4,4.1 -1.1,5.7c-0.8,1.6 -1.9,2.9 -3.3,3.8s-3.1,1.3 -4.9,1.3c-1.8,0 -3.5,-0.4 -4.9,-1.3c-1.4,-0.9 -2.5,-2.1 -3.3,-3.8c-0.8,-1.6 -1.2,-3.5 -1.2,-5.6v-1.1c0,-2.2 0.4,-4.1 1.2,-5.7c0.8,-1.6 1.9,-2.9 3.3,-3.8c1.4,-0.9 3.1,-1.3 4.9,-1.3s3.5,0.4 4.9,1.3c1.4,0.9 2.5,2.1 3.3,3.8c0.8,1.6 1.2,3.6 1.2,5.7V260.9zM119.8,259.9c0,-2.3 -0.4,-4.1 -1.2,-5.3c-0.8,-1.2 -2,-1.8 -3.5,-1.8c-1.5,0 -2.7,0.6 -3.5,1.8c-0.8,1.2 -1.2,2.9 -1.3,5.2v1.1c0,2.2 0.4,4 1.2,5.2c0.8,1.2 2,1.9 3.6,1.9c1.5,0 2.7,-0.6 3.5,-1.8c0.8,-1.2 1.2,-2.9 1.2,-5.2V259.9z"
+        android:fillColor="#FFFFFF"/>
+    <path
+        android:pathData="M134.6,262.6l-2.4,2.5v6.3h-4.5v-22h4.5v10l2,-2.7l5.6,-7.2h5.6l-7.8,9.8l8,12.2h-5.4L134.6,262.6z"
+        android:fillColor="#FFFFFF"/>
+</vector>

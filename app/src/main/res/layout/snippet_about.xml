@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="25dp">
+
+    <TextView
+        style="@style/Style11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/grey55"
+        android:text="@string/copyright" />
+
+    <TextView
+        style="@style/Style11"
+        android:id="@+id/about_version"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="VPN by Private Internet Access v.X.X (XXX)"
+        android:textColor="@color/grey55"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/about_difference_group" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/Style06"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/openvpn_for_android"
+            android:textColor="?attr/grey20_white" />
+
+
+    </RelativeLayout>
+
+    <TextView
+        style="@style/Style11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/copyright_blinktgui"
+        android:textColor="@color/grey55"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/about_difference_group" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/Style06"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/openvpn"
+            android:textColor="?attr/grey20_white" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/about_openvpn_text"
+        style="@style/Style11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/opevpn_copyright"
+        android:textColor="@color/grey55"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/about_difference_group" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/Style06"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/lzo"
+            android:textColor="?attr/grey20_white"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/about_lzo_text"
+        style="@style/Style11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/lzo_copyright"
+        android:textColor="@color/grey55"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/about_difference_group" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/Style06"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/openssl"
+            android:textColor="?attr/grey20_white"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/about_openssl_text"
+        style="@style/Style11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/copyright_openssl"
+        android:textColor="@color/grey55"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/about_difference_group" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/Style06"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/bouncy_castle"
+            android:textColor="?attr/grey20_white"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/about_bouncy_text"
+        style="@style/Style11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/copyright_bouncycastle"
+        android:textColor="@color/grey55"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/about_difference_group" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/Style06"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/gpl_compliance_header"
+            android:textColor="?attr/grey20_white"/>
+
+    </RelativeLayout>
+
+    <TextView
+        style="@style/Style11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/about_gpl"
+        android:autoLink="web"
+        tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et libero ut nibh tincidunt interdum nec lacinia eros. Phasellus quis turpis neque. In posuere feugiat arcu, id dictum lacus fermentum et. In ornare purus non mattis auctor. "
+        android:textColor="@color/grey55"
+        />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/about_difference_group" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/Style06"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/full_licenses"
+            android:textColor="?attr/grey20_white"/>
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/about_full_collapse"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            app:srcCompat="@drawable/ic_plus"/>
+
+    </RelativeLayout>
+
+    <WebView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/windowBackground"
+        android:id="@+id/about_webView"
+        android:visibility="gone"
+        android:layout_gravity="center_horizontal" />
+
+</LinearLayout>

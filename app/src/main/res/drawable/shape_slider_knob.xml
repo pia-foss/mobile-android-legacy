@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- Drop Shadow Stack -->
+    <item>
+        <shape android:shape="oval">
+            <padding android:top="1dp" android:right="1dp" android:bottom="3dp" android:left="1dp" />
+            <solid android:color="#00CCCCCC" />
+        </shape>
+    </item>
+    <!-- second line -->
+    <item>
+        <shape android:shape="oval">
+            <padding android:top="1dp" android:right="1dp" android:bottom="2.5dp" android:left="1dp" />
+            <solid android:color="#05CCCCCC" />
+        </shape>
+    </item>
+
+    <!-- third line -->
+    <item>
+        <shape android:shape="oval">
+            <padding android:top="1dp" android:right="1dp" android:bottom="2dp" android:left="1dp" />
+            <solid android:color="#20CCCCCC" />
+        </shape>
+    </item>
+
+    <!-- third/half line -->
+    <item>
+        <shape android:shape="oval">
+            <padding android:top="0dp" android:right="1dp" android:bottom="1.5dp" android:left="1dp" />
+            <solid android:color="#25CCCCCC" />
+        </shape>
+    </item>
+
+    <!-- fourth line -->
+    <item>
+        <shape android:shape="oval">
+            <padding android:top="0dp" android:right="1dp" android:bottom="1dp" android:left="1dp" />
+            <solid android:color="#50CCCCCC" />
+        </shape>
+    </item>
+
+    <!--<item>-->
+        <!--<shape android:shape="oval">-->
+            <!--<gradient android:angle="90"-->
+                <!--android:startColor="#00CCCCCC"-->
+                <!--android:centerColor="#30CCCCCC"-->
+                <!--android:endColor="#50CCCCCC"-->
+                <!--/>-->
+            <!--<padding android:top="0.5dp" android:right="1dp" android:bottom="3dp" android:left="1dp" />-->
+        <!--</shape>-->
+    <!--</item>-->
+
+    <!-- drawable -->
+    <item>
+        <shape android:shape="oval">
+            <src app:srcCompat="@drawable/ic_slider_knob"/>
+            <size android:width="40dp" android:height="40dp"/>
+            <solid android:color="@color/white"/>
+        </shape>
+    </item>
+</layer-list>

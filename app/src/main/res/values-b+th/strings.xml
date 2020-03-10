@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<resources>
+    <string name="launcher_name">PIA VPN</string>
+    <string name="app_name">VPN โดย Private Internet Access</string>
+    <string name="menu_settings">ตั้งค่า</string>
+    <!-- Please keep the %s, this is a formatted text. %s is a port number (ei 1024) -->
+    <string name="rportsummary">กำลังใช้พอร์ต %s ในการเชื่อมต่อ</string>
+    <!-- Please keep the %s, this is a formatted text. %s is a port number (ei 1024) -->
+    <string name="lportsummary">กำลังใช้พอร์ตในเครื่อง %s ในการเชื่อมต่อ</string>
+    <string name="lportrandom">กำลังใช้พอร์ตในเครื่องแบบสุ่มในการเชื่อมต่อ</string>
+    <string name="server_selection">การเลือกเซิร์ฟเวอร์</string>
+    <string name="auto_rport">กำลังใช้การเลือกพอร์ตอัตโนมัติ</string>
+    <string name="automatic_server_selection_main">อัตโนมัติ</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is a server location (ei London, Berlin) -->
+    <string name="automatic_server_selection_main_region">อัตโนมัติ (%1$s)</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is an IP (ei 126.0.1.10)  -->
+    <string name="prompt_login">ตย. p1234567</string>
+    <string name="use_udp_summary">UDP จะถูกใช้เพื่อเชื่อมต่อ</string>
+    <string name="use_tcp_summary">TCP จะถูกใช้เพื่อเชื่อมต่อ</string>
+    <string name="use_tcp">ใช้ TCP</string>
+    <string name="select_port">เลือกพอร์ตที่เชื่อมต่อกับ privateinternetaccess.com</string>
+    <string name="remote_port">พอร์ตทางไกล</string>
+    <string name="remote_port_cap">พอร์ตที่ส่งต่อ</string>
+    <string name="remote_port_vpn_ip">VPN IP</string>
+    <string name="local_port">พอร์ตในเครื่อง</string>
+    <string name="connect_onstart">เชื่อมต่อเมื่อแอพเริ่มทำงาน</string>
+    <string name="oneclickconnect">เชื่อมต่อในคลิกเดียว</string>
+    <string name="connect_on_boot">เชื่อมต่อเมื่อบูทเครื่อง</string>
+    <string name="portforwarding">ส่งคำขอฟอร์เวิร์ดพอร์ต</string>
+    <string name="portforwarding_summary">จะอนุญาตการเชื่อมต่อเข้ามายังอุปกรณ์มือถือของคุณผ่านพอร์ตภายนอก</string>
+    <!-- Please keep the %s, this is a formatted text. %s is an error message.  -->
+    <string name="portfwderror">การส่งคำขอฟอร์เวิร์ดพอร์ตล้มเหลว: %s</string>
+    <string name="mace_toggle">Mace Ad Blocker</string>
+    <string name="killswitch">ปุ่มตัดการทำงาน VPN</string>
+    <string name="killswitchsummary">ปิดการเชื่อมต่ออินเทอร์เน็ตเมื่อ VPN ขาดการเชื่อมต่อ</string>
+    <string name="killswitchtext">เปิดใช้งานปุ่มตัดการทำงานอินเตอร์เน็ต</string>
+    <string name="killswitchstatus_description">ปุ่มตัดการทำงานอินเตอร์เน็ตของเราไม่อนุญาตให้มีกิจกรรมบนอินเตอร์เน็ตที่ไม่ได้รับการปกป้อง รอการเชื่อมต่อใหม่อีกครั้ง แล้วเชื่อมต่อเข้ากับบริการ VPN ของเรา หรือปิดการใช้งานปุ่มตัดการทำงานเพื่อกู้คืนการเชื่อมต่ออินเตอร์เน็ต</string>
+    <string name="requestingportfw">กำลังส่งคำขอฟอร์เวิร์ดพอร์ต...</string>
+    <string name="killswitch_button">ปิดการใช้งาน</string>
+    <string name="action_sign_in_short">เข้าสู่ระบบ</string>
+    <string name="login">เข้าสู่ระบบ</string>
+    <string name="logout">ออกจากระบบ</string>
+    <string name="state_gen_config">กำลังสร้างการกำหนดค่า</string>
+    <string name="user_pw_invalid">ชื่อผู้ใช้/รหัสผ่านไม่ถูกต้อง</string>
+    <string name="replace_login_title">แทนที่ข้อมูลเข้าสู่ระบบ</string>
+    <!-- Please keep the %1$s %2$s, this is a formattered text. %1$s %2$s are usernames.  -->
+    <string name="replace_login_msg">ต้องการแทนที่ข้อมูลเข้าสู่ระบบด้วยข้อมูลเข้าสู่ระบบใหม่หรือไม่ (ชื่อผู้ใช้ใหม่: %1$s, ชื่อผู้ใช้เก่า: %2$s)</string>
+    <string name="subscription_expires_in">สถานะสมาชิกของคุณจะหมดอายุใน</string>
+    <string name="subscription_expired">สถานะสมาชิกของคุณ</string>
+    <string name="per_app_settings">การตั้งค่ารายแอพ</string>
+    <string name="tv_per_app_settings">การตั้งค่ารายแอพ</string>
+    <string name="username_password_already_saved">ชื่อผู้ใช้และรหัสผ่านถูกบันทึกแล้ว!</string>
+    <string name="invalid_email_signup">คุณต้องใส่ที่อยู่อีเมลที่ถูกต้อง</string>
+    <string name="buyvpn_url_localized">https://www.privateinternetaccess.com/pages/buy-vpn/</string>
+    <string name="localport_warning">พอร์ตในเครื่องต้องอยู่ระหว่าง 1024 และ 65535</string>
+    <string name="notanumber_localport">รูปแบบตัวเลขสำหรับพอร์ตในเครื่องไม่ถูกต้อง</string>
+    <string name="notanumber_proxyport">รูปแบบตัวเลขสำหรับพอร์ตพร็อกซีไม่ถูกต้อง</string>
+    <string name="thankyou_monthly">ขอบคุณที่สมัครสมาชิก VPN รายเดือน!</string>
+    <string name="thankyou_yearly">ขอบคุณที่สมัครสมาชิก VPN รายปี!</string>
+    <string name="purchase_signing_up">กำลังสมัคร..</string>
+    <string name="purchase_loading">กำลังโหลด</string>
+    <string name="logout_confirmation">การยืนยันออกจากระบบ</string>
+    <string name="logout_confirmation_text">การออกจากระบบจะยกเลิกการเชื่อมต่อ VPN ที่ใช้งานอยู่และทำให้คุณไม่ได้รับการปกป้องใดๆ</string>
+    <string name="expiry_notification_title">สถานะสมาชิกของคุณจะหมดอายุเร็วๆ นี้</string>
+    <string name="expiry_notification_onnemonth">คุณเหลือเวลาไม่ถึง 1 เดือน โปรดต่ออายุเพื่อรับการปกป้องเหมือนเดิม</string>
+    <string name="expiry_notification_oneweek">คุณเหลือเวลาไม่ถึง 1 สัปดาห์ โปรดต่ออายุเพื่อรับการปกป้องเหมือนเดิม</string>
+    <string name="expirty_notification_threedays">คุณเหลือเวลาไม่ถึง 3 วัน โปรดต่ออายุเพื่อรับการปกป้องเหมือนเดิม</string>
+    <string name="expirty_notification_oneday">คุณเหลือเวลาไม่ถึง 1 วัน โปรดต่ออายุเพื่อรับการปกป้องเหมือนเดิม</string>
+    <string name="error_renew_trial">บัญชีทดลองไม่สามารถต่ออายุได้ กรุณาซื้อบัญชีใหม่เมื่อหมดอายุ เพื่อใช้บริการต่อ</string>
+    <string name="error_renew_expired">บัญชีของคุณปิดการใช้งานอยู่และไม่สามารถรับการชำระเงินใหม่ได้ โปรดสร้างบัญชีใหม่โดยการออกจากระบบและสมัครใหม่อีกครั้ง</string>
+    <string name="pending_purchase_found">พบการสั่งซื้อในแอพที่ค้างอยู่ โปรดต่ออายุการสมัครสมาชิกปัจจุบันของคุณ</string>
+    <string name="account_not_renewable">บัญชีของคุณไม่สามารถต่ออายุหรือไม่สามารถต่ออายุอัตโนมัติได้</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is an error message.  -->
+    <string name="error_subscribing">"การซื้อล้มเหลว: %1$s "</string>
+    <string name="error_active_subscription">คุณมีการสมัครสมาชิกที่ใช้งานอยู่แล้ว!</string>
+    <string name="usemssfix">จะค่อยๆ ลดขนาดแพ็กเกต IP เพื่อปรับปรุงให้สามารถทำงานร่วมกับเราเตอร์และเครือข่ายโทรศัพท์บางประเภทได้</string>
+    <string name="mssfixsummary">ใช้แพ็กเกตขนาดเล็ก</string>
+    <string name="settings_account_bottom_text">รับแอพ Private Internet Access สำหรับอุปกรณ์อื่นของคุณและใช้ชื่อผู้ใช้ด้านบนเพื่อเข้าสู่ระบบและปกป้องการเชื่อมต่อของคุณ</string>
+    <string name="settings_account_bottom_text_4">รับแอพ Private Internet Access สำหรับอุปกรณ์อื่นของคุณและใช้รหัสผ่านด้านบนเพื่อเข้าสู่ระบบและปกป้องการเชื่อมต่อของคุณ</string>
+    <string name="update_email">อัพเดทอีเมล</string>
+    <string name="email_sucessfully_changed">อีเมลแอดเดรสถูกเปลี่ยนเรียบร้อยแล้ว</string>
+    <string name="copy_toast_text">ข้อความถูกคัดลอกไปยังคลิปบอร์ด</string>
+    <string name="current_region">ภูมิภาคปัจจุบัน</string>
+    <string name="full_licenses">ใบอนุญาตฉบับสมบูรณ์</string>
+    <string name="email">อีเมล</string>
+    <string name="account_details_password_bottom_text">แตะที่ “ตา” เพื่อแสดงตัวอักษร แตะอีกครั้งเพื่อคัดลอกรหัสผ่านไปยังคลิปบอร์ด</string>
+    <string name="user_x_vs_p_error">โปรดตรวจสอบให้แน่ใจว่าคุณกำลังเข้าสู่ระบบด้วยชื่อผู้ใช้หลักของคุณ ซึ่งขึ้นต้นด้วยตัว \"p\" (ตัวอย่าง p12345)</string>
+    <string name="vpn_revoke_text">การอนุญาตเข้าใช้ VPN ของ PIA ถูกเพิกถอนแล้ว VPN, Internet killswitch และระบบป้องกันไม่ได้เปิดใช้งานอยู่ โปรดแตะที่นี่เพื่อรีสตาร์ทบริการนี้ใหม่และป้องกันความปลิดภัยในการการเชื่อมต่ออินเตอร์เน็ตของคุณ</string>
+    <string name="vpn_revoke_title">PIA VPN หยุดทำงาน</string>
+    <!-- Please keep the % elements, this is a formatted text. %1$s is Private Internet Access, %2$s is version number(ei 1.4), %3$s is the version code (ei 114)  -->
+    <string name="login_operation_failed">การเข้าสู่ระบบล้มเหลว โปรดลองใหม่อีกครั้ง</string>
+    <string name="no_internet_connection_available">ไม่มีการเชื่อมต่ออินเตอร์เน็ตที่สามารถใช้งานได้</string>
+    <string name="no_username_or_password">คุณต้องกรอกชื่อผู้ใช้และรหัสผ่าน</string>
+    <string name="please_unlock_your_device">โปรดปลดล็อกอุปกรณ์ของคุณ</string>
+    <string name="please_unlock_your_device_message">เพื่อดูรหัสผ่านหรืออัพเดทข้อมูลบัญชีของคุณ</string>
+    <string name="settings_mace">PIA MACE™</string>
+    <string name="settings_mace_summary">จะบล็อกโฆษณา ตัวติดตาม และมัลแวร์ ในขณะที่คุณกำลังเชื่อมต่อ VPN อยู่</string>
+    <string name="qs_title">เชื่อมต่อ PIA</string>
+    <string name="not_logged_in">ไม่ได้เข้าสู่ระบบ</string>
+    <!-- Please keep the %s, this is a formatted text. %s is a server name.  -->
+    <string name="qs_disconnect">ยกเลิกการเชื่อมต่อ VPN (%s)</string>
+    <string name="qs_disconnect_nolocation">ยกเลิกการเชื่อมต่อ VPN</string>
+    <string name="menu_about">เกี่ยวกับ</string>
+    <string name="reconnect_vpn">เชื่อมต่อ VPN ใหม่เพื่อใช้การเปลี่ยนแปลงนี้</string>
+    <string name="error_account_info">การค้นหาข้อมูลบัญชีล้มเหลว</string>
+    <string name="allows_port_forwarding">อนุญาตการฟอร์เวิร์ดพอร์ต</string>
+    <string name="about_privacy_policy">นโยบายความเป็นส่วนตัว</string>
+    <string name="version">รุ่น</string>
+    <string name="application_information">ข้อมูลแอพพลิเคชั่น</string>
+    <string name="data_encyrption">การเข้ารหัสข้อมูล</string>
+    <string name="data_auth">การยืนยันข้อมูล</string>
+    <string name="handshake">ความร่วมมือ</string>
+    <string name="dismiss">ยกเลิก</string>
+    <string name="recent_changes">การเปลี่ยนแปลงล่าสุด</string>
+    <string name="refresh">รีเฟรช</string>
+    <string name="open_in_browser">เปิดในเบราเซอร์</string>
+    <string name="copy_link">คัดลอกลิ้งค์</string>
+    <string name="text_failed_to_copy">ไม่สามารถคัดลอกข้อความได้</string>
+    <string name="link_copied_to_clipboard">ลิ้งค์ถูกคัดลอกไปยังคลิปบอร์ดแล้ว</string>
+    <string name="search_apps">ค้นหาแอพ</string>
+    <string name="account_trail">ทดลอง</string>
+    <string name="account_yearly">รายปี</string>
+    <string name="account_montly">รายเดือน</string>
+    <string name="account_termination">บัญชีของคุณถูกยกเลิกแล้ว</string>
+    <string name="preference_connection">การเชื่อมต่อ</string>
+    <string name="preference_encryption">การเข้ารหัส</string>
+    <string name="vpn_stop">หยุด</string>
+    <string name="change_server">เปลี่ยนเซิร์ฟเวอร์</string>
+    <string name="click_to_connect">แตะเพื่อเชื่อมต่อ</string>
+    <string name="widget_long_title">เชื่อมต่อแบบสี่เหลี่ยมผืนผ้า</string>
+    <string name="widget_square_connect">เชื่อมต่อแบบสี่เหลี่ยมจตุรัส</string>
+    <string name="widget_small_connect">เชื่อมต่อขนาดเล็ก</string>
+    <string name="mace_enabled">MACE เปิดใช้งาน</string>
+    <string name="send_debug_log">ส่งข้อมูลแก้จุดบกพร่องไปยังฝ่ายสนับสนุน</string>
+    <!-- Please keep the %s, this is a formatted text. %s is an error message.  -->
+    <string name="failure_sending_log">การส่งข้อมูลแก้จุดบกพร่องล้มเหลว: %s</string>
+    <string name="log_send_done_title">ส่งข้อมูลแก้จุดบกพร่องเรียบร้อยแล้ว</string>
+    <string name="log_send_done_msg">ส่งข้อมูลแก้จุดบกพร่องสำเร็จแล้ว\nID: %s\nกรุณาจด ID นี้ไว้ เนื่องจากทีมสนับสนุนของเราอาจสอบถามข้อมูลนี้เพื่อตรวจสอบการส่งข้อมูลของคุณ</string>
+    <string name="sending_debug_log">กำลังส่งข้อมูลแก้จุดบกพร่อง ...</string>
+    <string name="nought_always_on_warning">หากคุณไม่ได้รับการตอบกลับเพื่อยืนยัน VPN แสดงว่าคุณอาจตั้งค่า \"เปิด VPN ตลอดเวลา\" สำหรับแอพอื่นอยู่ ซึ่งในกรณีนี้ เฉพาะแอพดังกล่าวเท่านั้นที่ได้รับอนุญาตให้เชื่อมต่อ VPN กรุณาตรวจสอบที่ การตั้งค่า -&gt; เครือข่ายเพิ่มเติม .. -&gt; VPNs&gt;</string>
+    <string name="open_settings">เปิดตั้งค่า</string>
+    <string name="settings_widget_configuration">การปรับแต่งวิดเจ็ต</string>
+    <string name="preferences_widget_title">ตั้งค่าวิดเจ็ต</string>
+    <string name="preferences_widget_summary">ทำให้วิดเจ็ตของเราทำงานในหน้าจอหลักของคุณได้</string>
+    <string name="widget_flag_alpha">ธงแอลฟา</string>
+    <string name="widget_background">สีพื้นหลัง</string>
+    <string name="widget_color">สีตัวอักษร</string>
+    <string name="widget_cc">ศูนย์สั่งการ PIA</string>
+    <string name="clear">ล้าง</string>
+    <string name="save">บันทึก</string>
+    <string name="saved">บันทึกแล้ว</string>
+    <string name="speeds_shown_are_all_traffic_over_our_connection">ความเร็วที่แสดงอยู่คือการใช้งานผ่านการเชื่อมต่อ VPN ของคุณ</string>
+    <string name="ip_short">IP</string>
+    <string name="login_throttled_text">มีการเข้าสู่ระบบผิดพลาดมากเกินไปด้วยชื่อผู้ใช้นี้ กรุณาลองใหม่อีกครั้งภายหลัง</string>
+    <string name="tap_to_connect">แตะเพื่อเชื่อมต่อ</string>
+    <string name="building_configration">กำลังสร้างการปรับแต่ง...</string>
+    <!-- Please keep the %1$d, this is a formatted text. %1$d is a number (ei 1-31) -->
+    <string name="days_left">%d วัน</string>
+    <string name="one_day_left">หนึ่งวัน</string>
+    <!-- Please keep the %1$d, this is a formatted text. %1$d is a number (ei 1-31) -->
+    <string name="hours_left">%d ชั่วโมง</string>
+    <string name="one_hour_left">หนึ่งชั่วโมง</string>
+    <!-- Please keep the %1$d, this is a formatted text. %1$d is a number (ei 1-31) -->
+    <string name="minutes_left">%d นาที</string>
+    <string name="one_minute_left">หนึ่งนาที</string>
+    <string name="timeleft_expired">หมดอายุ</string>
+    <string name="sign_in_to_your_account">ลงชื่อเข้าใช้บัญชีของคุณ</string>
+    <string name="username_only">ชื่อผู้ใช้</string>
+    <string name="submit">ส่ง</string>
+    <string name="please_enter_your_email_address">กรุณาใส่ที่อยู่อีเมลของคุณ</string>
+    <string name="select_vpn_plan">เลือกแผน VPN</string>
+    <string name="_7_day_money_back_guarantee">รับประกันการคืนเงินภายใน 7 วัน</string>
+    <string name="monthly">รายเดือน</string>
+    <string name="yearly">รายปี</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is a currency (ei 1-31) -->
+    <string name="yearly_sub_text">%1$s ต่อปี</string>
+    <string name="forgot_password">ลืมรหัสผ่าน</string>
+    <string name="tap_to_disconnect">แตะเพื่อยกเลิกการเชื่อมต่อ</string>
+    <string name="drawer_account">บัญชี</string>
+    <string name="drawer_refer_friend">แนะนำเพื่อน</string>
+    <string name="drawer_region_selection">การเลือภูมิภาค</string>
+    <string name="drawer_about">เกี่ยวกับ</string>
+    <string name="drawer_home_page">หน้าเพจ</string>
+    <string name="drawer_contact_support">ติดต่อฝ่ายสนับสนุน</string>
+    <string name="n_a_port_forwarding">---</string>
+    <!-- This string is going to be formatted by us so the "Buy now" is colored green. Please do not change the &lt;emph> or &lt;/emph> as that is formatting for us to find the buy now text. -->
+    <string name="dont_have_an_account">ยังไม่มีบัญชีหรือ &lt;emph>ซื้อเลย
+&lt;/emph></string>
+    <string name="buy_now">ซื้อเลย</string>
+    <string name="buy_now_button">ซื้อเลย</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is a currency (ei 1-31) -->
+    <string name="purchasing_monthly_ending">%1$s /เดือน</string>
+    <!-- Please keep the %1$s %2$s, this is a formatted text. %1$s is a currency (ei 1-31), %2$s is the currency (move this in front or keep it there depending on currency -->
+    <string name="purchasing_yearly_month_ending">%2$s%1$s /เดือน</string>
+    <string name="change_region">เปลี่ยนภูมิภาค</string>
+    <!--Please keep the %1$s, this is a formatted text. %1$s is the up and down speeds on the connection. /s is per second-->
+    <string name="graph_under_formatting">%1$s/ว.</string>
+    <string name="allowed_apps_protected_text">ป้องกันแอพพลิเคชั่นโดยอัตโนมัติด้วยการใช้ VPN ของ PIA</string>
+    <string name="allowed_apps_unprotected_text">เลือกแอพพลิเคชั่นที่จะใช้ VPN ของ PIA</string>
+    <string name="allowed_apps_spotlight_text">เปิดปุ่มแอพพลิเคชั่นทั้งหมดเพื่อใช้หรือไม่ใช้ VPN ของ PIA แบบตั้งต้น</string>
+    <string name="allowed_apps_spotlight_title">เปิดปุ่มแต่ละแอพพลิเคชั่น</string>
+    <string name="toast_allowed_apps_default_positive">แอพพลิเคชั่นตั้งต้นเพื่อใช้ VPN ของ PIA</string>
+    <string name="toast_allowed_apps_default_negative">แอพพลิเคชั่นตั้งต้นเพื่อไม่ใช้ VPN ของ PIA</string>
+    <!-- Please keep %1$s %2%s as those are formatted numbers. %1$s is a version number like 2.0, %2$s is the version code like 141 -->
+    <string name="drawer_version">รุ่น %1$s (%2$s)</string>
+    <string name="cancel">ยกเลิก</string>
+    <!-- Keep the <![CDATA[...]], translate everything in between-->
+    <string name="settings_port_number_restriction"><![CDATA[หมายเลขพอร์ตต้องอยู่ระหว่าง 1024 และ 65535]]></string>
+    <!-- Keep the <![CDATA[...]], translate everything in between-->
+    <string name="settings_lport_hint"><![CDATA[พอร์ตระหว่าง 1024 และ 65535]]></string>
+    <string name="startup_support_title">รับรองอุปกรณ์ 5 เครื่องในคราวเดียว</string>
+    <string name="startup_support_message">ปกป้องตัวคุณบนอุปกรณ์ถึง 5 เครื่องในเวลาเดียวกัน</string>
+    <string name="startup_region_title">เชื่อมต่อไปยังภูมิภาคใดก็ตามได้อย่างง่ายดาย</string>
+    <string name="startup_region_message">ด้วยเซิร์ฟเวอร์ที่มีอยู่ทั่วโลก คุณจะได้รับความคุ้มครองตลอดเวลา</string>
+    <string name="startup_ads_title">ปกป้องตัวคุณจากโฆษณา</string>
+    <string name="startup_ads_message">การเปิดใช้งาน PIA MACE จะปกป้องคุณจากการแสดงโฆษณาไม่ว่าคุณจะไปที่ใด</string>
+    <string name="startup_connection_title">การปกป้องรายแอพ</string>
+    <string name="startup_connection_message">ให้ประสบการณ์ของคุณเป็นไปตามต้องการด้วยการควบคุมว่าแอพพลิเคชั่นใดจะถูกใช้งานผ่านบริการของเรา (ต้องใช้แอนดรอยด์รุ่น 5.0+)</string>
+    <string name="speed_graph">ประสิทธิภาพ</string>
+    <string name="data_usage_over_time">การใช้งานข้อมูลเกินเวลา</string>
+    <!-- Please add in what word is the color red as we color it in code.  -->
+    <string name="per_app_warning">แอพพลิเคชั่นขึ้นสีแดงมีฟีเจอร์บางตัวที่อาจก่อให้เกิดปัญหาในการหลีกเลี่ยงบริการของเรา หรืออาจทำให้คุณอยู่ในความเสี่ยง</string>
+    <string name="purchasing_bottom">มีบัญชีแล้วหรือ &lt;emph> ลงชื่อเข้าใช้ &lt;/emph></string>
+    <string name="ok">ตกลง</string>
+    <string name="killswitch_title">ปุ่มตัดการทำงานถูกเปิดใช้งานอยู่</string>
+    <string name="skip">ข้าม</string>
+    <string name="next">ถัดไป</string>
+    <string name="done">เสร็จสิ้น</string>
+    <string name="update_account">อัพเดตบัญชี</string>
+    <string name="local_port_titla">พอร์ตในเครื่อง</string>
+    <string name="preference_application_settings">การตั้งค่าแอพพลิเคชั่น</string>
+    <string name="preference_haptic_title">ข้อคิดเห็นตอบรับแบบสัมผัสเกี่ยวกับการเชื่อมต่อ</string>
+    <string name="preference_dialog_graph_title">เลือกหน่วยการวัดผลสำหรับกราฟ</string>
+    <string name="preference_connect_on_boot_summary">เชื่อมต่อเมื่อเริ่มระบบ</string>
+    <string name="preference_haptic_feedback_summary">สั่นเมื่อการเชื่อมต่อสำเร็จ</string>
+    <string name="best_value">คุ้มค่าที่สุด - ทดลองใช้ฟรี</string>
+    <string name="port_number">หมายเลขพอร์ต</string>
+    <!-- Please keep the %s, this is a formatted text. %1$s is an app name -->
+    <string name="allowed_apps_toast_removed">%1$s จะได้รับการป้องกัน</string>
+    <!-- Please keep the %s, this is a formatted text. %1$s is an app name -->
+    <string name="allowed_apps_toast_added">%1$s จะไม่ได้รับการป้องกัน</string>
+    <string name="shorthand_bytecount">%2$s %1$s</string>
+    <string name="preference_widget_icon_upload_title">อัพโหลดสีไอคอน</string>
+    <string name="preference_widget_icon_download_title">ดาวน์โหลดสีไอคอน</string>
+    <string name="preference_graph_unit">หน่วยกราฟ</string>
+    <string name="no">ไม่</string>
+    <string name="color_picker_dialog_title">เลือกสี</string>
+    <string name="username_example">ชื่อผู้ใช้ (เช่น p1234567)</string>
+    <string-array name="preference_graph_titles">
+        <item>บิต</item>
+        <item>ไบต์</item>
+        <item>กิโลบิต</item>
+        <item>กิโลไบต์</item>
+        <item>เมกาบิต</item>
+        <item>เมกาไบต์</item>
+        <item>กิกะบิต</item>
+        <item>กิกะไบต์</item>
+    </string-array>
+    <!-- Logic in code uses the first and last letter to decide the unit to change the graph too. Be care what to use-->
+    <string name="channel_name_background">สถิติการเชื่อมต่อ</string>
+    <string name="channel_description_background">สถิติปัจจุบันของ VPN PIA ที่จัดตั้ง</string>
+    <string name="channel_name_status">ความเปลี่ยนแปลง สถานะ การเชื่อมต่อ</string>
+    <string name="channel_description_status">ความเปลี่ยนแปลงสถานะของ VPN PIA (การเชื่อมต่อ การยืนยันตัวตน…)</string>
+    <string name="no_internet_click_here">ไม่พบการเชื่อมต่ออินเทอร์เน็ตเพื่อรับราคา คลิกที่นี่เพื่อรีเฟรชมุมมอง</string>
+    <string name="failure_to_connect_alert">เชื่อมต่อไปยังเซิร์ฟเวอร์ของ Google ไม่สำเร็จ กรุณาเชื่อมต่ออินเทอร์เน็ต</string>
+    <string name="blockipv6_summary">ใช้วิธีทางเลือกในการป้องกัน IPv6 รั่วไหล จำเป็นในการป้องกัน IPv6 รั่วไหลใน Android &lt; 5.0</string>
+    <string name="blockipv6">การปิดกั้น IPv6 อย่างเข้มข้น</string>
+    <string name="purchase_renew_title">ซื้อบัญชีผู้ใช้ใหม่</string>
+    <string name="purchase_renew_message">บัญชีผู้ใช้ของคุณไม่มีสิทธิ์ต่ออายุ กรุณาซื้อบัญชีผู้ใช้ใหม่เพื่อใช้บริการต่อ</string>
+    <string name="purchase">ซื้อ</string>
+    <string name="purchase_complete">ซื้อสำเร็จ</string>
+    <string name="purchase_complete_message">ขอบคุณที่สมัครสมาชิกกับเรา เราได้ส่งชื่อผู้ใช้และรหัสผ่านไปยังอีเมลของคุณแล้วที่ %1$s</string>
+    <string name="password_only">รหัสผ่าน</string>
+    <string name="account_creation_failure">สร้างบัญชีผู้ใช้ไม่สำเร็จ</string>
+    <string name="account_creation_failure_message">ขณะนี้เราไม่สามารถสร้างบัญชีผู้ใช้ของคุณได้ เราได้สร้างตั๋วรับความช่วยเหลือด้วยรหัส %1$s ให้คุณ และตัวแทนฝ่ายช่วยเหลือจะติดต่อคุณในไม่ช้า หรือคุณสามารถลองและเริ่มการทำงานแอพใหม่ภายหลังเพื่อเสร็จสิ้นกระบวนการ</string>
+    <string name="get_started">เริ่มใช้งาน</string>
+    <string name="no_internet_message">ไม่พบการเชื่อมต่ออินเทอร์เน็ต กรุณายืนยันว่าคุณมีการเชื่อมต่ออินเทอร์เน็ตแล้วกดลองอีกครั้งด้านล่างนี้\n\nคุณสามารถกลับมาใหม่ในภายหลังเพื่อดำเนินการต่อให้เสร็จ</string>
+    <string name="no_internet_title">อุ๊ปส์!</string>
+    <string name="retry">ลองอีกครั้ง</string>
+    <string name="go_to_login">ไปยังหน้าเข้าสู่ระบบ</string>
+    <string name="unable_change_email">เราไม่สามารถเปลี่ยนอีเมลของคุณได้ กรุณาลองใหม่ภายหลัง</string>
+    <string name="preference_reset_settings">รีเซ็ตการตั้งค่าเป็นค่าเริ่มต้น</string>
+    <string name="pref_reset_settings">รีเซ็ตการตั้งค่าหรือไม่</string>
+    <string name="pref_reset_settings_message">การกระทำนี้จะทำให้แอปกลับไปสู่ค่าเริ่มต้น คุณจะสูญเสียการเปลี่ยนแปลงทั้งหมดที่เคยทำไว้</string>
+    <string name="reset">รีเซ็ต</string>
+    <string name="settings_reset">รีเซ็ตการตั้งค่า</string>
+    <string name="widget_radius">รัศมีวิดเจ็ต</string>
+    <string name="widget_text">วิดเจ็ตข้อความ</string>
+    <string name="account_creation_failure_message_no_ticket_id">เราไม่สามารถสร้างบัญชีได้ในขณะนี้ กรุณาลองใหม่อีกครั้งภายหลัง การปิดเปิดแอปใหม่จะเป็นการพยายามสร้างบัญชีใหม่</string>
+    <string name="try_again">ลองอีกครั้ง</string>
+    <string name="default_base">ค่าเริ่มต้น</string>
+    <string name="confirm_purchase">ยืนยันการซื้อ</string>
+    <string name="purchase_failed">การซื้อล้มเหลว</string>
+    <string name="confirming_purchase">เรากำลังยืนยันการซื้อของคุณกับระบบของเรา กรุณารอสักครู่</string>
+    <!-- %1$d and %2$d are numbers. Example of this string would be Attempt 1 of 5, 2 of 5, 3 of 5. -->
+    <string name="attempt">ครั้งที่ %1$d จาก %2$d</string>
+    <string name="piaaccountneeded">คุณต้องใช้บัญชี privateinternetaccess.com เพื่อเข้าสู่ระบบ</string>
+    <string name="piaaccountneeded_samsung">กรุณาไปที่ privateinternetaccess.com เพื่อลงทะเบียนใช้บริการนี้</string>
+    <string name="piaaccountneeded_amazon">กรุณาไปที่ privateinternetaccess.com เพื่อลงทะเบียนใช้บริการนี้</string>
+    <string name="vpn_permisions_top_text">PIA ต้องการเข้าถึงการกำหนดค่า VPN เพื่อรักษาความปลอดภัยให้กับการเข้าชมของคุณ</string>
+    <string name="vpn_permissions_middle_text">คุณจะเห็นข้อความแจ้ง PIA VPN และต้องอนุญาตการเข้าถึงการกำหนดค่า VPN หากต้องการดำเนินการต่อ ให้แตะ \"ตกลง\"</string>
+    <string name="vpn_permission_network">เราไม่ได้ตรวจสอบ คัดกรอง หรือบันทึกกิจกรรมเครือข่ายใดๆ</string>
+    <string name="vpn_permission_title">PIA</string>
+    <string name="contact">ติดต่อ</string>
+    <string name="permissions_message">เราต้องได้รับอนุญาตนี้เพื่อให้แอพพลิเคชั่นสามารถทำงานได้ คุณยังสามารถติดต่อฝ่ายสนับสนุนได้หากต้องการความช่วยเหลือ</string>
+    <string name="send_email">ส่งอีเมล</string>
+    <string-array name="themes_list">
+        <item>สว่าง</item>
+        <item>มืด</item>
+    </string-array>
+    <string name="preference_app_theme">ธีมมึด</string>
+    <string name="auth_setby_gcm">ไซเฟอร์ AEAD อย่างเช่น AES-GCM ใช้กลไกการยืนยันตัวตนแบบบูรณาการ</string>
+    <string name="block_locallan_off">การเข้าถึงเครือข่ายท้องถิ่นจะได้รับอนุญาต บางแอป (เช่น แอป Google) อาจรั่วไหลและรายงาน IP จริงของคุณ</string>
+    <string name="block_locallan_on">การเข้าถึงเครือข่ายภายในเครื่องจะถูกบล็อก</string>
+    <string name="block_locallan">บล็อกเครือข่ายภายในเครื่อง</string>
+    <string name="pref_block_dialog_title">อนุญาตการเข้าถึงเครือข่ายท้องถิ่น</string>
+    <string name="pref_block_dialog_message">โปรดทราบว่าแอปพลิเคชันของระบบบางแอป (เช่น แอป Google) สามารถบายพาส VPN ได้เมื่ออนุญาตการเข้าถึงเครือข่ายท้องถิ่น</string>
+    <string name="killswitch_notification_title">ปุ่มตัดการทำงาน เปิดใช้งาน</string>
+    <string name="open_android_settings">เปิดการตั้งค่าขของ Android</string>
+    <string name="data_in">ลง</string>
+    <string name="data_out">ขึ้น</string>
+    <string name="pia_channel_name">PIA</string>
+    <string name="pia_channel_description">กิจกรรมและการแจ้งเตือนทั่วไป</string>
+    <string name="tv_startup_press_right">กดขวา</string>
+    <string name="androidalwayson">เปิด VPN Android เสมอ</string>
+    <string name="androidalwaysonsummary">Android 8.0+ มีสิ่งทดแทนปุ่มตัดการทำงานที่ดีกว่า คลิกสำหรับข้อมูลเพิ่มเติม</string>
+    <string name="block_connection_wo_vpn">ปิดกั้นการเชื่อมต่อที่ไม่มี VPN</string>
+    <string name="always_oreo_message">Android ตั้งแต่ 8.0 ขึ้นไปมีตัวเลือกในการปิดกั้นการเชื่อมต่อที่ไม่มี VPN จากตัว Android เอง เนื่องจากมาจากระบบปฏิบัติการ Android เอง จึงเป็นปุ่มตัดการทำงานใน Android ที่ดีกว่า ซึ่งทำงานได้แม้ว่าแอป PIA VPN ค้างหรือหยุดการทำงาน และทำงานได้ก่อนเริ่มการทำงาน PIA อีกด้วย \n\nเราขอแนะนำให้ตั้งค่า \"เปิด VPN ตลอดเวลา\" และ \"ปิดกั้นการเชื่อมต่อที่ไม่มี VPN\" เพิ่มเติมหรือใช้แทนตัวเลือกปุ่มตัดการทำงาน</string>
+    <string name="preference_blocking">กำลังปิดกั้น</string>
+    <string name="preference_connect_proxy">เชื่อมต่อผ่านพร็อกซี</string>
+    <string name="preference_connect_proxy_app">แอปพร็อกซีที่เลือก</string>
+    <string name="preference_connect_proxy_summary">ขอให้แน่ใจว่าคุณเลือกแอปที่ทำงานใช้เชื่อมต่อออกไปในการตั้งค่าแต่ละแอป</string>
+    <string name="preference_proxy_port">พอร์ตพร็อกซี</string>
+    <string name="proxy_selection_title">เลือกแอปพร็อกซี</string>
+    <string name="app_is_proxy">แอปนี้เป็นแอปพลิเคชันพร็อกซีของคุณ จำเป็นต้องเลือกออกเพื่อให้ทำงานได้</string>
+    <string name="app_must_be_selected">คุณต้องเลือกแอปในการบันทึก</string>
+    <string name="proxy_settings_title">ตั้งค่าพร็อกซี</string>
+    <string name="enable_proxy_dialog_title">ติดตั้งแอปพร็อกซีของคุณ</string>
+    <string name="enable_proxy_dialog_message">ในการใช้พร็อกซีกับแอปของเรา เราต้องรู้ว่าคุณมีแผนจะใช้แอปใด</string>
+    <string name="vpn_activity_title">ส่งบันทึกดีบั๊ก VPN</string>
+    <string name="preference_vpn_log_title">ดูบันทึกดีบั๊ก VPN</string>
+    <string name="preference_vpn_log_summary">มุมมองผู้ใช้ขั้นสูงในการดูบันทึก VPN</string>
+    <string name="preference_orbot_title">แอปพร็อกซีคือ Orbot</string>
+    <string name="preference_orbot_summary">ใช้การผสานงานกับ Orbot</string>
+    <string name="settings_orbot_udp_problem_message">ต้องการ TCP ในการทำงานของ Orbot คุณต้องการเปิดใช้งาน TCP หรือไม่</string>
+    <string name="settings_orbot_udp_problem_title">ความต้องการพร็อกซี</string>
+    <!-- %d is a digit for ping latency(ie, 0-10000). ms is milliseconds. -->
+    <string name="ping_string">%d มิลลิวินาที</string>
+    <string name="status_server_ping">กำลังค้นหาเซิร์ฟเวอร์ที่ดีที่สุด</string>
+    <!-- &lt;emph> and &lt;/emph> should not be touched. These are how we know what to color in this string. -->
+    <string name="trial_account">มีบัตรของขวัญหรือบัตรทดลองใช้ใช่ไหม &lt;emph>แลกเลย&lt;/emph></string>
+    <!-- &lt;emph> and &lt;/emph> should not be touched. These are how we know what to color in this string. -->
+    <string name="trial_remember_password">จำรหัสผ่านได้ใช่ไหม &lt;emph>เข้าสู่ระบบ&lt;/emph></string>
+    <string name="trial_card_pin">PIN บัตร</string>
+    <string name="trial_screen_redeem">แลกบัตรของขวัญ</string>
+    <string name="trial_screen_message">พิมพ์อีเมลและ PIN 16 หลักจากบัตรของขวัญหรือบัตรทดลองใช้ข้างล่างนี้</string>
+    <string name="card_pin_invalid">PIN บัตรไม่ถูกต้อง</string>
+    <string name="confirming_trial_account">เรากำลังยืนยัน PIN บัตรกับระบบของเรา อาจใช้เวลาระยะหนึ่ง ขอให้รอ</string>
+    <string name="trial_success_message">คุณจะได้รับอีเมลพร้อมชื่อผู้ใช้และรหัสผ่านในไม่ช้า</string>
+    <string name="trial_success_title">เสร็จสมบูรณ์!</string>
+    <string name="trial_failure_redeemed_title">บัตรมีการใช้สิทธิ์แล้ว</string>
+    <string name="trial_failure_redeemed_message">ดูเหมือนว่าบัตรนี้มีการใช้สิทธิ์แล้วโดยบัญชีอื่น กรุณาลองใส่ PIN อื่น</string>
+    <string name="trial_failure_invalid_title">PIN บัตรไม่ถูกต้อง</string>
+    <string name="trial_failure_invalid_message">ดูเหมือนว่าคุณใส่ PIN บัตรไม่ถูกต้อง กรุณาลองใหม่</string>
+    <string name="trial_failure_expired_title">บัตรหมดอายุ</string>
+    <string name="trial_failure_expired_message">คุณสามารถลองใส่ PIN อื่น</string>
+    <string name="trial_failure_throttled_title">ลองหลายครั้งมากเกินไป</string>
+    <string name="trial_failure_throttled_message">คุณลองหลายครั้งมากเกินไป กรุณาลองใหม่ภายหลัง</string>
+    <string name="trial_failure_email_title">อีเมลไม่ถูกต้อง</string>
+    <string name="trial_failure_email_message">ดูเหมือนว่าคุณใส่อีเมลไม่ถูกต้อง กรุณาลองใหม่</string>
+    <!-- Keep %1$s and %2$s. This is a formatted text and %1$s is Terms of Service and %2$s is Privacy Policy -->
+    <string name="tos_pos_text" formatted="true">ในการสมัคร ระบบจะขอให้คุณยอมรับ%1$sและ%2$s</string>
+    <string name="tos_text">ข้อตกลงการใช้บริการ</string>
+    <string name="pp_text">นโยบายความเป็นส่วนตัว</string>
+    <string name="website_isnt_protected">เว็บไซต์ไม่ได้รับการปกป้อง</string>
+    <string name="api_check_failure_title">ความล้มเหลวในการเชื่อมต่อ</string>
+    <string name="api_check_message">เราไม่สามารถเข้าถึง Private Internet Access ซึ่งอาจเป็นเพราะอินเทอร์เน็ตไม่เสถียรหรือบริการของเราถูกบล็อกในประเทศของคุณ</string>
+    <string name="invalid_qr_code">ลำดับ QR โค้ดไม่ถูกต้อง กรุณาลองอีกครั้ง</string>
+    <string name="empty_qr_code">เนื้อหา QR ว่างเปล่า กรุณาลองอีกครั้ง</string>
+    <string name="your_plan_will_expire_on">แพ็กเกจของคุณจะหมดอายุ</string>
+    <!-- TV specific strings -->
+    <string name="favorites_title">จัดการรายการโปรด</string>
+    <string name="favorites_panel_title">รายการโปรด</string>
+    <string name="logout_title">ออกจากระบบ</string>
+    <string name="pia_access">PIA Access</string>
+    <string name="preference_app_update_title">เชื่อมต่อหลังอัปเดตแอป</string>
+    <string name="preference_app_update_message">หลังจากอัปเดตแอป แอปจะเชื่อมต่ออัตโนมัติเพื่อให้คุณได้รับการปกป้องตลอด</string>
+    <string name="server_search">ค้นหา</string>
+    <string name="tile_killswitch">ปุ่มตัดการทำงาน เปิด</string>
+    <string name="auto_dns_setting_summary">PIA DNS</string>
+    <string-array name="dns_names">
+        <item>PIA DNS</item>
+        <item>DNS ที่กำหนดเอง</item>
+    </string-array>
+    <string name="edit_custom_dns">แก้ไข</string>
+    <string name="custom_dns">DNS ที่กำหนดเอง</string>
+    <string name="custom_dns_warning_body">การใช้ DNS ที่ไม่ใช่ PIA อาจเปิดเผยการเข้าใช้ DNS ของคุณแก่บุคคลที่สามและทำลายความเป็นส่วนตัวของคุณ</string>
+    <string name="custom_dns_warning_title">@string/custom_dns</string>
+    <string name="custom_primary_dns">DNS หลัก</string>
+    <string name="custom_secondary_dns">DNS รอง (ถ้ามี)</string>
+    <string name="custom_primary_dns_invalid">DNS หลักไม่ถูกต้อง</string>
+    <string name="custom_secondary_dns_invalid">DNS รองไม่ถูกต้อง</string>
+    <string name="custom_dns_mace_warning">ในการเปิดใช้ MACE ต้องใช้ DNS เริ่มต้น คุณต้องการตั้งค่า DNS ให้เป็นค่าเริ่มต้นหรือไม่</string>
+    <string name="custom_dns_disabling_mace">MACE จะถูกปิดใช้งานขณะใช้ DNS ที่กำหนดเอง</string>
+    <string name="password_required">ต้องการรหัสผ่าน PIA</string>
+    <string name="password_required_body">เราต้องขอรหัสผ่าน PIA ของคุณด้วยเหตุผลด้านความปลอดภัยเพื่อเปลี่ยนแปลงข้อมูลบัญชี กรุณาใส่รหัสผ่าน PIA เพื่อดำเนินการต่อ</string>
+    <string name="password_empty">ช่องรหัสผ่านไม่สามารถเว้นว่าง</string>
+    <string name="trusted_cellular_title">เชื่อถือโครงข่ายเซลลูลาร์</string>
+    <string name="trusted_cellular_message">เลิกเชื่อมต่อ VPN ในเครือข่ายมือถือโดยอัตโนมัติ</string>
+    <string name="trusted_wifi_title">Wifi ที่เชื่อถือ</string>
+    <string name="trusted_wifi_message">VPN จะเชื่อมต่อเครือข่าย Wifi ทั้งหมดโดยอัตโนมัติยกเว้นเครือข่ายที่ผู้ใช้ยกเว้น</string>
+    <string name="trusted_wifi_enable_message">ปิดใช้งาน VPN เมื่อเชื่อมต่อเครือข่ายที่เชื่อถือ</string>
+    <string name="trusted_wifi_header">เครือข่ายที่เชื่อถือ</string>
+    <string name="available_wifi_header">เครือข่ายที่ใช้ได้</string>
+    <string name="trusted_wifi_no_wifi">กรุณาเปิดใช้งาน Wifi เพื่อเลือกเครือข่ายที่เชื่อถือ</string>
+    <string name="trusted_wifi_no_permission">คุณสมบัติ wifi ที่เชื่อถือต้องได้รับอนุญาตการเข้าถึงตำแหน่งที่ตั้งเพื่อตรวจจับเครือข่าย wifi ใกล้เคียง หากยกเลิกการอนุญาต คุณสมบัตินี้ก็จะใช้ไม่ได้อีกต่อไป ไปยังการตั้งค่า\n\nในการใช้คุณสมบัตินี้ ให้ไปยัง การตั้งค่า &gt; แอป &gt; PIA VPN และขอให้แน่ใจว่าเปิดการอนุญาตการเข้าถึงตำแหน่งที่ตั้ง</string>
+    <string name="no_permission_title">ต้องได้รับอนุญาต</string>
+    <string name="trusted_wifi_not_available">ไม่มีเครือข่ายที่ใช้ได้</string>
+    <string name="trusted_wifi_no_trusted">ไม่มีเครือข่ายที่เชื่อถือ</string>
+    <string name="network_permisions_top_text">PIA ต้องการการเข้าถึงบริการค้นหาตำแหน่งที่ตั้งในการตรวจจับเครือข่าย wifi ใกล้เคียง</string>
+    <string name="network_permissions_middle_text">คุณจะเห็นข้อความแจ้งขอการอนุญาตการเข้าถึงตำแหน่งที่ตั้ง ในการดำเนินการต่อ ให้แตะ \"ตกลง\"</string>
+    <string name="network_permission_network">เราไม่ติดตาม กรอง หรือลงบันทึกกิจกรรมเครือข่ายใด ๆ</string>
+    <!-- PIAX Specific Strings -->
+    <string name="buy_account">ซื้อบัญชี</string>
+    <string name="redeem_gift_card">แลกบัตรของขวัญ</string>
+    <string name="email_address">อีเมล</string>
+    <string name="gift_card_pin">PIN บัตรของขวัญ</string>
+    <string name="redeemed_successful">แลกบัตรเสร็จสมบูรณ์</string>
+    <string name="redeemed_login_header">ข้อมูลการเข้าสู่ระบบของคุณ</string>
+    <string name="redeeming_gift_card">เรากำลังยืนยันรหัสบัตรของขวัญ\nกับระบบของเรา อาจใช้เวลาสักครู่\nกรุณารอ</string>
+    <string name="redeeming_gift_title">กำลังตรวจสอบเซิร์ฟเวอร์</string>
+    <string name="redeemed_to_login">ดำเนินการต่อเพื่อเข้าสู่ระบบ</string>
+    <string name="username_enter">ใส่ชื่อผู้ใช้</string>
+    <string name="password_enter">ใส่รหัสผ่าน</string>
+    <string name="total_cost">ราคารวม</string>
+    <string name="confirm_your_purchase">ยืนยันการซื้อ</string>
+    <string name="enter_email">ใส่อีเมลของคุณ</string>
+    <string name="you_are_purchasing">คุณกำลังซื้อแผน %1$s</string>
+    <string name="continue_only">ดำเนินการต่อ</string>
+    <string name="plan_only">แผน</string>
+    <string name="yearly_only">รายปี</string>
+    <string name="monthly_only">รายเดือน</string>
+    <string name="search_region">ค้นหาภูมิภาค</string>
+    <string name="region_dialog_header">เรียงภูมิภาคตาม</string>
+    <string name="menu_filters">ตัวกรอง</string>
+    <string name="menu_update">อัปเดต</string>
+    <string name="menu_reorder">จัดการ</string>
+    <string name="port_not_available">ไม่พร้อมใช้งาน</string>
+    <!-- Referrals -->
+    <string name="refer_friend_button">แนะนำเพื่อน</string>
+    <string name="refer_friend_banner_title">แนะนำเพื่อน รับฟรี 30 วัน</string>
+    <string name="refer_friend_banner_details">แนะนำเพื่อนและครอบครัว ทุกครั้งที่มีผู้สมัครสมาชิก เราจะให้คุณทั้งคู่ใช้ฟรี 30 วัน</string>
+    <string name="refer_friend_invite_section_header">ชวนเพื่อนและครอบครัวทางอีเมล</string>
+    <string name="refer_friend_name_hint">ชื่อเต็ม</string>
+    <string name="refer_friend_email_hint">อีเมล</string>
+    <string name="refer_friend_send_invite">ส่งคำเชิญ</string>
+    <string name="refer_friend_share_header">แชร์ลิงก์แนะนำของคุณที่ไม่ซ้ำกับใคร</string>
+    <string name="refer_copy">คัดลอก</string>
+    <string name="refer_share">แชร์</string>
+    <string name="refer_copied">คัดลอกไปยังคลิปบอร์ดแล้ว</string>
+    <string name="refer_process_title">กำลังส่งคำเชิญ…</string>
+    <string name="refer_process_description">รอให้เราส่งคำเชิญของคุณ</string>
+    <string name="refer_send_success_title">ส่งคำเชิญแล้ว</string>
+    <string name="refer_send_success_desc">เราส่งคำเชิญไปยังอีเมลที่ระบุสำเร็จแล้ว</string>
+    <string name="refer_send_success_button">ส่งคำเชิญอื่น</string>
+    <string name="refer_send_fail_title">ไม่สามารถส่งคำเชิญ</string>
+    <string name="refer_send_fail_desc">มีบางสิ่งผิดพลาดขณะเราพยายามส่งคำเชิญ กรุณาลองอีกครั้ง</string>
+    <string name="refer_send_fail_button">ลองอีกครั้ง</string>
+    <string name="refer_view_invites">ดูคำเชิญที่ส่ง</string>
+    <string name="refer_terms">โดยการเลือกข้อนี้ หมายความว่าข้าพเจ้ายอมรับข้อกำหนดและเงื่อนไขของโปรแกรมแนะนำเพื่อนและครอบครัว</string>
+    <string name="refer_free_header">วันที่ได้รับฟรี</string>
+    <string name="refer_free_count">%s วัน</string>
+    <string name="refer_sent_invite">คุณส่ง %s คำเชิญ</string>
+    <string name="refer_sent_invites">คุณส่ง %s คำเชิญ</string>
+    <string name="refer_pending_invites">คำเชิญที่กำลังรอ %s รายการ</string>
+    <string name="refer_signed_up">สมัครสมาชิก %s ครั้ง</string>
+    <string name="refer_length_terms">โปรดทราบว่าคำเชิญทั้งหมดที่มีอายุเกิน 30 วันจะถูกลบด้วยเหตุผลด้านความเป็นส่วนตัว</string>
+    <string name="refer_signed_up_header">สมัครสมาชิกแล้ว</string>
+    <string name="refer_reward_header">รางวัลที่ได้รับ</string>
+    <string name="refer_yes">ใช่</string>
+    <string name="refer_no">ไม่</string>
+    <string name="refer_invites_title">ส่งคำเชิญแล้ว</string>
+    <string name="refer_pending_title">คำเชิญที่กำลังรอ</string>
+    <string name="refer_signups_title">สมัครสมาชิก</string>
+    <string name="refer_email_required">ต้องการอีเมล</string>
+    <string name="refer_terms_required">คุณต้องยอมรับข้อกำหนดและเงื่อนไขเพื่อส่งคำเชิญแนะนำ</string>
+    <string-array name="region_filters">
+        <item>ชื่อ</item>
+        <item>เวลาแฝง</item>
+        <item>รายการโปรด</item>
+    </string-array>
+    <!-- Free Trial Strings -->
+    <string name="free_trial_header">ทดลองใช้ฟรี 7 วัน!</string>
+    <string name="free_trial_cost">จ่ายเพียง %s ต่อปี</string>
+    <string name="free_trial_guarantee">รับประกันคืนเงิน 7 วัน</string>
+    <string name="free_trial_protection_header">ปกป้องความเป็นส่วนตัวและตัวตนของคุณ 1 ปี</string>
+    <string name="free_trial_protection_text">ท่องเว็บไม่ระบุตัวตนและซ่อน IP</string>
+    <string name="free_trial_devices_header">รองรับ 10 เครื่องพร้อมกัน</string>
+    <string name="free_trial_devices_text">ปกป้องตัวคุณเองใน 10 เครื่องพร้อมกัน</string>
+    <string name="free_trial_region_header">เชื่อมต่อกับภูมิภาคต่าง ๆ อย่างง่ายดาย</string>
+    <string name="free_trial_region_text">เซิร์ฟเวอร์มากกว่า 3,200 แห่งใน 32 ประเทศ</string>
+    <string name="free_trial_start">เริ่มต้นบอกรับสมาชิก</string>
+    <string name="free_trial_see_all">ดูแพ็กเกจทั้งหมดที่มี</string>
+</resources>

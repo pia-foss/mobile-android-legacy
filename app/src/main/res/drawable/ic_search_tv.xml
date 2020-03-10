@@ -1,0 +1,24 @@
+<!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<vector android:height="24dp" android:viewportHeight="86.0"
+    android:viewportWidth="86.0" android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:fillColor="#889099" android:fillType="nonZero"
+        android:pathData="M49.11,50.53L50.53,49.11C52.09,47.55 54.62,47.55 56.18,49.11L84.03,76.96C85.59,78.52 85.59,81.05 84.03,82.61L82.61,84.03C81.05,85.59 78.52,85.59 76.96,84.03L49.11,56.18C47.55,54.62 47.55,52.09 49.11,50.53ZM32.32,64.32C14.61,64.32 0.32,50.03 0.32,32.32C0.32,14.61 14.61,0.32 32.32,0.32C50.03,0.32 64.32,14.61 64.32,32.32C64.32,50.03 50.03,64.32 32.32,64.32ZM32.32,54.32C44.49,54.32 54.32,44.49 54.32,32.32C54.32,20.15 44.49,10.32 32.32,10.32C20.15,10.32 10.32,20.15 10.32,32.32C10.32,44.49 20.15,54.32 32.32,54.32Z"
+        android:strokeColor="#00000000" android:strokeWidth="1"/>
+</vector>

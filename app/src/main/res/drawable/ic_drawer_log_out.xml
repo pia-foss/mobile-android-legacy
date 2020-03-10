@@ -1,0 +1,32 @@
+<!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="33dp"
+    android:height="37dp"
+    android:viewportWidth="33"
+    android:viewportHeight="37">
+  <path
+      android:pathData="M16.5,37C7.404,37 0,29.384 0,20.021A17.028,17.028 0,0 1,6.525 6.493a2.279,2.279 0,0 1,3.259 0.459,2.44 2.44,0 0,1 -0.448,3.353 12.229,12.229 0,0 0,-4.684 9.716c0,6.707 5.316,12.195 11.848,12.195 6.532,0 11.848,-5.47 11.848,-12.195a12.228,12.228 0,0 0,-4.696 -9.716,2.441 2.441,0 0,1 -0.447,-3.353 2.283,2.283 0,0 1,3.27 -0.458A17.026,17.026 0,0 1,33 20.02C33,29.384 25.596,37 16.5,37z"
+      android:fillColor="#56BE53"
+      android:fillType="evenOdd"/>
+  <path
+      android:pathData="M16.5,22a2.688,2.688 0,0 1,-1.816 -0.801,2.378 2.378,0 0,1 -0.681,-1.776V2.567C13.943,1.21 15.059,0.063 16.5,0c1.44,0.063 2.558,1.21 2.497,2.567v16.856a2.379,2.379 0,0 1,-0.68 1.776A2.687,2.687 0,0 1,16.5 22z"
+      android:fillColor="#56BE53"
+      android:fillType="evenOdd"/>
+</vector>

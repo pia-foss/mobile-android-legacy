@@ -1,0 +1,72 @@
+<!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<resources>
+
+    <!--
+         Customize dimensions originally defined in res/values/dimens.xml (such as
+         screen margins) for sw600dp devices (e.g. 7" tablets) here.
+    -->
+    <dimen name="activity_horizontal_margin">32dp</dimen>
+    <dimen name="activity_vertical_margin">32dp</dimen>
+    <dimen name="graph_size">220dp</dimen>
+
+
+    <integer name="fragment_graph_text">16</integer>
+    <dimen name="login_padding">72dp</dimen>
+    <dimen name="header_title_start">70dp</dimen>
+    <dimen name="connect_bottom_margin">64dp</dimen>
+    <dimen name="tablet_margins">0dp</dimen>
+    <dimen name="margin_side_status">24dp</dimen>
+    <dimen name="killswitch_side">24dp</dimen>
+
+    <dimen name="connect_button_size">180dp</dimen>
+    <dimen name="connect_button_bg_size">190dp</dimen>
+
+    <dimen name="text_large">18sp</dimen>
+    <dimen name="text_medium">15sp</dimen>
+    <dimen name="text_small">13sp</dimen>
+
+    <dimen name="fragment_top_margin">16dp</dimen>
+    <dimen name="fragment_connection_graph_margin">30dp</dimen>
+    <dimen name="startup_padding">36dp</dimen>
+
+    <dimen name="widget_have_account_bottom">10dp</dimen>
+    <dimen name="widget_buy_now_bottom">15dp</dimen>
+
+    <dimen name="fragment_connect_title_text">24sp</dimen>
+    <dimen name="fragment_connect_slider_width">275dp</dimen>
+    <dimen name="fragment_connect_slider_margin_top">10dp</dimen>
+    <dimen name="fragment_connect_slider_bottom_margin">5dp</dimen>
+
+    <!-- PIA text sizes -->
+    <dimen name="text_pia_title">20sp</dimen>
+    <dimen name="text_pia_subheading">19sp</dimen>
+    <dimen name="text_pia_button">17sp</dimen>
+    <dimen name="text_pia_body1">17sp</dimen>
+    <dimen name="text_pia_body2">16sp</dimen>
+    <dimen name="text_pia_caption_small">12sp</dimen>
+    <dimen name="text_pia_app_bar">20sp</dimen>
+    <dimen name="text_pia_input">18sp</dimen>
+    <dimen name="text_pia_input_hint">18sp</dimen>
+    <dimen name="text_pia_highlighted">15sp</dimen>
+    <dimen name="text_pia_small_info">15sp</dimen>
+    <dimen name="text_pia_caption">14sp</dimen>
+    <dimen name="text_pia_label">15sp</dimen>
+
+</resources>

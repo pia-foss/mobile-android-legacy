@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<resources>
+    <string name="launcher_name">PIA VPN</string>
+    <string name="app_name">VPN by Private Internet Access</string>
+    <string name="menu_settings">Settings</string>
+    <!-- Please keep the %s, this is a formatted text. %s is a port number (ei 1024) -->
+    <string name="rportsummary">Using %s port for connection</string>
+    <!-- Please keep the %s, this is a formatted text. %s is a port number (ei 1024) -->
+    <string name="lportsummary">Using local port %s for connection</string>
+    <string name="lportrandom">Using random local port for connection</string>
+    <string name="server_selection">Server Selection</string>
+    <string name="auto_rport">Using automatic port selection</string>
+    <string name="automatic_server_selection_main">Automatic</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is a server location (ei London, Berlin) -->
+    <string name="automatic_server_selection_main_region">Automatic (%1$s)</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is an IP (ei 126.0.1.10)  -->
+    <string name="prompt_login">ie p1234567</string>
+    <string name="use_udp_summary">UDP will be used to connect</string>
+    <string name="use_tcp_summary">TCP will be used to connect</string>
+    <string name="use_tcp">Use TCP</string>
+    <string name="select_port">Select the port to connect to privateinternetaccess.com</string>
+    <string name="remote_port">Remote Port</string>
+    <string name="remote_port_cap">FORWARDED PORT</string>
+    <string name="remote_port_vpn_ip">VPN IP</string>
+    <string name="local_port">Local port</string>
+    <string name="connect_onstart">Connect when app is started</string>
+    <string name="oneclickconnect">1-click connect</string>
+    <string name="connect_on_boot">Connect on boot</string>
+    <string name="portforwarding">Request port forwarding</string>
+    <string name="portforwarding_summary">Will allow incoming connections to your mobile device over an external port</string>
+    <!-- Please keep the %s, this is a formatted text. %s is an error message.  -->
+    <string name="portfwderror">Error requesting forwarding port: %s</string>
+    <string name="mace_toggle">Mace Ad Blocker</string>
+    <string name="killswitch">VPN Kill Switch</string>
+    <string name="killswitchsummary">Disables your internet connection when the VPN disconnects.</string>
+    <string name="killswitchtext">INTERNET KILLSWITCH ENABLED</string>
+    <string name="killswitchstatus_description">Our Internet Killswitch doesn\'t allow unprotected Internet activity. Wait for reconnection, connect to our VPN service or disable the killswitch to restore Internet connectivity.</string>
+    <string name="requestingportfw">Requesting forwarded port...</string>
+    <string name="killswitch_button">Disable</string>
+    <string name="action_sign_in_short">Login</string>
+    <string name="login">LOGIN</string>
+    <string name="logout">Log out</string>
+    <string name="state_gen_config">Generating configuration</string>
+    <string name="user_pw_invalid">Username/Password invalid</string>
+    <string name="replace_login_title">Replace login information</string>
+    <!-- Please keep the %1$s %2$s, this is a formattered text. %1$s %2$s are usernames.  -->
+    <string name="replace_login_msg">Replace login information with new login information? (New username: %1$s, old username: %2$s)</string>
+    <string name="subscription_expires_in">Your subscription expires in</string>
+    <string name="subscription_expired">Your subscription is</string>
+    <string name="per_app_settings">Per App Settings</string>
+    <string name="tv_per_app_settings">PER APP SETTINGS</string>
+    <string name="username_password_already_saved">Username and Password already saved!</string>
+    <string name="invalid_email_signup">You must provide a valid email address</string>
+    <string name="buyvpn_url_localized">https://www.privateinternetaccess.com/pages/buy-vpn/</string>
+    <string name="localport_warning">Local port must be between 1024 and 65535</string>
+    <string name="notanumber_localport">Illegal number format for local port</string>
+    <string name="notanumber_proxyport">Illegal number format for proxy port</string>
+    <string name="thankyou_monthly">Thank you for subscribing to monthly vpn!</string>
+    <string name="thankyou_yearly">Thank you for subscribing to yearly vpn!</string>
+    <string name="purchase_signing_up">Signing up..</string>
+    <string name="purchase_loading">Loading</string>
+    <string name="logout_confirmation">Logout Confirmation</string>
+    <string name="logout_confirmation_text">Logging out will terminate an active VPN connection and leave you unprotected</string>
+    <string name="expiry_notification_title">Your subscription expires soon.</string>
+    <string name="expiry_notification_onnemonth">You have less than one month left. Renew to stay protected.</string>
+    <string name="expiry_notification_oneweek">You have less than one week left. Renew to stay protected.</string>
+    <string name="expirty_notification_threedays">You have less than three days left. Renew to stay protected.</string>
+    <string name="expirty_notification_oneday">You have less than one day left. Renew to stay protected.</string>
+    <string name="error_renew_trial">Trial accounts are not eligible for renewal. Please purchase a new account upon expiry to continue service.</string>
+    <string name="error_renew_expired">Your account is inactive and cannot accept new payments. Create a new account by logging out and signing up again.</string>
+    <string name="pending_purchase_found">Pending In App purchase found. Login to renew your current subscription.</string>
+    <string name="account_not_renewable">Your account cannot be renewed or does renew automatically</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is an error message.  -->
+    <string name="error_subscribing">"Error purchasing: %1$s "</string>
+    <string name="error_active_subscription">You already have an active subscription!</string>
+    <string name="usemssfix">Will slightly lower the IP packet size to improve compatibility with some routers and mobile networks.</string>
+    <string name="mssfixsummary">Use small packets</string>
+    <string name="settings_account_bottom_text">Get the Private Internet Access app for your other devices and use the above username to login and secure your connection.</string>
+    <string name="settings_account_bottom_text_4">Get the Private Internet Access app for your other devices and use the above username to login and secure your connection.</string>
+    <string name="update_email">Update email</string>
+    <string name="email_sucessfully_changed">Email address successfully changed</string>
+    <string name="copy_toast_text">Text Copied to Clipboard</string>
+    <string name="current_region">CURRENT REGION</string>
+    <string name="full_licenses">Full licenses</string>
+    <string name="email">Email</string>
+    <string name="account_details_password_bottom_text">Tap \"eye\" to reveal. Tap again to copy Password to clipboard.</string>
+    <string name="user_x_vs_p_error">Please make sure you are logging in with your main username, which should start with \"p\" (e.g. p12345)</string>
+    <string name="vpn_revoke_text">PIA\'s VPN permission has been revoked. VPN, Internet killswitch and security are not active. Please tap here to restart this service and secure your internet connection.</string>
+    <string name="vpn_revoke_title">PIA VPN stopped</string>
+    <!-- Please keep the % elements, this is a formatted text. %1$s is Private Internet Access, %2$s is version number(ei 1.4), %3$s is the version code (ei 114)  -->
+    <string name="login_operation_failed">Failure to Login. Please try again later.</string>
+    <string name="no_internet_connection_available">No internet connection is available</string>
+    <string name="no_username_or_password">You must enter a username and password</string>
+    <string name="please_unlock_your_device">Please unlock your device</string>
+    <string name="please_unlock_your_device_message">To view the password or update your account information.</string>
+    <string name="settings_mace">PIA MACE™</string>
+    <string name="settings_mace_summary">Will block ads, trackers and malware while you\'re connected to the VPN</string>
+    <string name="qs_title">Connect to PIA</string>
+    <string name="not_logged_in">not logged in</string>
+    <!-- Please keep the %s, this is a formatted text. %s is a server name.  -->
+    <string name="qs_disconnect">Disconnect VPN (%s)</string>
+    <string name="qs_disconnect_nolocation">Disconnect VPN</string>
+    <string name="menu_about">About</string>
+    <string name="reconnect_vpn">Reconnect the VPN to apply this change</string>
+    <string name="error_account_info">Failed to find account information</string>
+    <string name="allows_port_forwarding">Allows Port Forwarding</string>
+    <string name="about_privacy_policy">Privacy Policy</string>
+    <string name="version">Version</string>
+    <string name="application_information">APPLICATION INFORMATION</string>
+    <string name="data_encyrption">Data encryption</string>
+    <string name="data_auth">Data authentication</string>
+    <string name="handshake">Handshake</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="recent_changes">Recent Changes</string>
+    <string name="refresh">Refresh</string>
+    <string name="open_in_browser">Open In Browser</string>
+    <string name="copy_link">Copy Link</string>
+    <string name="text_failed_to_copy">Text Failed to Copy</string>
+    <string name="link_copied_to_clipboard">Link copied to clipboard</string>
+    <string name="search_apps">Search Apps</string>
+    <string name="account_trail">Trial</string>
+    <string name="account_yearly">Yearly</string>
+    <string name="account_montly">Monthly</string>
+    <string name="account_termination">Your account has been terminated</string>
+    <string name="preference_connection">CONNECTION</string>
+    <string name="preference_encryption">ENCRYPTION</string>
+    <string name="vpn_stop">Stop</string>
+    <string name="change_server">Change Server</string>
+    <string name="click_to_connect">Tap to Connect</string>
+    <string name="widget_long_title">Rectangle Connect</string>
+    <string name="widget_square_connect">Square Connect</string>
+    <string name="widget_small_connect">Small Connect</string>
+    <string name="mace_enabled">MACE Enabled</string>
+    <string name="send_debug_log">Send debug information to support</string>
+    <!-- Please keep the %s, this is a formatted text. %s is an error message.  -->
+    <string name="failure_sending_log">Failed to send debug information: %s</string>
+    <string name="log_send_done_title">Debug information submitted.</string>
+    <string name="log_send_done_msg">Debug information successfully submitted. \nID: %s\nPlease note this ID, as our support team will require this to locate your submission.</string>
+    <string name="sending_debug_log">Sending debug information…</string>
+    <string name="nought_always_on_warning">If you did not get a VPN confirmation dialog, you might have \"Always on VPN\" enabled for another app. In that case only that app is allowed to connect to a VPN. Check under Settings-&gt; Networks more .. -&gt; VPNs&gt;</string>
+    <string name="open_settings">Open Settings</string>
+    <string name="settings_widget_configuration">Widget Configuration</string>
+    <string name="preferences_widget_title">Widget Settings</string>
+    <string name="preferences_widget_summary">Make our widgets work with your home screen</string>
+    <string name="widget_flag_alpha">Flag Alpha</string>
+    <string name="widget_background">Background color</string>
+    <string name="widget_color">Text color</string>
+    <string name="widget_cc">PIA Command Center</string>
+    <string name="clear">Clear</string>
+    <string name="save">Save</string>
+    <string name="saved">Saved</string>
+    <string name="speeds_shown_are_all_traffic_over_our_connection">Speeds shown are traffic over your VPN connection</string>
+    <string name="ip_short">IP</string>
+    <string name="login_throttled_text">Too many failed login attempts with this username. Please try again later.</string>
+    <string name="tap_to_connect">TAP TO CONNECT</string>
+    <string name="building_configration">Building configuration…</string>
+    <!-- Please keep the %1$d, this is a formatted text. %1$d is a number (ei 1-31) -->
+    <string name="days_left">%d days</string>
+    <string name="one_day_left">One day</string>
+    <!-- Please keep the %1$d, this is a formatted text. %1$d is a number (ei 1-31) -->
+    <string name="hours_left">%d hours</string>
+    <string name="one_hour_left">One hour</string>
+    <!-- Please keep the %1$d, this is a formatted text. %1$d is a number (ei 1-31) -->
+    <string name="minutes_left">%d minutes</string>
+    <string name="one_minute_left">One minute</string>
+    <string name="timeleft_expired">Expired</string>
+    <string name="short_description" translatable="false">PIA VPN encrypts your internet traffic and changes your IP address</string>
+    <string name="sign_in_to_your_account">Sign in to your account</string>
+    <string name="username_only">Username</string>
+    <string name="submit">Submit</string>
+    <string name="please_enter_your_email_address">Please enter your email address</string>
+    <string name="select_vpn_plan">Select a VPN Plan</string>
+    <string name="_7_day_money_back_guarantee">7-day money back guarantee</string>
+    <string name="monthly">Monthly</string>
+    <string name="yearly">Yearly</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is a currency (ei 1-31) -->
+    <string name="yearly_sub_text">%1$s per year</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="tap_to_disconnect">TAP TO DISCONNECT</string>
+    <string name="drawer_account">Account</string>
+    <string name="drawer_refer_friend">Refer A Friend</string>
+    <string name="drawer_region_selection">Region Selection</string>
+    <string name="drawer_about">About</string>
+    <string name="drawer_home_page">Home Page</string>
+    <string name="drawer_contact_support">Contact Support</string>
+    <string name="n_a_port_forwarding">---</string>
+    <!-- This string is going to be formatted by us so the "Buy now" is colored green. Please do not change the &lt;emph> or &lt;/emph> as that is formatting for us to find the buy now text. -->
+    <string name="dont_have_an_account">Don\'t have an account? &lt;emph>Buy now&lt;/emph></string>
+    <string name="buy_now">Buy now!</string>
+    <string name="buy_now_button">Buy Now</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is a currency (ei 1-31) -->
+    <string name="purchasing_monthly_ending">%1$s/mo</string>
+    <!-- Please keep the %1$s %2$s, this is a formatted text. %1$s is a currency (ei 1-31), %2$s is the currency (move this in front or keep it there depending on currency -->
+    <string name="purchasing_yearly_month_ending">%2$s%1$s/mo</string>
+    <string name="change_region">CHANGE REGION</string>
+    <!--Please keep the %1$s, this is a formatted text. %1$s is the up and down speeds on the connection. /s is per second-->
+    <string name="graph_under_formatting">%1$s/s</string>
+    <string name="allowed_apps_protected_text">Automatically protect apps by using PIA\'s VPN</string>
+    <string name="allowed_apps_unprotected_text">Choose which apps use PIA\'s VPN</string>
+    <string name="allowed_apps_spotlight_text">Toggles all apps to use or not use PIA\'s VPN by default.</string>
+    <string name="allowed_apps_spotlight_title">Per App Toggle</string>
+    <string name="toast_allowed_apps_default_positive">Apps default to use PIA\'s VPN</string>
+    <string name="toast_allowed_apps_default_negative">Apps default to not use PIA\'s VPN</string>
+    <!-- Please keep %1$s %2%s as those are formatted numbers. %1$s is a version number like 2.0, %2$s is the version code like 141 -->
+    <string name="drawer_version">Version %1$s (%2$s)</string>
+    <string name="cancel">Cancel</string>
+    <!-- Keep the <![CDATA[...]], translate everything in between-->
+    <string name="settings_port_number_restriction"><![CDATA[Port number must be between 1024 & 65535]]></string>
+    <!-- Keep the <![CDATA[...]], translate everything in between-->
+    <string name="settings_lport_hint"><![CDATA[Port between 1024 & 65535]]></string>
+    <string name="startup_support_title">Support 5 devices at once</string>
+    <string name="startup_support_message">Protect yourself on up to 5 devices at a time.</string>
+    <string name="startup_region_title">Connect to any region easily</string>
+    <string name="startup_region_message">With servers around the globe, you are always under protection.</string>
+    <string name="startup_ads_title">Protect yourself from ads</string>
+    <string name="startup_ads_message">Enabling PIA MACE prevents ads from showing wherever you go.</string>
+    <string name="startup_connection_title">Per app protection</string>
+    <string name="startup_connection_message">Make your experience customized to you by controlling what apps go through our service (Android 5.0+ required).</string>
+    <string name="speed_graph">PERFORMANCE</string>
+    <string name="data_usage_over_time">DATA USAGE OVER TIME</string>
+    <!-- Please add in what word is the color red as we color it in code.  -->
+    <string name="per_app_warning">Apps colored in Red have certain features that can cause issues where our service might be circumvented or might leave you vulnerable.</string>
+    <string name="purchasing_bottom">Already have an account? &lt;emph> Sign in&lt;/emph></string>
+    <string name="ok">Ok</string>
+    <string name="killswitch_title">Killswitch is activated</string>
+    <string name="skip">SKIP</string>
+    <string name="next">NEXT</string>
+    <string name="done">DONE</string>
+    <string name="update_account">UPDATE ACCOUNT</string>
+    <string name="local_port_titla">Local Port</string>
+    <string name="preference_application_settings">APPLICATION SETTINGS</string>
+    <string name="preference_haptic_title">Haptic feedback on connect</string>
+    <string name="preference_dialog_graph_title">Select measurement unit for the graph</string>
+    <string name="preference_connect_on_boot_summary">Connect on system start</string>
+    <string name="preference_haptic_feedback_summary">Vibrate on connection clicked</string>
+    <string name="best_value">BEST VALUE - FREE TRIAL</string>
+    <string name="port_number">Port Number</string>
+    <!-- Please keep the %s, this is a formatted text. %1$s is an app name -->
+    <string name="allowed_apps_toast_removed">%1$s will be protected</string>
+    <!-- Please keep the %s, this is a formatted text. %1$s is an app name -->
+    <string name="allowed_apps_toast_added">%1$s will not be protected</string>
+    <string name="shorthand_bytecount">%2$s %1$s</string>
+    <string name="preference_widget_icon_upload_title">Upload icon color</string>
+    <string name="preference_widget_icon_download_title">Download icon color</string>
+    <string name="preference_graph_unit">Graph unit</string>
+    <string name="no">No</string>
+    <string name="color_picker_dialog_title">Select a Color</string>
+    <string name="username_example">Username (ie p1234567)</string>
+    <string-array name="preference_graph_titles">
+        <item>Bits</item>
+        <item>Bytes</item>
+        <item>Kilobits</item>
+        <item>Kilobytes</item>
+        <item>Megabits</item>
+        <item>Megabytes</item>
+        <item>Gigabits</item>
+        <item>Gigabytes</item>
+    </string-array>
+    <!-- Logic in code uses the first and last letter to decide the unit to change the graph too. Be care what to use-->
+    <string-array name="preference_graph_values" translatable="false">
+    <!-- Logic in code uses the first and last letter to decide the unit to change the graph too. Be care what to use-->
+        <item>1</item>
+    <!-- Logic in code uses the first and last letter to decide the unit to change the graph too. Be care what to use-->
+        <item>8</item>
+    <!-- Logic in code uses the first and last letter to decide the unit to change the graph too. Be care what to use-->
+        <item>1000</item>
+    <!-- Logic in code uses the first and last letter to decide the unit to change the graph too. Be care what to use-->
+        <item>8192</item>
+    <!-- Logic in code uses the first and last letter to decide the unit to change the graph too. Be care what to use-->
+        <item>1000000</item>
+    <!-- Logic in code uses the first and last letter to decide the unit to change the graph too. Be care what to use-->
+        <item>8388608</item>
+    <!-- Logic in code uses the first and last letter to decide the unit to change the graph too. Be care what to use-->
+        <item>1000000000</item>
+    <!-- Logic in code uses the first and last letter to decide the unit to change the graph too. Be care what to use-->
+        <item>8589934592</item>
+    </string-array>
+    <string name="channel_name_background">Connection statistics</string>
+    <string name="channel_description_background">Ongoing statistics of established PIA VPN</string>
+    <string name="channel_name_status">Connection Status changes</string>
+    <string name="channel_description_status">Status changes of the PIA VPN (Connecting, authenticating,…)</string>
+    <string name="no_internet_click_here">No internet connection found to get prices. Click here to refresh view.</string>
+    <string name="failure_to_connect_alert">Failed to connect to our or Google\'s servers. Please connect to the internet.</string>
+    <string name="blockipv6_summary">Use an alternative method for preventing IPv6 leaks. Required to block IPv6 leaks on Android &lt; 5.0.</string>
+    <string name="blockipv6">Aggressive IPv6 blocking</string>
+    <string name="purchase_renew_title">Purchase a new account</string>
+    <string name="purchase_renew_message">Your account is not eligible for renewal. Please purchase a new account to continue service.</string>
+    <string name="purchase">Purchase</string>
+    <string name="purchase_complete">Purchase Complete</string>
+    <string name="purchase_complete_message">Thank you for signing up with us. We have sent your account username and password to your email address at %1$s</string>
+    <string name="password_only">Password</string>
+    <string name="account_creation_failure">Account Creation Failure</string>
+    <string name="account_creation_failure_message">We\'re currently unable to create your account at the moment. We\'ve created a support ticket with ID %1$s for you and a support representive will be in touch with you shortly.  You can also try and restart the app at a later time to finish the process.</string>
+    <string name="get_started">Get Started</string>
+    <string name="no_internet_message">No internet connection found. Please confirm that you have an internet connection and hit try again below.\n\nYou can come back to the app later to finish the process.</string>
+    <string name="no_internet_title">Whoops!</string>
+    <string name="retry">Retry</string>
+    <string name="go_to_login">Go to Login</string>
+    <string name="unable_change_email">We were unable to change your email. Please try again later.</string>
+    <string name="preference_reset_settings">Reset settings to default</string>
+    <string name="pref_reset_settings">Reset Settings?</string>
+    <string name="pref_reset_settings_message">This will bring the app back to default. You will lose all changes you have made.</string>
+    <string name="reset">Reset</string>
+    <string name="settings_reset">Settings Reset</string>
+    <string name="widget_radius">Widget Radius</string>
+    <string name="widget_text">Text Widget</string>
+    <string name="account_creation_failure_message_no_ticket_id">We\'re unable to create an account at this time. Please try again later.\n\n Reopening the app will re-attempt to create an account.</string>
+    <string name="try_again">Try Again</string>
+    <string name="default_base">Default</string>
+    <string name="confirm_purchase">Confirm Purchase</string>
+    <string name="purchase_failed">Purchase Failed</string>
+    <string name="confirming_purchase">We\'re confirming your purchase with our system. It could take a moment so hang in there.</string>
+    <!-- %1$d and %2$d are numbers. Example of this string would be Attempt 1 of 5, 2 of 5, 3 of 5. -->
+    <string name="attempt">Attempt %1$d of %2$d</string>
+    <string name="piaaccountneeded">You need a privateinternetaccess.com Account to login</string>
+    <string name="piaaccountneeded_samsung">Please visit privateinternetaccess.com to sign-up for this service.</string>
+    <string name="piaaccountneeded_amazon">Please visit privateinternetaccess.com to sign-up for this service.</string>
+    <string name="vpn_permisions_top_text">PIA needs access to your VPN configurations to secure your traffic</string>
+    <string name="vpn_permissions_middle_text">You\'ll see a prompt for PIA VPN and need to allow access to VPN configurations. To proceed tap on \"OK\"</string>
+    <string name="vpn_permission_network">We don\'t monitor, filter or log any network activity.</string>
+    <string name="vpn_permission_title">PIA</string>
+    <string name="contact">Contact</string>
+    <string name="permissions_message">We need this permission for the application to function. You can also get in touch with customer support if you need assistance.</string>
+    <string name="send_email">Send Email</string>
+    <string-array name="themes_list">
+        <item>Light</item>
+        <item>Dark</item>
+    </string-array>
+    <string name="preference_app_theme">Dark Theme</string>
+    <string name="auth_setby_gcm">AEAD ciphers like AES-GCM use an integrated authentication mechanism</string>
+    <string name="block_locallan_off">Access to local network will be allowed. Some apps (such as the Google app) might leak and report your real IP.</string>
+    <string name="block_locallan_on">Access to local networks will be blocked</string>
+    <string name="block_locallan">Block local network</string>
+    <string name="pref_block_dialog_title">Allow access to local networks</string>
+    <string name="pref_block_dialog_message">Notice that some system applications (such as the Google app) could bypass the VPN when access to the local network is allowed.</string>
+    <string name="killswitch_notification_title">Killswitch active</string>
+    <string name="open_android_settings">Open Android Settings</string>
+    <string name="data_in">down</string>
+    <string name="data_out">up</string>
+    <string name="pia_channel_name">PIA</string>
+    <string name="pia_channel_description">General events and notifications</string>
+    <string name="tv_startup_press_right">PRESS RIGHT</string>
+    <string name="androidalwayson">Android VPN always on</string>
+    <string name="androidalwaysonsummary">Android 8.0+ includes a better alternative to Killswitch, click for more information</string>
+    <string name="block_connection_wo_vpn">Block connections without VPN</string>
+    <string name="always_oreo_message">Android 8.0 and later include an option from Android itself to block connections without VPN. As this is deeply integrated in Android OS itself, it is a better integrated KillSwitch in Android itself that even works if the PIA VPN app does crash or is stopped and also works before PIA is even started.\n\nWe recommend setting up \"Always On VPN\" and \"Block connections without VPN\" in addition or as alternative to the Killswitch option</string>
+    <string name="preference_blocking">BLOCKING</string>
+    <string name="preference_connect_proxy">Connect via proxy</string>
+    <string name="preference_connect_proxy_app">Selected proxy app</string>
+    <string name="preference_connect_proxy_summary">Make sure you exclude the app you are using to connect in the per app settings</string>
+    <string name="preference_proxy_port">Proxy port</string>
+    <string name="proxy_selection_title">Select proxy app</string>
+    <string name="app_is_proxy">This app is your proxy application. This needs to be excluded to work.</string>
+    <string name="app_must_be_selected">You must select an app to save.</string>
+    <string name="proxy_settings_title">PROXY SETTINGS</string>
+    <string name="enable_proxy_dialog_title">Setup your proxy app</string>
+    <string name="enable_proxy_dialog_message">In order to use a proxy with our app, we need to know what app you plan on using.</string>
+    <string name="vpn_activity_title">VPN Debug Log</string>
+    <string name="preference_vpn_log_title">View VPN debug log</string>
+    <string name="preference_vpn_log_summary">Advanced user view to see VPN log</string>
+    <string name="preference_orbot_title">Proxy app is Orbot</string>
+    <string name="preference_orbot_summary">Use Orbot integration</string>
+    <string name="settings_orbot_udp_problem_message">TCP is required in order for Orbot to work. Would you like to enable TCP?</string>
+    <string name="settings_orbot_udp_problem_title">Proxy Requirements</string>
+    <!-- %d is a digit for ping latency(ie, 0-10000). ms is milliseconds. -->
+    <string name="ping_string">%d ms</string>
+    <string name="status_server_ping">Finding best server</string>
+    <!-- &lt;emph> and &lt;/emph> should not be touched. These are how we know what to color in this string. -->
+    <string name="trial_account">Have a gift card or trial card? &lt;emph>Redeem now&lt;/emph></string>
+    <!-- &lt;emph> and &lt;/emph> should not be touched. These are how we know what to color in this string. -->
+    <string name="trial_remember_password">Remember your password? &lt;emph>Log in&lt;/emph></string>
+    <string name="trial_card_pin">Card PIN</string>
+    <string name="trial_screen_redeem">Redeem Gift Card</string>
+    <string name="trial_screen_message">Type in your email address and the 16 digit PIN from your gift card or trial card below</string>
+    <string name="card_pin_invalid">Card PIN is invalid</string>
+    <string name="confirming_trial_account">We\'re confirming your card PIN with our system. It could take a moment so hang in there.</string>
+    <string name="trial_success_message">You will also receive an email shortly with your username and password.</string>
+    <string name="trial_success_title">Completed!</string>
+    <string name="trial_failure_redeemed_title">Card claimed already</string>
+    <string name="trial_failure_redeemed_message">Looks like this card has already been claimed by another account. You can try entering a different PIN.</string>
+    <string name="trial_failure_invalid_title">Invalid card PIN</string>
+    <string name="trial_failure_invalid_message">Looks like you entered a invalid PIN. Please try again.</string>
+    <string name="trial_failure_expired_title">Card Expired</string>
+    <string name="trial_failure_expired_message">You can try entering a different PIN.</string>
+    <string name="trial_failure_throttled_title">Too many attempts</string>
+    <string name="trial_failure_throttled_message">You have tried to many times. Please try again later.</string>
+    <string name="trial_failure_email_title">Invalid Email</string>
+    <string name="trial_failure_email_message">Looks like you entered an invalid email. Please try again.</string>
+    <!-- Keep %1$s and %2$s. This is a formatted text and %1$s is Terms of Service and %2$s is Privacy Policy -->
+    <string name="tos_pos_text" formatted="true">Signing up constitutes acceptance of the %1$s and the %2$s</string>
+    <string name="tos_text">Terms of Service</string>
+    <string name="pp_text">Privacy Policy</string>
+    <string name="website_isnt_protected">Website isn\'t protected.</string>
+    <string name="api_check_failure_title">Connection Failure</string>
+    <string name="api_check_message">We are unable to reach Private Internet Access. This may due to poor internet or our service is blocked in your country.</string>
+    <string name="invalid_qr_code">Invalid QR code sequence. Please try again.</string>
+    <string name="empty_qr_code">QR contents were empty. Please try again.</string>
+    <string name="your_plan_will_expire_on">Your plan will expire on</string>
+    <!-- TV specific strings -->
+    <string name="favorites_title">Manage Favorites</string>
+    <string name="favorites_panel_title">FAVORITES</string>
+    <string name="logout_title">Logout</string>
+    <string name="pia_access">PIA Access</string>
+    <string name="preference_app_update_title">Connect on app update</string>
+    <string name="preference_app_update_message">After the app is updated, the app will autoconnect to keep you protected.</string>
+    <string name="server_search">Search</string>
+    <string name="tile_killswitch">Killswitch Active</string>
+    <string name="auto_dns_setting_summary">PIA DNS</string>
+    <string-array name="dns_names">
+        <item>PIA DNS</item>
+        <item>Custom DNS</item>
+    </string-array>
+    <string name="edit_custom_dns">Edit</string>
+    <string name="custom_dns">Custom DNS</string>
+    <string name="custom_dns_warning_body">Using a non PIA DNS could expose your DNS traffic to third parties and compromise your privacy.</string>
+    <string name="custom_dns_warning_title">@string/custom_dns</string>
+    <string name="custom_primary_dns">Primary DNS</string>
+    <string name="custom_secondary_dns">Secondary DNS (optional)</string>
+    <string name="custom_primary_dns_invalid">Primary DNS is not valid</string>
+    <string name="custom_secondary_dns_invalid">Secondary DNS is not valid</string>
+    <string name="custom_dns_mace_warning">In order to enable MACE, the default DNS must be used. Would you like to reset your DNS to default?</string>
+    <string name="custom_dns_disabling_mace">MACE will be disabled while using a custom DNS.</string>
+    <string name="password_required">PIA Password Required</string>
+    <string name="password_required_body">For security reasons we require your PIA password to perform a change in your account. Please input your PIA password to proceed.</string>
+    <string name="password_empty">Password field cannot be empty</string>
+    <string name="trusted_cellular_title">Trust cellular networks</string>
+    <string name="trusted_cellular_message">Automatically disconnect the VPN on mobile data</string>
+    <string name="trusted_wifi_title">Trusted Wifi</string>
+    <string name="trusted_wifi_message">The VPN will autoconnect on all wifi networks except those whitelisted by the user</string>
+    <string name="trusted_wifi_enable_message">Disable VPN when connecting to trusted networks</string>
+    <string name="trusted_wifi_header">Trusted Networks</string>
+    <string name="available_wifi_header">Available Networks</string>
+    <string name="trusted_wifi_no_wifi">Please enable WiFi in order to select trusted networks.</string>
+    <string name="trusted_wifi_no_permission">Trusted wifi requires location permissions to detect nearby wifi networks. If that permission is revoked, this feature will no longer work.\n\nTo use this feature, go to Settings>Apps>PIA VPN, and ensure the location permission is toggled on.</string>
+    <string name="no_permission_title">Permissions Required</string>
+    <string name="trusted_wifi_not_available">No available networks</string>
+    <string name="trusted_wifi_no_trusted">There are no trusted networks</string>
+    <string name="network_permisions_top_text">PIA requires access to your location services in order to detect nearby wifi networks.</string>
+    <string name="network_permissions_middle_text">You\'ll see a prompt asking for Location permissions. To proceed tap on \"OK\"</string>
+    <string name="network_permission_network">We don\'t monitor, filter or log any network activity.</string>
+
+    <!-- PIAX Specific Strings -->
+    <string name="buy_account">BUY ACCOUNT</string>
+    <string name="redeem_gift_card">REDEEM GIFT CARD</string>
+
+    <string name="email_address">Email address</string>
+    <string name="gift_card_pin">Gift card PIN</string>
+
+    <string name="redeemed_successful">Card redeemed successfully</string>
+    <string name="redeemed_login_header">Your login details</string>
+
+    <string name="redeeming_gift_card">We’re confirming your gift card code\nwith our system. It could take a\nmoment so hang in there.</string>
+    <string name="redeeming_gift_title">Checking with our server</string>
+    <string name="redeemed_to_login">CONTINUE TO LOGIN</string>
+
+    <string name="username_enter">Enter Username</string>
+    <string name="password_enter">Enter Password</string>
+
+    <string name="total_cost">Total Cost</string>
+    <string name="confirm_your_purchase">Confirm your purchase</string>
+
+    <string name="enter_email">Enter your email address</string>
+    <string name="you_are_purchasing">Your are purchasing the %1$s plan</string>
+
+    <string name="continue_only">CONTINUE</string>
+    <string name="plan_only">Plan</string>
+    <string name="yearly_only">yearly</string>
+    <string name="monthly_only">monthly</string>
+
+    <string name="search_region">Search for a region</string>
+    <string name="region_dialog_header">Sort regions by</string>
+
+    <string name="menu_filters">Filters</string>
+    <string name="menu_update">UPDATE</string>
+    <string name="menu_reorder">Organize</string>
+
+    <string name="port_not_available">Not Available</string>
+
+    <!-- Referrals -->
+    <string name="refer_friend_button">Refer A Friend</string>
+    <string name="refer_friend_banner_title">REFER A FRIEND. GET 30 DAYS FREE.</string>
+    <string name="refer_friend_banner_details">Refer your friends and family. For every sign up we’ll give you both 30 days free.</string>
+
+    <string name="refer_friend_invite_section_header">Invite your friends and family by email</string>
+
+    <string name="refer_friend_name_hint">Full name</string>
+    <string name="refer_friend_email_hint">Email address</string>
+    <string name="refer_friend_send_invite">SEND INVITE</string>
+
+    <string name="refer_friend_share_header">Share your unique referral link</string>
+
+    <string name="refer_copy">COPY</string>
+    <string name="refer_share">SHARE</string>
+    <string name="refer_copied">COPIED TO CLIPBOARD</string>
+
+    <string name="refer_process_title">Sending invite…</string>
+    <string name="refer_process_description">Hold on while we send out your invite</string>
+
+    <string name="refer_send_success_title">Invite sent</string>
+    <string name="refer_send_success_desc">We’ve successfully sent the invite to the email address you provided</string>
+    <string name="refer_send_success_button">Send Another Invite</string>
+    <string name="refer_send_fail_title">Cannot send invite</string>
+    <string name="refer_send_fail_desc">Something went wrong while we tried to send your invite. Please try again.</string>
+    <string name="refer_send_fail_button">TRY AGAIN</string>
+
+    <string name="refer_view_invites">View Invites Sent</string>
+    <string name="refer_terms">By checking this box, I agree to all of the terms and conditions of the Family and Friends Referral Program.</string>
+
+    <string name="refer_free_header">Free days acquired</string>
+    <string name="refer_free_count">%s days</string>
+    <string name="refer_sent_invite">You have sent %s invite</string>
+    <string name="refer_sent_invites">You have sent %s invites</string>
+    <string name="refer_pending_invites">%s pending invites</string>
+    <string name="refer_signed_up">%s signups</string>
+    <string name="refer_length_terms">Please note, for privacy reasons, all invites older than 30 days will be deleted.</string>
+
+    <string name="refer_signed_up_header">Signed up</string>
+    <string name="refer_reward_header">Reward given</string>
+
+    <string name="refer_yes">Yes</string>
+    <string name="refer_no">No</string>
+
+    <string name="refer_invites_title">Invites Sent</string>
+    <string name="refer_pending_title">Pending Invites</string>
+    <string name="refer_signups_title">Signups</string>
+
+    <string name="refer_email_required">Email is required</string>
+    <string name="refer_terms_required">You must accept terms and conditions to send referral invitations</string>
+
+    <string-array name="region_filters">
+        <item>Name</item>
+        <item>Latency</item>
+        <item>Favorites</item>
+    </string-array>
+
+    <!-- Free Trial Strings -->
+    <string name="free_trial_header">Try free for 7 days!</string>
+    <string name="free_trial_cost">Pay only %s yearly</string>
+    <string name="free_trial_guarantee">7 day money back guarantee</string>
+
+    <string name="free_trial_protection_header">1 year of privacy and identity protection</string>
+    <string name="free_trial_protection_text">Browse anonymously and hide your IP</string>
+
+    <string name="free_trial_devices_header">Support 10 devices at once</string>
+    <string name="free_trial_devices_text">Protect yourself on up to 10 devices at a time</string>
+
+    <string name="free_trial_region_header">Connect to any region easily</string>
+    <string name="free_trial_region_text">More than 3300 servers in 32 countries</string>
+
+    <string name="free_trial_start">START SUBSCRIPTION</string>
+    <string name="free_trial_see_all">See all available plans</string>
+
+    <!-- Tiles Strings -->
+    <string name="snooze_vpn_title">VPN SNOOZE</string>
+    <string name="snooze_short">SNOOZE 5 MINUTES</string>
+    <string name="snooze_medium">SNOOZE 15 MINUTES</string>
+    <string name="snooze_long">SNOOZE 1 HOUR</string>
+    <string name="snooze_description">Disconnects the VPN and automatically reconnects when the timer elapses.</string>
+    <string name="snooze_resume">RESUME</string>
+    <string name="snooze_paused">Paused until %s</string>
+
+    <string name="snooze_status">Snoozing</string>
+    <string name="snooze_notification">Snoozed</string>
+
+</resources>

@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/windowBackground">
+
+    <RelativeLayout
+        android:id="@+id/fragment_referral_invite_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/fragment_referral_invite_divider"
+            style="@style/Style10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="23dp"
+            android:textColor="?attr/grey20_white"
+            android:text="@string/refer_view_invites"
+            tools:text="View Invites Sent"
+            />
+        
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/referral_divider"
+            android:layout_below="@+id/fragment_referral_invite_divider"/>
+
+        <android.support.v7.widget.AppCompatImageView
+            android:layout_width="9dp"
+            android:layout_height="18dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="16dp"
+            app:srcCompat="@drawable/ic_arrow"/>
+
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:id="@+id/fragment_referral_top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/fragment_referral_send_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="25dp"
+            android:paddingBottom="25dp"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/Style15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/grey55"
+                android:text="@string/refer_friend_invite_section_header"
+                tools:text="Invite your friends and family by email" />
+
+            <com.privateinternetaccess.android.ui.views.PiaxEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:id="@+id/fragment_refer_full_name"
+                app:hint="@string/refer_friend_name_hint"
+                app:textColorMain="?attr/piax_edit_text_color"
+                app:underlineColor="?attr/piax_edit_underline_color"/>
+
+            <com.privateinternetaccess.android.ui.views.PiaxEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:id="@+id/fragment_refer_email"
+                app:hint="@string/refer_friend_email_hint"
+                app:textColorMain="?attr/piax_edit_text_color"
+                app:underlineColor="?attr/piax_edit_underline_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="15dp">
+
+                <android.support.v7.widget.AppCompatCheckBox
+                    android:id="@+id/fragment_referral_terms_check"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    />
+
+                <TextView
+                    style="@style/Style13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/refer_terms"
+                    android:layout_gravity="center_vertical|left"
+                    />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/fragment_referral_terms_required"
+                style="@style/Style10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/refer_terms_required"
+                android:layout_marginTop="6dp"
+                android:layout_gravity="center_vertical|left"
+                android:visibility="gone"/>
+
+            <Button
+                android:layout_height="50dp"
+                android:layout_width="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="30dp"
+                android:id="@+id/fragment_refer_invite_button"
+                style="@style/PiaxGreenButton"
+                android:text="@string/refer_friend_send_invite"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/fragment_referral_processing_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:orientation="vertical"
+            android:paddingBottom="30dp"
+            android:paddingTop="30dp"
+            android:visibility="gone">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/fragment_progress_progress_spinner"
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:layout_gravity="center_horizontal"
+                app:lottie_fileName="pia-spinner.json"
+                app:lottie_loop="true"
+                app:lottie_autoPlay="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif"
+                android:textStyle="normal"
+                android:textColor="@color/grey20"
+                android:lineSpacingExtra="2sp"
+                android:gravity="center_horizontal"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="22dp"
+                android:text="@string/refer_process_title"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:fontFamily="sans-serif"
+                android:textStyle="normal"
+                android:textColor="@color/grey55"
+                android:lineSpacingExtra="4sp"
+                android:gravity="center_horizontal"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:text="@string/refer_process_description"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/fragment_referral_status_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:orientation="vertical"
+            android:paddingTop="30dp"
+            android:paddingBottom="30dp"
+            android:visibility="gone">
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/fragment_referral_status_icon"
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                android:layout_gravity="center_horizontal"
+                app:srcCompat="@drawable/ic_referral_success"/>
+
+            <TextView
+                android:id="@+id/fragment_referral_status_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif"
+                android:textStyle="normal"
+                android:textColor="@color/grey20"
+                android:lineSpacingExtra="2sp"
+                android:gravity="center_horizontal"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="22dp"
+                tools:text="Invite sent"
+                />
+
+            <TextView
+                android:id="@+id/fragment_referral_status_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:fontFamily="sans-serif"
+                android:textStyle="normal"
+                android:textColor="@color/grey55"
+                android:lineSpacingExtra="4sp"
+                android:gravity="center_horizontal"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                tools:text="We’ve successfully sent the invite to the email address your provided"
+                />
+
+            <Button
+                android:id="@+id/fragment_referral_status_button"
+                android:layout_height="50dp"
+                android:layout_width="wrap_content"
+                android:layout_alignParentTop="true"
+                android:paddingRight="25dp"
+                android:paddingLeft="25dp"
+                style="@style/PiaxGreenButton"
+                android:textSize="14sp"
+                android:fontFamily="sans-serif-medium"
+                android:textStyle="normal"
+                android:textColor="@color/white"
+                android:lineSpacingExtra="4sp"
+                android:layout_gravity="center_horizontal"
+                tools:text="Send Another Invite"
+                android:layout_marginTop="22dp"
+                />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/referral_divider"
+        android:layout_gravity="bottom"/>
+
+    <LinearLayout
+        android:id="@+id/fragment_referral_share_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="25dp">
+
+        <TextView
+            style="@style/Style15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/grey55"
+            android:text="@string/refer_friend_share_header"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="68dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/shape_share_link">
+
+            <TextView
+                android:id="@+id/fragment_referral_share_link"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:fontFamily="sans-serif"
+                android:textStyle="normal"
+                android:textColor="@color/greendark20"
+                android:lineSpacingExtra="-7sp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_centerVertical="true"
+                android:lines="1"
+                android:ellipsize="end"
+                />
+
+            <RelativeLayout
+                android:id="@+id/fragment_referral_copied_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/shape_refer_copied"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:fontFamily="sans-serif"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:lineSpacingExtra="3sp"
+                    android:layout_centerInParent="true"
+                    android:text="@string/refer_copied"
+                    tools:text="COPIED TO CLIPBOARD"
+                    />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <TextView
+            style="@style/Style13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            tools:text="By sharing this link, you agree to all of the terms and conditions of the Family and Friends Referral Program."
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="18dp">
+
+            <Button
+                android:id="@+id/fragment_referral_copy_button"
+                android:layout_height="50dp"
+                android:layout_width="match_parent"
+                android:layout_alignParentTop="true"
+                style="@style/PiaxGreenButton"
+                android:text="@string/refer_copy"
+                android:fontFamily="sans-serif-medium"
+                android:drawableLeft="@drawable/wrapper_copy_icon"
+                android:layout_marginRight="4dp"
+                android:paddingLeft="16dp"
+                android:layout_weight="1"
+                />
+
+            <Button
+                android:id="@+id/fragment_referral_share_button"
+                android:layout_height="50dp"
+                android:layout_width="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="4dp"
+                android:fontFamily="sans-serif-medium"
+                style="@style/PiaxGreenButton"
+                android:text="@string/refer_share"
+                android:drawableLeft="@drawable/wrapper_share_icon"
+                android:paddingLeft="16dp"
+                android:layout_weight="1"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,99 @@
+<!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="widget_margin">16dp</dimen>
+
+    <dimen name="button_radius" >4dp</dimen>
+    <dimen name="rect_pad_side">20dp</dimen>
+    <dimen name="rect_pad_topbottom">12dp</dimen>
+    <dimen name="margin_side_status">24dp</dimen>
+    <dimen name="killswitch_side">6dp</dimen>
+    <dimen name="margin_flag">4dp</dimen>
+    <integer name="server_selection_grid_size">1</integer>
+    <dimen name="graph_size">200dp</dimen>
+    <dimen name="login_padding">16dp</dimen>
+    <dimen name="header_title_start">60dp</dimen>
+    <dimen name="tablet_margins">0dp</dimen>
+    <dimen name="activity_connect_pager_bottom_margin">5dp</dimen>
+    <dimen name="connect_button_size">150dp</dimen>
+    <dimen name="connect_button_bg_size">160dp</dimen>
+    <integer name="fragment_graph_text">12</integer>
+
+    <dimen name="text_large">18sp</dimen>
+    <dimen name="text_medium">15sp</dimen>
+    <dimen name="text_small">13sp</dimen>
+    <dimen name="about_distance">15sp</dimen>
+    <dimen name="about_difference_group">45dp</dimen>
+
+    <dimen name="fragment_top_margin">0dp</dimen>
+    <dimen name="fragment_connection_graph_margin">0dp</dimen>
+    <dimen name="login_top_margin">30dp</dimen>
+    <dimen name="login_password_margin">20dp</dimen>
+    <dimen name="login_bottom_margin">20dp</dimen>
+    <dimen name="startup_padding">36dp</dimen>
+
+    <dimen name="send_report_lower_height">210dp</dimen>
+    <dimen name="purchasing_view_total_size">160dp</dimen>
+    <dimen name="purchasing_view_top_size">80dp</dimen>
+    <dimen name="purchasing_view_bottom_size">79dp</dimen>
+    <dimen name="purchasing_top_margin">15dp</dimen>
+
+    <dimen name="widget_have_account_bottom">5dp</dimen>
+    <dimen name="widget_buy_now_bottom">15dp</dimen>
+
+    <dimen name="fragment_connect_title_text">22sp</dimen>
+    <dimen name="fragment_connect_slider_width">250dp</dimen>
+    <dimen name="fragment_connect_slider_margin_top">5dp</dimen>
+    <dimen name="fragment_connect_slider_bottom_margin">0dp</dimen>
+
+    <!-- PIA text sizes -->
+    <dimen name="text_pia_title">18sp</dimen>
+    <dimen name="text_pia_subheading">17sp</dimen>
+    <dimen name="text_pia_button">15sp</dimen>
+    <dimen name="text_pia_body1">15sp</dimen>
+    <dimen name="text_pia_body2">14sp</dimen>
+    <dimen name="text_pia_caption_small">10sp</dimen>
+    <dimen name="text_pia_app_bar">20sp</dimen>
+    <dimen name="text_pia_input">16sp</dimen>
+    <dimen name="text_pia_input_hint">16sp</dimen>
+    <dimen name="text_pia_highlighted">13sp</dimen>
+    <dimen name="text_pia_small_info">13sp</dimen>
+    <dimen name="text_pia_caption">12sp</dimen>
+    <dimen name="text_pia_label">13sp</dimen>
+    <dimen name="server_list_padding">0dp</dimen>
+    <dimen name="secondary_bottom_overscan">0dp</dimen>
+
+    <!-- PIAX Dimenisons -->
+    <dimen name="piax_button_radius">6dp</dimen>
+    <dimen name="piax_button_small_radius">2dp</dimen>
+
+    <dimen name="card_padding">10dp</dimen>
+    <dimen name="dashboard_header_height">60dp</dimen>
+    <dimen name="dashboard_panel_spacing">4dp</dimen>
+    <dimen name="dashboard_port_height">80dp</dimen>
+    <dimen name="dashboard_toggle_height">66dp</dimen>
+
+    <dimen name="panel_horizontal_padding">24dp</dimen>
+    <dimen name="panel_vertical_padding">18dp</dimen>
+
+</resources>
