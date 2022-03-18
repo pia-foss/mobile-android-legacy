@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+<resources>
+    <string name="launcher_name">PIA VPN</string>
+    <string name="app_name">Private Internet AccessによるVPN</string>
+    <string name="menu_settings">設定</string>
+    <string name="menu_settings_general">一般</string>
+    <string name="menu_settings_protocols">プロトコル</string>
+    <string name="menu_settings_network">ネットワーク</string>
+    <string name="menu_settings_privacy">プライバシー</string>
+    <string name="menu_settings_automation">自動化</string>
+    <string name="menu_settings_obfuscation">難読化</string>
+    <string name="menu_settings_help">ヘルプ</string>
+    <!-- Please keep the %s, this is a formatted text. %s is a port number (ei 1024) -->
+    <string name="rportsummary">接続にポート%sを使用中</string>
+    <!-- Please keep the %s, this is a formatted text. %s is a port number (ei 1024) -->
+    <string name="lportsummary">接続にローカルポート%sを使用中</string>
+    <string name="lportrandom">接続にランダムなローカルポートを使用中</string>
+    <string name="server_selection">サーバー選択</string>
+    <string name="auto_rport">自動ポート選択を使用中</string>
+    <string name="automatic_server_selection_main">自動</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is a server location (ei London, Berlin) -->
+    <string name="automatic_server_selection_main_region">自動（%1$s）</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is an IP (ei 126.0.1.10)  -->
+    <string name="prompt_login">例 p1234567</string>
+    <string name="use_udp_summary">UDPを使用して接続されます</string>
+    <string name="use_tcp_summary">TCPを使用して接続されます</string>
+    <string name="transport">転送</string>
+    <string name="select_port">privateinternetaccess.comに接続するポートを選択してください</string>
+    <string name="remote_port">リモートポート</string>
+    <string name="remote_port_cap">転送先ポート</string>
+    <string name="remote_port_vpn_ip">VPN IP</string>
+    <string name="local_port">ローカルポート</string>
+    <string name="find_out_more"><u>詳しく知る</u></string>
+    <string name="connect_onstart_title">起動時に接続</string>
+    <string name="connect_onstart">アプリ起動時に接続</string>
+    <string name="connect_on_boot">システムスタートアップ時に起動</string>
+    <string name="portforwarding">ポート転送をリクエスト</string>
+    <string name="portforwarding_summary">外部ポートを通じてお使いのモバイルデバイスへの接続を許可します</string>
+    <!-- Please keep the %s, this is a formatted text. %s is an error message.  -->
+    <string name="portfwderror">ポート転送のリクエスト中にエラー発生: %s</string>
+    <string name="mace_toggle">MACE 広告ブロッカー</string>
+    <string name="killswitch">VPNキルスイッチ</string>
+    <string name="killswitchsummary">VPNが切断されたときに、インターネット接続をオフにします。</string>
+    <string name="killswitchtext">インターネットキル スイッチが有効にされました</string>
+    <string name="killswitchstatus_description">当社のインターネットキル スイッチは保護されていないインターネットアクティビティを許可していません。再接続されるのを待つか、キルスイッチを無効にしてからインターネット接続を回復させてください。</string>
+    <string name="requestingportfw">転送先ポートをリクエスト中...</string>
+    <string name="killswitch_button">無効にする</string>
+    <string name="action_sign_in_short">ログイン</string>
+    <string name="login">ログイン</string>
+    <string name="logout">ログアウト</string>
+    <string name="accept">同意する</string>
+    <string name="no_thanks">いいえ、結構です</string>
+    <string name="read_more"><u>詳細</u></string>
+    <string name="state_gen_config">構成を生成中</string>
+    <string name="user_pw_invalid">ユーザー名/パスワードが無効です</string>
+    <string name="replace_login_title">ログイン情報を置き換える</string>
+    <!-- Please keep the %1$s %2$s, this is a formattered text. %1$s %2$s are usernames.  -->
+    <string name="replace_login_msg">ログイン情報を新しいログイン情報と置き換えますか？（新ユーザー名: %1$s、旧ユーザー名: %2$s）</string>
+    <string name="subscription_expires_in">サブスクリプション残り期間:</string>
+    <string name="subscription_expired">あなたのサブスクリプションは</string>
+    <string name="per_app_settings">アプリごとの設定</string>
+    <string name="tv_per_app_settings">アプリごとの設定</string>
+    <string name="help_improve_pia">PIAの改善に協力する</string>
+    <string name="username_password_already_saved">ユーザー名とパスワードは既に保存されています！</string>
+    <string name="invalid_email_signup">有効なメールアドレスを入力してください</string>
+    <string name="buyvpn_url_localized">https://www.privateinternetaccess.com/pages/buy-vpn/</string>
+    <string name="localport_warning">ローカルポートは1024と65535の間である必要があります</string>
+    <string name="notanumber_localport">ローカルポートの不正な番号</string>
+    <string name="notanumber_proxyport">プロキシポートの不正な番号</string>
+    <string name="thankyou_monthly">VPN月間サブスクリプションをご購入いただき、ありがとうございます！</string>
+    <string name="thankyou_yearly">VPN年間サブスクリプションをご購入いただき、ありがとうございます！</string>
+    <string name="purchase_signing_up">サインアップ中...</string>
+    <string name="purchase_loading">読み込み中...</string>
+    <string name="logout_confirmation">ログアウト確定</string>
+    <string name="logout_confirmation_text">ログアウトすると有効なVPN接続が切断され、保護された状態でなくなります。</string>
+    <string name="expiry_notification_title">サブスクリプションの有効期限が間もなく終了します。</string>
+    <string name="expiry_notification_onnemonth">残り1か月未満となりました。更新して保護された状態を維持しましょう。</string>
+    <string name="expiry_notification_oneweek">残り1週間未満となりました。更新して保護された状態を維持しましょう。</string>
+    <string name="expirty_notification_threedays">残り3日未満となりました。更新して保護された状態を維持しましょう。</string>
+    <string name="expirty_notification_oneday">残り1日未満となりました。更新して保護された状態を維持しましょう。</string>
+    <string name="error_renew_trial">トライアル アカウントは更新できません。サービスを引き続きご利用いただくには、期限切れの際に新規アカウントを購入してください。</string>
+    <string name="error_renew_expired">このアカウントは非アクティブ状態なため、お支払いを受け付けることができません。一旦ログアウトし、再度登録してアカウントを新規作成してください。</string>
+    <string name="pending_purchase_found">保留中のアプリ内購入が見つかりました。ログインして現行サブスクリプションを更新してください。</string>
+    <string name="account_not_renewable">お使いのアカウントは更新できないか、自動的に更新されます</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is an error message.  -->
+    <string name="error_subscribing">"購入中にエラー発生: %1$s "</string>
+    <string name="error_active_subscription">既にアクティブなサブスクリプションがあります！</string>
+    <string name="error_invalid_auth">問題が発生しました。もう一度ログインしてください。</string>
+    <string name="usemssfix">IPパケットサイズを少し小さくして、いくつかのルーターおよびモバイルネットワークとの互換性を改善します。</string>
+    <string name="mssfixsummary">小パケットを使用</string>
+    <string name="settings_account_bottom_text">他の端末でもPrivate Internet Access アプリを入手し、上のユーザー名でログインし、インターネット接続を保護することができます。</string>
+    <string name="settings_account_bottom_text_4">他の端末でもPrivate Internet Access アプリを入手し、上のユーザー名とパスワードでログインし、接続を保護することができます。</string>
+    <string name="update_email">メールアドレスをアップデート</string>
+    <string name="email_sucessfully_changed">メールアドレスが正常に変更されました</string>
+    <string name="copy_toast_text">テキストがクリップボードにコピーされました</string>
+    <string name="current_region">現在の地域</string>
+    <string name="full_licenses">フルライセンス</string>
+    <string name="email">メールアドレス</string>
+    <string name="please_wait">お待ちください</string>
+    <string name="still_connecting">接続中です</string>
+    <string name="enabled">有効化済み</string>
+    <string name="disabled">無効化済み</string>
+    <string name="account_details_password_bottom_text">『目のマーク』をタップして表示。もう一度タップしてパスワードをクリップボードにコピーします。</string>
+    <string name="user_x_vs_p_error">必ず「p」で始まるメイン ユーザー名（例: p12345）でログインしてください</string>
+    <string name="vpn_revoke_text">PIAのVPN許可が取り消されました。VPN、インターネットキル スイッチおよびセキュリティが非アクティブとなっています。ここをタップして、このサービスを再開し、インターネット接続を確保してください。</string>
+    <string name="vpn_revoke_title">PIA VPNが停止されました</string>
+    <!-- Please keep the % elements, this is a formatted text. %1$s is Private Internet Access, %2$s is version number(ei 1.4), %3$s is the version code (ei 114)  -->
+    <string name="login_operation_failed">ログインに失敗しました。後でもう一度お試しください。</string>
+    <string name="no_internet_connection_available">インターネット接続がありません</string>
+    <string name="no_username_or_password">ユーザー名とパスワードを入力してください</string>
+    <string name="please_unlock_your_device">デバイスをアンロックしてください</string>
+    <string name="please_unlock_your_device_message">パスワードを見る、またはアカウント情報をアップデートするには。</string>
+    <string name="settings_mace">PIA MACE™</string>
+    <string name="settings_mace_summary">VPNに接続されている間、広告、閲覧行動の追跡、そしてマルウェアをブロックします</string>
+    <string name="qs_title">PIAに接続</string>
+    <string name="not_logged_in">ログインされていません</string>
+    <!-- Please keep the %s, this is a formatted text. %s is a server name.  -->
+    <string name="qs_disconnect">VPNを切断(%s)</string>
+    <string name="qs_disconnect_nolocation">VPNを切断</string>
+    <string name="menu_about">アプリについて</string>
+    <string name="reconnect_vpn">この変更を適用するにはVPNに再度接続してください</string>
+    <string name="reconnect">再接続</string>
+    <string name="later">後で</string>
+    <string name="error_account_info">アカウント情報が見つかりませんでした</string>
+    <string name="error_pinging_while_connected">VPNに接続中はレイテンシを更新できません</string>
+    <string name="allows_port_forwarding">ポート転送を許可</string>
+    <string name="about_privacy_policy">プライバシーポリシー</string>
+    <string name="version">バージョン</string>
+    <string name="application_information">アプリ情報</string>
+    <string name="data_encyrption">データ暗号化</string>
+    <string name="data_auth">データ認証</string>
+    <string name="handshake">ハンドシェイク</string>
+    <string name="dismiss">閉じる</string>
+    <string name="recent_changes">最近の変更</string>
+    <string name="refresh">リフレッシュ</string>
+    <string name="open_in_browser">ブラウザで開く</string>
+    <string name="copy_link">リンクをコピー</string>
+    <string name="text_failed_to_copy">テキストをコピーできませんでした</string>
+    <string name="link_copied_to_clipboard">リンクがクリップボードにコピーされました</string>
+    <string name="search_apps">アプリを検索</string>
+    <string name="account_trail">トライアル</string>
+    <string name="account_yearly">年間</string>
+    <string name="account_montly">月間</string>
+    <string name="account_termination">あなたのアカウントは停止されました</string>
+    <string name="preference_connection">接続</string>
+    <string name="preference_encryption">暗号化</string>
+    <string name="vpn_stop">停止</string>
+    <string name="change_server">サーバーを変更</string>
+    <string name="click_to_connect">タップして接続します</string>
+    <string name="widget_long_title">長方形接続</string>
+    <string name="widget_square_connect">正方形接続</string>
+    <string name="widget_small_connect">小接続</string>
+    <string name="mace_enabled">MACEが有効にされました</string>
+    <string name="send_debug_log">サポートにデバッグログを送信</string>
+    <!-- Please keep the %s, this is a formatted text. %s is an error message.  -->
+    <string name="failure_sending_log">デバッグログを送信できませんでした: %s</string>
+    <string name="log_send_done_title">デバッグ情報が送信されました。</string>
+    <string name="log_send_done_msg">デバッグ情報が正常に送信されました。\nID: %s\nサポートチームが提出された情報を特定するのにこのIDが必要になりますので、このIDをメモしてください。</string>
+    <string name="sending_debug_log">デバッグ情報を送信中…</string>
+    <string name="nought_always_on_warning">VPNの確認ダイアログが表示されない場合は、別のアプリで「VPN常時接続」を有効にしている可能性があります。 その場合、そのアプリのみがVPNに接続することができます。 [設定] -&gt; [ネットワーク他..] -&gt; [VPN] &gt;で確認してください</string>
+    <string name="open_settings">[設定]を開く</string>
+    <string name="settings_widget_configuration">ウィジェット構成</string>
+    <string name="preferences_widget_title">ウィジェット設定</string>
+    <string name="preferences_widget_summary">ホーム画面で弊社のウィジェットを使えるようにします</string>
+    <string name="widget_flag_alpha">Alphaをフラグ</string>
+    <string name="widget_background">背景カラー</string>
+    <string name="widget_color">テキストカラー</string>
+    <string name="widget_cc">PIAコマンドセンター</string>
+    <string name="clear">消去</string>
+    <string name="save">保存</string>
+    <string name="saved">保存されました</string>
+    <string name="speeds_shown_are_all_traffic_over_our_connection">表示されている速度は、あなたのVPN接続上のトラフィックです</string>
+    <string name="ip_short">公開IP</string>
+    <string name="login_throttled_text">このユーザー名で最大ログイン試行回数を超えました。後でもう一度お試しください。</string>
+    <string name="tap_to_connect">タップして接続</string>
+    <string name="building_configration">構成を構成中…</string>
+    <!-- Please keep the %1$d, this is a formatted text. %1$d is a number (ei 1-31) -->
+    <string name="days_left">%d日</string>
+    <string name="one_day_left">1日</string>
+    <!-- Please keep the %1$d, this is a formatted text. %1$d is a number (ei 1-31) -->
+    <string name="hours_left">%d時間</string>
+    <string name="one_hour_left">1時間</string>
+    <!-- Please keep the %1$d, this is a formatted text. %1$d is a number (ei 1-31) -->
+    <string name="minutes_left">%d分</string>
+    <string name="one_minute_left">1分</string>
+    <string name="timeleft_expired">有効期限が切れました</string>
+    <string name="sign_in_to_your_account">アカウントにサインイン</string>
+    <string name="username_only">ユーザー名</string>
+    <string name="submit">送信</string>
+    <string name="please_enter_your_email_address">メールアドレスを入力してください</string>
+    <string name="select_vpn_plan">VPNプランを選択</string>
+    <string name="_7_day_money_back_guarantee">30日間返金保証</string>
+    <string name="monthly">月間</string>
+    <string name="yearly">年間</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is a currency (ei 1-31) -->
+    <string name="yearly_sub_text">年額%1$s</string>
+    <string name="forgot_password">パスワードを忘れました</string>
+    <string name="tap_to_disconnect">タップして切断</string>
+    <string name="drawer_account">アカウント</string>
+    <string name="drawer_refer_friend">友達を紹介する</string>
+    <string name="drawer_region_selection">地域を選択</string>
+    <string name="drawer_about">アプリについて</string>
+    <string name="drawer_home_page">ホームページ</string>
+    <string name="drawer_contact_support">サポートへのお問い合わせ</string>
+    <string name="n_a_port_forwarding">---</string>
+    <!-- This string is going to be formatted by us so the "Buy now" is colored green. Please do not change the &lt;emph> or &lt;/emph> as that is formatting for us to find the buy now text. -->
+    <string name="dont_have_an_account">アカウントをお持ちでないですか？&lt;emph&gt;今すぐ購入&lt;/emph&gt;</string>
+    <string name="buy_now">今すぐ購入！</string>
+    <string name="buy_now_button">今すぐ購入</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is a currency (ei 1-31) -->
+    <string name="purchasing_monthly_ending">%1$s/月</string>
+    <!-- Please keep the %1$s %2$s, this is a formatted text. %1$s is a currency (ei 1-31), %2$s is the currency (move this in front or keep it there depending on currency -->
+    <string name="purchasing_yearly_month_ending">%2$s%1$s/月</string>
+    <string name="change_region">地域変更</string>
+    <!--Please keep the %1$s, this is a formatted text. %1$s is the up and down speeds on the connection. /s is per second-->
+    <string name="graph_under_formatting">%1$s/秒</string>
+    <string name="allowed_apps_protected_text">PIAのVPNを使用してアプリを自動的に保護</string>
+    <string name="allowed_apps_unprotected_text">PIAのVPNを使用するアプリを選択</string>
+    <string name="allowed_apps_spotlight_text">すべてのアプリのデフォルト設定で、PIAのVPN使用の有無を切り替えるが可能です。</string>
+    <string name="allowed_apps_spotlight_title">アプリごとに切り替え</string>
+    <string name="toast_allowed_apps_default_positive">アプリのデフォルト設定でPIAのVPNを使用するよう設定する</string>
+    <string name="toast_allowed_apps_default_negative">アプリのデフォルト設定でPIAのVPNを使用しないよう設定する</string>
+    <!-- Please keep %1$s %2%s as those are formatted numbers. %1$s is a version number like 2.0, %2$s is the version code like 141 -->
+    <string name="drawer_version">バージョン %1$s (%2$s)</string>
+    <string name="cancel">キャンセル</string>
+    <!-- Keep the <![CDATA[...]], translate everything in between-->
+    <string name="settings_port_number_restriction"><![CDATA[ポート番号は1024から65535の間で指定してください]]></string>
+    <!-- Keep the <![CDATA[...]], translate everything in between-->
+    <string name="settings_lport_hint"><![CDATA[1024から65535の間のポート]]></string>
+    <string name="startup_region_title">すべての地域に簡単に接続</string>
+    <string name="startup_region_message">世界中にサーバがあるので、常に保護された状態を確保できます。</string>
+    <string name="startup_region_message_new">世界中にサーバがあるので、お客様は常に保護された状態でいることができます。 7日間の無料トライアルを開始し、その後年間%sでご利用いただけます。</string>
+    <string name="startup_region_footer"><a href="privacy:">プライバシーポリシ</a>ーおよび<a href="terms:">利用規約</a></string>
+    <string name="startup_region_header">Private Internet Access</string>
+    <string name="startup_ads_title">広告から自分を守りましょう</string>
+    <string name="startup_ads_message">PIA MACEを有効にすると、どこへ行っても広告表示を阻止できます。</string>
+    <string name="startup_connection_title">アプリごとの保存</string>
+    <string name="startup_connection_message">当社サービスで許可するアプリをコントロールして、ユーザーエクスペリエンスをカスタマイズしましょう（Android 5.0またはそれ以上のバージョンが必要です）。</string>
+    <string name="speed_graph">パフォーマンス</string>
+    <string name="data_usage_over_time">データ使用量の経時記録</string>
+    <!-- Please add in what word is the color red as we color it in code.  -->
+    <string name="per_app_warning">赤色で表示されているアプリには、当社サービスを回避したり、あなたを脆弱な状態にする問題を引き起こす可能性のある特定の機能が含まれています。</string>
+    <string name="purchasing_bottom">アカウントをお持ちでないですか？&lt;emph&gt;サインイン&lt;/emph&gt;</string>
+    <string name="ok">OK</string>
+    <string name="killswitch_title">キルスイッチは有効にされています</string>
+    <string name="skip">スキップする</string>
+    <string name="next">次へ</string>
+    <string name="done">完了</string>
+    <string name="update_account">アカウントをアップデート</string>
+    <string name="local_port_titla">ローカルポート</string>
+    <string name="connection_couldnt_establish_title">接続を確立できませんでした</string>
+    <string name="connection_couldnt_establish_message">別の地域を選択するか、サポートチケットを開いて問題についてお問い合わせください。</string>
+    <string name="send_feedback">フィードバックを送信</string>
+    <string name="preference_application_settings">一般設定</string>
+    <string name="preference_vpn_settings">VPN設定</string>
+    <string name="preference_haptic_title">触覚フィードバック</string>
+    <string name="preference_dialog_graph_title">グラフに使用する計測単位を選択</string>
+    <string name="preference_connect_on_boot_summary">システム開始時に接続</string>
+    <string name="preference_haptic_feedback_summary">接続クリック時にバイブレーション</string>
+    <string name="best_value">最もお得 - 無料トライアル</string>
+    <string name="port_number">ポート番号</string>
+    <!-- Please keep the %s, this is a formatted text. %1$s is an app name -->
+    <string name="allowed_apps_toast_removed">%1$sは保護されます</string>
+    <!-- Please keep the %s, this is a formatted text. %1$s is an app name -->
+    <string name="allowed_apps_toast_added">%1$sは保護されません</string>
+    <string name="shorthand_bytecount">%2$s %1$s</string>
+    <string name="preference_widget_icon_upload_title">アイコンの色をアップロード</string>
+    <string name="preference_widget_icon_download_title">ダウンロードアイコンの色</string>
+    <string name="preference_graph_unit">グラフの単位</string>
+    <string name="no">いいえ</string>
+    <string name="color_picker_dialog_title">色を選択</string>
+    <string name="username_example">ユーザー名（例：p1234567）</string>
+    <string-array name="preference_graph_titles">
+        <item>ビット</item>
+        <item>バイト</item>
+        <item>キロビット</item>
+        <item>キロバイト</item>
+        <item>メガビット</item>
+        <item>メガバイト</item>
+        <item>ギガビット</item>
+        <item>ギガバイト</item>
+    </string-array>
+    <!-- Logic in code uses the first and last letter to decide the unit to change the graph too. Be care what to use-->
+    <string name="channel_name_background">接続統計データ</string>
+    <string name="channel_description_background">確立された PIA VPNの現行統計データ</string>
+    <string name="channel_name_status">接続ステータスの変更</string>
+    <string name="channel_description_status">PIA VPNの状態の変化（接続中、認証中など）</string>
+    <string name="no_internet_click_here">インターネット接続が見つからないため、料金が表示できません。再度読み込んでください。</string>
+    <string name="failure_to_connect_alert">Googleのサーバーに接続できませんでした。インターネットに接続してください。</string>
+    <string name="blockipv6_summary"> IPv6リークを防ぐ別の方法をご利用ください。Android5.0より前のバージョンでは、IPv6リークをブロックする必要があります。</string>
+    <string name="blockipv6">積極的に IPv6をブロック</string>
+    <string name="purchase_renew_title">新規アカウントを購入する</string>
+    <string name="purchase_renew_message">アカウントを更新できません。サービスを引き続きご利用いただくには、新規アカウントを購入してください。</string>
+    <string name="purchase">購入する</string>
+    <string name="purchase_complete">購入完了</string>
+    <string name="purchase_complete_message">サインアップありがとうございます。アカウントのユーザー名とパスワードをお客様のメールアドレス（%1$s）に送信いたしました。</string>
+    <string name="password_only">パスワード</string>
+    <string name="account_creation_failure">アカウントの作成に失敗しました</string>
+    <string name="account_creation_failure_message">現在お客様のアカウントを作成できなくなっています。この問題に関してID%1$sのサポートチケットが作成されました。サポート担当者から間もなく連絡があります。後でアプリを再起動して処理を完了させてみることもできます。</string>
+    <string name="get_started">始める</string>
+    <string name="no_internet_message">インターネット接続が見つかりません。インターネットに接続していることを確認してから下の再試行をタップしてください。\n\n後ほどアプリでこのプロセスを完了することができます。</string>
+    <string name="no_internet_title">おっと！</string>
+    <string name="retry">再試行</string>
+    <string name="go_to_login">ログイン画面に移動</string>
+    <string name="unable_change_email">メールアドレスを変更できませんでした。後でもう一度お試しください。</string>
+    <string name="preference_reset_settings">設定を標準設定にリセットする</string>
+    <string name="pref_reset_settings">設定をリセットしますか？</string>
+    <string name="pref_reset_settings_message">アプリを標準設定に戻します。これまでの変更はすべて失われます。</string>
+    <string name="reset">リセット</string>
+    <string name="settings_reset">リセットの設定</string>
+    <string name="widget_radius">ウィジェット半径</string>
+    <string name="widget_text">テキストウィジェット</string>
+    <string name="account_creation_failure_message_no_ticket_id">ただ今アカウントを作成できません。後ほどもう一度お試しください。\n\nアプリを再起動すると、アカウント作成が再試行されます。</string>
+    <string name="try_again">もう一度試す</string>
+    <string name="default_base">デフォルト</string>
+    <string name="confirm_purchase">購入を確定</string>
+    <string name="purchase_failed">購入に失敗しました</string>
+    <string name="confirming_purchase">システムがご購入を確定しています。しばらく時間がかかることがありますので、そのままお待ちください。</string>
+    <!-- %1$d and %2$d are numbers. Example of this string would be Attempt 1 of 5, 2 of 5, 3 of 5. -->
+    <string name="attempt">試行 %1$d/%2$d</string>
+    <string name="piaaccountneeded">ログインするには、privateinternetaccess.comのアカウントが必要です</string>
+    <string name="piaaccountneeded_samsung">このサービスに登録するには、privateinternetaccess.comにアクセスしてください。</string>
+    <string name="piaaccountneeded_amazon">このサービスに登録するには、privateinternetaccess.comにアクセスしてください。</string>
+    <string name="vpn_permisions_top_text">PIAはお客様のトラフィックを確保するために、VPN設定にアクセスする必要があります。</string>
+    <string name="vpn_permissions_middle_text">PIA VPNのプロンプトが表示されますので、VPN設定へのアクセスを許可してください。先に進むには「OK」をタップしてください。</string>
+    <string name="vpn_permission_network">弊社はネットワークアクティビティの監視、フィルタリング、記録は一切行いません。</string>
+    <string name="vpn_permission_title">PIA</string>
+    <string name="contact">お問い合わせ</string>
+    <string name="permissions_message">アプリが機能するには、この許可が必要です。ヘルプが必要な場合はカスタマーサポートにご連絡ください。</string>
+    <string name="send_email">メールを送信</string>
+    <string-array name="themes_list">
+        <item>明</item>
+        <item>暗</item>
+    </string-array>
+    <string name="preference_app_theme">ダークテーマ</string>
+    <string name="auth_setby_gcm">AES-GCMなどのAEADの暗号は、統合認証機構を使います</string>
+    <string name="allow_locallan">LANトラフィックを許可する</string>
+    <string name="allow_locallan_details">ローカルネットワーク上のデバイス間のトラフィックを常に許可する</string>
+    <string name="pref_block_dialog_title">ローカルネットワークへのアクセスを許可する</string>
+    <string name="pref_block_dialog_message">ローカルネットワークへのアクセスが許可されると、いくつかのシステムアプリケーション（Googleアプリなど）がVPNをバイパスできる場合があることをご了承ください。</string>
+    <string name="killswitch_notification_title">キルスイッチが有効です</string>
+    <string name="open_android_settings">Androidの[設定]を開く</string>
+    <string name="data_in">下へ</string>
+    <string name="data_out">上へ</string>
+    <string name="pia_channel_name">PIA</string>
+    <string name="pia_channel_description">イベント一般と通知</string>
+    <string name="tv_startup_press_right">右に押す</string>
+    <string name="androidalwayson">VPNキルスイッチ</string>
+    <string name="androidalwaysonsummary">Androidには、キルスイッチに代わるより優れた機能が導入されています。クリックして詳細をご確認ください</string>
+    <string name="preference_blocking">ブロックしています</string>
+    <string name="preference_connect_proxy">プロキシ経由で接続</string>
+    <string name="preference_connect_proxy_app">選択したプロキシアプリ</string>
+    <string name="preference_connect_proxy_summary">アプリ設定にて、接続に使用中のアプリを必ず除外してください</string>
+    <string name="preference_proxy_port">プロキシポート</string>
+    <string name="proxy_selection_title">プロキシアプリを選択</string>
+    <string name="app_is_proxy">このアプリはプロキシアプリです。使用するためには、除外する必要があります。</string>
+    <string name="app_must_be_selected">保存するには、アプリを選択する必要があります。</string>
+    <string name="proxy_settings_title">プロキシ設定</string>
+    <string name="enable_proxy_dialog_title">プロキシアプリの設定</string>
+    <string name="enable_proxy_dialog_message">当アプリでプロキシを使うには、どのアプリを使うかを決めておく必要があります。</string>
+    <string name="vpn_activity_title">VPNデバッグログ</string>
+    <string name="preference_vpn_log_title">VPNデバッグログを表示</string>
+    <string name="preference_vpn_log_summary">高度なユーザー表示でVPNログを表示</string>
+    <string name="preference_orbot_title">プロキシアプリはOrbotです</string>
+    <string name="preference_orbot_summary">Orbotのインテグレーションを使用</string>
+    <string name="settings_orbot_udp_problem_message">Orbotが機能するにはTCPが必要です。TCPを有効にしますか？</string>
+    <string name="settings_orbot_udp_problem_title">プロキシ要件</string>
+    <!-- %d is a digit for ping latency(ie, 0-10000). ms is milliseconds. -->
+    <string name="ping_string">%d ミリ秒</string>
+    <string name="status_server_ping">最適なサーバーを探しています</string>
+    <!-- &lt;emph> and &lt;/emph> should not be touched. These are how we know what to color in this string. -->
+    <string name="trial_account">ギフトカードかトライアルカードをお持ちですか？ &lt;emph&gt;今すぐ引換え&lt;/emph&gt;</string>
+    <!-- &lt;emph> and &lt;/emph> should not be touched. These are how we know what to color in this string. -->
+    <string name="trial_remember_password">パスワードは覚えてますか？&lt;emph&gt;ログイン&lt;/emph&gt;</string>
+    <string name="trial_card_pin">カードPIN</string>
+    <string name="trial_screen_redeem">ギフトカード引換え</string>
+    <string name="trial_screen_message">メールアドレスと、以下のギフトカードまたはトライアルカードの16桁のPINを入力してください。</string>
+    <string name="card_pin_invalid">カードPINが無効です</string>
+    <string name="confirming_trial_account">システムがご購入を確定しています。しばらく時間がかかることがありますので、そのままお待ちください。</string>
+    <string name="trial_success_message">ユーザーネームとパスワードを記載したメールがまもなく届きます。</string>
+    <string name="trial_success_title">完了！</string>
+    <string name="trial_failure_redeemed_title">すでに獲得されたカードです</string>
+    <string name="trial_failure_redeemed_message">このカードは、すでに別のアカウントが獲得したようです。別のPINを入力してください。</string>
+    <string name="trial_failure_invalid_title">無効なカードPIN</string>
+    <string name="trial_failure_invalid_message">無効なPINを入力したようです。もう一度お試しください。</string>
+    <string name="trial_failure_expired_title">カードの有効期限が切れています</string>
+    <string name="trial_failure_expired_message">別のPINを入力してください。</string>
+    <string name="trial_failure_throttled_title">試行回数が上限に達しました。</string>
+    <string name="trial_failure_throttled_message">試行回数が上限に達しました。後ほどもう一度お試しください。</string>
+    <string name="trial_failure_email_title">無効なメールアドレス</string>
+    <string name="trial_failure_email_message">無効なメールアドレスを入力したようです。もう一度お試しください。</string>
+    <!-- Keep %1$s and %2$s. This is a formatted text and %1$s is Terms of Service and %2$s is Privacy Policy -->
+    <string name="tos_pos_text" formatted="true">サインアップすることで、%1$sと%2$sに同意したことになります。</string>
+    <string name="tos_text">利用規約</string>
+    <string name="pp_text">プライバシーポリシー</string>
+    <string name="website_isnt_protected">ウェブサイトは保護されていません。</string>
+    <string name="api_check_failure_title">接続失敗</string>
+    <string name="api_check_message">Private Internet Accessに接続できませんでした。インターネットの接続状態が不安定、もしくはお住まいの国で当社のサービスがブロックされている可能性があります。安定した接続を確保し、「設定」からアプリを「強制終了」し、アプリを再起動してもう一度お試しください。</string>
+    <string name="invalid_qr_code">無効なQRコードシーケンスです。もう一度お試しください。</string>
+    <string name="empty_qr_code">QRのコンテンツがありません。もう一度お試しください。</string>
+    <string name="your_plan_will_expire_on">プランの有効期限:</string>
+    <!-- TV specific strings -->
+    <string name="favorites_title">お気に入り管理</string>
+    <string name="favorites_panel_title">お気に入り</string>
+    <string name="logout_title">ログアウト</string>
+    <string name="pia_access">PIAアクセス</string>
+    <string name="preference_app_update_title">アプリのアップデートで接続</string>
+    <string name="preference_app_update_message">アプリのアップデート後、アプリが自動接続し、あなたを保護し続けます。</string>
+    <string name="server_search">検索</string>
+    <string name="tile_killswitch">キルスイッチが有効</string>
+    <string name="auto_dns_setting_summary">PIA DNS</string>
+    <string name="pia_dns">PIA DNS</string>
+    <string name="edit_custom_dns">編集</string>
+    <string name="custom_dns">カスタムDNS</string>
+    <string name="custom_dns_warning_body">非PIA DNSを使用すると、DNSトラフィックがサードパーティーに暴露され、プライバシーが損なわれる場合があります。</string>
+    <string name="custom_dns_warning_title">@string/custom_dns</string>
+    <string name="custom_primary_dns">プライマリDNS</string>
+    <string name="custom_secondary_dns">セカンダリDNS(任意）</string>
+    <string name="custom_primary_dns_invalid">プライマリDNSが有効でありません</string>
+    <string name="custom_secondary_dns_invalid">セカンダリDNSが有効でありません</string>
+    <string name="custom_dns_mace_warning">MACEを有効にするには、デフォルトDNSが使用されている必要があります。DNSをデフォルトにリセットしますか？</string>
+    <string name="custom_dns_disabling_mace">カスタムDNSを使用中、MACEが無効になります。</string>
+    <string name="password_required">PIAパスワードが必要です</string>
+    <string name="password_required_body">安全のため、お使いのアカウントのPIAパスワードの変更を行う必要があります。先へ進むにはPIAパスワードを入力してください。</string>
+    <string name="password_empty">パスワード欄を空白にすることはできません</string>
+    <string name="trusted_cellular_title">信頼された携帯ネットワーク</string>
+    <string name="trusted_cellular_message">モバイルデータ通信時に自動的にVPNから切断します</string>
+    <string name="trusted_wifi_title">信頼されたW-Fi</string>
+    <string name="trusted_wifi_message">ユーザーにより安全であるとされたもの以外のすべてのWi-FiネットワークでVPNが自動接続します</string>
+    <string name="trusted_wifi_enable_message">信頼されたネットワークへの接続時にVPNを無効にします</string>
+    <string name="trusted_wifi_singular">信頼されたネットワーク</string>
+    <string name="trusted_wifi_plural">信頼されたネットワーク</string>
+    <string name="available_wifi_header">利用可能なネットワーク</string>
+    <string name="trusted_wifi_no_wifi">信頼されたネットワークを選択するにはWi-Fiを有効にしてください。</string>
+    <string name="trusted_wifi_no_permission">信頼されたWi-Fiを使用して周囲のWi-Fiネットワークを検出するには、位置情報へのアクセス許可が必要です。許可されない限り、この機能は動作しません。\n\nこの機能を利用するには、「設定」&gt;「アプリ」&gt;「PIA VPN」を開き、位置情報の許可がオンになっていることを確認してください。</string>
+    <string name="no_permission_title">アクセス許可が必要です</string>
+    <string name="trusted_wifi_not_available">ネットワークがありません</string>
+    <string name="trusted_wifi_no_trusted">信頼されたネットワークがありません</string>
+    <string name="account_invalid_warning">"無効なアカウント情報"</string>
+    <!-- PIAX Specific Strings -->
+    <string name="buy_account">アカウントを購入する</string>
+    <string name="redeem_gift_card">ギフトカード引換え</string>
+    <string name="email_address">メールアドレス</string>
+    <string name="gift_card_pin">ギフトカードのPIN</string>
+    <string name="redeemed_successful">カードの引き換えが完了しました</string>
+    <string name="redeemed_login_header">あなたのログイン情報</string>
+    <string name="redeeming_gift_card">ギフトカードコードを確認しています。\nしばらく時間がかかることがありますので、\nそのままお待ちください。</string>
+    <string name="redeeming_gift_title">サーバーと確認しています</string>
+    <string name="redeemed_to_login">ログイン画面に続行</string>
+    <string name="username_enter">ユーザー名を入力してください</string>
+    <string name="password_enter">パスワードを入力してください</string>
+    <string name="total_cost">総コスト</string>
+    <string name="confirm_your_purchase">ご購入を確定</string>
+    <string name="enter_email">メールアドレスを入力してください</string>
+    <string name="you_are_purchasing">お客様は%1$sプランを購入しようとしています</string>
+    <string name="continue_only">続行</string>
+    <string name="plan_only">プラン</string>
+    <string name="yearly_only">年間</string>
+    <string name="monthly_only">月間</string>
+    <string name="search_region">地域検索</string>
+    <string name="region_dialog_header">地域絞り込み条件:</string>
+    <string name="menu_filters">検索フィルター</string>
+    <string name="menu_update">アップデート</string>
+    <string name="menu_reorder">整理</string>
+    <string name="port_not_available">利用不可</string>
+    <string name="refer_yes">はい</string>
+    <string name="refer_no">いいえ</string>
+    <string name="region_filter_name">名前</string>
+    <string name="region_filter_latency">レイテンシ</string>
+    <string name="region_filter_favorites">お気に入り</string>
+    <!-- Free Trial Strings -->
+    <string name="free_trial_header">7日間無料トライアル</string>
+    <string name="free_trial_cost">1年間でわずか%sのお支払い</string>
+    <string name="free_trial_guarantee">30日間返金保証</string>
+    <string name="free_trial_protection_header">1年間プライバシーと身元情報を保護</string>
+    <string name="free_trial_protection_text">匿名でブラウジングし、IPを非公開</string>
+    <string name="free_trial_devices_header">一度に10個のデバイスに対応</string>
+    <string name="free_trial_devices_text">一度に最大10個のデバイスで保護</string>
+    <string name="free_trial_region_header">どの地域にも簡単に接続</string>
+    <string name="free_trial_region_text">32か国に3300を超えるサーバー</string>
+    <string name="free_trial_start">サブスクリプションを開始</string>
+    <string name="free_trial_see_all">利用できるプランすべてを表示</string>
+    <!-- Tiles Strings -->
+    <string name="snooze_vpn_title">VPNスヌーズ</string>
+    <string name="snooze_short">5分間スヌーズ</string>
+    <string name="snooze_medium">15分間スヌーズ</string>
+    <string name="snooze_long">1時間スヌーズ</string>
+    <string name="snooze_description">VPN接続を切断し、タイマーが終了すると自動的に再接続します。</string>
+    <string name="snooze_resume">再開</string>
+    <string name="snooze_paused">%sまで一時停止</string>
+    <string name="snooze_status">スヌーズ中</string>
+    <string name="snooze_notification">スヌーズ済み</string>
+    <string name="failed_connect_status">接続できません</string>
+    <!-- Quick Settings Strings -->
+    <string name="quick_settings_title">クイック設定</string>
+    <string name="quick_settings_network_toggle">ネットワーク管理</string>
+    <string name="quick_settings_private_browser">プライベートブラウザ</string>
+    <!-- Quick Connect String -->
+    <string name="quick_connect_title">クイック接続</string>
+    <string name="quick_connect_favorites_title">お気に入りのサービス</string>
+    <!-- Usage Strings -->
+    <string name="usage_title">使用状況</string>
+    <string name="usage_download">ダウンロード</string>
+    <string name="usage_upload">アップロード</string>
+    <!-- Settings -->
+    <string name="settings_protocol">プロトコル選択</string>
+    <string name="protocol_ovpn">OpenVPN</string>
+    <string name="protocol_wireguard">WireGuard</string>
+    <string name="wg_per_app_warning">WireGuardに切り替えると、アプリ別の設定機能がオフになります。</string>
+    <string name="wg_protocol_warning">WireGuardでは次の機能をご利用いただけます。</string>
+    <string name="wg_connecting">接続中</string>
+    <string name="wg_connected">VPN接続済み</string>
+    <string name="block_connections_body_1">PIAの「VPNなしで接続をブロック」機能を利用するには、Androidの「設定」で「VPNを常にオン」をオンにする必要があります。</string>
+    <string name="block_connections_body_2">続行するには、「設定」&gt;「ネットワークとインターネット」&gt;「高度な設定」&gt;「VPN」の順に進み、「設定」アイコンをタップして「VPNを常にオン」を有効にします。</string>
+    <string name="block_connections_button">ネットワークとインターネット設定に移動</string>
+    <string name="ks_removal_warning">キルスイッチがオンに設定されていることが検出されました。当社はWireGuardとOpenVPNの両方でAndroidの「VPN 以外の接続のブロック」設定を統合することで、この機能の動作を変更しました。保護された状態を継続するため「設定」で変更を確認してください。</string>
+    <string name="preference_on_boot_always_on">システム起動時に接続します。PNを「常にオン」に設定している場合は、この設定をオンに設定することが推奨されます。</string>
+    <string name="ovpn_cipher_removal_description">OpenVPNの導入を更新しています。詳細は、<b>こちら</b>をクリックしてご確認ください。</string>
+    <!-- Wireguard -->
+    <string name="tunnel_error_already_exists">トンネル「%s」はすでに存在します</string>
+    <string name="tunnel_error_invalid_name">無効な名前</string>
+    <string name="preview">プレビュー</string>
+    <!-- GEO Servers -->
+    <string name="geo_servers">ジオロケーション地域を表示</string>
+    <!-- Rating -->
+    <string name="rating_enjoy_title">PIA VPNを気に入っていただけていますか？</string>
+    <string name="rating_enjoy_message">VPN製品がお客様の期待にお応えできていれば幸いです。</string>
+    <string name="rating_review_title">Google Playでアプリをレビューしていただけますか？</string>
+    <string name="rating_review_message">使用した感想をシェアしていただければ幸いです</string>
+    <string name="rating_feedback_title">どのような問題が発生しましたか？</string>
+    <string name="rating_feedback_message">フィードバックを送信しますか？PIAの使用体験を改善するお手伝いをさせていただきます。</string>
+    <!-- Get Started Purchasing-->
+    <string name="getstarted_subscribe">今すぐサブスクリプションを購入</string>
+    <string name="getstarted_free_trial">7日間無料トライアルを開始</string>
+    <string name="getstarted_trial_price">トライアル後年額%s</string>
+    <string name="purchasing_email_reason">ユーザー名とパスワードを送信するためのメールアドレスを入力してください。</string>
+    <string name="purchasing_all_plans">利用可能なプランをすべて見る</string>
+    <string name="purchasing_login_receipt">購入領収書を使用してログイン</string>
+    <string name="purchasing_no_subscription">アクティブなサブスクリプションがありません</string>
+    <string name="purchasing_sure">操作を続けますか？</string>
+    <string name="purchasing_return">ホーム画面に戻りますか？いつでもサブスクリプション手続きを再開できます。再開するには、[ログイン] → [購入領収書を使用してログイン] をクリックしてください。</string>
+    <string name="purchasing_magic_link">魔法のメールリンクを使用してログイン</string>
+    <string name="purchasing_magic_send">リンクを送信</string>
+    <string name="magic_login_enter_email">メールアドレスを入力</string>
+    <string name="purchasing_magic_success">ログインリンクについては、メールを確認してください。</string>
+    <string name="connection_tile_header">接続</string>
+    <string name="connection_tile_tcp">TCP</string>
+    <string name="connection_tile_udp">UDP</string>
+    <!-- Update -->
+    <string name="settings_calling_header">最新情報</string>
+    <string name="update_3_7_1_header">WireGuard®を今すぐお試しください！</string>
+    <string name="update_3_7_1_description">より優れたパフォーマンス、より低いCPU使用率、およびより長いバッテリー寿命を提供する、新しくより効率的なVPNプロトコルです。</string>
+    <string name="update_3_7_1_cta_1">WireGuard®を今すぐ試す</string>
+    <string name="update_3_7_1_cta_2"><u>詳細</u></string>
+    <!-- Network Management -->
+    <string name="nmt_notification_title">自動化が有効です</string>
+    <string name="nmt_notification_description">VPNは切断されています</string>
+    <string name="nmt_secure_wifi">セキュアWi-Fi</string>
+    <string name="nmt_open_wifi">Wi-Fi</string>
+    <string name="nmt_mobile_data">モバイルデータ</string>
+    <string name="nmt_disconnect">常にVPNを切断</string>
+    <string name="nmt_connect">常にVPNに接続</string>
+    <string name="nmt_retain">VPN状態を保持</string>
+    <string name="nmt_manage_title">自動化を管理</string>
+    <string name="nmt_manage_description">Wi-Fiまたはセルラーネットワークに接続する際のPIAの動作を構成します。構成する動作には手動での切断は含まれません。\n\nこの機能は実験的な機能です。</string>
+    <string name="nmt_add_description">新しいルールを追加するWi-Fiネットワークを選択してください。</string>
+    <string name="nmt_rule_for">%sのルール</string>
+    <string name="nmt_remove_rule">ルールを削除</string>
+    <string name="nmt_add_new_rule">新しいルールを追加</string>
+    <string name="nmt_settings_title">自動化</string>
+    <string name="nmt_settings_description">信頼できるネットワークと信頼できないネットワークの自動接続ルールに対応するルールを設定します。\n\nこの機能は実験的な機能です。</string>
+    <string name="nmt_management_title">自動化を管理</string>
+    <string name="network_permisions_top_text">PIA VPNに位置情報サービスへのアクセス許可を与えます。これにより周囲のWi-Fiネットワークを検出できるようになります。</string>
+    <string name="network_permissions_middle_text">位置情報へのアクセス許可を求めるメッセージが表示されます。続行するには、「アプリ使用時」をタップします</string>
+    <string name="network_permission_network">弊社がネットワークの使用状況を監視したりフィルターしたり記録したりすることはありません。</string>
+    <string name="network_permission_button_allow">許可</string>
+    <string name="network_permissions_top_background">もうすぐ完了ですね！PIAのネットワーク管理機能を利用するには、バックグラウンドの位置情報サービスへのアクセスも必要です。</string>
+    <string name="network_permissions_middle_background">続行するには、「設定」&gt;「アプリ」&gt;「PIA」&gt;「アクセス許可」の順に進み、位置情報サービスへのバックグラウンドアクセスを有効にします。</string>
+    <string name="network_permissions_button_goto">アクセス許可設定に移動</string>
+    <!-- Dedicated IP -->
+    <string name="dip_menu_title">専用IP</string>
+    <string name="dip_description">下のフォームにトークンを貼り付けて、専用IPをアクティベートしてください。専用IPを購入したばかりの場合は、PIAウェブサイトにアクセスしてトークンを生成できます。</string>
+    <string name="dip_summary">選択した国の専用IPを使用して、あらゆるアセットへのリモート接続を保護しましょう。サブスクリプション中、このIPはあなただけのIPとなり、最も強力な暗号化でデータ転送を保護します。</string>
+    <string name="dip_your_header">お客様の専用IP</string>
+    <string name="dip_activate">アクティベート</string>
+    <string name="dip_remove_header">専用IPを削除</string>
+    <string name="dip_remove_body">%s - %sを削除しますか？</string>
+    <string name="dip_will_expire_warning">専用IPがまもなく期限切れとなります。</string>
+    <string name="dip_get_a_new_one">新しい専用IPを取得してください。</string>
+    <string name="dip_expired_warning">トークンの有効期限が切れています。ウェブサイトの「アカウント」ページで新しいトークンを生成してください。</string>
+    <string name="dip_updated_warning">専用IPが更新されました。</string>
+    <string name="dip_invalid">トークンが無効です。トークンが正しく入力されていることを確認してください。</string>
+    <string name="dip_success">専用IPが正常にアクティベートされました。これで専用IPが地域選択リストで利用できるようになります。</string>
+    <string name="dip_tag">専用IP</string>
+    <string name="dip_enter_token_hint">ここにトークンを貼り付けてください</string>
+    <!-- Inapp Messaging -->
+    <string name="inapp_pref_title">サービス通信メッセージを表示</string>
+    <string name="settings_updated">設定が更新されました</string>
+    <string name="hide_payment">技術的な問題により、Google Play経由での購入が現在無効になっています。現在当社はこの状況を解決するために取り組んでいます。\n\nサブスクリプション登録済みのアカウントをすでにお持ちの場合は、ログインボタンを押すとログインできます。</string>
+    <string name="settings_block_connections_title">PIAの「VPNキルスイッチ」機能を利用するには、Androidの「設定」で「VPNを常にオン」をオンにする必要があります。</string>
+    <string name="settings_block_connections_description">続行するには、「設定」&gt;「ネットワークとインターネット」&gt;「高度な設定」&gt;「VPN」の順に進み、「設定」アイコンをタップして<b>「VPNを常にオン」を有効にします。</b></string>
+    <string name="settings_block_connections_button">ネットワークとインターネット設定に移動</string>
+    <string name="settings_block_connections_error">ネットワーク設定に移動できません</string>
+    <!-- KPI -->
+    <string name="kpi_connection_attempts_onboarding_title">弊社のサービス改善にご協力ください</string>
+    <string name="kpi_connection_attempts_onboarding_body">弊社のサービスの接続パフォーマンス確保にご協力いただくには、接続データを匿名で弊社と共有してください。これらのレポートには、個人を特定できる情報は含まれません。</string>
+    <string name="kpi_connection_attempts_settings_title">PIAの改善に協力する</string>
+    <string name="kpi_connection_attempts_settings_body">VPN接続データを共有することにより、改善にご協力ください。これらのレポートには、個人を特定できる情報は含まれません。</string>
+    <string name="kpi_connection_attempts_settings_details">共有データを表示</string>
+    <string name="kpi_connection_attempts_no_events">最近のイベントはありません</string>
+    <string name="kpi_connection_attempts_stats">接続状態</string>
+    <string name="kpi_connection_attempts_more_information">この最小限の情報は、潜在的な接続の問題を特定して修正するのに役立ちます。この情報を共有するには、同意と手動による有効化が必要であることに注意してください（この設定はデフォルトでオフになっています）。弊社は次のイベントに関する情報を収集します:\n\n
+• 接続の試み\n
+• キャンセルされた接続\n
+• 確立された接続\n\n
+これらすべてののイベントについて、弊社は次の情報を収集します:\n\n
+• プラットフォーム\n
+• アプリのバージョン\n
+• アプリの種類（プレリリースか否か）\n
+• 使用されたプロトコル\n
+• 接続ソース（手動または自動を使用）\n\n
+すべてのイベントには、ランダムに生成される一意のIDが含まれます。このIDはユーザーアカウントに関連付けられているものではありません。この一意のIDは、プライバシー保護のために毎日再生成されます。\n\n
+主導権は常にお客様にあります。収集したデータは、設定から確認することができ、いつでもオフにすることができます。</string>
+    <!-- Renewal -->
+    <string name="renewal_title">おかえりなさい！</string>
+    <string name="renewal_description">Private Internet Accessのご利用を継続するには、サブスクリプションを更新する必要があります。</string>
+    <string name="renewal_button">今すぐ更新</string>
+    <string name="use_tcp">TCPを使用</string>
+    <string name="oneclickconnect">1クリックで接続</string>
+    <string name="startup_region_message_new_bold">7日間無料トライアル</string>
+    <string name="allow_locallan_on">ローカルネットワークへのアクセスが許可されます。いくつかのアプリ（Googleアプリなど）により、あなたの本当のIPが漏洩されたり報告されたりする場合があります。</string>
+    <string name="allow_locallan_off">ローカルネットワークへのアクセスがブロックされます</string>
+    <string name="block_locallan_off">ローカルネットワークへのアクセスが許可されます。いくつかのアプリ（Googleアプリなど）により、あなたの本当のIPが漏洩されたり報告されたりする場合があります。</string>
+    <string name="block_locallan_on">ローカルネットワークへのアクセスがブロックされます</string>
+    <string name="block_locallan">ローカルネットワークをブロック</string>
+    <string name="block_connection_wo_vpn">VPNなしで接続をブロック</string>
+    <string name="always_oreo_message">VPNなしで接続が行われないようにするため、お使いのAndroidの設定で「VPN 以外の接続のブロック」をオンに設定することを推奨しています。この設定は、PIAのVPNを「常にオン」に設定するとオンに設定できます。これにより、接続中、常にPIAのVPNを実行し、VPNなしの接続をブロックするため、Androidに最適な機能（すなわちVPNキルスイッチの機能）を発揮させることができます。8.0以降のAndroidにはこの機能が内蔵されているため、お使いのAndroidの設定のシステムレベルでの「VPN 以外の接続のブロック」の設定が導入され、PIA VPNアプリのキルスイッチの設定は廃止されています。問題がある場合は、問題が通知され、お使いのVPNを通過しないAndroidによってすべてのインターネット接続がブロックされます。</string>
+    <string-array name="dns_names">
+        <item>PIA DNS</item>
+        <item>カスタDNS</item>
+    </string-array>
+</resources>

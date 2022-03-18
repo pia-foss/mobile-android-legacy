@@ -1,0 +1,38 @@
+buildscript {
+    ext.kotlin_version = '1.5.31'
+    repositories {
+        google()
+        jcenter()
+        maven {
+            url 'https://maven.google.com/'
+            name 'Google'
+        }
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.1.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+allprojects{
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+        maven { url "https://jitpack.io" }
+        maven { url 'https://maven.google.com' }
+        maven {
+            url 'https://maven.google.com/'
+            name 'Google'
+        }
+    }
+}
+
+//only change those when updating support-library, target and compile versions.
+ext {
+    buildToolsVersion = '30.0.0'
+    supportLibVersion = '27.1.1'
+    targetSdkVersion = 30
+    compileSdkVersion = 30
+    minSdkVersion = 21
+}

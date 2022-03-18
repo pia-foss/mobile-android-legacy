@@ -1,0 +1,390 @@
+{
+  "groups": {
+    "ovpntcp": [
+      {
+        "name": "openvpn_tcp",
+        "ports": [
+          80,
+          443,
+          853,
+          8443
+        ]
+      }
+    ],
+    "ovpnudp": [
+      {
+        "name": "openvpn_udp",
+        "ports": [
+          8080,
+          853,
+          123,
+          53
+        ]
+      }
+    ],
+    "wg": [
+      {
+        "name": "wireguard",
+        "ports": [
+          1337
+        ]
+      }
+    ],
+    "ikev2": [
+      {
+        "name": "ikev2",
+        "ports": [
+          500,
+          4500
+        ]
+      }
+    ],
+    "proxysocks": [
+      {
+        "name": "socks",
+        "ports": [
+          1080
+        ]
+      }
+    ],
+    "proxyss": [
+      {
+        "name": "shadowsocks",
+        "ports": [
+          443
+        ]
+      }
+    ],
+    "meta": [
+      {
+        "name": "meta",
+        "ports": [
+          443,
+          8080
+        ]
+      }
+    ]
+  },
+  "regions": [
+    {
+      "id": "us_new_york_city",
+      "name": "New York",
+      "country": "US",
+      "auto_region": true,
+      "dns": "us-newyorkcity.privacy.network",
+      "port_forward": true,
+      "geo": false,
+      "offline": false,
+      "servers": {
+        "ovpnudp": [
+          {
+            "ip": "37.19.198.171",
+            "cn": "newyork405",
+            "van": false
+          },
+          {
+            "ip": "37.19.198.170",
+            "cn": "newyork405",
+            "van": false
+          },
+          {
+            "ip": "37.19.198.169",
+            "cn": "newyork405",
+            "van": false
+          },
+          {
+            "ip": "37.19.198.168",
+            "cn": "newyork405",
+            "van": false
+          },
+          {
+            "ip": "37.19.198.167",
+            "cn": "newyork405",
+            "van": false
+          },
+          {
+            "ip": "37.19.198.166",
+            "cn": "newyork405",
+            "van": false
+          },
+          {
+            "ip": "37.19.198.165",
+            "cn": "newyork405",
+            "van": false
+          },
+          {
+            "ip": "37.19.198.164",
+            "cn": "newyork405",
+            "van": false
+          },
+          {
+            "ip": "37.19.198.163",
+            "cn": "newyork405",
+            "van": false
+          }
+        ],
+        "ovpntcp": [
+          {
+            "ip": "37.19.198.171",
+            "cn": "newyork405",
+            "van": false
+          },
+          {
+            "ip": "37.19.198.170",
+            "cn": "newyork405",
+            "van": false
+          },
+          {
+            "ip": "37.19.198.169",
+            "cn": "newyork405",
+            "van": false
+          },
+          {
+            "ip": "37.19.198.168",
+            "cn": "newyork405",
+            "van": false
+          },
+          {
+            "ip": "37.19.198.167",
+            "cn": "newyork405",
+            "van": false
+          },
+          {
+            "ip": "37.19.198.166",
+            "cn": "newyork405",
+            "van": false
+          },
+          {
+            "ip": "37.19.198.165",
+            "cn": "newyork405",
+            "van": false
+          },
+          {
+            "ip": "37.19.198.164",
+            "cn": "newyork405",
+            "van": false
+          },
+          {
+            "ip": "37.19.198.163",
+            "cn": "newyork405",
+            "van": false
+          }
+        ],
+        "ikev2": [
+          {
+            "ip": "37.19.198.171",
+            "cn": "newyork405"
+          },
+          {
+            "ip": "37.19.198.170",
+            "cn": "newyork405"
+          },
+          {
+            "ip": "37.19.198.169",
+            "cn": "newyork405"
+          },
+          {
+            "ip": "37.19.198.168",
+            "cn": "newyork405"
+          },
+          {
+            "ip": "37.19.198.167",
+            "cn": "newyork405"
+          },
+          {
+            "ip": "37.19.198.166",
+            "cn": "newyork405"
+          },
+          {
+            "ip": "37.19.198.165",
+            "cn": "newyork405"
+          },
+          {
+            "ip": "37.19.198.164",
+            "cn": "newyork405"
+          },
+          {
+            "ip": "37.19.198.163",
+            "cn": "newyork405"
+          }
+        ],
+        "wg": [
+          {
+            "ip": "37.19.198.171",
+            "cn": "newyork405"
+          },
+          {
+            "ip": "37.19.198.170",
+            "cn": "newyork405"
+          },
+          {
+            "ip": "37.19.198.169",
+            "cn": "newyork405"
+          },
+          {
+            "ip": "37.19.198.168",
+            "cn": "newyork405"
+          },
+          {
+            "ip": "37.19.198.167",
+            "cn": "newyork405"
+          },
+          {
+            "ip": "37.19.198.166",
+            "cn": "newyork405"
+          },
+          {
+            "ip": "37.19.198.165",
+            "cn": "newyork405"
+          },
+          {
+            "ip": "37.19.198.164",
+            "cn": "newyork405"
+          },
+          {
+            "ip": "37.19.198.163",
+            "cn": "newyork405"
+          }
+        ],
+        "meta": [
+          {
+            "ip": "37.19.198.161",
+            "cn": "newyork405"
+          }
+        ]
+      }
+    },
+    {
+      "id": "de_berlin",
+      "name": "DE Berlin",
+      "country": "DE",
+      "auto_region": true,
+      "dns": "de-berlin.privacy.network",
+      "port_forward": true,
+      "geo": false,
+      "offline": false,
+      "servers": {
+        "ovpnudp": [
+          {
+            "ip": "154.13.1.29",
+            "cn": "berlin417",
+            "van": false
+          },
+          {
+            "ip": "154.13.1.58",
+            "cn": "berlin419",
+            "van": false
+          },
+          {
+            "ip": "154.13.1.6",
+            "cn": "berlin416",
+            "van": false
+          },
+          {
+            "ip": "154.13.1.149",
+            "cn": "berlin425",
+            "van": false
+          },
+          {
+            "ip": "154.13.1.94",
+            "cn": "berlin422",
+            "van": false
+          }
+        ],
+        "ovpntcp": [
+          {
+            "ip": "154.13.1.28",
+            "cn": "berlin417",
+            "van": false
+          },
+          {
+            "ip": "154.13.1.50",
+            "cn": "berlin419",
+            "van": false
+          },
+          {
+            "ip": "154.13.1.10",
+            "cn": "berlin416",
+            "van": false
+          },
+          {
+            "ip": "154.13.1.144",
+            "cn": "berlin425",
+            "van": false
+          },
+          {
+            "ip": "154.13.1.97",
+            "cn": "berlin422",
+            "van": false
+          }
+        ],
+        "ikev2": [
+          {
+            "ip": "154.13.1.21",
+            "cn": "berlin417"
+          },
+          {
+            "ip": "154.13.1.52",
+            "cn": "berlin419"
+          },
+          {
+            "ip": "154.13.1.11",
+            "cn": "berlin416"
+          },
+          {
+            "ip": "154.13.1.142",
+            "cn": "berlin425"
+          },
+          {
+            "ip": "154.13.1.102",
+            "cn": "berlin422"
+          }
+        ],
+        "wg": [
+          {
+            "ip": "154.13.1.29",
+            "cn": "berlin417"
+          },
+          {
+            "ip": "154.13.1.58",
+            "cn": "berlin419"
+          },
+          {
+            "ip": "154.13.1.15",
+            "cn": "berlin416"
+          },
+          {
+            "ip": "154.13.1.149",
+            "cn": "berlin425"
+          },
+          {
+            "ip": "154.13.1.94",
+            "cn": "berlin422"
+          }
+        ],
+        "meta": [
+          {
+            "ip": "154.13.1.3",
+            "cn": "berlin416"
+          },
+          {
+            "ip": "154.13.1.18",
+            "cn": "berlin417"
+          },
+          {
+            "ip": "154.13.1.48",
+            "cn": "berlin419"
+          },
+          {
+            "ip": "154.13.1.93",
+            "cn": "berlin422"
+          },
+          {
+            "ip": "154.13.1.138",
+            "cn": "berlin425"
+          }
+        ]
+      }
+    }
+  ]
+}

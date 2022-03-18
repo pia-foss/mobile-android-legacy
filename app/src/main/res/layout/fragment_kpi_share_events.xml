@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    android:background="@color/windowBackground" >
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/fragment_trial_logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="32dp"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/ic_consent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:text="@string/kpi_connection_attempts_onboarding_title"
+        style="@style/Style02" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="16dp"
+        android:text="@string/kpi_connection_attempts_onboarding_body"
+        style="@style/Style08" />
+
+    <TextView
+        android:id="@+id/fragment_kpi_share_events_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:text="@string/find_out_more"
+        android:textColor="@color/textColorPrimary"
+        style="@style/Style12" />
+
+    <Button
+        android:id="@+id/fragment_kpi_share_events_accept"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="32dp"
+        android:textAllCaps="true"
+        android:text="@string/accept"
+        style="@style/PiaxGreenButton" />
+
+    <Button
+        android:id="@+id/fragment_kpi_share_events_decline"
+        android:background="?attr/buy_account_button"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:textAllCaps="true"
+        android:text="@string/no_thanks"
+        style="@style/BuyAccountButton" />
+
+</LinearLayout>

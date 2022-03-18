@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <shortcut
+        android:shortcutId="connecttovpn"
+        android:enabled="true"
+        android:icon="@drawable/ic_protected"
+        android:shortcutShortLabel="@string/qs_title"
+        android:shortcutLongLabel="@string/qs_title"
+        android:shortcutDisabledMessage="@string/login">
+        <intent
+            android:action="com.privateinternetaccess.android.START_VPN_SHORTCUT"
+            android:targetPackage="com.privateinternetaccess.android"
+            android:targetClass="com.privateinternetaccess.android.ui.LauncherActivity"
+            >
+        </intent>
+    </shortcut>
+
+    <shortcut
+        android:shortcutId="changeServer"
+        android:enabled="true"
+        android:icon="@drawable/ic_drawer_region"
+        android:shortcutShortLabel="@string/change_server"
+        android:shortcutLongLabel="@string/change_server"
+        android:shortcutDisabledMessage="@string/login">
+        <intent
+            android:action="com.privateinternetaccess.android.CHANGE_VPN_SERVER"
+            android:targetPackage="com.privateinternetaccess.android"
+            android:targetClass="com.privateinternetaccess.android.ui.LauncherActivity"
+            >
+        </intent>
+
+    </shortcut>
+
+    <shortcut
+        android:shortcutId="settings"
+        android:enabled="true"
+        android:icon="@drawable/ic_drawer_settings"
+        android:shortcutShortLabel="@string/menu_settings"
+        android:shortcutLongLabel="@string/menu_settings"
+        android:shortcutDisabledMessage="@string/login"
+        >
+        <intent
+            android:action="com.privateinternetaccess.android.SETTINGS"
+            android:targetPackage="com.privateinternetaccess.android"
+            android:targetClass="com.privateinternetaccess.android.ui.LauncherActivity"
+            >
+        </intent>
+    </shortcut>
+</shortcuts>

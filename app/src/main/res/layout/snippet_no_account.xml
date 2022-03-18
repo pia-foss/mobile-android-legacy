@@ -1,0 +1,55 @@
+<!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textAppearance="@style/PiaTextBody1"
+            style="@style/PiaTextBody1Style"
+            android:id="@+id/fragment_login_buy"
+            android:clickable="true"
+            android:background="@drawable/shape_standard_background"
+            android:gravity="center"
+            android:focusable="true"
+            tools:text="Don't have an account? Buy now!"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/PiaBottomAlignedStyle"
+            android:clickable="true"
+            android:background="@drawable/shape_standard_background"
+            android:id="@+id/fragment_login_trial"
+            android:gravity="center"
+            android:focusable="true"
+            android:text="Have a gift card or trial card? Redeem Now"
+            />
+
+    </LinearLayout>
+</merge>

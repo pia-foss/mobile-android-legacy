@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="400dp"
+    android:height="400dp"
+    android:viewportWidth="400"
+    android:viewportHeight="400">
+
+    <!-- circle -->
+    <group android:name="main"
+        >
+        <path
+            android:fillColor="#29cb41"
+            android:pathData="M 250.45,233.00 C 246.41,239.26 241.09,244.92 235.00,249.22 226.74,255.04
+        216.91,258.15 207.00,259.57 200.76,260.47 195.16,260.00 189.00,258.92
+        148.51,251.80 128.19,206.66 147.32,171.00 156.78,153.36 172.88,143.97
+        192.00,140.44 243.20,133.88 278.36,189.81 250.45,233.00 Z M 198.50,195.00" />
+    </group>
+
+    <!-- inner circle -->
+    <group
+        android:name="innerCircle"
+        android:pivotX="200"
+        android:pivotY="200"
+        >
+        <path
+            android:fillColor="#44b1b1b1"
+            android:pathData="M 259.00,112.23 C 313.42,146.58 319.81,227.09 276.91,273.00 243.02,309.27
+        185.78,314.80 144.00,289.60 128.19,280.07 118.60,269.76 109.20,254.00
+        99.24,237.30 95.00,219.31 95.00,200.00 95.00,200.00 106.00,200.00 106.00,200.00
+        106.34,215.33 111.51,232.89 119.40,246.00 126.84,258.36 136.16,268.51
+        148.00,276.79 162.22,286.74 184.49,294.70 202.00,293.96 267.86,291.20
+        315.34,219.04 283.51,159.00 276.24,145.28 266.41,133.97 254.00,124.66
+        239.09,113.48 218.67,106.41 200.00,106.00 200.00,106.00 200.00,95.00
+        200.00,95.00 222.42,95.00 240.02,100.24 259.00,112.23 Z" />
+    </group>
+
+    <!-- outer circle -->
+    <group
+        android:name="outerCircle"
+        android:pivotX="200"
+        android:pivotY="200"
+        >
+        <path
+            android:fillColor="#009a18"
+            android:pathData="M 106.00,336.65 C 21.30,280.15 11.49,156.38 81.04,84.00 121.77,41.61
+        185.57,25.72 242.00,39.89 259.07,44.18 275.06,51.64 290.00,60.81 313.07,74.98
+        329.72,93.89 343.40,117.00 358.20,142.02 365.00,171.12 365.00,200.00
+        365.00,200.00 354.00,200.00 354.00,200.00 353.98,168.76 341.68,133.61
+        322.58,109.00 306.36,88.11 285.50,70.06 261.00,59.58 244.16,52.38 221.37,46.22
+        203.00,46.00 144.29,45.32 88.44,80.67 62.27,133.00 58.89,139.76 56.38,146.85
+        54.00,154.00 49.92,166.23 46.15,184.14 46.00,197.00 45.56,235.01 59.76,270.05
+        83.92,299.00 96.52,314.10 116.20,329.66 134.00,338.22 152.98,347.34
+        178.90,353.98 200.00,354.00 200.00,354.00 200.00,365.00 200.00,365.00
+        165.54,365.00 134.76,355.83 106.00,336.65 Z" />
+
+    </group>
+
+</vector>

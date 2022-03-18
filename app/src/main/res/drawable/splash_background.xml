@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:opacity="opaque" >
+
+    <item android:drawable="@color/account_details_background" />
+
+    <item
+        android:drawable="@drawable/map_bg"
+        android:width="396dp"
+        android:height="479dp"
+        android:gravity="center" />
+
+    <item
+        android:drawable="@drawable/ic_pia_logo"
+        android:width="200dp"
+        android:height="64dp"
+        android:gravity="center"/>
+
+</layer-list>

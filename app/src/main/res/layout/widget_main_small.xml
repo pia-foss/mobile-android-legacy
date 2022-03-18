@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:elevation="4dp"
+    >
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/widget_area_background"
+        android:src="@color/white"
+        android:scaleType="fitXY"
+        android:visibility="gone"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:weightSum="1.0"
+        android:id="@+id/widget_area"
+        android:clickable="true"
+        >
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/widget_image"
+                android:src="@drawable/flag_world"
+                android:paddingRight="5dp"
+                android:paddingBottom="5dp"
+                />
+            <ProgressBar
+                style="?android:attr/progressBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/widget_progress"
+                android:layout_gravity="center"
+                android:indeterminate="true"
+                android:visibility="gone"
+                />
+
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:id="@+id/widget_pia_logo"
+                android:src="@drawable/ic_robot_default"
+                android:layout_gravity="end|bottom"
+                android:paddingRight="-5dp"
+                />
+        </FrameLayout>
+
+        <TextView
+            android:text="@string/click_to_connect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/widget_top_text"
+            style="@style/PiaTextCaption"
+            android:paddingTop="5dp"
+            android:gravity="center"
+            android:visibility="gone"
+            />
+    </RelativeLayout>
+</FrameLayout>

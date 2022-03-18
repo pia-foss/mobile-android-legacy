@@ -1,0 +1,28 @@
+<!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="52dp"
+    android:height="59dp"
+    android:viewportWidth="52"
+    android:viewportHeight="59">
+  <path
+      android:pathData="M23.38,57c0,1.107 1.117,2 2.5,2 1.385,0 2.5,-0.893 2.5,-2h-5zM19.38,53c0,1.148 1.117,2 2.364,2h8.273c1.247,0 2.363,-0.852 2.363,-2h-13zM19.38,50h13v-2h-13v2zM45.548,25c-0.645,0 -1.168,0.447 -1.168,1 0,0.553 0.523,1 1.167,1h4.667c0.645,0 1.166,-0.447 1.166,-1 0,-0.553 -0.52,-1 -1.166,-1h-4.666zM1.548,25C0.901,25 0.38,25.447 0.38,26c0,0.553 0.521,1 1.167,1h4.665c0.646,0 1.167,-0.447 1.167,-1 0,-0.553 -0.52,-1 -1.167,-1L1.548,25zM22.05,15.002h0.02a0.513,0.513 0,0 1,0.096 0,1.211 1.211,0 0,1 1.195,0.976 1.176,1.176 0,0 1,-0.777 1.313c-2.976,1.085 -5.21,3.635 -5.78,6.738 -0.121,0.642 -0.757,1.07 -1.42,0.95 -0.664,-0.116 -1.104,-0.732 -0.982,-1.374 0.722,-3.93 3.533,-7.133 7.306,-8.511a1.27,1.27 0,0 1,0.343 -0.092zM25.88,11c-7.367,0 -14.5,5.744 -14.5,13.87 0,10.54 7.854,12.75 7.854,20.13h13.292c0,-7.38 7.854,-9.59 7.854,-20.13 0,-8.126 -7.132,-13.87 -14.5,-13.87zM43.14,7c-0.318,0 -0.632,0.126 -0.874,0.369l-3.52,3.518a1.23,1.23 0,0 0,0 1.749,1.234 1.234,0 0,0 1.75,0l3.52,-3.518a1.231,1.231 0,0 0,0 -1.75A1.235,1.235 0,0 0,43.142 7zM8.62,7c-0.318,0 -0.631,0.126 -0.874,0.369a1.23,1.23 0,0 0,0 1.749l3.52,3.518a1.235,1.235 0,0 0,1.75 0,1.231 1.231,0 0,0 0,-1.75L9.497,7.37a1.233,1.233 0,0 0,-0.876 -0.37zM25.38,0c-0.552,0 -1,0.52 -1,1.167v4.666c0,0.646 0.448,1.167 1,1.167 0.553,0 1,-0.521 1,-1.167L26.38,1.167c0,-0.646 -0.447,-1.167 -1,-1.167z"
+      android:fillColor="#4CB649"
+      android:fillType="evenOdd"/>
+</vector>

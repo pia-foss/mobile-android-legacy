@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+<resources>
+    <string name="launcher_name">خدمة VPN من PIA</string>
+    <string name="app_name">VPN من Private Internet Access</string>
+    <string name="menu_settings">الإعدادات</string>
+    <string name="menu_settings_general">عام</string>
+    <string name="menu_settings_protocols">البروتوكولات</string>
+    <string name="menu_settings_network">الشبكة</string>
+    <string name="menu_settings_privacy">الخصوصية</string>
+    <string name="menu_settings_automation">الأتمتة</string>
+    <string name="menu_settings_obfuscation">التشويش</string>
+    <string name="menu_settings_help">المساعدة</string>
+    <!-- Please keep the %s, this is a formatted text. %s is a port number (ei 1024) -->
+    <string name="rportsummary">استخدام المنفذ %s للاتصال</string>
+    <!-- Please keep the %s, this is a formatted text. %s is a port number (ei 1024) -->
+    <string name="lportsummary">استخدام المنفذ المحلي %s للاتصال</string>
+    <string name="lportrandom">استخدام المنفذ العشوائي %s للاتصال</string>
+    <string name="server_selection">تحديد الخادم</string>
+    <string name="auto_rport">استخدام تحديد المنفذ تلقائيًا</string>
+    <string name="automatic_server_selection_main">تلقائي</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is a server location (ei London, Berlin) -->
+    <string name="automatic_server_selection_main_region">تلقائي (%1$s)</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is an IP (ei 126.0.1.10)  -->
+    <string name="prompt_login">بمعنى p1234567</string>
+    <string name="use_udp_summary">سيتم استخدام بروتوكول UDP للاتصال</string>
+    <string name="use_tcp_summary">سيتم استخدام بروتوكول TCP للاتصال</string>
+    <string name="transport">النقل</string>
+    <string name="select_port">حدِّد منفذ الاتصال بـ privateinternetaccess.com</string>
+    <string name="remote_port">منفذ بعيد</string>
+    <string name="remote_port_cap">المنفذ المعاد توجيهه</string>
+    <string name="remote_port_vpn_ip">VPN IP</string>
+    <string name="local_port">منفذ محلي</string>
+    <string name="find_out_more"><u>معرفة المزيد</u></string>
+    <string name="connect_onstart_title">اتصال عند البدء</string>
+    <string name="connect_onstart">اتصال عند بدء التطبيق</string>
+    <string name="connect_on_boot">تشغيل عند بدء النظام</string>
+    <string name="portforwarding">طلب إعادة توجيه المنافذ</string>
+    <string name="portforwarding_summary">سيسمح بالاتصالات الواردة إلى جهازك المحمول من خلال منفذ خارجي</string>
+    <!-- Please keep the %s, this is a formatted text. %s is an error message.  -->
+    <string name="portfwderror">خطأ في طلب إعادة توجيه المنفذ: %s</string>
+    <string name="mace_toggle">تطبيق حظر الإعلانات Mace</string>
+    <string name="killswitch">مفتاح إيقاف VPN</string>
+    <string name="killswitchsummary">يقطع اتصالك بالإنترنت عند عند قطع اتصال VPN.</string>
+    <string name="killswitchtext">تم تمكين مفتاح إغلاق الإنترنت</string>
+    <string name="killswitchstatus_description">لا يسمح مفتاح إغلاق الإنترنت بأنشطة الإنترنت غير المحمية. انتظر إعادة الاتصال، اتصل بخدمة VPN الخاصة بنا أو قم بتعطيل مفتاح إغلاق الإنترنت لاستعادة إمكانية الاتصال بالإنترنت.</string>
+    <string name="requestingportfw">جارٍ طلب المنفذ المعاد توجيهه...</string>
+    <string name="killswitch_button">تعطيل</string>
+    <string name="action_sign_in_short">تسجيل الدخول</string>
+    <string name="login">تسجيل الدخول</string>
+    <string name="logout">تسجيل الخروج</string>
+    <string name="accept">قبول</string>
+    <string name="no_thanks">لا، شكرًا</string>
+    <string name="read_more"><u>قراءة المزيد</u></string>
+    <string name="state_gen_config">جارٍ إنشاء التكوين</string>
+    <string name="user_pw_invalid">اسم المستخدم/كلمة المرور غير صحيحة</string>
+    <string name="replace_login_title">استبدال معلومات تسجيل الدخول</string>
+    <!-- Please keep the %1$s %2$s, this is a formattered text. %1$s %2$s are usernames.  -->
+    <string name="replace_login_msg">استبدال معلومات تسجيل الدخول بمعلومات تسجيل الدخول الجديدة؟ (اسم المستخدم الجديد: %1$s واسم المستخدم القديم: %2$s)</string>
+    <string name="subscription_expires_in">ينتهي اشتراكك في</string>
+    <string name="subscription_expired">اشتراكك</string>
+    <string name="per_app_settings">الإعدادات لكل تطبيق</string>
+    <string name="tv_per_app_settings">الإعدادات لكل تطبيق</string>
+    <string name="help_improve_pia">المساعدة في تحسين PIA</string>
+    <string name="username_password_already_saved">تم حفظ اسم المستخدم وكلمة المرور من قبل!</string>
+    <string name="invalid_email_signup">يجب عليك إدخال بريد إلكتروني صحيح</string>
+    <string name="buyvpn_url_localized">https://www.privateinternetaccess.com/pages/buy-vpn/</string>
+    <string name="localport_warning">يجب أن يكون المنفذ المحلي بين 1024 و65535</string>
+    <string name="notanumber_localport">صيغة رقم المنفذ المحلي غير صحيحة</string>
+    <string name="notanumber_proxyport">صيغة رقم غير قانونية لمنفذ البروكسي</string>
+    <string name="thankyou_monthly">نشكرك على التسجيل في خدمة VPN الشهرية!</string>
+    <string name="thankyou_yearly">نشكرك على التسجيل في خدمة VPN السنوية!</string>
+    <string name="purchase_signing_up">جارٍ التسجيل...</string>
+    <string name="purchase_loading">جارٍ التحميل</string>
+    <string name="logout_confirmation">تأكيد تسجيل الخروج</string>
+    <string name="logout_confirmation_text">سيؤدي تسجيل الخروج إلى إنهاء اتصال VPN نشط، ويتركك بدون حماية</string>
+    <string name="expiry_notification_title">سينتهي اشتراكك قريبًا.</string>
+    <string name="expiry_notification_onnemonth">متبقي لديك أقل من شهر. جدِّد اشتراكك لتبقى محميًا.</string>
+    <string name="expiry_notification_oneweek">متبقي لديك أقل من أسبوع. جدِّد اشتراكك لتبقى محميًا.</string>
+    <string name="expirty_notification_threedays">متبقي لديك أقل من ثلاثة أيام. جدِّد اشتراكك لتبقى محميًا.</string>
+    <string name="expirty_notification_oneday">متبقي لديك أقل من يوم. جدِّد اشتراكك لتبقى محميًا.</string>
+    <string name="error_renew_trial">الحسابات التجريبية غير مخولة للتجديد. يرجى إنشاء حساب جديد بعد انتهاء الفترة التجريبية للاستمرار في استخدام الخدمة.</string>
+    <string name="error_renew_expired">حساب غير نشط ولا يقبل المدفوعات الجديدة. قم بإنشاء حساب جديد من خلال تسجيل الخروج وإعادة التسجيل.</string>
+    <string name="pending_purchase_found">تم العثور على عملية شراء معلقة من داخل التطبيق. سجِّل الدخول لتجديد اشتراكك الحالي.</string>
+    <string name="account_not_renewable">لا يمكن تجديد حسابك أو تم جديده تلقائيًا</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is an error message.  -->
+    <string name="error_subscribing">"خطأ في الشراء: %1$s "</string>
+    <string name="error_active_subscription">لديك اشتراك نشط بالفعل!</string>
+    <string name="error_invalid_auth">حدث خطأ. يرجى محاولة تسجيل الدخول مرة أخرى.</string>
+    <string name="usemssfix">سيخفض حجم حزمة IP قليلًا لتحسين التوافق مع بعض أنواع الموجهات وشبكات الجوَّال.</string>
+    <string name="mssfixsummary">استخدم حزم صغيرة</string>
+    <string name="settings_account_bottom_text">احصل على تطبيق Private Internet Access لأجهزتك الأخرى واستخدم اسم المستخدم الموجود أعلاه لتسجيل الدخول وتأمين اتصالك.</string>
+    <string name="settings_account_bottom_text_4">احصل على تطبيق Private Internet Access لأجهزتك الأخرى واستخدم اسم المستخدم وكلمة المرور الموجودين أعلاه لتسجيل الدخول وتأمين اتصالك.</string>
+    <string name="update_email">تحديث البريد الإلكتروني</string>
+    <string name="email_sucessfully_changed">تم تغيير البريد الإلكتروني بنجاح</string>
+    <string name="copy_toast_text">تم نسخ النص إلى الحافظة</string>
+    <string name="current_region">المنطقة الحالية</string>
+    <string name="full_licenses">تراخيص كاملة</string>
+    <string name="email">البريد الإلكتروني</string>
+    <string name="please_wait">يرجى الانتظار</string>
+    <string name="still_connecting">قيد محاولة الاتصال</string>
+    <string name="enabled">ممكّن</string>
+    <string name="disabled">معطّل</string>
+    <string name="account_details_password_bottom_text">اضغط \"عين\" لإظهارها. اضغط مرة أخرى لنسخ كلمة المرور إلى الحافظة.</string>
+    <string name="user_x_vs_p_error">يرجى التأكد من تسجيل دخولك باسم المستخدم الرئيسي، والذي يجب أن يبدأ بـ \"P\" (مثال: p12345)</string>
+    <string name="vpn_revoke_text">تم إلغاء الإذن من خدمة VPN من PIA. خدمة VPN وInternet killswitch والحماية غير نشطين. يرجى الضغط هنا لإعادة تشغيل هذه الخدمة وتأمين اتصالك بالإنترنت.</string>
+    <string name="vpn_revoke_title">تم إيقاف خدمة VPN من PIA</string>
+    <!-- Please keep the % elements, this is a formatted text. %1$s is Private Internet Access, %2$s is version number(ei 1.4), %3$s is the version code (ei 114)  -->
+    <string name="login_operation_failed">تعذَّر تسجيل الدخول. يرجى إعادة المحاولة لاحقًا.</string>
+    <string name="no_internet_connection_available">لا يوجد اتصال بالإنترنت متاح</string>
+    <string name="no_username_or_password">يجب إدخال اسم المستخدم وكلمة المرور</string>
+    <string name="please_unlock_your_device">يرجى فتح قفل جهازك</string>
+    <string name="please_unlock_your_device_message">لعرض كلمة المرور أو تحديث معلومات حسابك.</string>
+    <string name="settings_mace">™PIA MACE</string>
+    <string name="settings_mace_summary">سيحظر الإعلانات والمتعقبين والبرامج الضارة أثناء اتصالك بخدمة VPN</string>
+    <string name="qs_title">اتصال بـ PIA</string>
+    <string name="not_logged_in">لم يتم تسجيل الدخول</string>
+    <!-- Please keep the %s, this is a formatted text. %s is a server name.  -->
+    <string name="qs_disconnect">قطع اتصال VPN (%s)</string>
+    <string name="qs_disconnect_nolocation">قطع اتصال VPN</string>
+    <string name="menu_about">نبذة</string>
+    <string name="reconnect_vpn">إعادة اتصال خدمة VPN لتطبيق هذا التغيير</string>
+    <string name="reconnect">إعادة الاتصال</string>
+    <string name="later">لاحقًا</string>
+    <string name="error_account_info">تعذَّر العثور على معلومات الحساب</string>
+    <string name="error_pinging_while_connected">يتعذر تحديث زمن الانتقال أثناء الاتصال بشبكة VPN</string>
+    <string name="allows_port_forwarding">سماح بإعادة توجيه المنافذ</string>
+    <string name="about_privacy_policy">سياسة الخصوصية</string>
+    <string name="version">الإصدار</string>
+    <string name="application_information">معلومات التطبيق</string>
+    <string name="data_encyrption">تشفير البيانات</string>
+    <string name="data_auth">مصادقة البيانات</string>
+    <string name="handshake">مصافحة</string>
+    <string name="dismiss">رفض</string>
+    <string name="recent_changes">التغييرات الأخيرة</string>
+    <string name="refresh">تحديث</string>
+    <string name="open_in_browser">فتح في المتصفح</string>
+    <string name="copy_link">نسخ الرابط</string>
+    <string name="text_failed_to_copy">تعذَّر نسخ النص</string>
+    <string name="link_copied_to_clipboard">تم نسخ الرابط إلى الحافظة</string>
+    <string name="search_apps">بحث في التطبيقات</string>
+    <string name="account_trail">تجريبي</string>
+    <string name="account_yearly">سنويًا</string>
+    <string name="account_montly">شهريًا</string>
+    <string name="account_termination">تم إنهاء حسابك</string>
+    <string name="preference_connection">الاتصال</string>
+    <string name="preference_encryption">التشفير</string>
+    <string name="vpn_stop">إيقاف</string>
+    <string name="change_server">تغيير الخادم</string>
+    <string name="click_to_connect">اضغط للاتصال</string>
+    <string name="widget_long_title">اتصال مستطيل</string>
+    <string name="widget_square_connect">اتصال مربع</string>
+    <string name="widget_small_connect">اتصل صغير</string>
+    <string name="mace_enabled">تم تمكين MACE</string>
+    <string name="send_debug_log">إرسال سجل التصحيح للدعم</string>
+    <!-- Please keep the %s, this is a formatted text. %s is an error message.  -->
+    <string name="failure_sending_log">تعذّر إرسال سجلات التصحيح: %s</string>
+    <string name="log_send_done_title">تم إرسال معلومات تتبع الأخطاء.</string>
+    <string name="log_send_done_msg">تم إرسال معلومات تتبع الأخطاء بنجاح.\nالمعرف: %s\nيرجى تدوين هذا المعرف، حيث أن فريق الدعم سيحتاجه لتحديد ما أرسلته.</string>
+    <string name="sending_debug_log">جارٍ إرسال معلومات تتبع الأخطاء…</string>
+    <string name="nought_always_on_warning">إذا لم تحصل على حوار تأكيد VPN، قد يكون لديك خيار \"دائما على VPN\" قد تم تمكينه لأجل تطبيق آخر. في هذه الحالة يسمح فقط لذلك التطبيق بالاتصال بخدمة VPN. ألقِ نظرة تحت الإعدادات -&gt; مزيد من الشبكات .. -&gt; VPNs &gt;</string>
+    <string name="open_settings">فتح الإعدادات</string>
+    <string name="settings_widget_configuration">تكوين عنصر الواجهة</string>
+    <string name="preferences_widget_title">إعدادات عنصر الواجهة</string>
+    <string name="preferences_widget_summary">خصص عناصر واجهتك لتعمل مع شاشتك الرئيسية</string>
+    <string name="widget_flag_alpha">إبلاغ ألفا</string>
+    <string name="widget_background">لون الخلفية</string>
+    <string name="widget_color">لون النص</string>
+    <string name="widget_cc">مركز أوامر PIA</string>
+    <string name="clear">مسح</string>
+    <string name="save">حفظ</string>
+    <string name="saved">تم الحفظ</string>
+    <string name="speeds_shown_are_all_traffic_over_our_connection">السرعات المعروضة هي حركة المرور عبر اتصال VPN الخاصة بك</string>
+    <string name="ip_short">IP عمومي</string>
+    <string name="login_throttled_text">لقد أجريت الكثير من المحاولات الفاشلة باسم المستخدم هذا. يرجى إعادة المحاولة لاحقًا.</string>
+    <string name="tap_to_connect">اضغط للاتصال</string>
+    <string name="building_configration">جارٍ إنشاء التكوين…</string>
+    <!-- Please keep the %1$d, this is a formatted text. %1$d is a number (ei 1-31) -->
+    <string name="days_left">%d أيام</string>
+    <string name="one_day_left">يوم واحد</string>
+    <!-- Please keep the %1$d, this is a formatted text. %1$d is a number (ei 1-31) -->
+    <string name="hours_left">%d ساعات</string>
+    <string name="one_hour_left">ساعة واحدة</string>
+    <!-- Please keep the %1$d, this is a formatted text. %1$d is a number (ei 1-31) -->
+    <string name="minutes_left">%d دقائق</string>
+    <string name="one_minute_left">دقيقة واحدة</string>
+    <string name="timeleft_expired">منتهي</string>
+    <string name="sign_in_to_your_account">سجل الدخول إلى حسابك</string>
+    <string name="username_only">اسم المستخدم</string>
+    <string name="submit">إرسال</string>
+    <string name="please_enter_your_email_address">يرجى إدخال عنوان بريدك الإلكتروني</string>
+    <string name="select_vpn_plan">حدد خطة VPN</string>
+    <string name="_7_day_money_back_guarantee">ضمان استرداد المال لمدة 30 يوم</string>
+    <string name="monthly">شهريًا</string>
+    <string name="yearly">سنويًا</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is a currency (ei 1-31) -->
+    <string name="yearly_sub_text">%1$s في السنة</string>
+    <string name="forgot_password">نسيت كلمة المرور</string>
+    <string name="tap_to_disconnect">اضغط لقطع الاتصال</string>
+    <string name="drawer_account">الحساب</string>
+    <string name="drawer_refer_friend">إحالة صديق</string>
+    <string name="drawer_region_selection">تحديد المنطقة</string>
+    <string name="drawer_about">نبذة</string>
+    <string name="drawer_home_page">الصفحة الرئيسية</string>
+    <string name="drawer_contact_support">الاتصال بالدعم</string>
+    <string name="n_a_port_forwarding">---</string>
+    <!-- This string is going to be formatted by us so the "Buy now" is colored green. Please do not change the &lt;emph> or &lt;/emph> as that is formatting for us to find the buy now text. -->
+    <string name="dont_have_an_account">لا تمتلك حساب؟ &lt;emph&gt;اشترِ الآن&lt;/emph&gt;</string>
+    <string name="buy_now">اشترِ الآن!</string>
+    <string name="buy_now_button">اشترِ الآن</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is a currency (ei 1-31) -->
+    <string name="purchasing_monthly_ending">%1$s / شهر</string>
+    <!-- Please keep the %1$s %2$s, this is a formatted text. %1$s is a currency (ei 1-31), %2$s is the currency (move this in front or keep it there depending on currency -->
+    <string name="purchasing_yearly_month_ending">%2$s%1$s / شهر</string>
+    <string name="change_region">تغيير المنطقة</string>
+    <!--Please keep the %1$s, this is a formatted text. %1$s is the up and down speeds on the connection. /s is per second-->
+    <string name="graph_under_formatting">%1$s/ث</string>
+    <string name="allowed_apps_protected_text">احمي التطبيقات تلقائيًا باستخدام خدمة VPN من PIA</string>
+    <string name="allowed_apps_unprotected_text">اختر التطبيقات التي تستخدم VPN من PIA</string>
+    <string name="allowed_apps_spotlight_text">يبدل بين التطبيقات التي تستخدم أو لا تستخدم VPN من PIA افتراضيًا.</string>
+    <string name="allowed_apps_spotlight_title">تبديل لكل تطبيق</string>
+    <string name="toast_allowed_apps_default_positive">التطبيقات التي تستخدم VPN من PIA افتراضيًا</string>
+    <string name="toast_allowed_apps_default_negative">التطبيقات التي لا تستخدم VPN من PIA افتراضيًا</string>
+    <!-- Please keep %1$s %2%s as those are formatted numbers. %1$s is a version number like 2.0, %2$s is the version code like 141 -->
+    <string name="drawer_version">الإصدار %1$s (%2$s)</string>
+    <string name="cancel">إلغاء</string>
+    <!-- Keep the <![CDATA[...]], translate everything in between-->
+    <string name="settings_port_number_restriction"><![CDATA[يجب أن يكون رقم المنفذ بين 1024 و65535]]></string>
+    <!-- Keep the <![CDATA[...]], translate everything in between-->
+    <string name="settings_lport_hint"><![CDATA[المنفذ بين 1024 و65535]]></string>
+    <string name="startup_region_title">اتصل بأي منطقة بسهولة</string>
+    <string name="startup_region_message">مع خوادم في جميع أنحاء العالم، أنت دائما محميًا.</string>
+    <string name="startup_region_message_new">مع وجود خوادم في جميع أنحاء العالم، فأنت محميّ دائمًا. ابدأ الفترة التجريبية المجانية لمدة 7 أيام ثم %s في السنة.</string>
+    <string name="startup_region_footer"><a href="privacy:">سياسة الخصوصية</a> و<a href="terms:">شروط الخدمة</a></string>
+    <string name="startup_region_header">Private Internet Access</string>
+    <string name="startup_ads_title">احمي نفسك من الإعلانات</string>
+    <string name="startup_ads_message">تمكين ميزة PIA MACE يمنع الإعلانات من الظهور أينما كنت.</string>
+    <string name="startup_connection_title">حماية لكل تطبيق</string>
+    <string name="startup_connection_message">خصّص تجربتك عن طريق التحكم في التطبيقات التي تعمل من عليها خدمتنا (مطلوب Android 5.0 أو أعلى).</string>
+    <string name="speed_graph">الأداء</string>
+    <string name="data_usage_over_time">استخدام البيانات على مدار الوقت</string>
+    <!-- Please add in what word is the color red as we color it in code.  -->
+    <string name="per_app_warning">تحتوي التطبيقات الملونة باللون الأحمر على بعض الميزات التي يمكن أن تسبب مشكلات قد يتم فيها الالتفاف على خدمتنا أو قد تسبب ترك أجهزتك عرضة للإصابة.</string>
+    <string name="purchasing_bottom">هل لديك حساب؟ &lt;emph&gt; سجل الدخول&lt;/emph&gt;</string>
+    <string name="ok">موافق</string>
+    <string name="killswitch_title">تم تنشيط خدمة إغلاق الإنترنت</string>
+    <string name="skip">تخطي</string>
+    <string name="next">التالي</string>
+    <string name="done">تم</string>
+    <string name="update_account">تحديث الحساب</string>
+    <string name="local_port_titla">منفذ محلي</string>
+    <string name="connection_couldnt_establish_title">تعذّر تأسيس اتصال</string>
+    <string name="connection_couldnt_establish_message">يمكنك محاولة تحديد منطقة مختلفة أو إعلامنا بها عن طريق فتح تذكرة دعم</string>
+    <string name="send_feedback">إرسال ملاحظات</string>
+    <string name="preference_application_settings">الإعدادات العامة</string>
+    <string name="preference_vpn_settings">إعدادات VPN</string>
+    <string name="preference_haptic_title">الاستجابة اللمسية</string>
+    <string name="preference_dialog_graph_title">حدد وحدة القياس في الرسم البياني</string>
+    <string name="preference_connect_on_boot_summary">اتصال عند بدء تشغيل النظام</string>
+    <string name="preference_haptic_feedback_summary">اهتزاز عند النقر على الاتصال</string>
+    <string name="best_value">أفضل قيمة - تجربة مجانية</string>
+    <string name="port_number">رقم المنفذ</string>
+    <!-- Please keep the %s, this is a formatted text. %1$s is an app name -->
+    <string name="allowed_apps_toast_removed">سيتم حماية %1$s</string>
+    <!-- Please keep the %s, this is a formatted text. %1$s is an app name -->
+    <string name="allowed_apps_toast_added">لن يتم حماية %1$s</string>
+    <string name="shorthand_bytecount">%2$s %1$s</string>
+    <string name="preference_widget_icon_upload_title">تحميل لون الأيقونة</string>
+    <string name="preference_widget_icon_download_title">تنزيل لون الأيقونة</string>
+    <string name="preference_graph_unit">وحدة الرسم البياني</string>
+    <string name="no">لا</string>
+    <string name="color_picker_dialog_title">حدّد لون</string>
+    <string name="username_example">اسم المستخدم (بمعنى p1234567)</string>
+    <string-array name="preference_graph_titles">
+        <item>بت</item>
+        <item>بايت</item>
+        <item>كيلوبت</item>
+        <item>كيلوبايت</item>
+        <item>ميغابت</item>
+        <item>ميغابايت</item>
+        <item>غيغابت</item>
+        <item>غيغابايت</item>
+    </string-array>
+    <!-- Logic in code uses the first and last letter to decide the unit to change the graph too. Be care what to use-->
+    <string name="channel_name_background">إحصاءات الاتصال</string>
+    <string name="channel_description_background">الإحصاءات الجارية من PIA VPN التي تم إنشاؤها</string>
+    <string name="channel_name_status">تغييرات حالة الاتصال</string>
+    <string name="channel_description_status">تغييرات حالة PIA VPN (الاتصال، المصادقة،...)</string>
+    <string name="no_internet_click_here">لم يتم العثور على اتصال بالإنترنت للحصول على الأسعار. اضغط هنا لتحديث العرض.</string>
+    <string name="failure_to_connect_alert">فشل الاتصال بخوادمنا أو خوادم Google. يرجى الاتصال بالإنترنت.</string>
+    <string name="blockipv6_summary">استخدم طريقة بديلة لمنع تسرب IPv6. مطلوب لمنع تسرب IPv6 على أندرويد &lt;5.0.</string>
+    <string name="blockipv6">حجب IPv6 العدواني</string>
+    <string name="purchase_renew_title">شراء حساب جديد</string>
+    <string name="purchase_renew_message">حسابك غير مخول للتجديد. يرجى شراء حساب جديد للاستمرار في استخدام الخدمة.</string>
+    <string name="purchase">شراء</string>
+    <string name="purchase_complete">تم الشراء</string>
+    <string name="purchase_complete_message">شضكراً على اشتراكك معنا. لقد أرسلنا اسم المستخدم وكلمة المرور الخاصين بك إلى بريدك الإلكتروني %1$s</string>
+    <string name="password_only">كلمة المرور</string>
+    <string name="account_creation_failure">فشل إنشاء الحساب</string>
+    <string name="account_creation_failure_message">يتعذر علينا حالياً إنشاء حسابك. لقد أنشأنا لك بطاقة دعم تحميل المعرّف %1$s، وسيتواصل معك مندوب الدعم قريباً عبر البريد الإلكتروني. يمكنك أيضاً محاولة إعادة تشغيل التطبيق في وقت لاحق لإنهاء العملية.</string>
+    <string name="get_started">كيف تبدأ</string>
+    <string name="no_internet_message">لم يتم العثور على اتصال بالإنترنت. يرجى التأكد من اتصالك بالإنترنت وضغط زر إعادة المحاولة أدناه.\n\nيمكنك العودة إلى التطبيق في وقت لاحق لإنهاء العملية.</string>
+    <string name="no_internet_title">أوبس!</string>
+    <string name="retry">إعادة المحاولة</string>
+    <string name="go_to_login">انتقل إلى تسجيل الدخول</string>
+    <string name="unable_change_email">لم نتمكن من تغيير بريدك الإلكتروني. يرجى معاودة المحاولة في وقت لاحق.</string>
+    <string name="preference_reset_settings">إعادة تعيين إلى الإعدادات الافتراضية</string>
+    <string name="pref_reset_settings">إعادة تعيين الإعدادات؟</string>
+    <string name="pref_reset_settings_message">سيؤدي هذا الإجراء إلى عودة التطبيق إلى حالته الافتراضية وستفقد كل التغييرات التي أجريتها.</string>
+    <string name="reset">إعادة تعيين</string>
+    <string name="settings_reset">تم إعادة تعيين الإعدادات</string>
+    <string name="widget_radius">نصف قطر عنصر الواجهة</string>
+    <string name="widget_text">عنصر واجهة نصي</string>
+    <string name="account_creation_failure_message_no_ticket_id">يتعذر علينا إنشاء حساب في الوقت الحالي. يرجى إعادة المحاولة لاحقًا. \n\nعند إعادة فتح التطبيق سيتم إعادة محاولة إنشاء حساب.</string>
+    <string name="try_again">أعد المحاولة</string>
+    <string name="default_base">الافتراضي</string>
+    <string name="confirm_purchase">تأكيد الشراء</string>
+    <string name="purchase_failed">تعذر الشراء</string>
+    <string name="confirming_purchase">جارٍ تأكيد عملية الشراء مع نظامنا. يمكن أن يستغرق ذلك لحظة لذلك انتظر قليلًا.</string>
+    <!-- %1$d and %2$d are numbers. Example of this string would be Attempt 1 of 5, 2 of 5, 3 of 5. -->
+    <string name="attempt">محاولة %1$d من %2$d</string>
+    <string name="piaaccountneeded">تحتاج إلى حساب على privateinternetaccess.com لتسجيل الدخول</string>
+    <string name="piaaccountneeded_samsung">يرجى زيارة privateinternetaccess.com للتسجيل في هذه الخدمة.</string>
+    <string name="piaaccountneeded_amazon">يرجى زيارة privateinternetaccess.com للتسجيل في هذه الخدمة.</string>
+    <string name="vpn_permisions_top_text">يحتاج PIA إلى الوصول إلى تكوينات VPN لتأمين حركة مرورك</string>
+    <string name="vpn_permissions_middle_text">سترى مطالبة من PIA VPN وتحتاج إلى السماح بالوصول إلى تكوينات VPN. للمتابعة اضغط على \"موافق\"</string>
+    <string name="vpn_permission_network">نحن لا نقوم بمراقبة أو تصفية أو تسجيل أي نشاط على الشبكة.</string>
+    <string name="vpn_permission_title">PIA</string>
+    <string name="contact">اتصال</string>
+    <string name="permissions_message">نحن بحاجة إلى هذا الإذن ليعمل التطبيق. يمكنك أيضًا الاتصال بدعم العملاء إذا كنت بحاجة إلى المساعدة.</string>
+    <string name="send_email">إرسال بريد إلكتروني</string>
+    <string-array name="themes_list">
+        <item>فاتح</item>
+        <item>داكن</item>
+    </string-array>
+    <string name="preference_app_theme">النسق الداكن</string>
+    <string name="auth_setby_gcm">يقوم AEAD بالتشفير مثل لوغاريتم AES-GCM حيث يستخدم آلية مصادقة متكاملة</string>
+    <string name="allow_locallan">السماح بحركة مرور LAN</string>
+    <string name="allow_locallan_details">يسمح دائمًا بحركة المرور بين الأجهزة على شبكتك المحلية</string>
+    <string name="pref_block_dialog_title">سماح بالوصول إلى شبكات الاتصال المحلية</string>
+    <string name="pref_block_dialog_message">لاحظ أن بعض تطبيقات النظام (مثل تطبيق Google) يمكنها تجاوز VPN عند السماح بالوصول إلى الشبكة المحلية.</string>
+    <string name="killswitch_notification_title">خدمة إغلاق الإنترنت مفعلة</string>
+    <string name="open_android_settings">فتح إعدادات الأندرويد</string>
+    <string name="data_in">أسفل</string>
+    <string name="data_out">أعلى</string>
+    <string name="pia_channel_name">PIA</string>
+    <string name="pia_channel_description">أحداث عامة وإشعارات</string>
+    <string name="tv_startup_press_right">اضغط على اليمين</string>
+    <string name="androidalwayson">مفتاح إنهاء VPN</string>
+    <string name="androidalwaysonsummary">يتضمن Android بديلاً أفضل لوظائف مفتاح إغلاق الإنترنت (Kill Switch)، اضغط لمزيد من المعلومات</string>
+    <string name="preference_blocking">الحظر</string>
+    <string name="preference_connect_proxy">اتصال عبر البروكسي</string>
+    <string name="preference_connect_proxy_app">تطبيق البروكسي المحدد</string>
+    <string name="preference_connect_proxy_summary">تأكد من استثنائك للتطبيق الذي تستعمله للاتصال في إعدادات التطبيق</string>
+    <string name="preference_proxy_port">منفذ البروكسي</string>
+    <string name="proxy_selection_title">تحديد تطبيق البروكسي</string>
+    <string name="app_is_proxy">هذا التطبيق هو تطبيق البروكسي الخاص بك. يجب استثناؤه كي يعمل.</string>
+    <string name="app_must_be_selected">يجب عليك تحديد تطبيق للحفظ.</string>
+    <string name="proxy_settings_title">إعدادات البروكسي</string>
+    <string name="enable_proxy_dialog_title">إعداد تطبيق البروكسي الخاص بك</string>
+    <string name="enable_proxy_dialog_message">لاستعمال البروكسي مع تطبيقنا، نحتاج لمعرفة أي تطبيق تنوي استخدامه.</string>
+    <string name="vpn_activity_title">سجل معالجة VPN</string>
+    <string name="preference_vpn_log_title">عرض سجل تصحيح VPN</string>
+    <string name="preference_vpn_log_summary">نظرة متقدمة للمستخدم لرؤية سجل VPN</string>
+    <string name="preference_orbot_title">تطبيق البروكسي هو Orbot</string>
+    <string name="preference_orbot_summary">استعمل إدماج Orbot</string>
+    <string name="settings_orbot_udp_problem_message">TCP اجباري كي يعمل Orbot. هل ترغب في تمكين TCP؟</string>
+    <string name="settings_orbot_udp_problem_title">متطلبات البروكسي</string>
+    <!-- %d is a digit for ping latency(ie, 0-10000). ms is milliseconds. -->
+    <string name="ping_string">%d ms</string>
+    <string name="status_server_ping">جارٍ البحث عن أفضل خادم</string>
+    <!-- &lt;emph> and &lt;/emph> should not be touched. These are how we know what to color in this string. -->
+    <string name="trial_account">هل لديكة بطاقة هدية أو بطاقة تجربة؟ &lt;emph&gt;استخدمها الآن&lt;/emph&gt;</string>
+    <!-- &lt;emph> and &lt;/emph> should not be touched. These are how we know what to color in this string. -->
+    <string name="trial_remember_password">هل تذكر كلمة مرورك؟ &lt;emphسجل الدخول&lt;/emph&gt;</string>
+    <string name="trial_card_pin">رمز البطاقة</string>
+    <string name="trial_screen_redeem">استبدال بطاقة الهدية</string>
+    <string name="trial_screen_message">أدخل بريدك الإلكتروني ورمز بطاقة الهدية أو بطاقة التجربة المكون من 16 خانة.</string>
+    <string name="card_pin_invalid">رمز البطاقة غير صالح</string>
+    <string name="confirming_trial_account">جارٍ تأكيد رمز بطاقتك مع نظامنا. قد يستغرق ذلك بضع لحظات، انتظر قليلًا.</string>
+    <string name="trial_success_message">ستحصل أيضاً على رسالة إلكترونية تحتوي على اسم المستخدم وكلمة المرور الخاصين بك.</string>
+    <string name="trial_success_title">تم بنجاح!</string>
+    <string name="trial_failure_redeemed_title">تم استخدام هذه البطاقة بالفعل</string>
+    <string name="trial_failure_redeemed_message">يبدو أن هذه البطاقة استُخدمت في حساب آخر. حاول إدخال رمز جديد.</string>
+    <string name="trial_failure_invalid_title">رمز بطاقة غير صالح</string>
+    <string name="trial_failure_invalid_message">يبدو أنك أدخلت رمز بطاقة غير صالح. يرجى إعادة المحاولة.</string>
+    <string name="trial_failure_expired_title">انتهت صلاحية البطاقة</string>
+    <string name="trial_failure_expired_message">حاول إدخال رمز بطاقة مختلفة.</string>
+    <string name="trial_failure_throttled_title">محاولات خاطئة متكررة</string>
+    <string name="trial_failure_throttled_message">لقد أدخلت رمزاً خاطئاً عدة مرات واستنفذت محاولاتك. يرجى إعادة المحاولة لاحقاً.</string>
+    <string name="trial_failure_email_title">بريد إلكتروني غير صالح</string>
+    <string name="trial_failure_email_message">يبدو أنك أدخلت بريداً إلكترونياً غير صالح. يرجى إعادة المحاولة.</string>
+    <!-- Keep %1$s and %2$s. This is a formatted text and %1$s is Terms of Service and %2$s is Privacy Policy -->
+    <string name="tos_pos_text" formatted="true">بتسجيلك، تقر بأنك توافق على %1$s و %2$s</string>
+    <string name="tos_text">شروط الخدمة</string>
+    <string name="pp_text">سياسة الخصوصية</string>
+    <string name="website_isnt_protected">الموقع غير محمي.</string>
+    <string name="api_check_failure_title">فشل الاتصال</string>
+    <string name="api_check_message">لم نتمكن من الوصول إلى منفذ الإنترنت الخاص. ربما بسبب ضعف الاتصال بالإنترنت أو ربما تكون خدماتنا محجوبة في بلدك. يرجى التأكد من وجود اتصال إنترنت مستقر، والإيقاف الجبري للتطبيق من الإعدادات، ثم إعادة تشغيل التطبيق، وإعادة المحاولة.</string>
+    <string name="invalid_qr_code">تسلسل رمز QR غير صالح. حاول مرة اخرى.</string>
+    <string name="empty_qr_code">محتوى رمز QR فارغ. حاول مرة اخرى.</string>
+    <string name="your_plan_will_expire_on">ستنتهي صلاحية خطتك في</string>
+    <!-- TV specific strings -->
+    <string name="favorites_title">إدارة التفضيلات</string>
+    <string name="favorites_panel_title">التفضيلات</string>
+    <string name="logout_title">تسجيل الخروج</string>
+    <string name="pia_access">PIA Access</string>
+    <string name="preference_app_update_title">اتصال عند تحديث التطبيق</string>
+    <string name="preference_app_update_message">بعد تحديث التطبيق، سيقوم التطبيق بالاتصال تلقائيًا للحفاظ على حمايتك.</string>
+    <string name="server_search">بحث</string>
+    <string name="tile_killswitch">خدمة مفتاح إغلاق الإنترنت نشطة</string>
+    <string name="auto_dns_setting_summary">عنوان DNS الخاص بـ PIA</string>
+    <string name="pia_dns">PIA DNS</string>
+    <string name="edit_custom_dns">تحرير</string>
+    <string name="custom_dns">عنوان DNS مخصص</string>
+    <string name="custom_dns_warning_body">قد يؤدي استخدام عناوين DNS غير المزودة عن طريق PIA إلى كشف حركة مرور DNS بأجهزتك لأطراف ثالثة وتهديد خصوصيتك.</string>
+    <string name="custom_dns_warning_title">@string/custom_dns</string>
+    <string name="custom_primary_dns">عنوان DNS أساسي</string>
+    <string name="custom_secondary_dns">عنوان DNS ثانوي (اختياري)</string>
+    <string name="custom_primary_dns_invalid">عنوان DNS الأساسي غير صحيح</string>
+    <string name="custom_secondary_dns_invalid">عنوان DNS الثانوي غير صحيح</string>
+    <string name="custom_dns_mace_warning">يجب استخدام عنوان DNS الافتراضي لتمكين نظام MACE. هل ترغب في إعادة تعيين عنوان DNS الخاص بك إلى العنوان الافتراضي؟</string>
+    <string name="custom_dns_disabling_mace">سيتم تعطيل MACE أثناء استخدام عنوان DNS مخصص.</string>
+    <string name="password_required">كلمة مرور PIA مطلوبة</string>
+    <string name="password_required_body">لأسباب أمنية، نطلب كلمة مرور PIA الخاصة بك عند إجراء تغييرات على حسابك. يرجى إدخال كلمة مرور PIA للمتابعة.</string>
+    <string name="password_empty">يجب إدخال كلمة المرور</string>
+    <string name="trusted_cellular_title">وثوق في الشبكات الخلوية</string>
+    <string name="trusted_cellular_message">قطع اتصال VPN تلقائيًا على بيانات الجوال</string>
+    <string name="trusted_wifi_title">شبكة WiFi موثوقة</string>
+    <string name="trusted_wifi_message">سيتم الاتصال بخدمة VPN على جميع شبكات WiFi فيما عدا التي تم إدخالها في القائمة البيضاء بواسطة المستخدم</string>
+    <string name="trusted_wifi_enable_message">تعطيل VPN عند الاتصال</string>
+    <string name="trusted_wifi_singular">شبكة موثوقة</string>
+    <string name="trusted_wifi_plural">الشبكات الموثوق بها</string>
+    <string name="available_wifi_header">الشبكات المتاحة</string>
+    <string name="trusted_wifi_no_wifi">يرجى تمكين WiFi لتحديد الشبكات الموثوق بها.</string>
+    <string name="trusted_wifi_no_permission">تتطلب خدمة WiFi الموثوقة أذونات الوصول إلى الموقع للكشف عن شبكات WiFi القريبة. إذا تم إلغاء هذا الإذن، فلن تعمل هذه الميزة.\n\nلاستخدام هذه الخاصية، انتقل إلى الإعدادات&gt;التطبيقات&gt;PIA VPN وتأكد من تفعيل خاصية إذن الوصول إلى الموقع.</string>
+    <string name="no_permission_title">هناك أذونات مطلوبة</string>
+    <string name="trusted_wifi_not_available">لا توجد شبكات متاحة</string>
+    <string name="trusted_wifi_no_trusted">لا توجد شبكات موثوقة متاحة</string>
+    <string name="account_invalid_warning">"معلومات الحساب غير الصالحة"</string>
+    <!-- PIAX Specific Strings -->
+    <string name="buy_account">شراء حساب</string>
+    <string name="redeem_gift_card">استبدال بطاقة الهدية</string>
+    <string name="email_address">البريد الإلكتروني</string>
+    <string name="gift_card_pin">رمز PIN لبطاقة الهدية</string>
+    <string name="redeemed_successful">تم استبدال البطاقة بنجاح</string>
+    <string name="redeemed_login_header">تفاصيل تسجيل دخولك</string>
+    <string name="redeeming_gift_card">جارٍ تأكيد رمز بطاقة هديتك مع نظامنا. قد يستغرق ذلك بضع لحظات، انتظر قليلًا.</string>
+    <string name="redeeming_gift_title">جارٍ التحقق مع خادمنا</string>
+    <string name="redeemed_to_login">متابعة تسجيل الدخول</string>
+    <string name="username_enter">أدخل اسم المستخدم</string>
+    <string name="password_enter">أدخل كلمة المرور</string>
+    <string name="total_cost">التكلفة الإجمالية</string>
+    <string name="confirm_your_purchase">تأكيد الشراء</string>
+    <string name="enter_email">يرجى إدخال بريدك الإلكتروني</string>
+    <string name="you_are_purchasing">أنت تشتري الآن خطة %1$s</string>
+    <string name="continue_only">متابعة</string>
+    <string name="plan_only">الخطة</string>
+    <string name="yearly_only">سنويًا</string>
+    <string name="monthly_only">شهريًا</string>
+    <string name="search_region">بحث عن المنطقة</string>
+    <string name="region_dialog_header">فرز المناطق حسب</string>
+    <string name="menu_filters">المرشحات</string>
+    <string name="menu_update">تحديث</string>
+    <string name="menu_reorder">تنظيم</string>
+    <string name="port_not_available">غير متوفر</string>
+    <string name="refer_yes">نعم</string>
+    <string name="refer_no">لا</string>
+    <string name="region_filter_name">الاسم</string>
+    <string name="region_filter_latency">زمن الانتقال</string>
+    <string name="region_filter_favorites">التفضيلات</string>
+    <!-- Free Trial Strings -->
+    <string name="free_trial_header">جربه مجانًا لمدة 7 أيام!</string>
+    <string name="free_trial_cost">ادفع %s فقط سنويًا</string>
+    <string name="free_trial_guarantee">ضمان استعادة الاموال لمدة 30 يوم</string>
+    <string name="free_trial_protection_header">سنة من الخصوصية وحماية الهوية</string>
+    <string name="free_trial_protection_text">تصفح مجهول الهوية وإخفاء رقم IP الخاص بك</string>
+    <string name="free_trial_devices_header">يدعم 10 أجهزة في وقت واحد</string>
+    <string name="free_trial_devices_text">احمِ نفسك على ما يصل إلى 10 أجهزة في وقت واحد</string>
+    <string name="free_trial_region_header">الاتصال بأي منطقة بسهولة</string>
+    <string name="free_trial_region_text">أكثر من 3300 خادم في 32 دولة</string>
+    <string name="free_trial_start">ابدأ الاشتراك</string>
+    <string name="free_trial_see_all">استعرض جميع الخطط المتوفر</string>
+    <!-- Tiles Strings -->
+    <string name="snooze_vpn_title">غفوة VPN</string>
+    <string name="snooze_short">غفوة 5 دقائق</string>
+    <string name="snooze_medium">غفوة 15 دقيقة</string>
+    <string name="snooze_long">غفوة 1 ساعة</string>
+    <string name="snooze_description">قطع اتصال VPN وإعادة الاتصال تلقائيًا عندما تنتهي مدة المؤقت.</string>
+    <string name="snooze_resume">استئناف</string>
+    <string name="snooze_paused">إيقاف مؤقت حتى %s</string>
+    <string name="snooze_status">دخول غفوة</string>
+    <string name="snooze_notification">في غفوة</string>
+    <string name="failed_connect_status">تعذر الاتصال</string>
+    <!-- Quick Settings Strings -->
+    <string name="quick_settings_title">إعدادات سريعة</string>
+    <string name="quick_settings_network_toggle">إدارة الشبكات</string>
+    <string name="quick_settings_private_browser">المتصفح الخاص</string>
+    <!-- Quick Connect String -->
+    <string name="quick_connect_title">اتصال سريع</string>
+    <string name="quick_connect_favorites_title">الخوادم المفضلة</string>
+    <!-- Usage Strings -->
+    <string name="usage_title">الاستخدام</string>
+    <string name="usage_download">تنزيل</string>
+    <string name="usage_upload">رفع</string>
+    <!-- Settings -->
+    <string name="settings_protocol">اختيار البروتوكول</string>
+    <string name="protocol_ovpn">OpenVPN</string>
+    <string name="protocol_wireguard">WireGuard</string>
+    <string name="wg_per_app_warning">سيؤدي الانتقال إلى WireGuard إلى تعطيل خاصية الإعدادات لكل تطبيق</string>
+    <string name="wg_protocol_warning">الخصائص التالية غير متوفرة على WireGuard:</string>
+    <string name="wg_connecting">جارٍ الاتصال</string>
+    <string name="wg_connected">متصل بـVPN</string>
+    <string name="block_connections_body_1">تتطلب ميزة \"حظر الاتصالات بدون VPN\" من PIA تشغيل VPN الدائم في إعدادات Android.</string>
+    <string name="block_connections_body_2">للمتابعة، انتقل إلى الإعدادات - الشبكة والإنترنت - متقدم - VPN - اضغط على أيقونة الإعدادات - قم بتنشيط VPN قيد التشغيل دائمًا.</string>
+    <string name="block_connections_button">انتقل إلى إعدادات الشبكة والإنترنت</string>
+    <string name="ks_removal_warning">لقد اكتشفنا أنك قمت بتفعيل خدمة إغلاق الإنترنت (Killswitch). لقد قمنا بتغيير كيفية عمل هذه الخاصية عبر دمج إعداد \"حظر الاتصالات بدون VPN\" في Android لكل من WireGuard وOpenVPN. يرجى مراجعة التغييرات في الإعدادات لضمان الحفاظ على حمايتك.</string>
+    <string name="preference_on_boot_always_on">الاتصال عند تشغيل النظام. نوصي بتشغيل هذا الإعداد إذا كنت تستخدم خاصية التشغيل الدائم لـ VPN.</string>
+    <string name="ovpn_cipher_removal_description">نحن نقوم بتحديث تطبيق OpenVPN، لمزيد من المعلومات، اضغط <b>هنا</b></string>
+    <!-- Wireguard -->
+    <string name="tunnel_error_already_exists">نفق “%s” موجود بالفعل</string>
+    <string name="tunnel_error_invalid_name">اسم غير صالح</string>
+    <string name="preview">معاينة</string>
+    <!-- GEO Servers -->
+    <string name="geo_servers">إظهار المناطق الجغرافية</string>
+    <!-- Rating -->
+    <string name="rating_enjoy_title">هل تستمتع بـ PIA VPN؟</string>
+    <string name="rating_enjoy_message">نأمل أن يلبي منتجنا لشبكات VPN توقعاتك</string>
+    <string name="rating_review_title">ما رأيك في ترك مراجعة لنا على Google Play؟</string>
+    <string name="rating_review_message">نقدّر لك مشاركة تجربتك</string>
+    <string name="rating_feedback_title">ما الخلل الذي حصل؟</string>
+    <string name="rating_feedback_message">هل لديك أي ملاحظات؟ يمكننا مساعدتك على تحسين تجربتك في استخدام PIA</string>
+    <!-- Get Started Purchasing-->
+    <string name="getstarted_subscribe">اشتراك الآن</string>
+    <string name="getstarted_free_trial">ابدأ تجربتك المجانية لمدة 7 ايام</string>
+    <string name="getstarted_trial_price">ثم %s في السنة</string>
+    <string name="purchasing_email_reason">نحتاج إلى بريدك الإلكتروني لإرسال اسم المستخدم وكلمة المرور.</string>
+    <string name="purchasing_all_plans">مشاهدة جميع الخطط المتاحة</string>
+    <string name="purchasing_login_receipt">تسجيل الدخول باستخدام إيصال الشراء</string>
+    <string name="purchasing_no_subscription">ليس لديك اشتراكات نشطة</string>
+    <string name="purchasing_sure">هل أنت متأكد؟</string>
+    <string name="purchasing_return">هل ترغب في العودة إلى الشاشة الرئيسية؟ يمكنك استئناف عملية الاشتراك في أي وقت بالضغط فوق تسجيل الدخول -&gt; تسجيل الدخول باستخدام إيصال الشراء.</string>
+    <string name="purchasing_magic_link">تسجيل الدخول باستخدام رابط البريد الإلكتروني السحري</string>
+    <string name="purchasing_magic_send">إرسال الرابط</string>
+    <string name="magic_login_enter_email">أدخل البريدك الإلكتروني</string>
+    <string name="purchasing_magic_success">يرجى إلقاء نظرة على بريدك الإلكتروني للحصول على رابط تسجيل الدخول.</string>
+    <string name="connection_tile_header">الاتصال</string>
+    <string name="connection_tile_tcp">TCP</string>
+    <string name="connection_tile_udp">UDP</string>
+    <!-- Update -->
+    <string name="settings_calling_header">آخر الأخبار</string>
+    <string name="update_3_7_1_header">جرّب ®WireGuard اليوم!</string>
+    <string name="update_3_7_1_description">إنه بروتوكول VPN جديد وأكثر كفاءة يوفر أداءً أفضل واستخدامًا أقل للمعالج وعمرًا أطول للبطارية.</string>
+    <string name="update_3_7_1_cta_1">جرّب ®WireGuard الآن</string>
+    <string name="update_3_7_1_cta_2"><u>معرفة المزيد</u></string>
+    <!-- Network Management -->
+    <string name="nmt_notification_title">الأتمتة نشطة</string>
+    <string name="nmt_notification_description">VPN غير متصلة</string>
+    <string name="nmt_secure_wifi">تأمين Wi-Fi</string>
+    <string name="nmt_open_wifi">Wi-Fi</string>
+    <string name="nmt_mobile_data">بيانات الموبايل</string>
+    <string name="nmt_disconnect">قطع اتصال VPN دائمًا</string>
+    <string name="nmt_connect">اتصال بـ VPN دائمًا</string>
+    <string name="nmt_retain">احتفاظ بحالة VPN</string>
+    <string name="nmt_manage_title">أتمتة الإدارة</string>
+    <string name="nmt_manage_description">قم بتكوين سلوك PIA عند الاتصال بشبكات WiFi أو الشبكات الخلوية. هذا مستثنى منه قطع الاتصال يدويًا.\n\nهذه الميزة تجريبية.</string>
+    <string name="nmt_add_description">اختر شبكة WiFi لإضافة قاعدة جديدة.</string>
+    <string name="nmt_rule_for">قاعدة لـ %s</string>
+    <string name="nmt_remove_rule">إزالة القاعدة</string>
+    <string name="nmt_add_new_rule">إضافة قاعدة جديدة</string>
+    <string name="nmt_settings_title">الأتمتة</string>
+    <string name="nmt_settings_description">قم بإعداد القواعد للتعامل مع قواعد الاتصال التلقائي للشبكات الموثوقة وغير الموثوق بها.\n\nهذه الميزة تجريبية.</string>
+    <string name="nmt_management_title">أتمتة الإدارة</string>
+    <string name="network_permisions_top_text">سماح لتطبيق PIA VPN بالوصول إلى موقعك. يسمح لنا ذلك باكتشاف شبكات Wi-Fi القريبة.</string>
+    <string name="network_permissions_middle_text">سترى مطالبة تطلب إذن الموقع. للمتابعة، اضغط على \"أثناء استخدام التطبيق\"</string>
+    <string name="network_permission_network">نحن لا نقوم بمراقبة أو تصفية أو تسجيل أي نشاط على الشبكة.</string>
+    <string name="network_permission_button_allow">سماح</string>
+    <string name="network_permissions_top_background">رائع! أنت على وشك الانتهاء! تتطلب ميزة إدارة شبكة PIA أيضًا الوصول إلى خدمات الموقع في الخلفية.</string>
+    <string name="network_permissions_middle_background">للمتابعة، انتقل إلى الإعدادات &gt; التطبيقات &gt; PIA &gt; الأذونات - قم بتمكين الوصول في الخلفية إلى خدمات الموقع.</string>
+    <string name="network_permissions_button_goto">انتقل إلى إعدادات الأذونات</string>
+    <!-- Dedicated IP -->
+    <string name="dip_menu_title">عنوان IP مخصّص</string>
+    <string name="dip_description">قم بتنشيط عنوان IP المخصّص عن طريق لصق الرمز في النموذج أدناه. إذا كنت قد اشتريت عنوان IP مخصصًا مؤخرًا، يمكنك إنشاء الرمز من خلال الذهاب إلى موقع PIA الإلكتروني.</string>
+    <string name="dip_summary">أمّن اتصالاتك بأي جهة عن بُعد باستخدام عنوان IP مخصّص من بلد من اختيارك. أثناء اشتراكك، سيكون عنوان IP هذا ملكًا لك وحدك، مما يحمي عمليات نقل البيانات الخاصة بك بأقوى تشفير في الوقت الحالي.</string>
+    <string name="dip_your_header">عناوين IP المخصّصة</string>
+    <string name="dip_activate">تنشيط</string>
+    <string name="dip_remove_header">إزالة عنوان IP المخصّص</string>
+    <string name="dip_remove_body">إزالة %s - %s؟</string>
+    <string name="dip_will_expire_warning">ستنتهي صلاحية عنوان IP المخصص قريبًا.</string>
+    <string name="dip_get_a_new_one">احصل على واحد جديد.</string>
+    <string name="dip_expired_warning">انتهت صلاحية الرمز. يرجى إنشاء رمز جديد من صفحة حسابك على الموقع الإلكتروني.</string>
+    <string name="dip_updated_warning">تم تحديث عنوان IP المخصص.</string>
+    <string name="dip_invalid">الرمز غير صالح. يرجى التأكد من إدخال الرمز بشكل صحيح.</string>
+    <string name="dip_success">تم تنشيط عنوان IP المخصّص بنجاح. سيكون متاحًا في قائمة اختيار المنطقة.</string>
+    <string name="dip_tag">عنوان IP مخصّص</string>
+    <string name="dip_enter_token_hint">الصق الرمز هنا</string>
+    <!-- Inapp Messaging -->
+    <string name="inapp_pref_title">إظهار رسائل اتصالات الخدمة</string>
+    <string name="settings_updated">تم تحديث الإعدادات</string>
+    <string name="hide_payment">نظرًا لوجود مشكلة فنية، تم تعطيل عمليات الشراء عبر Google Play حاليًا. نحن نعمل حاليًا على حل المشكلة.\n\nإذا كان لديك بالفعل حساب به اشتراك، يمكنك تسجيل الدخول بالضغط على زر تسجيل الدخول.</string>
+    <string name="settings_block_connections_title">تتطلب ميزة \"مفتاح إنهاء VPN\" من PIA تشغيل VPN الدائم في إعدادات Android</string>
+    <string name="settings_block_connections_description">للمتابعة، انتقل إلى الإعدادات - الشبكة &amp; والإنترنت - متقدم - VPN - اضغط على أيقونة الإعدادات - <b>قم بتنشيط VPN قيد التشغيل دائمًا</b>.</string>
+    <string name="settings_block_connections_button">انتقل إلى إعدادات الشبكة والإنترنت</string>
+    <string name="settings_block_connections_error">تعذر الانتقال إلى إعدادات الشبكة</string>
+    <!-- KPI -->
+    <string name="kpi_connection_attempts_onboarding_title">يرجى مساعدتنا في تحسين خدماتنا</string>
+    <string name="kpi_connection_attempts_onboarding_body">لمساعدتنا في ضمان أداء اتصال خدمتنا، يمكنك مشاركة إحصائيات اتصالك معنا دون الكشف عن هويتك. لا تتضمن هذه التقارير أي معلومات محددة للشخصية.</string>
+    <string name="kpi_connection_attempts_settings_title">المساعدة في تحسين PIA</string>
+    <string name="kpi_connection_attempts_settings_body">ساعدنا في التحسين من خلال مشاركة إحصائيات اتصال VPN. لا تحتوي هذه التقارير أبدًا على معلومات محددة للهوية.</string>
+    <string name="kpi_connection_attempts_settings_details">عرض البيانات المشاركة</string>
+    <string name="kpi_connection_attempts_no_events">لا توجد أحداث مؤخرًا</string>
+    <string name="kpi_connection_attempts_stats">إحصائيات الاتصال</string>
+    <string name="kpi_connection_attempts_more_information">يساعدنا هذا الحد الأدنى من المعلومات في تحديد مشكلات الاتصال المحتملة وإصلاحها. لاحظ أن مشاركة هذه المعلومات تتطلب الموافقة والتفعيل اليدوي حيث أنها متوقفة بشكل افتراضي. سنجمع معلومات حول الأحداث التالية:\n\n
+• محاولة الاتصال\n
+• الاتصال الملغى\n
+• الاتصال المؤسس\n\n
+لجميع هذه الأحداث، سنجمع المعلومات التالية:\n\n
+• المنصة\n
+• إصدار التطبيق\n
+• نوع التطبيق (إصدار تجريبي أم لا)\n
+• البروتوكول المستخدم\n
+• مصدر الاتصال (يدوي أو مؤتمت)\n\n
+ستحتوي جميع الأحداث على معرّف فريد يتم إنشاؤه عشوائيًا. هذا المعرّف غير مرتبط بحساب المستخدم الخاص بك. يتم إعادة إنشاء هذا المعرف الفريد يوميًا لأغراض الخصوصية.\n\n
+ستكون دائمًا أنت المتحكم. يمكنك معرفة البيانات التي جمعناها من الإعدادات، ويمكنك إيقافها في أي وقت.</string>
+    <!-- Renewal -->
+    <string name="renewal_title">مرحبًا بعودتك!</string>
+    <string name="renewal_description">لاستخدام Private Internet Access، تحتاج إلى تجديد اشتراكك.</string>
+    <string name="renewal_button">تجديد الآن</string>
+    <string name="use_tcp">استخدام TCP</string>
+    <string name="oneclickconnect">اتصال بضغطة واحدة</string>
+    <string name="startup_region_message_new_bold">تجربتك المجانية لمدة 7 أيام</string>
+    <string name="allow_locallan_on">سيتم السماح بالوصول إلى شبكة الاتصال المحلية. قد تُسرب بعض التطبيقات (مثل تطبيق Google) وتُبلغ عن عنوان IP الحقيقي.</string>
+    <string name="allow_locallan_off">سيتم حظر الوصول إلى شبكات الاتصال المحلية</string>
+    <string name="block_locallan_off">سيتم السماح بالوصول إلى شبكة الاتصال المحلية. قد تُسرب بعض التطبيقات (مثل تطبيق Google) وتُبلغ عن عنوان IP الحقيقي.</string>
+    <string name="block_locallan_on">سيتم حظر الوصول إلى شبكات الاتصال المحلية</string>
+    <string name="block_locallan">حظر شبكة الاتصال المحلية</string>
+    <string name="block_connection_wo_vpn">حظر الاتصالات بدون VPN</string>
+    <string name="always_oreo_message">للتأكد من عدم اتصالك مطلقًا بدون VPN، نقترح تفعيل خاصية حظر الاتصال بدون VPN من إعدادات Android. يمكن تفعيل هذه الخاصية بعد تشغيل خاصية التشغيل الدائم لـ VPN في PIA. سيضمن ذلك أن يقوم Android بأفضل ما في وسعه لتشغيل PIA VPN في جميع الأوقات عند الاتصال وحظر الاتصالات دون VPN - ويعرف أيضًا باسم خدمة اغلاق الإنترنت في VPN. تم إيقاف إعداد خدمة اغلاق الإنترنت (Killswitch) في تطبيق PIA VPN لصالح إعداد \"حظر الاتصال بدون VPN\" على مستوى النظام في إعدادات Android منذ أن تم تضمين هذه الميزة الآن في Android 8.0+. إذا حدث أي مشكلة، فسيتم إعلامك وسيحظر Android جميع اتصالات الإنترنت التي لا تمر عبر VPN الموجود على جهازك.</string>
+    <string-array name="dns_names">
+        <item>PIA DNS</item>
+        <item>Custom DNS</item>
+    </string-array>
+</resources>

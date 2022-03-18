@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_login_purchasing_layout"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/windowBackground"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/activity_login_purchasing_background"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scaleType="center"
+        android:alpha=".5"
+        app:srcCompat="@drawable/map_getstarted"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/activity_login_purchasing_container"/>
+
+    <FrameLayout
+        android:id="@+id/activity_login_purchasing_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_login_purchasing_logo_layout"
+        app:layout_constraintBottom_toTopOf="@id/guideline"/>
+
+    <RelativeLayout
+        android:id="@+id/activity_login_purchasing_logo_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize"
+                android:layout_marginLeft="32dp"
+                android:layout_marginRight="32dp"
+                android:layout_marginTop="16dp"
+                app:srcCompat="@drawable/ic_pia_logo"
+                android:scaleType="centerInside"
+                />
+
+        </LinearLayout>
+
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/activity_login_purchasing_dev_button"
+            android:layout_margin="10dp"
+            android:src="@drawable/ic_drawer_settings"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="gone"
+            android:padding="10dp"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/shape_standard_background"
+            />
+    </RelativeLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/guideline"
+        app:layout_constraintGuide_end="222dp"
+        android:orientation="horizontal"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="360dp" />
+
+    <RelativeLayout
+        android:id="@+id/activity_login_purchasing_button_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:clickable="true"
+        android:animateLayoutChanges="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline"
+        >
+
+        <com.github.mmin18.widget.RealtimeBlurView
+            android:id="@+id/activity_login_purchasing_blur"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:realtimeBlurRadius="20dp"
+            app:realtimeOverlayColor="@color/purchase_panel_blur" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="25dp"
+            android:layout_centerHorizontal="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+            <TextView
+                android:id="@+id/activity_login_purchasing_free_trial_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginBottom="4dp"
+                android:text='@string/getstarted_free_trial'
+                android:textAppearance="@style/PiaTextSubheading"
+                style="@style/Style08"/>
+
+            <TextView
+                android:id="@+id/activity_login_purchasing_yearly_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginBottom="16dp"
+                android:textColor="?attr/grey20_white"
+                tools:text="@string/getstarted_trial_price"
+                style="@style/Style02"
+                />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                android:layout_marginBottom="8dp" >
+
+                <Button
+                    android:id="@+id/activity_login_purchasing_buy_button"
+                    style="@style/PiaxGreenButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:text="@string/getstarted_subscribe" />
+
+                <ProgressBar
+                    android:id="@+id/subscriptions_request_progress"
+                    style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@+id/activity_login_purchasing_buy_button"
+                    android:layout_centerVertical="true"
+                    android:indeterminate="true"
+                    android:indeterminateTintMode="src_atop"
+                    android:indeterminateTint="@color/white"
+                    android:layout_marginHorizontal="20dp"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+            <Button
+                style="@style/BuyAccountButton"
+                android:id="@+id/activity_login_purchasing_login_button"
+                android:background="?attr/buy_account_button"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="@string/login" />
+
+            <Button
+                style="@style/RedeemButton"
+                android:id="@+id/activity_login_purchasing_all_plans_button"
+                android:background="@color/transparent"
+                android:layout_width="match_parent"
+                android:layout_marginTop="16dp"
+                android:layout_height="30dp"
+                android:text="@string/purchasing_all_plans"/>
+
+            <Button
+                style="@style/RedeemButton"
+                android:id="@+id/activity_login_purchasing_redeem_button"
+                android:background="@color/transparent"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:text="@string/redeem_gift_card"
+                android:visibility="gone"/>
+
+            <TextView
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/tos_pos_text"
+                android:id="@+id/activity_login_purchasing_TOS"
+                android:textColorLink="@color/greendark20"
+                android:textSize="12sp"
+                android:fontFamily="sans-serif"
+                android:textStyle="normal"
+                android:textColor="@color/grey55"
+                android:lineSpacingExtra="6sp"
+                android:gravity="center_horizontal" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

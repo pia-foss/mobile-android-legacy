@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:scrollbarStyle="outsideOverlay">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        android:background="@color/windowBackground"
+        >
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/fragment_trial_logo"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_marginTop="30dp"
+            app:srcCompat="@drawable/ic_pia_logo"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingRight="140dp"
+            android:paddingLeft="140dp"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/Style02"
+                android:layout_marginTop="100dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/select_vpn_plan"
+                android:textColor="?attr/grey20_white"
+                android:layout_gravity="center_horizontal"/>
+
+            <TextView
+                style="@style/Style08"
+                android:layout_marginTop="12dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_7_day_money_back_guarantee"
+                android:layout_gravity="center_horizontal"/>
+
+            <RelativeLayout
+                android:id="@+id/fragment_purchasing_yearly"
+                android:background="@drawable/shape_vpn_package_selection"
+                android:padding="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:layout_marginTop="30dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/fragment_purchasing_yearly_icon"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="10dp"
+                    app:srcCompat="@drawable/ic_selection"
+                    />
+
+                <LinearLayout
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@id/fragment_purchasing_yearly_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/Style08"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/yearly" />
+
+                    <LinearLayout
+                        android:layout_marginTop="7dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/fragment_purchasing_yearly_cost"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="18sp"
+                            android:fontFamily="sans-serif"
+                            android:textStyle="normal"
+                            android:textColor="?attr/grey20_white"
+                            android:lineSpacingExtra="0sp"
+                            android:text="$3.33/mo" />
+
+                        <TextView
+                            android:layout_marginLeft="10dp"
+                            android:id="@+id/fragment_purchasing_yearly_total"
+                            style="@style/Style08"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="$39.95 per year" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/shape_purchasing_best_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:fontFamily="sans-serif"
+                        android:textStyle="normal"
+                        android:textColor="#000000"
+                        android:lineSpacingExtra="6sp"
+                        android:text="@string/best_value"
+                        android:paddingLeft="6dp"
+                        android:paddingRight="6dp"
+                        android:paddingTop="1dp"
+                        android:paddingBottom="1dp"
+                        tools:text="BEST VALUE"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/fragment_purchasing_monthly"
+                android:background="@drawable/shape_vpn_package_selection"
+                android:padding="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:layout_marginTop="10dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/fragment_purchasing_monthly_icon"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="10dp"
+                    app:srcCompat="@drawable/ic_selection"
+                    />
+
+                <LinearLayout
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@id/fragment_purchasing_monthly_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/Style08"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/monthly" />
+
+                    <TextView
+                        android:id="@+id/fragment_purchasing_monthly_cost"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:fontFamily="sans-serif"
+                        android:textStyle="normal"
+                        android:textColor="?attr/grey20_white"
+                        android:lineSpacingExtra="0sp"
+                        android:text="$6.95/mo" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/fragment_purchasing_no_internet_issue"
+                android:gravity="center"
+                android:minHeight="150dp"
+                android:visibility="gone"
+                tools:visibility="gone"
+                android:text="@string/no_internet_click_here"
+                >
+            </TextView>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <Button
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    style="@style/PiaxGreenButton"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/fragment_purchasing_button"
+                    android:text="@string/buy_now_button"
+                    />
+
+                <ProgressBar
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:id="@+id/fragment_purchasing_progress"
+                    android:visibility="gone"
+                    android:layout_centerInParent="true"
+                    />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/tos_pos_text"
+                android:id="@+id/fragment_purchasing_TOS"
+                android:textColorLink="@color/greendark20"
+                android:textSize="12sp"
+                android:fontFamily="sans-serif"
+                android:textStyle="normal"
+                android:textColor="@color/grey55"
+                android:lineSpacingExtra="6sp"
+                android:gravity="center_horizontal" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

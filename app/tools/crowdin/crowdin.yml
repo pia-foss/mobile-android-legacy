@@ -1,0 +1,75 @@
+# CrowdIn Configuration File.
+#
+#
+# Setup
+# =================
+# 1. Download CrowdIn CLI from homebrew or
+# 2. Create an API token from CrowdIn website
+# 3. Optional - set this token in your Bash/ZSH env as $CROWDIN_API_TOKEN or something similar
+#
+# Sending English Sources to CrowdIn
+# ====================================
+#
+# $ cd app/tools/crowdin
+# $ crowdin upload sources -T $CROWDIN_API_TOKEN
+# (note - you'll have to paste in the token if you haven't exported it in your env)
+#
+# Downloading updated translations
+# ==================================
+#
+# $ cd cd app/tools/crowdin
+# $ crowdin download -T $CROWDIN_API_TOKEN
+# (note - you'll have to paste in the token if you haven't exported it in your env)
+
+
+"project_id" : "487809"
+"base_path" : "../../"
+"base_url" : "https://api.crowdin.com"
+"preserve_hierarchy": true
+
+files: [
+ {
+  "source" : "src/main/res/values/strings.xml",
+  "translation": "src/main/res/values-b+%android_code%/%original_file_name%",
+  "languages_mapping": {
+      "android_code": {
+      #By default "android_code" will try to find "es-rMX" for example, so it works with some languages but not with most so we have to map their crowdin code to our folder
+        "ar": "ar",
+        "da": "da",
+        "de": "de",
+        "fr": "fr",
+        "it": "it",
+        "ja": "ja",
+        "ko": "ko",
+        "no": "nb",
+        "nl": "nl",
+        "pl": "pl",
+        "ru": "ru",
+        "th": "th",
+        "tr": "tr",
+      },
+    },
+ },
+  {
+    "source" : "src/noinapp/res/values/strings.xml",
+  "translation" : "src/noinapp/res/values-b+%android_code%/%original_file_name%",
+    "languages_mapping": {
+      "android_code": {
+      #By default "android_code" will try to find "es-rMX" for example, so it works with some languages but not with most so we have to map their crowdin code to our folder
+        "ar": "ar",
+        "da": "da",
+        "de": "de",
+        "fr": "fr",
+        "it": "it",
+        "ja": "ja",
+        "ko": "ko",
+        "no": "nb",
+        "nl": "nl",
+        "pl": "pl",
+        "ru": "ru",
+        "th": "th",
+        "tr": "tr",
+      },
+    }
+ },
+]

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+        <com.privateinternetaccess.android.ui.drawer.settings.colorpicker.ColorPickerPreference
+            android:key="widgetBackgroundColor"
+            android:title="@string/widget_background"
+            app:cpv_dialogType="custom"
+            app:cpv_dialogTitle="@string/color_picker_dialog_title"
+            app:cpv_allowPresets="false"
+            app:cpv_showAlphaSlider="true"
+            android:defaultValue="@color/widget_background_default"
+            />
+        <com.privateinternetaccess.android.ui.drawer.settings.colorpicker.ColorPickerPreference
+            android:key="widgetTextColor"
+            android:title="@string/widget_color"
+            app:cpv_dialogType="custom"
+            app:cpv_dialogTitle="@string/color_picker_dialog_title"
+            app:cpv_allowPresets="false"
+            app:cpv_showAlphaSlider="true"
+            android:defaultValue="@color/widget_text_default"
+            />
+        <com.privateinternetaccess.android.ui.drawer.settings.colorpicker.ColorPickerPreference
+            android:key="widgetUploadColor"
+            android:title="@string/preference_widget_icon_upload_title"
+            app:cpv_dialogType="custom"
+            app:cpv_dialogTitle="@string/color_picker_dialog_title"
+            app:cpv_allowPresets="false"
+            app:cpv_showAlphaSlider="true"
+            android:defaultValue="@color/widget_upload_default"
+            />
+        <com.privateinternetaccess.android.ui.drawer.settings.colorpicker.ColorPickerPreference
+            android:key="widgetDownloadColor"
+            android:title="@string/preference_widget_icon_download_title"
+            app:cpv_dialogType="custom"
+            app:cpv_dialogTitle="@string/color_picker_dialog_title"
+            app:cpv_allowPresets="false"
+            app:cpv_showAlphaSlider="true"
+            android:defaultValue="@color/widget_download_default"
+            />
+        <!--android:fragment="com.privateinternetaccess.android.ui.customviews.ColorPreferenceFragment"-->
+        <NumberPickerPreference
+            android:defaultValue="8"
+            android:key="widgetRadius"
+            android:title="@string/widget_radius"
+            app:maxValue="50"
+            app:minValue="0"
+            app:valueAsSummary="true"
+            app:wrapSelectorWheel="true"
+            />
+        <NumberPickerPreference
+            android:defaultValue="100"
+            android:key="widgetImageAlpha"
+            android:title="@string/widget_flag_alpha"
+            app:maxValue="100"
+            app:minValue="0"
+            app:valueAsSummary="true"
+            app:wrapSelectorWheel="true"
+            />
+</androidx.preference.PreferenceScreen>

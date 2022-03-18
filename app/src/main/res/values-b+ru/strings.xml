@@ -1,0 +1,658 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+<resources>
+    <string name="launcher_name">PIA VPN</string>
+    <string name="app_name">VPN от Private Internet Access</string>
+    <string name="menu_settings">Настройки</string>
+    <string name="menu_settings_general">Общие</string>
+    <string name="menu_settings_protocols">Протоколы</string>
+    <string name="menu_settings_network">Сеть</string>
+    <string name="menu_settings_privacy">Защита</string>
+    <string name="menu_settings_automation">Автоматизация</string>
+    <string name="menu_settings_obfuscation">Маскировка</string>
+    <string name="menu_settings_help">Справка</string>
+    <!-- Please keep the %s, this is a formatted text. %s is a port number (ei 1024) -->
+    <string name="rportsummary">Использование %s для подключения</string>
+    <!-- Please keep the %s, this is a formatted text. %s is a port number (ei 1024) -->
+    <string name="lportsummary">Использование локального порта %s для подключения</string>
+    <string name="lportrandom">Использование случайно выбранного локального порта для подключения</string>
+    <string name="server_selection">Выбор сервера</string>
+    <string name="auto_rport">Использование автоматического выбора порта</string>
+    <string name="automatic_server_selection_main">Автоматически</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is a server location (ei London, Berlin) -->
+    <string name="automatic_server_selection_main_region">Автоматически (%1$s)</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is an IP (ei 126.0.1.10)  -->
+    <string name="prompt_login">напр. p1234567</string>
+    <string name="use_udp_summary">Для подключения будет использоваться протокол UDP</string>
+    <string name="use_tcp_summary">Для подключения будет использоваться протокол TCP</string>
+    <string name="transport">Перенос</string>
+    <string name="select_port">Выберите порт для подключения к privateinternetaccess.com</string>
+    <string name="remote_port">Удаленный порт</string>
+    <string name="remote_port_cap">ПЕРЕАДРЕСУЕМЫЙ ПОРТ</string>
+    <string name="remote_port_vpn_ip">IP-адрес VPN</string>
+    <string name="local_port">Локальный порт</string>
+    <string name="find_out_more"><u>Подробнее</u></string>
+    <string name="connect_onstart_title">Подключение при запуске</string>
+    <string name="connect_onstart">Подключаться при запуске приложения</string>
+    <string name="connect_on_boot">Запуск при загрузке системы</string>
+    <string name="portforwarding">Запросить переадресацию портов</string>
+    <string name="portforwarding_summary">Будут разрешены входящие подключения к вашему мобильному устройству через внешний порт</string>
+    <!-- Please keep the %s, this is a formatted text. %s is an error message.  -->
+    <string name="portfwderror">Ошибка запроса переадресации порта: %s</string>
+    <string name="mace_toggle">Блокировщик рекламы Mace</string>
+    <string name="killswitch">Авторазрыв соединения</string>
+    <string name="killswitchsummary">Разрывает Интернет-соединение при отключении VPN.</string>
+    <string name="killswitchtext">АВАРИЙНЫЙ БЛОКИРАТОР ИНТЕРНЕТА АКТИВИРОВАН</string>
+    <string name="killswitchstatus_description">Аварийный блокиратор Интернета не позволяет пользоваться Интернетом без защиты. Чтобы восстановить подключение к Интернету, дождитесь повторного подключения к нашей VPN-службе или отключите аварийный блокиратор.</string>
+    <string name="requestingportfw">Запрашиваем переадресуемый порт...</string>
+    <string name="killswitch_button">Отключить</string>
+    <string name="action_sign_in_short">Вход</string>
+    <string name="login">ВХОД</string>
+    <string name="logout">Выйти</string>
+    <string name="accept">Принять</string>
+    <string name="no_thanks">Спасибо, не надо</string>
+    <string name="read_more"><u>Подробнее</u></string>
+    <string name="state_gen_config">Генерирование конфигурации...</string>
+    <string name="user_pw_invalid">Неверное сочетание имени пользователя и пароля</string>
+    <string name="replace_login_title">Заменить учетные данные</string>
+    <!-- Please keep the %1$s %2$s, this is a formattered text. %1$s %2$s are usernames.  -->
+    <string name="replace_login_msg">Заменить учетные данные новыми? (Новое имя пользователя: %1$s, старое: %2$s)</string>
+    <string name="subscription_expires_in">Действие вашей подписки заканчивается через</string>
+    <string name="subscription_expired">Действие вашей подписки</string>
+    <string name="per_app_settings">Настройки приложения</string>
+    <string name="tv_per_app_settings">НАСТРОЙКИ ПРИЛОЖЕНИЯ</string>
+    <string name="help_improve_pia">ПОМОГАТЬ ДЕЛАТЬ PIA ЛУЧШЕ</string>
+    <string name="username_password_already_saved">Имя пользователя и пароль уже сохранены!</string>
+    <string name="invalid_email_signup">Укажите действительный адрес эл. почты</string>
+    <string name="buyvpn_url_localized">https://www.privateinternetaccess.com/pages/buy-vpn/</string>
+    <string name="localport_warning">Номер локального порта должен быть в интервале от 1024 до 65535</string>
+    <string name="notanumber_localport">Недопустимый числовой формат для локального порта</string>
+    <string name="notanumber_proxyport">Недопустимый числовой формат для прокси-порта</string>
+    <string name="thankyou_monthly">Благодарим за оформление месячной подписки на VPN!</string>
+    <string name="thankyou_yearly">Благодарим за оформление годовой подписки на VPN!</string>
+    <string name="purchase_signing_up">Регистрация...</string>
+    <string name="purchase_loading">Загрузка...</string>
+    <string name="logout_confirmation">Подтверждение выхода</string>
+    <string name="logout_confirmation_text">Если выполнить выход, будет прервано активное VPN-подключение, и вы останетесь без защиты</string>
+    <string name="expiry_notification_title">Действие вашей подписки скоро заканчивается.</string>
+    <string name="expiry_notification_onnemonth">У вас осталось меньше месяца подписки. Продлите ее, чтобы не утратить защиту.</string>
+    <string name="expiry_notification_oneweek">У вас осталось меньше недели подписки. Продлите ее, чтобы не утратить защиту.</string>
+    <string name="expirty_notification_threedays">У вас осталось меньше 3 дней подписки. Продлите ее, чтобы не утратить защиту.</string>
+    <string name="expirty_notification_oneday">У вас осталось меньше дня подписки. Продлите ее, чтобы не утратить защиту.</string>
+    <string name="error_renew_trial">Пробные учетные записи не дают права на продление подписки. Для продолжения пользования услугой после окончания пробного периода приобретите новую учетную запись.</string>
+    <string name="error_renew_expired">Ваша учетная запись неактивна, прием новых платежей невозможен. Создайте новую учетную запись, выполнив выход, а затем зарегистрировавшись повторно.</string>
+    <string name="pending_purchase_found">Обнаружена ожидающая активациии покупка из приложения. Выполните вход, чтобы продлить текущую подписку.</string>
+    <string name="account_not_renewable">Не удается продлить подписку для вашей учетной записи, или задано автоматическое продление.</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is an error message.  -->
+    <string name="error_subscribing">"Ошибка при покупке: %1$s "</string>
+    <string name="error_active_subscription">У вас уже есть активная подписка!</string>
+    <string name="error_invalid_auth">Что-то пошло не так. Попробуйте выполнить вход еще раз.</string>
+    <string name="usemssfix">Размер IP-пакета будет слегка уменьшен, чтобы улучшить совместимость с некоторыми роутерами и мобильными сетями.</string>
+    <string name="mssfixsummary">Использовать пакеты меньшего размера</string>
+    <string name="settings_account_bottom_text">Установите приложение Private Internet Access на других устройствах и используйте указанное выше имя пользователя для входа в учетную запись и защиты соединения.</string>
+    <string name="settings_account_bottom_text_4">Установите приложение Private Internet Access на других устройствах и используйте указанное выше имя пользователя для входа в учетную запись и защиты соединения.</string>
+    <string name="update_email">Обновить эл. адрес</string>
+    <string name="email_sucessfully_changed">Адрес эл. почты успешно изменен</string>
+    <string name="copy_toast_text">Текст копирован в буфер обмена</string>
+    <string name="current_region">ТЕКУЩИЙ РЕГИОН</string>
+    <string name="full_licenses">Полные лицензии</string>
+    <string name="email">Эл. адрес</string>
+    <string name="please_wait">Подождите</string>
+    <string name="still_connecting">Еще пытаемся подключиться</string>
+    <string name="enabled">Включено</string>
+    <string name="disabled">Отключено</string>
+    <string name="account_details_password_bottom_text">Коснитесь значка глаза, чтобы показать пароль. Коснитесь еще раз, чтобы скопировать пароль в буфер обмена.</string>
+    <string name="user_x_vs_p_error">Убедитесь, что вы выполняете вход с помощью основного имени пользователя, которое должно начинаться с латинской буквы «p» (напр., p12345)</string>
+    <string name="vpn_revoke_text">Разрешение на использование PIA VPN отозвано. VPN, аварийный блокиратор Интернета и система защиты не активны. Коснитесь здесь, чтобы перезапустить службу и защитить свое интернет-соединение.</string>
+    <string name="vpn_revoke_title">Служба PIA VPN остановлена</string>
+    <!-- Please keep the % elements, this is a formatted text. %1$s is Private Internet Access, %2$s is version number(ei 1.4), %3$s is the version code (ei 114)  -->
+    <string name="login_operation_failed">Не удалось выполнить вход, повторите попытку позже.</string>
+    <string name="no_internet_connection_available">Интернет-соединение недоступно</string>
+    <string name="no_username_or_password">Необходимо ввести действительное имя пользователя и пароль</string>
+    <string name="please_unlock_your_device">Разблокируйте устройство</string>
+    <string name="please_unlock_your_device_message">Для просмотра пароля или изменения данных учетной записи.</string>
+    <string name="settings_mace">PIA MACE™</string>
+    <string name="settings_mace_summary">Пока вы подключены к VPN, будет блокироваться реклама, трекеры и вредоносные программы</string>
+    <string name="qs_title">Подключиться к Private Internet Access</string>
+    <string name="not_logged_in">вход не выполнен</string>
+    <!-- Please keep the %s, this is a formatted text. %s is a server name.  -->
+    <string name="qs_disconnect">Отключить VPN (%s)</string>
+    <string name="qs_disconnect_nolocation">Отключить VPN</string>
+    <string name="menu_about">О программе</string>
+    <string name="reconnect_vpn">Чтобы изменение вступило в силу, переподключитесь к VPN</string>
+    <string name="reconnect">Повторное подключение</string>
+    <string name="later">Позже</string>
+    <string name="error_account_info">Не удалось найти данные учетной записи</string>
+    <string name="error_pinging_while_connected">Нельзя обновить задержку при подключении к VPN</string>
+    <string name="allows_port_forwarding">Разрешает переадресацию порта</string>
+    <string name="about_privacy_policy">Политика конфиденциальности</string>
+    <string name="version">Версия</string>
+    <string name="application_information">СВЕДЕНИЯ О ПРИЛОЖЕНИИ</string>
+    <string name="data_encyrption">Шифрование данных</string>
+    <string name="data_auth">Аутентификация данных</string>
+    <string name="handshake">Принять</string>
+    <string name="dismiss">Отклонить</string>
+    <string name="recent_changes">Недавние изменения</string>
+    <string name="refresh">Обновить</string>
+    <string name="open_in_browser">Открыть в браузере</string>
+    <string name="copy_link">Копировать ссылку</string>
+    <string name="text_failed_to_copy">Не удалось скопировать текст</string>
+    <string name="link_copied_to_clipboard">Ссылка скопирована в буфер</string>
+    <string name="search_apps">Поиск приложений</string>
+    <string name="account_trail">Пробная версия</string>
+    <string name="account_yearly">Ежегодно</string>
+    <string name="account_montly">Ежемесячно</string>
+    <string name="account_termination">Действие вашей учетной записи прервано</string>
+    <string name="preference_connection">СОЕДИНЕНИЕ</string>
+    <string name="preference_encryption">ШИФРОВАНИЕ</string>
+    <string name="vpn_stop">Остановить</string>
+    <string name="change_server">Изменить сервер</string>
+    <string name="click_to_connect">Коснитесь для подключения</string>
+    <string name="widget_long_title">Подключение Rectangle</string>
+    <string name="widget_square_connect">Подключение Square</string>
+    <string name="widget_small_connect">Подключение Small</string>
+    <string name="mace_enabled">Функция MACE активирована</string>
+    <string name="send_debug_log">Отправить журнал отладки в службу поддержки</string>
+    <!-- Please keep the %s, this is a formatted text. %s is an error message.  -->
+    <string name="failure_sending_log">Не удалось отправить журналы отладки: %s</string>
+    <string name="log_send_done_title">Отладочная информация отправлена.</string>
+    <string name="log_send_done_msg">Отладочная информация успешно отправлена. \nКод: %s\nЗапишите этот код ID, т. к. наша служба поддержки запрашивает его для поиска переданных вами данных.</string>
+    <string name="sending_debug_log">Отправка отладочной информации...</string>
+    <string name="nought_always_on_warning">Если вы не видите диалогового окна подтверждения VPN, возможно, для другого приложения активирован параметр «Всегда на VPN». В этом случае подключаться к VPN может только это приложение. Проверить это можно в меню «Настройки-&gt; Беспроводные сети-&gt; Еще .. -&gt; VPN».</string>
+    <string name="open_settings">Открыть настройки</string>
+    <string name="settings_widget_configuration">Конфигурация виджета</string>
+    <string name="preferences_widget_title">Настройки виджета</string>
+    <string name="preferences_widget_summary">Настройте наши виджеты для работы на главном экране</string>
+    <string name="widget_flag_alpha">Флаг «Альфа»</string>
+    <string name="widget_background">Цвет фона</string>
+    <string name="widget_color">Цвет текста</string>
+    <string name="widget_cc">Центр управления PIA</string>
+    <string name="clear">Очистить</string>
+    <string name="save">Сохранить</string>
+    <string name="saved">Сохранено</string>
+    <string name="speeds_shown_are_all_traffic_over_our_connection">Показана скорость для трафика через ваше VPN-подключение</string>
+    <string name="ip_short">Общедоступный IP-адрес</string>
+    <string name="login_throttled_text">Слишком много неудачных попыток входа с использованием этого имени пользователя. Повторите попытку позже.</string>
+    <string name="tap_to_connect">КОСНИТЕСЬ ДЛЯ ПОДКЛЮЧЕНИЯ</string>
+    <string name="building_configration">Формирование конфигурации...</string>
+    <!-- Please keep the %1$d, this is a formatted text. %1$d is a number (ei 1-31) -->
+    <string name="days_left">%d дн.</string>
+    <string name="one_day_left">Один день</string>
+    <!-- Please keep the %1$d, this is a formatted text. %1$d is a number (ei 1-31) -->
+    <string name="hours_left">%d ч.</string>
+    <string name="one_hour_left">Один час</string>
+    <!-- Please keep the %1$d, this is a formatted text. %1$d is a number (ei 1-31) -->
+    <string name="minutes_left">%d мин.</string>
+    <string name="one_minute_left">Одна минута</string>
+    <string name="timeleft_expired">Закончилось</string>
+    <string name="sign_in_to_your_account">Войдите в свою учетную запсь</string>
+    <string name="username_only">Имя пользователя</string>
+    <string name="submit">Отправить</string>
+    <string name="please_enter_your_email_address">Введите свой адрес эл. почты</string>
+    <string name="select_vpn_plan">Выберите план VPN</string>
+    <string name="_7_day_money_back_guarantee">30-дневная гарантия возврата денег</string>
+    <string name="monthly">Ежемесячно</string>
+    <string name="yearly">Ежегодно</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is a currency (ei 1-31) -->
+    <string name="yearly_sub_text">%1$s в год</string>
+    <string name="forgot_password">Забыли пароль?</string>
+    <string name="tap_to_disconnect">КОСНИТЕСЬ ДЛЯ ОТКЛЮЧЕНИЯ</string>
+    <string name="drawer_account">Учетная запись</string>
+    <string name="drawer_refer_friend">Пригласить друга</string>
+    <string name="drawer_region_selection">Выбор региона</string>
+    <string name="drawer_about">О программе</string>
+    <string name="drawer_home_page">Главная страница</string>
+    <string name="drawer_contact_support">Служба поддержки</string>
+    <string name="n_a_port_forwarding">---</string>
+    <!-- This string is going to be formatted by us so the "Buy now" is colored green. Please do not change the &lt;emph> or &lt;/emph> as that is formatting for us to find the buy now text. -->
+    <string name="dont_have_an_account">Нет учетной записи? &lt;emph&gt;Купите сейчас&lt;/emph&gt;</string>
+    <string name="buy_now">Купите сейчас!</string>
+    <string name="buy_now_button">Купите сейчас</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is a currency (ei 1-31) -->
+    <string name="purchasing_monthly_ending">%1$s/мес.</string>
+    <!-- Please keep the %1$s %2$s, this is a formatted text. %1$s is a currency (ei 1-31), %2$s is the currency (move this in front or keep it there depending on currency -->
+    <string name="purchasing_yearly_month_ending">%2$s%1$s/мес.</string>
+    <string name="change_region">ИЗМЕНЕНИЕ РЕГИОНА</string>
+    <!--Please keep the %1$s, this is a formatted text. %1$s is the up and down speeds on the connection. /s is per second-->
+    <string name="graph_under_formatting">%1$s/с.</string>
+    <string name="allowed_apps_protected_text">Автоматически защищайте приложения с помощью VPN от PIA</string>
+    <string name="allowed_apps_unprotected_text">Выбирайте приложения, использующие VPN от PIA</string>
+    <string name="allowed_apps_spotlight_text">Задает, используют ли все приложения VPN от PIA по умолчанию.</string>
+    <string name="allowed_apps_spotlight_title">Переключатель приложения</string>
+    <string name="toast_allowed_apps_default_positive">Приложения, которые используют VPN от PIA по умолчанию</string>
+    <string name="toast_allowed_apps_default_negative">Приложения, которые не используют VPN от PIA по умолчанию</string>
+    <!-- Please keep %1$s %2%s as those are formatted numbers. %1$s is a version number like 2.0, %2$s is the version code like 141 -->
+    <string name="drawer_version">Версия %1$s (%2$s)</string>
+    <string name="cancel">Отмена</string>
+    <!-- Keep the <![CDATA[...]], translate everything in between-->
+    <string name="settings_port_number_restriction"><![CDATA[Номер порта должен быть в интервале от 1024 до 65535]]></string>
+    <!-- Keep the <![CDATA[...]], translate everything in between-->
+    <string name="settings_lport_hint"><![CDATA[Номер порта от 1024 до 65535]]></string>
+    <string name="startup_region_title">Простое подключение к любому региону</string>
+    <string name="startup_region_message">У нас есть серверы по всему миру, поэтому вы всегда будете защищены.</string>
+    <string name="startup_region_message_new">У нас есть серверы во всех уголках мира, поэтому вы всегда будете защищены. Начните с бесплатной 7-дневной пробы, после этого стоимость составит %s в год.</string>
+    <string name="startup_region_footer"><a href="privacy:">Политика конфиденциальности</a> и <a href="terms:">Условия использования</a></string>
+    <string name="startup_region_header">Private Internet Access</string>
+    <string name="startup_ads_title">Защита от рекламы</string>
+    <string name="startup_ads_message">Активация PIA MACE позволяет блокировать всю рекламу в Интернете.</string>
+    <string name="startup_connection_title">Защита по каждому приложению</string>
+    <string name="startup_connection_message">Настраивайте всё сами, задавая приложения, которые используют нашу службу (требуется Android 5.0+).</string>
+    <string name="speed_graph">СКОРОСТЬ РАБОТЫ</string>
+    <string name="data_usage_over_time">ТРАФИК ДАННЫХ ПО ВРЕМЕНИ</string>
+    <!-- Please add in what word is the color red as we color it in code.  -->
+    <string name="per_app_warning">Приложения, выделенные красным цветом, обладают определенными функциями, способными вызывать проблемы, из-за которых нашу службу можно обойти (или вы можете остаться без защиты).</string>
+    <string name="purchasing_bottom">Уже есть учетная запись? &lt;emph&gt;Войдите в систему&lt;/emph&gt;</string>
+    <string name="ok">ОК</string>
+    <string name="killswitch_title">Аварийный выключатель активирован</string>
+    <string name="skip">ПРОПУСК</string>
+    <string name="next">ДАЛЕЕ</string>
+    <string name="done">ГОТОВО</string>
+    <string name="update_account">ОБНОВИТЬ УЧЕТНУЮ ЗАПИСЬ</string>
+    <string name="local_port_titla">Локальный порт</string>
+    <string name="connection_couldnt_establish_title">Не удалось установить подключение</string>
+    <string name="connection_couldnt_establish_message">Попробуйте выбрать другой регион или сообщите нам об этом, создав запрос в службу поддержки</string>
+    <string name="send_feedback">Отправить отзыв</string>
+    <string name="preference_application_settings">ОБЩИЕ НАСТРОЙКИ</string>
+    <string name="preference_vpn_settings">НАСТРОЙКИ VPN</string>
+    <string name="preference_haptic_title">Сенсорная обратная связь</string>
+    <string name="preference_dialog_graph_title">Выберите единицу измерения для графика</string>
+    <string name="preference_connect_on_boot_summary">Подключаться при запуске системы</string>
+    <string name="preference_haptic_feedback_summary">Вибрация при установлении соединения</string>
+    <string name="best_value">ПРОБНАЯ ВЕРСИЯ – ВЫГОДНО</string>
+    <string name="port_number">Номер порта</string>
+    <!-- Please keep the %s, this is a formatted text. %1$s is an app name -->
+    <string name="allowed_apps_toast_removed">Приложение %1$s будет защищено</string>
+    <!-- Please keep the %s, this is a formatted text. %1$s is an app name -->
+    <string name="allowed_apps_toast_added">Приложение %1$s не будет защищено</string>
+    <string name="shorthand_bytecount">%2$s %1$s</string>
+    <string name="preference_widget_icon_upload_title">Передать цвет значка</string>
+    <string name="preference_widget_icon_download_title">Загрузить цвет значка</string>
+    <string name="preference_graph_unit">Графическая единица</string>
+    <string name="no">Нет</string>
+    <string name="color_picker_dialog_title">Выберите цвет</string>
+    <string name="username_example">Имя пользователя (например, p1234567)</string>
+    <string-array name="preference_graph_titles">
+        <item>Биты</item>
+        <item>Байты</item>
+        <item>Килобиты</item>
+        <item>Килобайты</item>
+        <item>Мегабиты</item>
+        <item>Мегабайты</item>
+        <item>Гигабиты</item>
+        <item>Гигабайты</item>
+    </string-array>
+    <!-- Logic in code uses the first and last letter to decide the unit to change the graph too. Be care what to use-->
+    <string name="channel_name_background">Статистика подключений</string>
+    <string name="channel_description_background">Статистика текущего подключения по PIA VPN</string>
+    <string name="channel_name_status">Изменения статуса подключения</string>
+    <string name="channel_description_status">Изменения статуса подключения по PIA VPN (подключение, аутентификация, ...)</string>
+    <string name="no_internet_click_here">Невозможно найти цены; нет подключения к Интернету. Нажмите сюда, чтобы обновить.</string>
+    <string name="failure_to_connect_alert">Не удалось подключиться к нашим серверам или серверам Google. Подключитесь к Интернету.</string>
+    <string name="blockipv6_summary">Используйте альтернативный метод предотвращения утечек по IPv6. Утечки IPv6 нужно блокировать на Android 5.0. и старше.</string>
+    <string name="blockipv6">Агрессивная блокировка IPv6</string>
+    <string name="purchase_renew_title">Купите новую учетную запись</string>
+    <string name="purchase_renew_message">Ваша учетная запись не дает права на продление. Для продолжения работы купите новую учетную запись.</string>
+    <string name="purchase">Купить</string>
+    <string name="purchase_complete">Покупка завершена</string>
+    <string name="purchase_complete_message">Спасибо за регистрацию. Мы отправили имя пользователя и пароль на адрес электронной почты %1$s</string>
+    <string name="password_only">Пароль</string>
+    <string name="account_creation_failure">Сбой создания учетной записи</string>
+    <string name="account_creation_failure_message">В настоящий момент мы не можем создать учетную запись. Мы создали запрос поддержки с идентификатором %1$s и представитель поддержки свяжется с вами в ближайшее время. Вы также можете попробовать перезапустить приложение позже, чтобы завершить процесс.</string>
+    <string name="get_started">Начать</string>
+    <string name="no_internet_message">Интернет-соединение не найдено. Пожалуйста, убедитесь, что у вас есть подключение к Интернету, и повторите попытку позже.\n\nМожно вернуться в приложение позже и завершить процесс.</string>
+    <string name="no_internet_title">Ой!</string>
+    <string name="retry">Попробовать еще раз</string>
+    <string name="go_to_login">Выполнить вход</string>
+    <string name="unable_change_email">Не удалось изменить электронную почту. Пожалуйста, повторите попытку позже.</string>
+    <string name="preference_reset_settings">Сбросить настройки на «по умолчанию»</string>
+    <string name="pref_reset_settings">Сбросить настройки?</string>
+    <string name="pref_reset_settings_message">Это сбросит приложение к исходному состоянию. Вы потеряете все сделанные изменения.</string>
+    <string name="reset">Сброс</string>
+    <string name="settings_reset">Сброс настроек</string>
+    <string name="widget_radius">Радиус виджета</string>
+    <string name="widget_text">Текстовый виджет</string>
+    <string name="account_creation_failure_message_no_ticket_id">Нам не удалось создать учетную запись. Повторите попытку позже.\nПри повторном открытии приложения создание учетной записи будет возобновлено.</string>
+    <string name="try_again">Повторить</string>
+    <string name="default_base">По умолчанию</string>
+    <string name="confirm_purchase">Подтвердить покупку</string>
+    <string name="purchase_failed">Не удалось выполнить покупку</string>
+    <string name="confirming_purchase">Мы проверяем вашу покупку в системе. На это может понадобиться время, так что оставайтесь с нами.</string>
+    <!-- %1$d and %2$d are numbers. Example of this string would be Attempt 1 of 5, 2 of 5, 3 of 5. -->
+    <string name="attempt">Попытка %1$d из %2$d</string>
+    <string name="piaaccountneeded">Для входа требуется учетная запись privateinternetaccess.com</string>
+    <string name="piaaccountneeded_samsung">Перейдите на адрес privateinternetaccess.com для регистрации в этой службе.</string>
+    <string name="piaaccountneeded_amazon">Перейдите на адрес privateinternetaccess.com для регистрации в этой службе.</string>
+    <string name="vpn_permisions_top_text">PIA требуется доступ к вашим конфигурациям VPN для защиты вашего трафика</string>
+    <string name="vpn_permissions_middle_text">Вы увидите подсказку PIA VPN, после чего должны будете разрешить доступ к конфигурации VPN. Для продолжения нажмите «ОК».</string>
+    <string name="vpn_permission_network">Мы не отслеживаем, не фильтруем и не регистрируем действия в сети.</string>
+    <string name="vpn_permission_title">PIA</string>
+    <string name="contact">Контакты</string>
+    <string name="permissions_message">Это разрешение требуется нам для работы приложения. Если вам нужна помощь, вы также можете связаться со службой поддержки пользователей.</string>
+    <string name="send_email">Послать эл. письмо</string>
+    <string-array name="themes_list">
+        <item>Светлая</item>
+        <item>Темная</item>
+    </string-array>
+    <string name="preference_app_theme">Темная тема</string>
+    <string name="auth_setby_gcm">Системы шифрования AEAD, такие как AES-GCM, используют интегрированный механизм аутентификации</string>
+    <string name="allow_locallan">Разрешить трафик локальной сети</string>
+    <string name="allow_locallan_details">Всегда разрешать обмен данными между устройствами в локальной сети</string>
+    <string name="pref_block_dialog_title">Разрешить доступ к локальным сетям</string>
+    <string name="pref_block_dialog_message">Обратите внимание, что некоторые системные приложения (например, приложение Google), могут обходить VPN при разрешенном доступе к локальной сети.</string>
+    <string name="killswitch_notification_title">Аварийный блокиратор включен</string>
+    <string name="open_android_settings">Открыть настройки Android</string>
+    <string name="data_in">вниз</string>
+    <string name="data_out">вверх</string>
+    <string name="pia_channel_name">PIA</string>
+    <string name="pia_channel_description">Общие события и уведомления</string>
+    <string name="tv_startup_press_right">НАЖМИТЕ ВПРАВО</string>
+    <string name="androidalwayson">Авторазрыв соединения VPN</string>
+    <string name="androidalwaysonsummary">В Android есть лучшая альтернатива функции «Аварийный блокиратор». Нажмите, чтобы узнать о ней</string>
+    <string name="preference_blocking">БЛОКИРОВКА</string>
+    <string name="preference_connect_proxy">Подключаться через прокси</string>
+    <string name="preference_connect_proxy_app">Выбранное прокси-приложение</string>
+    <string name="preference_connect_proxy_summary">Не забудьте добавить в исключения приложение для подключения в настройках приложений</string>
+    <string name="preference_proxy_port">Прокси-порт</string>
+    <string name="proxy_selection_title">Выбрать прокси-приложение</string>
+    <string name="app_is_proxy">Это приложение для установки прокси-соединения. Для работы его надо добавить в исключения.</string>
+    <string name="app_must_be_selected">Выберите приложение, чтобы сохранить.</string>
+    <string name="proxy_settings_title">НАСТРОЙКИ ПРОКСИ</string>
+    <string name="enable_proxy_dialog_title">Настройте свое прокси-приложение</string>
+    <string name="enable_proxy_dialog_message">Чтобы использовать прокси-подключение с нашим приложением, нам нужно знать, какое приложение вы планируете использовать.</string>
+    <string name="vpn_activity_title">Журнал записей VPN</string>
+    <string name="preference_vpn_log_title">См. журнал записей VPN</string>
+    <string name="preference_vpn_log_summary">Вид продв. пользователя для просмотра журнала VPN</string>
+    <string name="preference_orbot_title">Прокси-приложение — Orbot</string>
+    <string name="preference_orbot_summary">Исп-ть интеграцию Orbot</string>
+    <string name="settings_orbot_udp_problem_message">Для работы Orbot нужно включить TCP. Включить?</string>
+    <string name="settings_orbot_udp_problem_title">Требования прокси</string>
+    <!-- %d is a digit for ping latency(ie, 0-10000). ms is milliseconds. -->
+    <string name="ping_string">%d мс</string>
+    <string name="status_server_ping">Идем лучший сервер</string>
+    <!-- &lt;emph> and &lt;/emph> should not be touched. These are how we know what to color in this string. -->
+    <string name="trial_account">Есть подарочная или триальная карта? &lt;emph&gt;Используйте ее сейчас&lt;/emph&gt;</string>
+    <!-- &lt;emph> and &lt;/emph> should not be touched. These are how we know what to color in this string. -->
+    <string name="trial_remember_password">Помните свой пароль? &lt;emph&gt;Тогда входите&lt;/emph&gt;</string>
+    <string name="trial_card_pin">PIN-код карты</string>
+    <string name="trial_screen_redeem">Исп-ть подарочную карту</string>
+    <string name="trial_screen_message">Введите свой адрес эл. почты и 16-значный PIN-код с подарочной или триальной карты.</string>
+    <string name="card_pin_invalid">Неверный PIN-код карты</string>
+    <string name="confirming_trial_account">Мы подтверждаем ваш PIN-код в системе. Это займет какое-то время, подождите немного.</string>
+    <string name="trial_success_message">Скоро вы получите эл. письмо с именем пользователя и паролем.</string>
+    <string name="trial_success_title">Готово!</string>
+    <string name="trial_failure_redeemed_title">Карта уже использована</string>
+    <string name="trial_failure_redeemed_message">Похоже, эту карту уже использовали с другой учетной записи. Попробуйте ввести другой PIN.</string>
+    <string name="trial_failure_invalid_title">Неверный PIN-код карты</string>
+    <string name="trial_failure_invalid_message">Похоже, вы ввели неверный PIN-код карты. Попробуйте еще раз.</string>
+    <string name="trial_failure_expired_title">Карта устарела</string>
+    <string name="trial_failure_expired_message">Попробуйте ввести другой PIN-код.</string>
+    <string name="trial_failure_throttled_title">Слишком много попыток</string>
+    <string name="trial_failure_throttled_message">Вы сделали слишком много попыток. Попробуйте позже.</string>
+    <string name="trial_failure_email_title">Неверный адрес эл. почты</string>
+    <string name="trial_failure_email_message">Похоже, вы ввели неверный адрес эл. почты. Попробуйте еще раз.</string>
+    <!-- Keep %1$s and %2$s. This is a formatted text and %1$s is Terms of Service and %2$s is Privacy Policy -->
+    <string name="tos_pos_text" formatted="true">Для регистрации нужно принять %1$s и %2$s</string>
+    <string name="tos_text">Условия использования</string>
+    <string name="pp_text">Политика конфиденциальности</string>
+    <string name="website_isnt_protected">Веб-сайт не защищен.</string>
+    <string name="api_check_failure_title">Ошибка подключения</string>
+    <string name="api_check_message">Не удалось подключиться к Private Internet Access. Это может быть из-за плохого качества соединения с Интернетом, или если наша служба заблокирована в вашей стране. Убедитесь, что Интернет-соединение стабильно, принудительно остановите приложение в Настройках, перезапустите приложение и повторите попытку.</string>
+    <string name="invalid_qr_code">Недействительная последовательность QR-кодов. Повторите.</string>
+    <string name="empty_qr_code">Содержимое QR пустое. Повторите.</string>
+    <string name="your_plan_will_expire_on">Ваш план истечет</string>
+    <!-- TV specific strings -->
+    <string name="favorites_title">Управление избранным</string>
+    <string name="favorites_panel_title">ИЗБРАННОЕ</string>
+    <string name="logout_title">Выход</string>
+    <string name="pia_access">Доступ к PIA</string>
+    <string name="preference_app_update_title">Подключаться после обновления приложения</string>
+    <string name="preference_app_update_message">После обновления приложение будет подключаться автоматически для лучшей защиты.</string>
+    <string name="server_search">Поиск</string>
+    <string name="tile_killswitch">Аварийный блокиратор включен</string>
+    <string name="auto_dns_setting_summary">DNS PIA</string>
+    <string name="pia_dns">PIA DNS</string>
+    <string name="edit_custom_dns">Редактировать</string>
+    <string name="custom_dns">Пользовательский DNS</string>
+    <string name="custom_dns_warning_body">Если использовать DNS-сервер, не рекомендуемый PIA, ваш DNS-трафик может просматриваться сторонними лицами, что является угрозой для конфиденциальности.</string>
+    <string name="custom_dns_warning_title">@string/custom_dns</string>
+    <string name="custom_primary_dns">Основной DNS</string>
+    <string name="custom_secondary_dns">Дополнительный DNS (необязательно)</string>
+    <string name="custom_primary_dns_invalid">Недействительный основной DNS</string>
+    <string name="custom_secondary_dns_invalid">Недействительный дополнительный DNS</string>
+    <string name="custom_dns_mace_warning">Чтобы активировать функцию MACE, необходимо использовать DNS-сервер по умолчанию. Хотите установить DNS по умолчанию?</string>
+    <string name="custom_dns_disabling_mace">При использовании пользовательского DNS функция MACE будет отключена.</string>
+    <string name="password_required">Требуется пароль PIA</string>
+    <string name="password_required_body">В целях безопасности для внесения изменений в учетную запись требуется ввести пароль PIA. Введите свой пароль PIA, чтобы продолжить.</string>
+    <string name="password_empty">Поле пароля не должно быть пустым</string>
+    <string name="trusted_cellular_title">Доверять сотовым сетям</string>
+    <string name="trusted_cellular_message">Автоматически отключать VPN при подключении к мобильным сетям</string>
+    <string name="trusted_wifi_title">Доверенные сети Wi-Fi</string>
+    <string name="trusted_wifi_message">VPN будет автоматически включаться во всех сетях Wi-Fi, кроме тех, которые внесены пользователем в белый список</string>
+    <string name="trusted_wifi_enable_message">Отключать VPN при подключении к доверенным сетям</string>
+    <string name="trusted_wifi_singular">Доверенная сеть</string>
+    <string name="trusted_wifi_plural">Доверенные сети</string>
+    <string name="available_wifi_header">Доступные сети</string>
+    <string name="trusted_wifi_no_wifi">Включите Wi-Fi для выбора доверенных сетей.</string>
+    <string name="trusted_wifi_no_permission">Функции «Доверенные сети Wi-Fi» для обнаружения ближайших Wi-Fi сетей нужно разрешение на определение местоположения. Если отозвать разрешение, функция перестанет работать.\n\nДля использования функции перейдите в меню Настройки&gt;Приложения&gt;PIA VPN и убедитесь, что определение местоположения включено.</string>
+    <string name="no_permission_title">Требуется разрешение</string>
+    <string name="trusted_wifi_not_available">Нет доступных сетей</string>
+    <string name="trusted_wifi_no_trusted">Нет доверенных сетей</string>
+    <string name="account_invalid_warning">"Неверные данные учетной записи"</string>
+    <!-- PIAX Specific Strings -->
+    <string name="buy_account">КУПИТЬ УЧЕТНУЮ ЗАПИСЬ</string>
+    <string name="redeem_gift_card">ИСП-ТЬ ПОДАРОЧНУЮ КАРТУ</string>
+    <string name="email_address">Адрес эл. почты</string>
+    <string name="gift_card_pin">PIN-код подарочной карты</string>
+    <string name="redeemed_successful">Карта использована</string>
+    <string name="redeemed_login_header">Ваши учетные данные</string>
+    <string name="redeeming_gift_card">Мы подтверждаем код подарочной карты в системе. Это займет какое-то время, подождите немного.</string>
+    <string name="redeeming_gift_title">Идет проверка с нашим сервером</string>
+    <string name="redeemed_to_login">ПЕРЕЙТИ КО ВХОДУ</string>
+    <string name="username_enter">Введите имя пользователя</string>
+    <string name="password_enter">Введите пароль</string>
+    <string name="total_cost">Общая стоимость</string>
+    <string name="confirm_your_purchase">Подтвердите покупку</string>
+    <string name="enter_email">Введите свой адрес эл. почты</string>
+    <string name="you_are_purchasing">Вы покупаете план «%1$s»</string>
+    <string name="continue_only">ПРОДОЛЖИТЬ</string>
+    <string name="plan_only">План</string>
+    <string name="yearly_only">в год</string>
+    <string name="monthly_only">в месяц</string>
+    <string name="search_region">Поиск региона</string>
+    <string name="region_dialog_header">Упорядочить регионы по</string>
+    <string name="menu_filters">Фильтры</string>
+    <string name="menu_update">ОБНОВИТЬ</string>
+    <string name="menu_reorder">Упорядочить</string>
+    <string name="port_not_available">Недоступно</string>
+    <string name="refer_yes">Да</string>
+    <string name="refer_no">Нет</string>
+    <string name="region_filter_name">Имя</string>
+    <string name="region_filter_latency">Задержка</string>
+    <string name="region_filter_favorites">Избранное</string>
+    <!-- Free Trial Strings -->
+    <string name="free_trial_header">7 дней бесплатно!</string>
+    <string name="free_trial_cost">Всего %s в год</string>
+    <string name="free_trial_guarantee">30-дневная гарантия возврата денег</string>
+    <string name="free_trial_protection_header">1 год безопасности и защиты данных</string>
+    <string name="free_trial_protection_text">Скрывайте IP, пользуйтесь Интернетом анонимно</string>
+    <string name="free_trial_devices_header">Поддержка до 10 устройств</string>
+    <string name="free_trial_devices_text">Защитите себя на 10 устройствах</string>
+    <string name="free_trial_region_header">Легкое подключение к любому региону</string>
+    <string name="free_trial_region_text">Больше 3300 серверов в 32 странах</string>
+    <string name="free_trial_start">НАЧАТЬ ПОДПИСКУ</string>
+    <string name="free_trial_see_all">Посмотреть все планы</string>
+    <!-- Tiles Strings -->
+    <string name="snooze_vpn_title">РЕЖИМ ПАУЗЫ VPN</string>
+    <string name="snooze_short">ПАУЗА 5 МИНУТ</string>
+    <string name="snooze_medium">ПАУЗА 15 МИНУТ</string>
+    <string name="snooze_long">ПАУЗА 1 ЧАС</string>
+    <string name="snooze_description">Отключает VPN и автоматически переподключается, когда таймер истекает.</string>
+    <string name="snooze_resume">ВОЗОБНОВИТЬ</string>
+    <string name="snooze_paused">Пауза до %s</string>
+    <string name="snooze_status">Пауза</string>
+    <string name="snooze_notification">На паузе</string>
+    <string name="failed_connect_status">Не удалось подключиться</string>
+    <!-- Quick Settings Strings -->
+    <string name="quick_settings_title">БЫСТРАЯ НАСТРОЙКА</string>
+    <string name="quick_settings_network_toggle">Управление сетью</string>
+    <string name="quick_settings_private_browser">Приватный браузер</string>
+    <!-- Quick Connect String -->
+    <string name="quick_connect_title">БЫСТРОЕ ПОДКЛЮЧЕНИЕ</string>
+    <string name="quick_connect_favorites_title">ИЗБРАННЫЕ СЕРВЕРЫ</string>
+    <!-- Usage Strings -->
+    <string name="usage_title">ИСПОЛЬЗОВАНИЕ</string>
+    <string name="usage_download">Загрузить</string>
+    <string name="usage_upload">Отправить</string>
+    <!-- Settings -->
+    <string name="settings_protocol">Выбор протокола</string>
+    <string name="protocol_ovpn">OpenVPN</string>
+    <string name="protocol_wireguard">WireGuard</string>
+    <string name="wg_per_app_warning">Переключение на WireGuard отключит функцию «Настройки по каждому приложению»</string>
+    <string name="wg_protocol_warning">Следующие функции недоступны в WireGuard:</string>
+    <string name="wg_connecting">Идет подключение</string>
+    <string name="wg_connected">VPN подключен</string>
+    <string name="block_connections_body_1">Функция PIA «Блокировать соединения без VPN» требует включения Always-ON VPN в настройках Android.</string>
+    <string name="block_connections_body_2">Чтобы продолжить, перейдите в «Настройки» - «Сеть и Интернет» - «Дополнительно» - «VPN» - нажмите на значок «Настройки» - активируйте «Always-on VPN».</string>
+    <string name="block_connections_button">Перейдите в «Настройки» - «Сеть и Интернет».</string>
+    <string name="ks_removal_warning">Мы обнаружили, что у вас включен аварийный блокиратор. Мы изменили принцип работы этой функции, добавив настройку Android «Блокировать подключения без VPN» для WireGuard и OpenVPN. Посмотрите изменения в Настройках, чтобы убедиться, что вы под защитой.</string>
+    <string name="preference_on_boot_always_on">Подключение при запуске системы. Мы рекомендуем включить эту настройку при использовании функции «VPN всегда вкл».</string>
+    <string name="ovpn_cipher_removal_description">Мы обновляем реализацию функции OpenVPN. Нажмите <b>здесь</b> для получения более детальной информации.</string>
+    <!-- Wireguard -->
+    <string name="tunnel_error_already_exists">Туннель «%s» уже существует</string>
+    <string name="tunnel_error_invalid_name">Неверное имя</string>
+    <string name="preview">ПРОСМОТР</string>
+    <!-- GEO Servers -->
+    <string name="geo_servers">Показывать регионы, определенные по местоположению</string>
+    <!-- Rating -->
+    <string name="rating_enjoy_title">Вам нравится PIA VPN?</string>
+    <string name="rating_enjoy_message">Надеемся, что наш продукт VPN соответствует вашим ожиданиям</string>
+    <string name="rating_review_title">Не могли бы вы оставить отзыв в Google Play?</string>
+    <string name="rating_review_message">Благодарим за согласие поделиться своими впечатлениями</string>
+    <string name="rating_feedback_title">Что пошло не так?</string>
+    <string name="rating_feedback_message">Хотите оставить отзыв? Мы сделаем всё возможное, чтобы ваши впечатления от PIA стали лучше.</string>
+    <!-- Get Started Purchasing-->
+    <string name="getstarted_subscribe">ПОДПИСАТЬСЯ СЕЙЧАС</string>
+    <string name="getstarted_free_trial">Начните 7-дневный бесплатный пробный период</string>
+    <string name="getstarted_trial_price">Затем %s в год</string>
+    <string name="purchasing_email_reason">Нам нужен ваш электронный адрес, чтобы мы могли прислать вам имя пользователя и пароль.</string>
+    <string name="purchasing_all_plans">Смотреть все доступные планы</string>
+    <string name="purchasing_login_receipt">Вход по квитанции о покупке</string>
+    <string name="purchasing_no_subscription">У вас нет активной подписки</string>
+    <string name="purchasing_sure">Вы уверены?</string>
+    <string name="purchasing_return">Хотите вернуться на домашний экран? Процесс подписки можно продолжить в любой момент, нажав Вход-&gt;Вход по квитанции о покупке.</string>
+    <string name="purchasing_magic_link">Войти через волшебную ссылку из письма</string>
+    <string name="purchasing_magic_send">ОТПРАВИТЬ ССЫЛКУ</string>
+    <string name="magic_login_enter_email">Введите эл. почту</string>
+    <string name="purchasing_magic_success">Поищите ссылку для входа на почте</string>
+    <string name="connection_tile_header">СОЕДИНЕНИЕ</string>
+    <string name="connection_tile_tcp">TCP</string>
+    <string name="connection_tile_udp">UDP</string>
+    <!-- Update -->
+    <string name="settings_calling_header">Последние новости</string>
+    <string name="update_3_7_1_header">Попробуйте WireGuard® сегодня!</string>
+    <string name="update_3_7_1_description">Это новый, более эффективный протокол VPN с более высокой производительностью, меньшей нагрузкой на процессор и увеличенным временем автономной работы.</string>
+    <string name="update_3_7_1_cta_1">Попробуйте WireGuard®</string>
+    <string name="update_3_7_1_cta_2"><u>Подробнее</u></string>
+    <!-- Network Management -->
+    <string name="nmt_notification_title">Автоматизация активна</string>
+    <string name="nmt_notification_description">VPN отключен</string>
+    <string name="nmt_secure_wifi">Безопасный Wi-Fi</string>
+    <string name="nmt_open_wifi">Wi-Fi</string>
+    <string name="nmt_mobile_data">Мобильная сеть</string>
+    <string name="nmt_disconnect">Всегда отключать VPN</string>
+    <string name="nmt_connect">Всегда подключать VPN</string>
+    <string name="nmt_retain">Сохранять статус VPN</string>
+    <string name="nmt_manage_title">Настроить автоматизацию</string>
+    <string name="nmt_manage_description">Настройте поведение PIA при подключении к Wi-Fi или мобильным сетям. Это исключает возможность отключения вручную.\n\nДанная функция является экспериментальной.</string>
+    <string name="nmt_add_description">Выберите Wi-Fi сеть, чтобы добавить новое правило.</string>
+    <string name="nmt_rule_for">Правило для %s</string>
+    <string name="nmt_remove_rule">Удалить правило</string>
+    <string name="nmt_add_new_rule">Добавить правило</string>
+    <string name="nmt_settings_title">Автоматизация</string>
+    <string name="nmt_settings_description">Настройте правила автоматического подключения для надежных и ненадежных сетей.\n\nДанная функция является экспериментальной.</string>
+    <string name="nmt_management_title">Настроить автоматизацию</string>
+    <string name="network_permisions_top_text">Разрешите PIA VPN доступ к вашему местоположению. Это позволит нам обнаруживать сети Wi-Fi рядом с вами.</string>
+    <string name="network_permissions_middle_text">Вы увидите запрос с просьбой разрешить доступ к местоположению. Чтобы продолжить, нажмите в приложении «ОК».</string>
+    <string name="network_permission_network">Мы не отслеживаем, не фильтруем и не регистрируем действия в сети.</string>
+    <string name="network_permission_button_allow">Разрешить</string>
+    <string name="network_permissions_top_background">Отлично! Почти все готово! Для функции управления сетью PIA также требуется доступ к фоновым службам определения местоположения.</string>
+    <string name="network_permissions_middle_background">Чтобы продолжить, перейдите в «Настройки»&gt; «Приложения»&gt; «PIA»&gt; «Разрешения» - включите фоновый доступ к службам определения местоположения.</string>
+    <string name="network_permissions_button_goto">Зайдите в настройки разрешений</string>
+    <!-- Dedicated IP -->
+    <string name="dip_menu_title">Выделенный IP</string>
+    <string name="dip_description">Активируйте выделенный IP, вставив свой токен в форму ниже. Если вы недавно купили выделенный IP, то можете создать токен на сайте PIA.</string>
+    <string name="dip_summary">Сделайте свои удаленные подключения безопасными с выделенным IP-адресом из страны на ваш выбор. Пока действует подписка, адрес будет только вашим – это лучшая защита передачи данных из всех возможных.</string>
+    <string name="dip_your_header">ВАШИ ВЫДЕЛЕННЫЕ IP</string>
+    <string name="dip_activate">Активировать</string>
+    <string name="dip_remove_header">Удалить выделенный IP</string>
+    <string name="dip_remove_body">Удалить %s – %s?</string>
+    <string name="dip_will_expire_warning">Ваш выделенный IP-адрес скоро устареет.</string>
+    <string name="dip_get_a_new_one">Получите новый.</string>
+    <string name="dip_expired_warning">Срок действия токена истек. Создайте новый токен на странице своей учетной записи на веб-сайте.</string>
+    <string name="dip_updated_warning">Ваш выделенный IP-адрес обновлен.</string>
+    <string name="dip_invalid">Недействительный токен. Проверьте правильность ввода токена.</string>
+    <string name="dip_success">Выделенный IP успешно активирован. Он будет доступен в вашем списке выбора региона.</string>
+    <string name="dip_tag">ВЫДЕЛЕННЫЙ IP</string>
+    <string name="dip_enter_token_hint">Вставьте свой токен здесь</string>
+    <!-- Inapp Messaging -->
+    <string name="inapp_pref_title">Показать служебные сообщения обмена данными</string>
+    <string name="settings_updated">Настройки обновлены</string>
+    <string name="hide_payment">Ввиду технических проблем временно отключена возможность совершать покупки через Google Play. Мы работаем над устранением этой проблемы.\n\nЕсли у вас уже имеется учетная запись с подпиской, вы можете войти в нее, нажав на кнопку «Вход».</string>
+    <string name="settings_block_connections_title">Функция PIA «Авторазрыв соединения VPN» требует включения Always-ON VPN в настройках Android.</string>
+    <string name="settings_block_connections_description">Чтобы продолжить, перейдите в «Настройки» - «Сеть и Интернет» - «Дополнительно» - «VPN» - нажмите на значок «Настройки» - <b>активируйте «Always-on VPN».</b></string>
+    <string name="settings_block_connections_button">Перейдите в «Настройки» - «Сеть и Интернет».</string>
+    <string name="settings_block_connections_error">Невозможно перейти к настройкам сети</string>
+    <!-- KPI -->
+    <string name="kpi_connection_attempts_onboarding_title">Помогите нам сделать нашу службу еще лучше</string>
+    <string name="kpi_connection_attempts_onboarding_body">Чтобы обеспечить высокую производительность подключения нашей службы, поделитесь с нами своей статистикой соединения в анонимном порядке. Эти отчеты не содержат какую-либо личную информацию.</string>
+    <string name="kpi_connection_attempts_settings_title">Помогать делать PIA лучше</string>
+    <string name="kpi_connection_attempts_settings_body">Помогите нам стать лучше, передавая статистику о VPN-соединениях. Эти отчеты не содержат каких-либо персональных данных.</string>
+    <string name="kpi_connection_attempts_settings_details">Просмотр передаваемых данных</string>
+    <string name="kpi_connection_attempts_no_events">Нет недавних событий</string>
+    <string name="kpi_connection_attempts_stats">Статистика о соединениях</string>
+    <string name="kpi_connection_attempts_more_information">Эта минимальная информация помогает нам выявлять и устранять потенциальные проблемы с подключением. Обратите внимание, что для передачи этой информации требуется ваше согласие и активация этой функции вручную, так как по умолчанию она отключена. Мы будем собирать информацию о следующих событиях:\n\n
+• Попытки соединения\n
+• Отмененное соединение\n
+• Установленное соединение\n\n
+Для всех указанных событий мы будем собирать следующую информацию:\n\n 
+• Платформа\n
+• Версия приложения\n
+• Тип приложения (предварительный выпуск или нет)\n
+• Источник соединения (вручную или с использованием автоматизации)\n
+Все события будут включать уникальный идентификатор, генерируемый случайным образом. Этот идентификатор не сопоставляется с вашей учетной записью. Данный уникальный код в целях обеспечения конфиденциальности ежедневно генерируется повторно.\n\n
+Контроль во всех случаях будет в ваших руках. Вы сможете увидеть, какие данные мы собрали, в настройках, а также можете в любое время отключить этот режим.</string>
+    <!-- Renewal -->
+    <string name="renewal_title">С возвращением!</string>
+    <string name="renewal_description">Для использования Private Internet Access вам нужно продлить подписку.</string>
+    <string name="renewal_button">Продлить</string>
+    <string name="use_tcp">Использовать TCP</string>
+    <string name="oneclickconnect">Подключение 1 касанием</string>
+    <string name="startup_region_message_new_bold">ваша бесплатная 7-дневная проба</string>
+    <string name="allow_locallan_on">Разрешить доступ к локальной сети. Некоторые приложения (такие как приложение Google) могут передавать ваш настоящий IP.</string>
+    <string name="allow_locallan_off">Заблокировать доступ к локальным сетям</string>
+    <string name="block_locallan_off">Доступ к локальной сети будет разрешен. Некоторые приложения (такие как приложение Google) могут передвать ваш настоящий IP.</string>
+    <string name="block_locallan_on">Доступ к локальным сетям будет блокироваться</string>
+    <string name="block_locallan">Блокировать локальную сеть</string>
+    <string name="block_connection_wo_vpn">Блокировать подключения без VPN</string>
+    <string name="always_oreo_message">Чтобы всегда быть подключенным через VPN, рекомендуем включить «Блокировать подключения без VPN» в настройках Android. Настройку можно включить после активации «VPN всегда вкл» для PIA. Тогда Android сделает всё возможное, чтобы PIA VPN работал при любом подключении и блокировал соединения без VPN (аварийный блокиратор VPN). Настройка «Аварийный блокиратор» в приложении PIA VPN заменена на функцию «Блокировать подключения без VPN» на системном уровне в настройках, поскольку начиная с Android 8.0 эта функция встроена. Если возникнет проблема, вы получите уведомление, и Android заблокирует все подключения к Интернету, не проходящие через ваш VPN.</string>
+    <string-array name="dns_names">
+        <item>DNS PIA</item>
+        <item>Пользовательский DNS</item>
+    </string-array>
+</resources>

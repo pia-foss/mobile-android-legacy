@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/windowBackground">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:animateLayoutChanges="true"
+        >
+
+        <!-- Email -->
+        <LinearLayout
+            android:id="@+id/fragment_purchase_process_email_area"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:background="@color/windowBackground">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/fragment_trial_logo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/ic_pia_logo"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif"
+                android:textStyle="normal"
+                android:textColor="?attr/grey20_white"
+                android:lineSpacingExtra="2sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="68dp"
+                android:text="@string/enter_email"
+                style="@style/Style02"
+                tools:text="Enter your email address"
+                />
+
+            <TextView
+                android:id="@+id/fragment_purchasing_you_are_purchasing"
+                style="@style/Style08"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="12dp"
+                android:text="@string/purchasing_email_reason"
+                />
+
+            <com.privateinternetaccess.android.ui.views.PiaxEditText
+                android:id="@+id/fragment_purchasing_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                app:hint="@string/email_address"
+                app:textColorMain="?attr/piax_edit_text_color"
+                app:underlineColor="?attr/piax_edit_underline_color"
+                app:maxLines="1"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                style="@style/PiaxGreenButton"
+                android:text="@string/submit"
+                android:id="@+id/fragment_purchasing_email_submit"
+                />
+        </LinearLayout>
+
+        <!-- success -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/windowBackground"
+            android:id="@+id/fragment_purchase_process_success_area">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/fragment_success_logo"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_marginTop="28dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:srcCompat="@drawable/ic_pia_logo"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fragment_success_logo">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="100dp"
+                    android:layout_height="83dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/ic_complete_redeem"/>
+
+                <TextView
+                    style="@style/Style02"
+                    android:id="@+id/fragment_success_redeemed_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:textColor="?attr/grey20_white"
+                    android:layout_marginTop="25dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/redeemed_successful"
+                    tools:text="Card redeemed successfully" />
+
+                <TextView
+                    style="@style/Style08"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginRight="45dp"
+                    android:layout_gravity="center_horizontal"
+                    android:text="@string/trial_success_message"
+                    tools:text="You will receive an email shortly with your\nusername and password." />
+
+                <TextView
+                    style="@style/Style08"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="25dp"
+                    android:text="@string/redeemed_login_header"
+                    tools:text="Your login details" />
+
+                <LinearLayout
+                    android:layout_marginTop="12dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:orientation="vertical"
+                    android:padding="20dp"
+                    android:background="@drawable/shape_rounded_grey_border">
+
+                    <TextView
+                        style="@style/Style08"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/username_only"
+                        tools:text="Username" />
+
+                    <TextView
+                        android:id="@+id/fragment_success_redeemed_username"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:fontFamily="sans-serif"
+                        android:textStyle="normal"
+                        android:textColor="?attr/grey20_white"
+                        android:lineSpacingExtra="0sp"
+                        android:text="p01234567"
+                        tools:text="p01234567" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:orientation="vertical"
+                    android:padding="20dp"
+                    android:background="@drawable/shape_rounded_grey_border">
+
+                    <TextView
+                        style="@style/Style08"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/password_only"
+                        tools:text="Password" />
+
+                    <TextView
+                        android:id="@+id/fragment_success_redeemed_password"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:fontFamily="sans-serif"
+                        android:textStyle="normal"
+                        android:textColor="?attr/grey20_white"
+                        android:lineSpacingExtra="0sp"
+                        android:text="gt^72H@90"
+                        tools:text="gt^72H@90" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!-- failure/no connection -->
+        <LinearLayout
+            android:background="@color/windowBackground"
+            android:id="@+id/fragment_purchase_process_failure_area"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="visible"
+            tools:visibility="gone"
+            android:layout_marginBottom="24dp"
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/fragment_failure_logo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:scaleType="centerInside"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:srcCompat="@drawable/ic_pia_logo"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/fragment_failure_logo">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_gravity="center_horizontal"
+                        app:srcCompat="@drawable/ic_red_warning"/>
+
+                    <TextView
+                        style="@style/Style02"
+                        android:id="@+id/fragment_purchase_process_failure_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:textColor="?attr/grey20_white"
+                        android:layout_marginTop="25dp"
+                        android:layout_gravity="center_horizontal"
+                        tools:text="Something went wrong" />
+
+                    <TextView
+                        style="@style/Style08"
+                        android:id="@+id/fragment_purchase_process_failure_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:layout_marginTop="14dp"
+                        android:layout_marginLeft="45dp"
+                        android:layout_marginRight="45dp"
+                        android:layout_gravity="center_horizontal"
+                        tools:text="Something went wrong while we were confirming your purchase, please try again." />
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+        <!-- process -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/fragment_purchase_process_progress_area"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone"
+            tools:visibility="visible"
+            >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/windowBackground"
+                xmlns:app="http://schemas.android.com/apk/res-auto">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/fragment_progress_logo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:scaleType="centerInside"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:srcCompat="@drawable/ic_pia_logo"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fragment_progress_logo"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:paddingTop="100dp"
+                    android:paddingBottom="100dp">
+
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/fragment_progress_progress_spinner"
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        android:layout_gravity="center_horizontal"
+                        app:lottie_fileName="pia-spinner.json"
+                        app:lottie_loop="true"
+                        app:lottie_autoPlay="true"/>
+
+                    <TextView
+                        style="@style/Style02"
+                        android:layout_marginTop="50dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:textColor="?attr/grey20_white"
+                        android:layout_gravity="center_horizontal"
+                        android:text="@string/redeeming_gift_title" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:layout_marginTop="20dp"
+                        android:layout_gravity="center_horizontal"/>
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <Button
+                style="@style/PiaxGreenButton"
+                android:id="@+id/fragment_purchase_process_button"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginLeft="25dp"
+                android:text="@string/redeemed_to_login"
+                tools:text="CONTINUE TO LOGIN"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:visibility="gone"
+                style="@style/Base.Widget.AppCompat.ProgressBar"
+                android:id="@+id/fragment_purchase_process_button_progress"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+</ScrollView>
