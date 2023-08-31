@@ -1,0 +1,24 @@
+<!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<vector android:height="24dp" android:viewportHeight="28.0"
+    android:viewportWidth="23.0" android:width="24dp" xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:fillColor="#889099" android:fillType="nonZero"
+        android:pathData="M3.286,0.5L8.991,0.5C9.48,0.493 9.936,0.75 10.182,1.173C10.429,1.596 10.429,2.119 10.182,2.541C9.936,2.964 9.48,3.221 9,3.214L3.286,3.214C3.233,3.214 3.214,3.233 3.214,3.286L3.214,24.714C3.214,24.767 3.233,24.786 3.286,24.786L8.991,24.786C9.48,24.779 9.936,25.036 10.182,25.459C10.429,25.881 10.429,26.404 10.182,26.827C9.936,27.25 9.48,27.507 9,27.5L3.286,27.5C1.756,27.5 0.5,26.244 0.5,24.714L0.5,3.286C0.5,1.756 1.756,0.5 3.286,0.5ZM17.582,7.696L23,13.955L17.578,20.23C17.106,20.758 16.295,20.806 15.765,20.336C15.234,19.866 15.183,19.056 15.65,18.524L18.519,15.252L7.847,15.251C7.388,15.273 6.952,15.048 6.704,14.661C6.455,14.274 6.433,13.784 6.644,13.375C6.854,12.967 7.267,12.702 7.726,12.681C7.787,12.679 7.787,12.679 7.818,12.68L18.521,12.68L15.662,9.41C15.334,9.056 15.232,8.549 15.397,8.096C15.562,7.643 15.966,7.321 16.444,7.261C16.875,7.205 17.306,7.371 17.582,7.696Z"
+        android:strokeColor="#00000000" android:strokeWidth="1"/>
+</vector>

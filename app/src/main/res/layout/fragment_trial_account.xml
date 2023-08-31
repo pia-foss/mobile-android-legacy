@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:scrollbars="none"
+    android:background="@color/windowBackground">
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/windowBackground">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/fragment_trial_logo"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_marginTop="28dp"
+            app:srcCompat="@drawable/ic_pia_logo"/>
+
+        <RelativeLayout
+            android:id="@+id/fragment_trial_warning_layout"
+            android:layout_width="match_parent"
+            android:layout_height="62dp"
+            android:background="@color/red"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_centerInParent="true">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="6dp"
+                    app:srcCompat="@drawable/ic_warning"/>
+
+                <TextView
+                    style="@style/Style07"
+                    android:id="@+id/fragment_trial_warning_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    tools:text="Please type in your email and card PIN."/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fragment_trial_account_container"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:id="@+id/fragment_trial_tos_area"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center|top"
+                android:text="@string/tos_pos_text"
+                android:textColorLink="?attr/tos_color"
+                android:id="@+id/fragment_trial_TOS"
+                style="@style/PiaTextBody1Style"
+                android:textAppearance="@style/PiaTextBody1"
+                android:padding="10dp"
+                android:background="@drawable/shape_standard_background"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="48dp"
+            android:layout_below="@+id/fragment_trial_logo"
+            android:id="@+id/fragment_trial_account_container"
+            >
+            <TextView
+                style="@style/RedeemGiftCardTitle"
+                android:layout_marginTop="27dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/trial_screen_redeem"
+                android:gravity="center_horizontal"
+                />
+
+            <TextView
+                style="@style/Style08"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="13dp"
+                android:layout_marginRight="13dp"
+                android:text="@string/trial_screen_message"
+                android:gravity="center_horizontal"
+                />
+
+            <com.privateinternetaccess.android.ui.views.PiaxEditText
+                android:id="@+id/fragment_trial_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                app:hint="@string/email_address"
+                app:textColorMain="?attr/piax_edit_text_color"
+                app:underlineColor="?attr/piax_edit_underline_color"/>
+
+            <com.privateinternetaccess.android.ui.views.PiaxEditText
+                android:id="@+id/fragment_trial_card_pin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                app:hint="@string/gift_card_pin"
+                app:textColorMain="?attr/piax_edit_text_color"
+                app:underlineColor="?attr/piax_edit_underline_color"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="15dp"
+                style="@style/PiaxGreenButton"
+                android:text="@string/submit"
+                android:id="@+id/fragment_trial_submit"
+                />
+
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>

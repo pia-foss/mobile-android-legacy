@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.privateinternetaccess.android">
+
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data android:scheme="https" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+        </intent>
+    </queries>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="com.android.vending.BILLING" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SYSTEM_EXEMPTED"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <!--Android 13-->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
+
+    <uses-feature android:name="android.software.leanback"
+        android:required="false" />
+
+    <uses-feature android:name="android.hardware.touchscreen"
+        android:required="false" />
+
+    <!--    Needed for Amazon-->
+    <uses-feature android:name="android.hardware.location" android:required="false" />
+    <uses-feature android:name="android.hardware.location.gps" android:required="false" />
+
+    <application
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:theme="@style/pia_theme_3_0"
+        android:name=".PIAApplication"
+        android:extractNativeLibs="true"
+        android:usesCleartextTraffic="true"
+        android:label="@string/launcher_name"
+        android:appCategory="productivity"
+        android:banner="@drawable/ic_tv_banner"
+        android:hardwareAccelerated="true" >
+
+        <provider
+            android:name=".pia.utils.MultiProvider"
+            android:authorities="com.privateinternetaccess.multipreferences.MultiProvider"
+            android:exported="false" />
+
+        <provider
+            android:name="com.privateinternetaccess.account.AccountContentProvider"
+            android:authorities="com.privateinternetaccess.account.AccountContentProvider"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.LauncherActivity"
+            android:theme="@style/SplashScreenTheme"
+            android:noHistory="true"
+            android:exported="true">
+
+            <intent-filter >
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="piavpn" />
+            </intent-filter>
+
+            <intent-filter>
+                <data android:scheme="privateinternetaccess" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <meta-data android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ui.connection.MainActivity"
+            android:exported="true"
+            android:launchMode="singleInstance"
+            android:resizeableActivity="true"
+            android:label="@string/launcher_name"
+            >
+            <layout android:defaultHeight="500dp"
+                android:defaultWidth="600dp"
+                android:gravity="top|end"
+                android:minHeight="350dp"
+                android:minWidth="300dp" />
+        </activity>
+
+        <activity
+            android:name=".ui.loginpurchasing.LoginPurchaseActivity"
+            android:launchMode="singleInstance"
+            android:windowSoftInputMode="stateHidden|adjustResize"
+            >
+            <layout android:defaultHeight="500dp"
+                android:defaultWidth="600dp"
+                android:gravity="top|end"
+                android:minHeight="350dp"
+                android:minWidth="300dp" />
+        </activity>
+
+        <activity
+            android:name=".ui.tv.DashboardActivity"
+            android:launchMode="singleInstance" />
+
+        <activity
+            android:name=".ui.drawer.ServerListActivity"
+            android:label="@string/server_selection"
+            android:windowSoftInputMode="stateUnchanged">
+            <layout android:defaultHeight="500dp"
+                android:defaultWidth="600dp"
+                android:gravity="top|end"
+                android:minHeight="350dp"
+                android:minWidth="300dp" />
+            </activity>
+        <activity
+            android:name=".ui.drawer.settings.AboutActivity"
+            >
+            <layout android:defaultHeight="500dp"
+                android:defaultWidth="600dp"
+                android:gravity="top|end"
+                android:minHeight="350dp"
+                android:minWidth="300dp" />
+            </activity>
+
+        <activity android:name=".ui.features.WebviewActivity"
+            android:exported="true">
+            <layout
+                android:defaultWidth="600dp"
+                android:defaultHeight="500dp"
+                android:gravity="top|end"
+                android:minWidth="300dp"
+                android:minHeight="350dp" />
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <data android:scheme="terms" />
+                <data android:scheme="privacy" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ui.drawer.settings.SettingsActivity"
+            >
+            <layout android:defaultHeight="500dp"
+                android:defaultWidth="600dp"
+                android:gravity="top|end"
+                android:minHeight="350dp"
+                android:minWidth="300dp" />
+        </activity>
+
+        <activity
+            android:name=".ui.drawer.AllowedAppsActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            >
+            <layout android:defaultHeight="500dp"
+                android:defaultWidth="600dp"
+                android:gravity="top|end"
+                android:minHeight="350dp"
+                android:minWidth="300dp" />
+            </activity>
+
+        <activity
+            android:name=".ui.views.QuickSettingsSettings"
+            android:windowSoftInputMode="stateAlwaysHidden"
+            >
+            <layout android:defaultHeight="500dp"
+                android:defaultWidth="600dp"
+                android:gravity="top|end"
+                android:minHeight="350dp"
+                android:minWidth="300dp" />
+        </activity>
+
+        <activity android:name=".ui.drawer.AccountActivity"
+            android:windowSoftInputMode="stateHidden"
+            >
+            <layout android:defaultHeight="500dp"
+                android:defaultWidth="600dp"
+                android:gravity="top|end"
+                android:minHeight="350dp"
+                android:minWidth="300dp" />
+            </activity>
+
+        <activity android:name=".ui.drawer.DedicatedIPActivity"
+            android:windowSoftInputMode="stateHidden"/>
+
+        <activity android:name=".ui.drawer.settings.DeveloperActivity"
+            android:windowSoftInputMode="stateHidden">
+            <layout android:defaultHeight="500dp"
+                android:defaultWidth="600dp"
+                android:gravity="top|end"
+                android:minHeight="350dp"
+                android:minWidth="300dp" />
+        </activity>
+
+        <activity android:name=".ui.features.TypographyDisplayActivity">
+            <layout android:defaultHeight="500dp"
+                android:defaultWidth="600dp"
+                android:gravity="top|end"
+                android:minHeight="350dp"
+                android:minWidth="300dp" />
+        </activity>
+
+        <activity android:name=".ui.connection.VPNPermissionActivity">
+            <layout android:defaultHeight="500dp"
+                android:defaultWidth="600dp"
+                android:gravity="top|end"
+                android:minHeight="350dp"
+                android:minWidth="300dp" />
+        </activity>
+        <activity android:name=".ui.drawer.VpnLogActivity">
+            <layout android:defaultHeight="500dp"
+                android:defaultWidth="600dp"
+                android:gravity="top|end"
+                android:minHeight="350dp"
+                android:minWidth="300dp" />
+        </activity>
+
+        <activity android:name=".ui.drawer.TrustedWifiActivity" />
+        <activity android:name=".ui.drawer.KPIShareEventsDetailsActivity" />
+
+        <activity android:name=".ui.tv.GraphActivity" />
+
+        <activity android:name=".ui.connection.CallingCardActivity"/>
+
+        <activity android:name=".ui.drawer.BlockConnectionsActivity"/>
+
+        <activity android:name=".ui.views.QuickSettingsKillSwitchActivity"/>
+
+        <!-- Receivers-->
+        <receiver android:name=".receivers.OnBootReceiver"
+            android:exported="true">
+            <intent-filter android:priority="999">
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" /> <!-- HTC boot notification -->
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name = "com.amazon.device.iap.ResponseReceiver"
+            android:permission = "com.amazon.inapp.purchasing.Permission.NOTIFY"
+            android:exported="true">
+            <intent-filter>
+                <action android:name = "com.amazon.inapp.purchasing.NOTIFY" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".pia.receivers.PortForwardingReceiver" />
+        <receiver android:name=".pia.receivers.FetchServersReceiver" />
+        <receiver android:name=".pia.receivers.PingReceiver" />
+        <receiver android:name=".receivers.OnSnoozeReceiver" />
+        <receiver android:name=".receivers.NotificationReceiver" />
+        <receiver android:name=".receivers.OnRevokeReceiver" />
+
+        <receiver android:name=".receivers.OnAppUpdatedReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
+            </intent-filter>
+        </receiver>
+
+        <!-- Widget -->
+        <receiver android:name=".ui.widgets.WidgetLongProvider" android:label="@string/widget_long_title"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider"
+                android:resource="@xml/widget_main_long" />
+        </receiver>
+
+        <receiver android:name=".ui.widgets.WidgetProvider" android:label="@string/widget_square_connect"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider"
+                android:resource="@xml/widget_main_square" />
+        </receiver>
+
+        <receiver android:name=".ui.widgets.WidgetSmallProvider" android:label="@string/widget_small_connect"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider"
+                android:resource="@xml/widget_main_small" />
+        </receiver>
+
+        <receiver android:name=".ui.widgets.WidgetCCProvider" android:label="@string/widget_cc"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider"
+                android:resource="@xml/widget_main_cc" />
+        </receiver>
+
+        <receiver android:name=".ui.widgets.WidgetTextProvider" android:label="@string/widget_text"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider"
+                android:resource="@xml/widget_main_text" />
+        </receiver>
+
+        <service
+            android:name=".wireguard.backend.GoBackend$VpnService"
+            android:permission="android.permission.BIND_VPN_SERVICE"
+            android:foregroundServiceType="systemExempted"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.net.VpnService" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name=".pia.services.AutomationService"
+            android:permission="android.permission.BIND_VPN_SERVICE"
+            android:foregroundServiceType="location" />
+
+        <service
+            android:name=".pia.services.RemoteAPIService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.privateinternetaccess.android.RemoteAPI" />
+            </intent-filter>
+        </service>
+
+        <service android:name=".pia.services.ExpiryNotificationService"/>
+
+        <service
+            android:name=".pia.services.PIATileService"
+            android:value="true"
+            android:label="@string/qs_title"
+            android:icon="@drawable/ic_stat_pia_robot_white"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+            <meta-data android:name="android.service.quicksettings.ACTIVE_TILE"
+                android:value="false" />
+        </service>
+
+        <activity
+            android:name=".ui.features.LaunchVPNForService"
+            android:autoRemoveFromRecents="true"
+            android:excludeFromRecents="true"
+            android:taskAffinity=".LaunchVPN"
+            tools:ignore="ExportedActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

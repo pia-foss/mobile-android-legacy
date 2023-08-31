@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:scrollbars="none">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingRight="25dp"
+        android:paddingLeft="25dp"
+        >
+
+        <RelativeLayout
+            android:id="@+id/activity_login_purchasing_logo_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:padding="25dp"
+            android:visibility="visible">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/fragment_trial_logo"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_centerInParent="true"
+                app:srcCompat="@drawable/ic_pia_logo"/>
+
+        </RelativeLayout>
+
+        <TextView
+            style="@style/Style01"
+            android:layout_marginTop="80dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sign_in_to_your_account"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center_horizontal"
+            android:textColor="?attr/grey20_white"
+            />
+
+        <com.privateinternetaccess.android.ui.views.PiaxEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="140dp"
+            android:layout_marginRight="140dp"
+            android:id="@+id/fragment_login_user"
+            app:hint="@string/username_enter"
+            app:textColorMain="?attr/piax_edit_text_color"
+            app:underlineColor="?attr/piax_edit_underline_color"/>
+
+        <com.privateinternetaccess.android.ui.views.PiaxEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="140dp"
+            android:layout_marginRight="140dp"
+            android:id="@+id/fragment_login_password"
+            app:hint="@string/password_enter"
+            app:textColorMain="?attr/piax_edit_text_color"
+            app:underlineColor="?attr/piax_edit_underline_color"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Forgot Password?"
+            android:id="@+id/fragment_login_forgot_password"
+            style="@style/PiaTextSmallInfo"
+            android:padding="10dp"
+            android:layout_gravity="right"
+            android:textColor="@color/pia_gen_green"
+            android:clickable="true"
+            android:background="?attr/selectableItemBackground"
+            android:visibility="gone"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="140dp"
+            android:layout_marginRight="140dp"
+            >
+
+            <Button
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_alignParentTop="true"
+                android:id="@+id/fragment_login_button"
+                style="@style/PiaxGreenButton"
+                android:text="@string/login"
+                />
+
+            <ProgressBar
+                android:id="@+id/fragment_login_progress"
+                style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:indeterminate="true"
+                android:layout_margin="10dp"
+                android:visibility="gone"
+                />
+
+        </RelativeLayout>
+
+        <Button
+            style="@style/RedeemButton"
+            android:id="@+id/fragment_login_receipt"
+            android:background="@color/transparent"
+            android:layout_width="match_parent"
+            android:layout_marginTop="16dp"
+            android:layout_height="30dp"
+            android:text="@string/purchasing_login_receipt"/>
+    </LinearLayout>
+</ScrollView>

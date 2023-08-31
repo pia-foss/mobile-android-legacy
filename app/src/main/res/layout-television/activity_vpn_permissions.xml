@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    >
+
+    <LinearLayout
+        android:layout_width="550dp"
+        android:layout_height="300dp"
+        android:orientation="horizontal"
+        android:layout_centerInParent="true"
+        android:weightSum="1.0"
+        android:background="@color/tv_grey_20"
+        android:padding="20dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.4"
+            >
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                app:srcCompat="@drawable/ic_vpn_permission"
+                android:layout_centerInParent="true"
+                />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="0.6"
+            android:gravity="center_vertical"
+            android:paddingLeft="15dp"
+            android:paddingStart="15dp"
+            >
+
+            <TextView
+                style="@style/PiaTextTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/pia_access"
+                android:textColor="@color/textColorPrimaryDark"
+                android:textSize="25dp"
+                android:layout_marginTop="20dp"
+                />
+
+            <TextView
+                style="@style/PiaTextBody1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textColorPrimaryDark"
+                android:lineSpacingExtra="0dp"
+                android:text="@string/vpn_permisions_top_text"
+                android:layout_marginTop="10dp"
+                />
+
+            <TextView
+                style="@style/PiaTextBody2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textColorPrimaryDark"
+                android:lineSpacingExtra="0dp"
+                android:text="@string/vpn_permissions_middle_text"
+                android:layout_marginTop="10dp"
+                />
+
+            <Button
+                android:id="@+id/activity_vpn_permissions_button"
+                style="@style/PIAButton.Green.Small"
+                android:layout_width="150dp"
+                android:text="@string/ok"
+                android:textAllCaps="true"
+                android:layout_marginTop="10dp"
+                >
+                <requestFocus/>
+            </Button>
+
+            <TextView
+                style="@style/PiaTextSmallInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/textColorSecondaryDark"
+                android:text="@string/vpn_permission_network"
+                android:layout_marginTop="10dp"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+        <!--Unused views on tv-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:text="@string/vpn_permission_title"
+            style="@style/PiaTextAppbar"
+            android:paddingLeft="20dp"
+            android:background="@color/pia_gen_green_dark"
+            android:textColor="@color/pia_text_light_white_87_percent"
+            android:gravity="center_vertical"
+            android:visibility="gone"
+            />
+
+
+    </LinearLayout>
+</RelativeLayout>

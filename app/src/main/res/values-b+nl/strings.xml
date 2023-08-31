@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+<resources>
+    <string name="launcher_name">PIA VPN</string>
+    <string name="app_name">VPN door Private Internet Access</string>
+    <string name="menu_settings">Instellingen</string>
+    <string name="menu_settings_general">Algemeen</string>
+    <string name="menu_settings_protocols">Protocollen</string>
+    <string name="menu_settings_network">Netwerk</string>
+    <string name="menu_settings_privacy">Privacy</string>
+    <string name="menu_settings_automation">Automatisering</string>
+    <string name="menu_settings_obfuscation">Versluiering</string>
+    <string name="menu_settings_help">Help</string>
+    <!-- Please keep the %s, this is a formatted text. %s is a port number (ei 1024) -->
+    <string name="rportsummary">Maakt gebruik van poort %s voor verbinding</string>
+    <!-- Please keep the %s, this is a formatted text. %s is a port number (ei 1024) -->
+    <string name="lportsummary">Maakt gebruik van lokale poort %s voor verbinding</string>
+    <string name="lportrandom">Maakt gebruik van willekeurige lokale poort voor verbinding</string>
+    <string name="server_selection">Serverselectie</string>
+    <string name="auto_rport">Maakt gebruik van automatische poortselectie</string>
+    <string name="automatic_server_selection_main">Automatisch</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is a server location (ei London, Berlin) -->
+    <string name="automatic_server_selection_main_region">Automatisch (%1$s)</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is an IP (ei 126.0.1.10)  -->
+    <string name="prompt_login">bijv. p1234567</string>
+    <string name="use_udp_summary">UDP wordt gebruikt om te verbinden</string>
+    <string name="use_tcp_summary">TCP wordt gebruikt om te verbinden</string>
+    <string name="transport">Transport</string>
+    <string name="select_port">Selecteer de poort om verbinding te maken met privateinternetaccess.com</string>
+    <string name="remote_port">Externe poort</string>
+    <string name="remote_port_cap">DOORGESTUURDE POORT</string>
+    <string name="remote_port_vpn_ip">VPN-IP</string>
+    <string name="local_port">Lokale poort</string>
+    <string name="find_out_more"><u>Meer informatie</u></string>
+    <string name="connect_onstart_title">Verbinding maken bij openen</string>
+    <string name="connect_onstart">Verbinden als app wordt gestart</string>
+    <string name="connect_on_boot">Openen bij opstarten van systeem</string>
+    <string name="portforwarding">Port forwarding aanvragen</string>
+    <string name="portforwarding_summary">Staat inkomende verbindingen met uw mobiele apparaat via een externe poort toe</string>
+    <!-- Please keep the %s, this is a formatted text. %s is an error message.  -->
+    <string name="portfwderror">Fout bij aanvragen geforwarde poort: %s</string>
+    <string name="mace_toggle">Mace Adblocker</string>
+    <string name="killswitch">VPN-killswitch</string>
+    <string name="killswitchsummary">Schakelt je internetverbinding uit wanneer de verbinding met het VPN wordt verbroken.</string>
+    <string name="killswitchtext">INTERNET-KILLSWITCH INGESCHAKELD</string>
+    <string name="killswitchstatus_description">Onze internet-killswitch staat geen onbeschermde internetactiviteit toe. Wachten tot er opnieuw verbinding wordt gemaakt, maak verbinding met onze VPN-dienst of schakel de killswitch uit om de internetverbinding te herstellen.</string>
+    <string name="requestingportfw">Geforwarde port aanvragen...</string>
+    <string name="killswitch_button">Uitschakelen</string>
+    <string name="action_sign_in_short">Inloggen</string>
+    <string name="login">INLOGGEN</string>
+    <string name="logout">Uitloggen</string>
+    <string name="accept">accepteren</string>
+    <string name="no_thanks">nee, bedankt</string>
+    <string name="read_more"><u> Meer lezen</u></string>
+    <string name="state_gen_config">Configuratie genereren</string>
+    <string name="user_pw_invalid">Gebruikersnaam/wachtwoord ongeldig</string>
+    <string name="replace_login_title">Inloginformatie vervangen</string>
+    <!-- Please keep the %1$s %2$s, this is a formattered text. %1$s %2$s are usernames.  -->
+    <string name="replace_login_msg">Inloginformatie door nieuwe inloginformatie vervangen? (Nieuwe gebruikersnaam: %1$s, oude gebruikersnaam: %2$s)</string>
+    <string name="subscription_expires_in">Uw abonnement verloopt over</string>
+    <string name="subscription_expired">Uw abonnement is</string>
+    <string name="per_app_settings">Per app-instellingen</string>
+    <string name="tv_per_app_settings">PER APP-INSTELLINGEN</string>
+    <string name="help_improve_pia">HELP PIA VERBETEREN</string>
+    <string name="username_password_already_saved">Gebruikersnaam en wachtwoord al opgeslagen!</string>
+    <string name="invalid_email_signup">U moet een geldig e-mailadres opgeven</string>
+    <string name="buyvpn_url_localized">https://www.privateinternetaccess.com/pages/buy-vpn/</string>
+    <string name="localport_warning">Lokale poort moet tussen 1024 en 65535 liggen</string>
+    <string name="notanumber_localport">Illegale cijferindeling voor lokale poort</string>
+    <string name="notanumber_proxyport">Illegale cijferindeling voor proxypoort</string>
+    <string name="thankyou_monthly">Bedankt dat u een VPN-maandabonnement heeft genomen!</string>
+    <string name="thankyou_yearly">Bedankt dat u een VPN-jaarabonnement heeft genomen!</string>
+    <string name="purchase_signing_up">Aanmelden...</string>
+    <string name="purchase_loading">Laden</string>
+    <string name="logout_confirmation">Uitlogbevestiging</string>
+    <string name="logout_confirmation_text">Als u uitlogt wordt de actieve VPN-verbinding uitgeschakeld en bent u onbeschermd</string>
+    <string name="expiry_notification_title">Uw abonnement verloopt binnenkort.</string>
+    <string name="expiry_notification_onnemonth">U heeft minder dan een maand over. Vernieuw om beschermd te blijven.</string>
+    <string name="expiry_notification_oneweek">U heeft minder dan een week over. Vernieuw om beschermd te blijven.</string>
+    <string name="expirty_notification_threedays">U heeft minder dan drie dagen over. Vernieuw om beschermd te blijven.</string>
+    <string name="expirty_notification_oneday">U heeft minder dan één dag over. Vernieuw om beschermd te blijven.</string>
+    <string name="error_renew_trial">Proefaccounts kunnen niet worden verlengd. Koop een nieuwe account wanneer de proefaccount verloopt om van onze diensten gebruik te blijven maken.</string>
+    <string name="error_renew_expired">Uw account is inactief en kan geen nieuwe betalingen accepteren. Maak een nieuw account aan door uit te loggen en u opnieuw aan te melden.</string>
+    <string name="pending_purchase_found">Aankoop in de app gevonden. Log in om uw huidige abonnement te vernieuwen.</string>
+    <string name="account_not_renewable">Uw account kan niet worden vernieuwd of wordt automatisch vernieuwd.</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is an error message.  -->
+    <string name="error_subscribing">"Fout bij aankoop: %1$s "</string>
+    <string name="error_active_subscription">U heeft al een actief abonnement!</string>
+    <string name="error_invalid_auth">Er is iets misgegaan. Probeer opnieuw in te loggen.</string>
+    <string name="usemssfix">Maakt het IP-pakket iets kleiner om de compatibiliteit met sommige routers en mobiele netwerken te verbeteren.</string>
+    <string name="mssfixsummary">Kleine pakketten gebruiken</string>
+    <string name="settings_account_bottom_text">Download de Private Internet Access-app voor uw andere apparaten en gebruik de gebruikersnaam hierboven om in te loggen en uw verbinding te beveiligen.</string>
+    <string name="settings_account_bottom_text_4">Download de Private Internet Access-app voor uw andere apparaten en gebruik de gebruikersnaam hierboven om in te loggen en uw verbinding te beveiligen.</string>
+    <string name="update_email">E-mail updaten</string>
+    <string name="email_sucessfully_changed">E-mailadres gewijzigd.</string>
+    <string name="copy_toast_text">Tekst naar klembord gekopieerd</string>
+    <string name="current_region">HUIDIGE REGIO</string>
+    <string name="full_licenses">Volledige licenties</string>
+    <string name="email">E-mail</string>
+    <string name="please_wait">Even geduld</string>
+    <string name="still_connecting">Nog steeds bezig met verbinding maken</string>
+    <string name="enabled">Ingeschakeld</string>
+    <string name="disabled">Uitgeschakeld</string>
+    <string name="account_details_password_bottom_text">Tik op het \'oog\' om te tonen. Tik nogmaals om het wachtwoord naar het klembord te kopiëren.</string>
+    <string name="user_x_vs_p_error">Zorg dat u bent ingelogd met uw gebruikersnaam. Deze begint met \'p\' (bijv. p12345)</string>
+    <string name="vpn_revoke_text">PIA\'s VPN-toestemming is ingetrokken. VPN, internet-killswitch en beveiliging zijn niet actief. Tik hier om deze dienst opnieuw te starten en uw internetverbinding te beveiligen.</string>
+    <string name="vpn_revoke_title">PIA VPN gestopt</string>
+    <!-- Please keep the % elements, this is a formatted text. %1$s is Private Internet Access, %2$s is version number(ei 1.4), %3$s is the version code (ei 114)  -->
+    <string name="login_operation_failed">Inloggen mislukt. Probeer het later opnieuw.</string>
+    <string name="no_internet_connection_available">Er is geen internetverbinding beschikbaar</string>
+    <string name="no_username_or_password">U moet een gebruikersnaam en wachtwoord invoeren</string>
+    <string name="please_unlock_your_device">Ontgrendel uw apparaat</string>
+    <string name="please_unlock_your_device_message">Om het wachtwoord te bekijken of uw accountinformatie bij te werken.</string>
+    <string name="settings_mace">PIA MACE™</string>
+    <string name="settings_mace_summary">Blokkeert advertenties, trackers en malware als u met de VPN bent verbonden</string>
+    <string name="qs_title">Met PIA verbinden</string>
+    <string name="not_logged_in">niet ingelogd</string>
+    <!-- Please keep the %s, this is a formatted text. %s is a server name.  -->
+    <string name="qs_disconnect">VPN-verbinding verbreken (%s)</string>
+    <string name="qs_disconnect_nolocation">VPN-verbinding verbreken</string>
+    <string name="menu_about">Over</string>
+    <string name="reconnect_vpn">Maak opnieuw verbinding met de VPN om deze wijziging toe te passen</string>
+    <string name="reconnect">Opnieuw verbinding maken</string>
+    <string name="later">Later</string>
+    <string name="error_account_info">Kan accountinformatie niet vinden</string>
+    <string name="error_pinging_while_connected">De latentie kon niet worden bijgewerkt tijdens de VPN-verbinding.</string>
+    <string name="allows_port_forwarding">Staat port forwarding toe</string>
+    <string name="about_privacy_policy">Privacybeleid</string>
+    <string name="version">Versie</string>
+    <string name="application_information">TOEPASSINGSINFORMATIE</string>
+    <string name="data_encyrption">Gegevensbescherming</string>
+    <string name="data_auth">Gegevensauthenticatie</string>
+    <string name="handshake">Handdruk</string>
+    <string name="dismiss">Afwijzen</string>
+    <string name="recent_changes">Recente wijzigingen</string>
+    <string name="refresh">Vernieuwen</string>
+    <string name="open_in_browser">Openen in browser</string>
+    <string name="copy_link">Link kopiëren</string>
+    <string name="text_failed_to_copy">Tekst kopiëren mislukt</string>
+    <string name="link_copied_to_clipboard">Link naar klembord gekopieerd</string>
+    <string name="search_apps">Apps zoeken</string>
+    <string name="account_trail">Proefversie</string>
+    <string name="account_yearly">Jaarlijks</string>
+    <string name="account_montly">Maandelijks</string>
+    <string name="account_termination">Uw account is beëindigd</string>
+    <string name="preference_connection">VERBINDING</string>
+    <string name="preference_encryption">VERSLEUTELING</string>
+    <string name="vpn_stop">Stoppen</string>
+    <string name="change_server">Server wijzigen</string>
+    <string name="click_to_connect">Tik om te verbinden</string>
+    <string name="widget_long_title">Rechthoek verbinden</string>
+    <string name="widget_square_connect">Vierkant verbinden</string>
+    <string name="widget_small_connect">Klein verbinden</string>
+    <string name="mace_enabled">MACE ingeschakeld</string>
+    <string name="send_debug_log">Debuginformatie naar klantenservice sturen</string>
+    <!-- Please keep the %s, this is a formatted text. %s is an error message.  -->
+    <string name="failure_sending_log">Debuginformatie verzenden is mislukt: %s</string>
+    <string name="log_send_done_title">Debuginformatie verzonden.</string>
+    <string name="log_send_done_msg">Debuginformatie verzonden.\nID: %s\nLet op: ons ondersteuningsteam heeft deze ID nodig om uw inzending te vinden.</string>
+    <string name="sending_debug_log">Debuginformatie verzenden…</string>
+    <string name="nought_always_on_warning">Als u geen VPN-bevestigingsdialoog heeft ontvangen, is \'Altijd VPN gebruiken\' wellicht ingeschakeld voor een andere app. In dat geval mag alleen die app verbinding maken met een VPN. Kijk onder Instellingen -&gt; Netwerken meer... -&gt; VPN\'s</string>
+    <string name="open_settings">Instellingen openen</string>
+    <string name="settings_widget_configuration">Widgetconfiguratie</string>
+    <string name="preferences_widget_title">Instellingen widget</string>
+    <string name="preferences_widget_summary">Laat onze widgets werken vanaf uw beginscherm</string>
+    <string name="widget_flag_alpha">Alfa-vlag</string>
+    <string name="widget_background">Achtergrondkleur</string>
+    <string name="widget_color">Tekstkleur</string>
+    <string name="widget_cc">PIA-commandocentrum</string>
+    <string name="clear">Wissen</string>
+    <string name="save">Opslaan</string>
+    <string name="saved">Opgeslagen</string>
+    <string name="speeds_shown_are_all_traffic_over_our_connection">De getoonde snelheden zijn van verkeer via uw VPN-verbinding</string>
+    <string name="ip_short">Openbare IP</string>
+    <string name="login_throttled_text">Te veel mislukte inlogpogingen met deze gebruikersnaam. Probeer het later opnieuw.</string>
+    <string name="tap_to_connect">TIK OM TE VERBINDEN</string>
+    <string name="building_configration">Configuratie bouwen...</string>
+    <!-- Please keep the %1$d, this is a formatted text. %1$d is a number (ei 1-31) -->
+    <string name="days_left">%d dagen</string>
+    <string name="one_day_left">Eén dag</string>
+    <!-- Please keep the %1$d, this is a formatted text. %1$d is a number (ei 1-31) -->
+    <string name="hours_left">%d uur</string>
+    <string name="one_hour_left">Eén uur</string>
+    <!-- Please keep the %1$d, this is a formatted text. %1$d is a number (ei 1-31) -->
+    <string name="minutes_left">%d minuten</string>
+    <string name="one_minute_left">Eén minuut</string>
+    <string name="timeleft_expired">Verlopen</string>
+    <string name="sign_in_to_your_account">Aanmelden bij uw account</string>
+    <string name="username_only">Gebruikersnaam</string>
+    <string name="submit">Versturen</string>
+    <string name="please_enter_your_email_address">Vul uw e-mailadres in</string>
+    <string name="select_vpn_plan">Selecteer een VPN-abonnement</string>
+    <string name="_7_day_money_back_guarantee">30 dagen lang niet-goed-geld-teruggarantie</string>
+    <string name="monthly">Maandelijks</string>
+    <string name="yearly">Jaarlijks</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is a currency (ei 1-31) -->
+    <string name="yearly_sub_text">%1$s per jaar</string>
+    <string name="forgot_password">Wachtwoord vergeten</string>
+    <string name="tap_to_disconnect">TIK OM VERBINDING TE VERBREKEN</string>
+    <string name="drawer_account">Account</string>
+    <string name="drawer_refer_friend">Een vriend doorverwijzen</string>
+    <string name="drawer_region_selection">Regioselectie</string>
+    <string name="drawer_about">Over</string>
+    <string name="drawer_home_page">Startpagina</string>
+    <string name="drawer_contact_support">Contact met klantenservice</string>
+    <string name="n_a_port_forwarding">---</string>
+    <!-- This string is going to be formatted by us so the "Buy now" is colored green. Please do not change the &lt;emph> or &lt;/emph> as that is formatting for us to find the buy now text. -->
+    <string name="dont_have_an_account">heeft u geen account? &lt;emph&gt;Nu kopen&lt;/emph&gt;</string>
+    <string name="buy_now">Koop nu!</string>
+    <string name="buy_now_button">Nu kopen</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is a currency (ei 1-31) -->
+    <string name="purchasing_monthly_ending">%1$s/mnd</string>
+    <!-- Please keep the %1$s %2$s, this is a formatted text. %1$s is a currency (ei 1-31), %2$s is the currency (move this in front or keep it there depending on currency -->
+    <string name="purchasing_yearly_month_ending">%2$s%1$s/mnd</string>
+    <string name="change_region">REGIO WIJZIGEN</string>
+    <!--Please keep the %1$s, this is a formatted text. %1$s is the up and down speeds on the connection. /s is per second-->
+    <string name="graph_under_formatting">%1$s/s</string>
+    <string name="allowed_apps_protected_text">Bescherm apps automatisch met de VPN van PIA</string>
+    <string name="allowed_apps_unprotected_text">Kies welke apps gebruikmaken van PIA\'s VPN</string>
+    <string name="allowed_apps_spotlight_text">Geef aan of alle apps standaard wel of niet gebruikmaken van PIA\'s VPN.</string>
+    <string name="allowed_apps_spotlight_title">Kiezen per app</string>
+    <string name="toast_allowed_apps_default_positive">Apps maken standaard gebruik van PIA\'s VPN</string>
+    <string name="toast_allowed_apps_default_negative">Apps maken standaard geen gebruik van PIA\'s VPN</string>
+    <!-- Please keep %1$s %2%s as those are formatted numbers. %1$s is a version number like 2.0, %2$s is the version code like 141 -->
+    <string name="drawer_version">Versie %1$s (%2$s)</string>
+    <string name="cancel">Annuleren</string>
+    <!-- Keep the <![CDATA[...]], translate everything in between-->
+    <string name="settings_port_number_restriction"><![CDATA[Poortnummer moet tussen 1024 en 65535 liggen]]></string>
+    <!-- Keep the <![CDATA[...]], translate everything in between-->
+    <string name="settings_lport_hint"><![CDATA[Poort tussen 1024 en 65535]]></string>
+    <string name="startup_region_title">Maak eenvoudig verbinding met elke regio</string>
+    <string name="startup_region_message">Met servers over de hele wereld wordt u altijd beschermd.</string>
+    <string name="startup_region_message_new">Met servers over de hele wereld bent u altijd beschermd. Start uw gratis proefabonnement van 7 dagen nu. Daarna betaalt u %s per jaar.</string>
+    <string name="startup_region_footer"><a href="privacy:">Privacybeleid</a> en <a href="terms:">servicevoorwaarden</a></string>
+    <string name="startup_region_header">Private Internet Access</string>
+    <string name="startup_ads_title">Bescherm uzelf tegen advertenties</string>
+    <string name="startup_ads_message">Door PIA MACE in te schakelen, verhindert u dat u waar dan ook advertenties te zien krijgt.</string>
+    <string name="startup_connection_title">Bescherming per app</string>
+    <string name="startup_connection_message">Pas uw ervaring op maat aan door te regelen welke apps via onze dienst lopen (vereist Android 5.0 of hoger).</string>
+    <string name="speed_graph">PRESTATIE</string>
+    <string name="data_usage_over_time">DATAVERBRUIK OVER TIJD</string>
+    <!-- Please add in what word is the color red as we color it in code.  -->
+    <string name="per_app_warning">Rood gekleurde apps hebben bepaalde functies die problemen kunnen veroorzaken waardoor onze dienst wordt omzeild of waardoor u risico kunt lopen.</string>
+    <string name="purchasing_bottom">Heeft u al een account? &lt;emph&gt; Aanmelden&lt;/emph&gt;</string>
+    <string name="ok">OK</string>
+    <string name="killswitch_title">Killswitch is geactiveerd</string>
+    <string name="skip">OVERSLAAN</string>
+    <string name="next">VOLGENDE</string>
+    <string name="done">GEREED</string>
+    <string name="update_account">ACCOUNT BIJWERKEN</string>
+    <string name="local_port_titla">Lokale poort</string>
+    <string name="connection_couldnt_establish_title">De verbinding kan niet tot stand worden gebracht</string>
+    <string name="connection_couldnt_establish_message">U kunt een andere regio selecteren of ons hiervan op de hoogte stellen door een supportticket te openen</string>
+    <string name="send_feedback">Feedback sturen</string>
+    <string name="preference_application_settings">ALGEMENE INSTELLINGEN</string>
+    <string name="preference_vpn_settings">VPN-INSTELLINGEN</string>
+    <string name="preference_haptic_title">Haptische feedback</string>
+    <string name="preference_dialog_graph_title">Meeteenheid selecteren voor de grafiek</string>
+    <string name="preference_connect_on_boot_summary">Verbinden bij opstarten van systeem</string>
+    <string name="preference_haptic_feedback_summary">Trillen bij aangeklikte verbinding</string>
+    <string name="best_value">BESTE WAARDE - GRATIS PROEFPERIODE</string>
+    <string name="port_number">Poortnummer</string>
+    <!-- Please keep the %s, this is a formatted text. %1$s is an app name -->
+    <string name="allowed_apps_toast_removed">%1$s wordt beschermd</string>
+    <!-- Please keep the %s, this is a formatted text. %1$s is an app name -->
+    <string name="allowed_apps_toast_added">%1$s wordt niet beschermd</string>
+    <string name="shorthand_bytecount">%2$s %1$s</string>
+    <string name="preference_widget_icon_upload_title">Kleur van uploadicoontje</string>
+    <string name="preference_widget_icon_download_title">Kleur van downloadicoontje</string>
+    <string name="preference_graph_unit">Grafiekeenheid</string>
+    <string name="no">Nee</string>
+    <string name="color_picker_dialog_title">Selecteer een kleur</string>
+    <string name="username_example">Gebruikersnaam (bijv. p1234567)</string>
+    <string-array name="preference_graph_titles">
+        <item>Bits</item>
+        <item>Bytes</item>
+        <item>Kilobit</item>
+        <item>Kilobytes</item>
+        <item>Megabit</item>
+        <item>Megabytes</item>
+        <item>Gigabit</item>
+        <item>Gigabytes</item>
+    </string-array>
+    <!-- Logic in code uses the first and last letter to decide the unit to change the graph too. Be care what to use-->
+    <string name="channel_name_background">Verbindingsstatistieken</string>
+    <string name="channel_description_background">Lopende statistieken van PIA VPN</string>
+    <string name="channel_name_status">Wijzigingen verbinding staat</string>
+    <string name="channel_description_status">Statuswijzigingen van de PIA VPN (verbinden, authenticeren)</string>
+    <string name="no_internet_click_here">Geen internetverbinding gevonden om prijzen op te halen. Klik hier om weergave te vernieuwen.</string>
+    <string name="failure_to_connect_alert">Verbinden met onze servers of de servers van Google mislukt. Maak verbinding met het internet.</string>
+    <string name="blockipv6_summary">Gebruik een andere methode om IPv6-lekken te voorkomen. Vereist om IPv6-lekken te voorkomen op Android &lt;5.0.</string>
+    <string name="blockipv6">Agressieve IPv6-blokkade</string>
+    <string name="purchase_renew_title">Koop een nieuw account</string>
+    <string name="purchase_renew_message">Uw account kan niet worden verlengd. Koop een nieuw account om van onze diensten gebruik te blijven maken.</string>
+    <string name="purchase">Kopen</string>
+    <string name="purchase_complete">Aankoop voltooid</string>
+    <string name="purchase_complete_message">Bedankt voor uw aanmelding. We hebben de gebruikersnaam en het wachtwoord voor uw account naar het volgende e-mailadres gestuurd: %1$s</string>
+    <string name="password_only">Wachtwoord</string>
+    <string name="account_creation_failure">Account aanmaken mislukt</string>
+    <string name="account_creation_failure_message">Op dit moment zijn we niet in staat uw account aan te maken. We hebben een ondersteuningsticket met ID %1$s voor u gecreëerd. Onze klantenservice neemt binnenkort contact met u op. U kunt ook proberen om de app later opnieuw te starten om het proces te voltooien.</string>
+    <string name="get_started">Aan de slag</string>
+    <string name="no_internet_message">Geen internetverbinding gevonden. Controleer uw internetverbinding en probeer het hieronder opnieuw.\n\nU kunt later naar de app terugkeren om het proces te voltooien.</string>
+    <string name="no_internet_title">Oeps!</string>
+    <string name="retry">Opnieuw</string>
+    <string name="go_to_login">Ga naar Inloggen</string>
+    <string name="unable_change_email">We kunnen uw e-mail niet wijzigen. Probeer het later opnieuw.</string>
+    <string name="preference_reset_settings">Instellingen herstellen</string>
+    <string name="pref_reset_settings">Instellingen herstellen?</string>
+    <string name="pref_reset_settings_message">Hiermee zet u de standaardinstellingen van de app terug. Alle wijzigingen die u hebt gemaakt, gaan verloren.</string>
+    <string name="reset">Herstellen</string>
+    <string name="settings_reset">Instellingen herstellen</string>
+    <string name="widget_radius">Radius widget</string>
+    <string name="widget_text">Tekst widget</string>
+    <string name="account_creation_failure_message_no_ticket_id">We kunnen op dit moment geen account maken. Probeer het later opnieuw. \n\nAls u de app opnieuw opent, wordt opnieuw geprobeerd een account te maken.</string>
+    <string name="try_again">Opnieuw proberen</string>
+    <string name="default_base">Standaard</string>
+    <string name="confirm_purchase">Aankoop bevestigen</string>
+    <string name="purchase_failed">Aankoop is mislukt</string>
+    <string name="confirming_purchase">We zijn uw aankoop aan het verifiëren in ons systeem. Dit kan eventjes duren, daarom vragen we u vriendelijk om geduld.</string>
+    <!-- %1$d and %2$d are numbers. Example of this string would be Attempt 1 of 5, 2 of 5, 3 of 5. -->
+    <string name="attempt">Poging %1$d van %2$d</string>
+    <string name="piaaccountneeded">U hebt een account op privateinternetaccess.com nodig om in te loggen</string>
+    <string name="piaaccountneeded_samsung">Ga naar privateinternetaccess.com om u aan te melden voor deze dienst.</string>
+    <string name="piaaccountneeded_amazon">Ga naar privateinternetacces.com om u aan te melden voor deze dienst.</string>
+    <string name="vpn_permisions_top_text">PIA heeft toegang tot uw VPN-configuraties nodig om uw verkeer te beveiligen.</string>
+    <string name="vpn_permissions_middle_text">U krijgt een melding te zien en u moet PIA VPN toegang geven tot uw VPN-configuraties. Tik op \'Oké\'  om door te gaan.</string>
+    <string name="vpn_permission_network">We monitoren, filteren of registreren geen netwerkactiviteit.</string>
+    <string name="vpn_permission_title">PIA</string>
+    <string name="contact">Contact</string>
+    <string name="permissions_message">We hebben deze toegang nodig om de applicatie te laten werken. Als u hulp nodig heeft, kunt u contact opnemen met de klantenservice.</string>
+    <string name="send_email">E-mail verzenden</string>
+    <string-array name="themes_list">
+        <item>Licht</item>
+        <item>Donker</item>
+    </string-array>
+    <string name="preference_app_theme">Donker thema</string>
+    <string name="auth_setby_gcm">AEAD-versleutelingsmethoden zoals AED-GCM gebruiken geïntergreerde authenticatiemechanismen.</string>
+    <string name="allow_locallan">LAN-verkeer toestaan</string>
+    <string name="allow_locallan_details">Laat altijd verkeer toe tussen apparaten op uw lokale netwerk</string>
+    <string name="pref_block_dialog_title">Toegang tot lokale netwerken geven</string>
+    <string name="pref_block_dialog_message">Merk op dat sommige systeemapplicaties (zoals de Google-app) de VPN kunnen omzeilen wanneer toegang to het lokale netwerk is toegestaan.</string>
+    <string name="killswitch_notification_title">Killswitch is actief</string>
+    <string name="open_android_settings">Android-instellingen openen</string>
+    <string name="data_in">omlaag</string>
+    <string name="data_out">omhoog</string>
+    <string name="pia_channel_name">PIA</string>
+    <string name="pia_channel_description">Algemene evenementen en meldingen</string>
+    <string name="tv_startup_press_right">DRUK OP RECHTS</string>
+    <string name="androidalwayson">VPN-killswitch</string>
+    <string name="androidalwaysonsummary">Android heeft een beter alternatief voor de Kill Switch-functionaliteit. Klik hier voor meer informatie</string>
+    <string name="preference_blocking">BLOKKEREN</string>
+    <string name="preference_connect_proxy">Verbinden via proxy</string>
+    <string name="preference_connect_proxy_app">Proxy-app selecteren</string>
+    <string name="preference_connect_proxy_summary">Zorg dat je de app die je gebruikt in de app-instellingen uitsluit</string>
+    <string name="preference_proxy_port">Proxypoort</string>
+    <string name="proxy_selection_title">Proxy-app selecteren</string>
+    <string name="app_is_proxy">Deze app is je proxy-applicatie. Deze moet worden uitgesloten om te functioneren.</string>
+    <string name="app_must_be_selected">Je moet een app selecteren om op te slaan.</string>
+    <string name="proxy_settings_title">PROXY-INSTELLINGEN</string>
+    <string name="enable_proxy_dialog_title">Je proxy-app instellen</string>
+    <string name="enable_proxy_dialog_message">Om met onze app een proxy te gebruiken, moeten we weten welke app je wilt gaan gebruiken.</string>
+    <string name="vpn_activity_title">VPN debug-logbestand</string>
+    <string name="preference_vpn_log_title">VPN debug-logbestand bekijken</string>
+    <string name="preference_vpn_log_summary">Gebruik de weergave voor geavanceerde gebruikers om het VPN-logbestand te bekijken</string>
+    <string name="preference_orbot_title">Proxy-app is Orbot</string>
+    <string name="preference_orbot_summary">Orbot-integratie gebruiken</string>
+    <string name="settings_orbot_udp_problem_message">TCP is vereist om Orbot te laten functioneren. Wil je TCP inschakelen?</string>
+    <string name="settings_orbot_udp_problem_title">Proxyvereisten</string>
+    <!-- %d is a digit for ping latency(ie, 0-10000). ms is milliseconds. -->
+    <string name="ping_string">%d ms</string>
+    <string name="status_server_ping">Beste server vinden</string>
+    <!-- &lt;emph> and &lt;/emph> should not be touched. These are how we know what to color in this string. -->
+    <string name="trial_account">Hebt u een cadeaubon of proefperiodekaart? &lt;emph&gt;Nu inwisselen&lt;/emph&gt;</string>
+    <!-- &lt;emph> and &lt;/emph> should not be touched. These are how we know what to color in this string. -->
+    <string name="trial_remember_password">Uw wachtwoord vergeten? &lt;emph&gt;Inloggen&lt;/emph&gt;</string>
+    <string name="trial_card_pin">Pincode kaart</string>
+    <string name="trial_screen_redeem">Cadeaubon inwisselen</string>
+    <string name="trial_screen_message">Voer uw e-mailadres en de 16-cijferige pincode van uw cadeaubon of proefperiodekaart hieronder in.</string>
+    <string name="card_pin_invalid">Pincode voor kaart is ongeldig</string>
+    <string name="confirming_trial_account">We zijn uw pincode aan het verifiëren in ons systeem. Dit kan eventjes duren, daarom vragen we u vriendelijk om geduld.</string>
+    <string name="trial_success_message">U ontvangt zo ook een e-mail met uw gebruikersnaam en wachtwoord.</string>
+    <string name="trial_success_title">Voltooid!</string>
+    <string name="trial_failure_redeemed_title">Kaart al geclaimd</string>
+    <string name="trial_failure_redeemed_message">Deze kaart is door een ander account geclaimd. Probeer een andere pincode.</string>
+    <string name="trial_failure_invalid_title">Ongeldige pincode</string>
+    <string name="trial_failure_invalid_message">U hebt een ongeldige pincode ingevoerd. Probeer het opnieuw.</string>
+    <string name="trial_failure_expired_title">Kaart verlopen</string>
+    <string name="trial_failure_expired_message">Probeer een andere pincode in te voeren.</string>
+    <string name="trial_failure_throttled_title">Te veel pogingen</string>
+    <string name="trial_failure_throttled_message">U hebt te veel pogingen gedaan. Probeer het later opnieuw.</string>
+    <string name="trial_failure_email_title">Ongeldig e-mailadres</string>
+    <string name="trial_failure_email_message">U hebt een ongeldig e-mailadres ingevoerd. Probeer het opnieuw.</string>
+    <!-- Keep %1$s and %2$s. This is a formatted text and %1$s is Terms of Service and %2$s is Privacy Policy -->
+    <string name="tos_pos_text" formatted="true">Als u zich aanmeldt, gaat u akkoord met de %1$s en het %2$s.</string>
+    <string name="tos_text">Servicevoorwaarden</string>
+    <string name="pp_text">Privacybeleid</string>
+    <string name="website_isnt_protected">Website is niet beschermd.</string>
+    <string name="api_check_failure_title">Verbindingsfout</string>
+    <string name="api_check_message">We kunnen Private Internet Access niet bereiken. Dit kan komen door een slechte internetverbinding of omdat onze dienst in uw land is geblokkeerd. Zorg dat u een stabiele internetverbinding hebt, sluit de app af via Instellingen, start de app opnieuw op en probeer het nog een keer.</string>
+    <string name="invalid_qr_code">Ongeldige QR-code. Probeer het opnieuw.</string>
+    <string name="empty_qr_code">QR-inhoud was leeg. Probeer het opnieuw.</string>
+    <string name="your_plan_will_expire_on">Uw abonnement verloopt op</string>
+    <!-- TV specific strings -->
+    <string name="favorites_title">Favorieten beheren</string>
+    <string name="favorites_panel_title">FAVORIETEN</string>
+    <string name="logout_title">Uitloggen</string>
+    <string name="pia_access">PIA-toegang</string>
+    <string name="preference_app_update_title">Verbinden bij app-update</string>
+    <string name="preference_app_update_message">Nadat de app is bijgewerkt, zal hij automatisch verbinding maken om je te blijven beschermen.</string>
+    <string name="server_search">Zoeken</string>
+    <string name="tile_killswitch">Killswitch ingeschakeld</string>
+    <string name="auto_dns_setting_summary">PIA DNS</string>
+    <string name="pia_dns">PIA DNS</string>
+    <string name="edit_custom_dns">Bewerken</string>
+    <string name="custom_dns">Aangepaste DNS</string>
+    <string name="custom_dns_warning_body">Als u een DNS gebruikt die niet van PIA is, kunnen externe partijen uw DNS-verkeer bekijken en loopt uw privacy gevaar.</string>
+    <string name="custom_dns_warning_title">@string/custom_dns</string>
+    <string name="custom_primary_dns">Primaire DNS</string>
+    <string name="custom_secondary_dns">Secundaire DNS (optioneel)</string>
+    <string name="custom_primary_dns_invalid">Primaire DNS is niet geldig</string>
+    <string name="custom_secondary_dns_invalid">Secundaire DNS is niet geldig</string>
+    <string name="custom_dns_mace_warning">Voor het inschakelen van MACE moet de standaard-DNS worden gebruikt. Wilt u uw DNS resetten naar de standaardinstelling?</string>
+    <string name="custom_dns_disabling_mace">MACE wordt uitgeschakeld als u een aangepaste DNS gebruikt.</string>
+    <string name="password_required">PIA-wachtwoord vereist</string>
+    <string name="password_required_body">Om veiligheidsredenen hebben wij uw PIA-wachtwoord nodig om wijzigingen in uw account uit te voeren. Voer uw PIA-wachtwoord in om verder te gaan.</string>
+    <string name="password_empty">Wachtwoordveld mag niet leeg zijn</string>
+    <string name="trusted_cellular_title">Cellulaire netwerken vertrouwen</string>
+    <string name="trusted_cellular_message">Verbinding met de VPN automatisch verbreken bij mobiele data</string>
+    <string name="trusted_wifi_title">Vertrouwde wifi</string>
+    <string name="trusted_wifi_message">De VPN maakt automatisch verbinding op alle wifinetwerken, behalve de netwerken die door de gebruiker zijn goedgekeurd.</string>
+    <string name="trusted_wifi_enable_message">VPN uitschakelen als er verbinding wordt gemaakt met vertrouwde netwerken</string>
+    <string name="trusted_wifi_singular">Vertrouwd netwerk</string>
+    <string name="trusted_wifi_plural">Vertrouwde netwerken</string>
+    <string name="available_wifi_header">Beschikbare netwerken</string>
+    <string name="trusted_wifi_no_wifi">Schakel wifi in om vertrouwde netwerken te selecteren.</string>
+    <string name="trusted_wifi_no_permission">Voor vertrouwde wifi is locatietoestemming vereist om wifinetwerken in de buurt te detecteren. Als deze toestemming wordt ingetrokken, werkt de functie niet meer. \n\nGa naar instellingen &gt; Apps &gt; PIA VPN en zorg ervoor dat locatietoestemming is ingeschakeld om deze functie te gebruiken.</string>
+    <string name="no_permission_title">Toestemming vereist</string>
+    <string name="trusted_wifi_not_available">Geen beschikbare netwerken</string>
+    <string name="trusted_wifi_no_trusted">Er zijn geen vertrouwde netwerken</string>
+    <string name="account_invalid_warning">"Ongeldige accountinformatie"</string>
+    <!-- PIAX Specific Strings -->
+    <string name="buy_account">ACCOUNT KOPEN</string>
+    <string name="redeem_gift_card">CADEAUBON INWISSELEN</string>
+    <string name="email_address">E-mailadres</string>
+    <string name="gift_card_pin">Pincode cadeaubon</string>
+    <string name="redeemed_successful">Kaart ingewisseld</string>
+    <string name="redeemed_login_header">Uw inloggegevens</string>
+    <string name="redeeming_gift_card">We zijn de pincode van uw cadeaubon aan het verifiëren in ons systeem. Dit kan eventjes duren, daarom vragen we u vriendelijk om geduld.</string>
+    <string name="redeeming_gift_title">Verifiëren met onze server</string>
+    <string name="redeemed_to_login">DOORGAAN NAAR INLOGGEN</string>
+    <string name="username_enter">Gebruikersnaam invoeren</string>
+    <string name="password_enter">Wachtwoord invoeren</string>
+    <string name="total_cost">Totale kosten</string>
+    <string name="confirm_your_purchase">Bevestig uw aankoop</string>
+    <string name="enter_email">Voer uw e-mailadres in</string>
+    <string name="you_are_purchasing">U koopt het %1$s-abonnement</string>
+    <string name="continue_only">DOORGAAN</string>
+    <string name="plan_only">Abonnement</string>
+    <string name="yearly_only">jaarlijks</string>
+    <string name="monthly_only">maandelijks</string>
+    <string name="search_region">Zoek een regio</string>
+    <string name="region_dialog_header">Sorteer regio\'s op</string>
+    <string name="menu_filters">Filters</string>
+    <string name="menu_update">UPDATEN</string>
+    <string name="menu_reorder">Organiseren</string>
+    <string name="port_not_available">Niet beschikbaar</string>
+    <string name="refer_yes">Ja</string>
+    <string name="refer_no">Nee</string>
+    <string name="region_filter_name">Naam</string>
+    <string name="region_filter_latency">Latentie</string>
+    <string name="region_filter_favorites">Favorieten</string>
+    <!-- Free Trial Strings -->
+    <string name="free_trial_header">Probeer 7 dagen gratis!</string>
+    <string name="free_trial_cost">Betaal slechts % per jaar</string>
+    <string name="free_trial_guarantee">30 dagen lang niet-goed-geld-teruggarantie</string>
+    <string name="free_trial_protection_header">1 jaar privacy- en identiteitsbescherming</string>
+    <string name="free_trial_protection_text">Browse anoniem en verberg uw IP</string>
+    <string name="free_trial_devices_header">Ondersteuning voor 10 apparaten tegelijkertijd</string>
+    <string name="free_trial_devices_text">Bescherm uzelf op 10 apparaten tegelijkertijd</string>
+    <string name="free_trial_region_header">Maak eenvoudig verbinding met elke regio</string>
+    <string name="free_trial_region_text">Meer dan 3300 servers in 32 landen</string>
+    <string name="free_trial_start">START ABONNEMENT</string>
+    <string name="free_trial_see_all">Bekijk alle beschikbare abonnementen</string>
+    <!-- Tiles Strings -->
+    <string name="snooze_vpn_title">VPN SNOOZE</string>
+    <string name="snooze_short">5 MINUTEN SNOOZEN</string>
+    <string name="snooze_medium">15 MINUTEN SNOOZEN</string>
+    <string name="snooze_long">1 UUR SNOOZEN</string>
+    <string name="snooze_description">Verbreekt de VPN en maakt automatisch opnieuw verbinding als de timer is afgelopen.</string>
+    <string name="snooze_resume">HERVATTEN</string>
+    <string name="snooze_paused">Gepauzeerd tot %s</string>
+    <string name="snooze_status">Snoozen</string>
+    <string name="snooze_notification">Gesnoozed</string>
+    <string name="failed_connect_status">Kan geen verbinding maken</string>
+    <!-- Quick Settings Strings -->
+    <string name="quick_settings_title">SNELLE INSTELLINGEN</string>
+    <string name="quick_settings_network_toggle">Netwerkbeheer</string>
+    <string name="quick_settings_private_browser">Privébrowser</string>
+    <!-- Quick Connect String -->
+    <string name="quick_connect_title">SNEL VERBINDEN</string>
+    <string name="quick_connect_favorites_title">FAVORIETE SERVERS</string>
+    <!-- Usage Strings -->
+    <string name="usage_title">GEBRUIK</string>
+    <string name="usage_download">Downloaden</string>
+    <string name="usage_upload">Uploaden</string>
+    <!-- Settings -->
+    <string name="settings_protocol">Protocolselectie</string>
+    <string name="protocol_ovpn">OpenVPN</string>
+    <string name="protocol_wireguard">WireGuard</string>
+    <string name="wg_per_app_warning">Als u naar WireGuard overschakelt, wordt de functie \'Per app-instellingen\' uitgeschakeld.</string>
+    <string name="wg_protocol_warning">De volgende functies zijn niet beschikbaar op WireGuard:</string>
+    <string name="wg_connecting">Verbinden</string>
+    <string name="wg_connected">VPN verbonden</string>
+    <string name="block_connections_body_1">Voor de functie \'Verbindingen zonder VPN blokkeren\' moet de optie VPN altijd aan op AAN worden gezet in de Android-instellingen.</string>
+    <string name="block_connections_body_2">Wilt u doorgaan, ga dan naar Instellingen - Netwerk en internet - Geavanceerd - VPN - tik op het Instellingen-pictogram - activeer VPN altijd aan.</string>
+    <string name="block_connections_button">Naar Netwerk en internetinstellingen</string>
+    <string name="ks_removal_warning">U heeft de Killswitch ingeschakeld. We hebben de werking van deze functie gewijzigd door de Android-instelling \'Verbindingen zonder VPN blokkeren\' voor zowel WireGuard als OpenVPN te integreren. Bekijk de wijzigingen in Instellingen om ervoor te zorgen dat u beschermd blijft.</string>
+    <string name="preference_on_boot_always_on">Verbinden bij opstarten van systeem. We raden u aan deze instelling in te schakelen als u \'Altijd VPN gebruiken\' gebruikt.</string>
+    <string name="ovpn_cipher_removal_description">We werken onze OpenVPN-implementatie bij. Klik <b>hier</b> voor meer informatie.</string>
+    <!-- Wireguard -->
+    <string name="tunnel_error_already_exists">Tunnel \'%s\' bestaat al</string>
+    <string name="tunnel_error_invalid_name">Ongeldige naam</string>
+    <string name="preview">VOORBEELD</string>
+    <!-- GEO Servers -->
+    <string name="geo_servers">Geolocatie-regio\'s tonen</string>
+    <!-- Rating -->
+    <string name="rating_enjoy_title">Bevalt PIA VPN?</string>
+    <string name="rating_enjoy_message">We hopen dat ons VPN-product aan uw verwachtingen voldoet</string>
+    <string name="rating_review_title">Zou u een recensie op Google Play willen schrijven?</string>
+    <string name="rating_review_message">We stellen het op prijs dat u uw ervaring deelt</string>
+    <string name="rating_feedback_title">Wat is er fout gegaan?</string>
+    <string name="rating_feedback_message">Wilt u feedback geven? We kunnen u helpen met het verbeteren van uw ervaring met PIA.</string>
+    <!-- Get Started Purchasing-->
+    <string name="getstarted_subscribe">NU ABONNEREN</string>
+    <string name="getstarted_free_trial">Start uw gratis proefabonnement van 7 dagen</string>
+    <string name="getstarted_trial_price">Daarna %s per jaar</string>
+    <string name="purchasing_email_reason">We hebben uw e-mailadres nodig om uw gebruikersnaam en wachtwoord te versturen.</string>
+    <string name="purchasing_all_plans">Bekijk de beschikbare abonnementen</string>
+    <string name="purchasing_login_receipt">Inloggen met aankoopbewijs</string>
+    <string name="purchasing_no_subscription">U hebt geen actief abonnement</string>
+    <string name="purchasing_sure">Weet u het zeker?</string>
+    <string name="purchasing_return">Wilt u teruggaan naar het beginscherm? U kunt het aankoopproces op elk moment hervatten door te klikken op Inloggen &gt; Inloggen met aankoopbewijs.</string>
+    <string name="purchasing_magic_link">Inloggen met de magische link in je e-mail</string>
+    <string name="purchasing_magic_send">LINK VERZENDEN</string>
+    <string name="magic_login_enter_email">E-mail invoeren</string>
+    <string name="purchasing_magic_success">Controleer je Postvak IN voor een inloglink.</string>
+    <string name="connection_tile_header">VERBINDING</string>
+    <string name="connection_tile_tcp">TCP</string>
+    <string name="connection_tile_udp">UDP</string>
+    <!-- Update -->
+    <string name="settings_calling_header">Laatste nieuws</string>
+    <string name="update_3_7_1_header">Probeer WireGuard® vandaag nog!</string>
+    <string name="update_3_7_1_description">Het is een nieuw, efficiënter VPN-protocol met betere prestaties, een lager CPU-gebruik en een langere levensduur van de batterij.</string>
+    <string name="update_3_7_1_cta_1">Probeer WireGuard® nu</string>
+    <string name="update_3_7_1_cta_2"><u>Meer informatie</u></string>
+    <!-- Network Management -->
+    <string name="nmt_notification_title">Automatisering is actief</string>
+    <string name="nmt_notification_description">De verbinding met de VPN is verbroken</string>
+    <string name="nmt_secure_wifi">Beveiligd wifinetwerk</string>
+    <string name="nmt_open_wifi">Wifi</string>
+    <string name="nmt_mobile_data">Mobiele gegevens</string>
+    <string name="nmt_disconnect">VPN-verbinding altijd verbreken</string>
+    <string name="nmt_connect">Altijd verbinden met VPN</string>
+    <string name="nmt_retain">VPN-status behouden</string>
+    <string name="nmt_manage_title">Automatisering beheren</string>
+    <string name="nmt_manage_description">Configureer hoe PIA zich gedraagt bij verbinding via wifi of mobiele netwerken. Dit geldt niet wanneer de verbinding handmatig wordt verbroken.\n\nDeze functie is experimenteel.</string>
+    <string name="nmt_add_description">Kies een wifinetwerk om een nieuwe regel toe te voegen.</string>
+    <string name="nmt_rule_for">Regel voor %s</string>
+    <string name="nmt_remove_rule">Regel verwijderen</string>
+    <string name="nmt_add_new_rule">Nieuwe regel toevoegen</string>
+    <string name="nmt_settings_title">Automatisering</string>
+    <string name="nmt_settings_description">Configuratieregels voor regels voor automatische verbinding voor vertrouwde en niet-vertrouwde netwerken.\n\nDeze functie is experimenteel.</string>
+    <string name="nmt_management_title">Automatisering beheren</string>
+    <string name="network_permisions_top_text">Geef PIA VPN toegang tot uw locatie. Zo kunnen we wifinetwerken in de buurt detecteren.</string>
+    <string name="network_permissions_middle_text">U wordt gevraagd om toegang tot uw locatie toe te staan. Tik op \'Bij gebruik van de app\' om verder te gaan.</string>
+    <string name="network_permission_network">We monitoren, filteren of registreren geen netwerkactiviteit.</string>
+    <string name="network_permission_button_allow">Toestaan</string>
+    <string name="network_permissions_top_background">Geweldig! U bent bijna klaar! De functie PIA Netwerkbeheer heeft ook toegang tot locatievoorzieningen op de achtergrond nodig.</string>
+    <string name="network_permissions_middle_background">Wilt u doorgaan, ga dan naar Instellingen &gt; Apps&gt; PIA &gt; Toestemmingen - stel Toegang tot locatievoorzieningen op de achtergrond in op AAN.</string>
+    <string name="network_permissions_button_goto">Naar Instellingen voor machtigingen</string>
+    <!-- Dedicated IP -->
+    <string name="dip_menu_title">Dedicated IP</string>
+    <string name="dip_description">Activeer uw dedicated IP door uw code in het formulier hieronder te plakken. Als u onlangs een dedicated IP hebt gekocht, kunt u de code op de PIA-website genereren.</string>
+    <string name="dip_summary">Beveilig uw remote verbindingen met activa met een speciale IP van een land naar keuze. Zo lang uw abonnement loopt, is dit IP alleen voor u, zodat uw gegevensoverdrachten met de krachtigste versleuteling die beschikbaar is, worden beschermd.</string>
+    <string name="dip_your_header">UW DEDICATED IP\'S</string>
+    <string name="dip_activate">Activeren</string>
+    <string name="dip_remove_header">Dedicated IP verwijderen</string>
+    <string name="dip_remove_body">%s - %s verwijderen?</string>
+    <string name="dip_will_expire_warning">Uw dedicated IP verloopt bijna.</string>
+    <string name="dip_get_a_new_one">Haal een nieuwe.</string>
+    <string name="dip_expired_warning">Uw code is verlopen. Genereer een nieuwe via uw accountpagina op de website.</string>
+    <string name="dip_updated_warning">Uw dedicated IP is bijgewerkt.</string>
+    <string name="dip_invalid">Uw code is ongeldig. Zorg ervoor dat u de code juist heeft ingevoerd.</string>
+    <string name="dip_success">Uw dedicated IP is geactiveerd. Het is beschikbaar in uw regioselectielijst.</string>
+    <string name="dip_tag">DEDICATED IP</string>
+    <string name="dip_enter_token_hint">Plak uw code hier</string>
+    <!-- Inapp Messaging -->
+    <string name="inapp_pref_title">Servicecommunicatieberichten tonen</string>
+    <string name="settings_updated">De instellingen zijn bijgewerkt</string>
+    <string name="hide_payment">Vanwege een technisch probleem zijn aankopen via Google Play momenteel niet mogelijk. We proberen deze situatie op te lossen.\n\nAls u al een account met een abonnement hebt, kunt u inloggen door op de knop Inloggen te drukken.</string>
+    <string name="settings_block_connections_title">Voor de functie \'VPN-killswitch\' van PIA moet de optie VPN altijd aan op AAN worden gezet in de Android-instellingen</string>
+    <string name="settings_block_connections_description">Wilt u doorgaan, ga dan naar Instellingen - Netwerk en internet - Geavanceerd - VPN - tik op het Instellingen-pictogram - <b>activeer VPN altijd aan.</b></string>
+    <string name="settings_block_connections_button">Naar Netwerk en internetinstellingen</string>
+    <string name="settings_block_connections_error">Kan netwerkinstellingen niet openen</string>
+    <!-- KPI -->
+    <string name="kpi_connection_attempts_onboarding_title">Help ons bij het verbeteren van onze dienstverlening</string>
+    <string name="kpi_connection_attempts_onboarding_body">Om ons te helpen bij het verbeteren van de prestaties van onze verbindingen, kunt u anoniem statistische gegevens over uw verbinding met ons delen. Deze rapporten bevatten geen persoonlijke informatie.</string>
+    <string name="kpi_connection_attempts_settings_title">Help ons PIA verbeteren</string>
+    <string name="kpi_connection_attempts_settings_body">Help ons verbeteren door statistische gegevens over VPN-verbindingen te delen. Deze rapporten bevatten nooit persoonlijke informatie.</string>
+    <string name="kpi_connection_attempts_settings_details">Gedeelde gegevens bekijken</string>
+    <string name="kpi_connection_attempts_no_events">Er zijn geen recente gebeurtenissen</string>
+    <string name="kpi_connection_attempts_stats">Verbindingsstatistieken</string>
+    <string name="kpi_connection_attempts_more_information">Deze minimale informatie helpt ons bij het herkennen en verhelpen van potentiële problemen met uw verbinding. Houd er rekening mee er toestemming en handmatige activering nodig is om deze informatie te delen. Deze optie is standaard uitgeschakeld. We verzamelen informatie over de volgende gebeurtenissen:\n\n
+• Verbindingspoging\n
+• Geannuleerde verbinding\n
+• Verbinding tot stand gebracht\n\n
+Voor al deze gebeurtenissen zullen we de volgende informatie verzamelen:\n\n
+• Platform\n
+• Appversie\n
+• Type app (voorlopige release of niet)\n
+• Gebruikt protocol\n
+• Verbindingsbron (handmatig of met behulp van automatisering)\n\n
+Alle gebeurtenissen bevatten een unieke ID, die willekeurig gegenereerd wordt. Deze ID is niet gekoppeld aan uw gebruikersaccount. Uit privacyoverwegingen wordt deze unieke ID elke dag opnieuw gegenereerd.\n\n
+U behoudt altijd de controle. U kunt via Instellingen zien welke gegevens we verzameld hebben en u kunt deze optie op elk moment uitschakelen.</string>
+    <!-- Renewal -->
+    <string name="renewal_title">Welkom terug!</string>
+    <string name="renewal_description">U moet uw abonnement vernieuwen om Private Internet Access te kunnen gebruiken.</string>
+    <string name="renewal_button">Nu vernieuwen</string>
+    <string name="use_tcp">TCP gebruiken</string>
+    <string name="oneclickconnect">Verbinden met 1-klik</string>
+    <string name="startup_region_message_new_bold">uw gratis proefabonnement van 7 dagen</string>
+    <string name="allow_locallan_on">Toegang tot het lokale netwerk zal worden toegestaan. Sommige apps (zoals de Google-app) kunnen uw echte IP onthullen en rapporteren.</string>
+    <string name="allow_locallan_off">Toegang tot lokale netwerken zal worden geblokkeerd</string>
+    <string name="block_locallan_off">Toegang tot lokaal netwerk wordt toegestaan. Sommige apps (zoals de Google-app) kunnen een lek veroorzaken en je echte IP weergeven.</string>
+    <string name="block_locallan_on">Toegang tot lokale netwerken wordt geblokkeerd</string>
+    <string name="block_locallan">Lokaal netwerk blokkeren</string>
+    <string name="block_connection_wo_vpn">Verbindingen zonder VPN blokkeren</string>
+    <string name="always_oreo_message">Om ervoor te zorgen dat u nooit verbonden bent zonder uw VPN, raden wij u aan om \'Verbindingen zonder VPN blokkeren\' in te schakelen in uw Android-instellingen. Dit kan na het inschakelen van \'Altijd VPN gebruiken\' voor PIA. Zo zorgt u ervoor dat Android PIA VPN te allen tijde gebruikt wanneer u verbonden bent en dat verbindingen zonder VPN worden geblokkeerd. Dit wordt ook wel een VPN-killswitch genoemd. De Killswitch-instelling in de PIA VPN-app is achterhaald omdat Android 8.0+ de functie \'Verbindingen zonder VPN blokkeren\' nu heeft ingebouwd. Als er een probleem is, wordt u hiervan op de hoogte gesteld en zal Android alle internetverbindingen die niet via uw VPN gaan, blokkeren.</string>
+    <string-array name="dns_names">
+        <item>PIA DNS</item>
+        <item>Aangepaste DNS</item>
+    </string-array>
+</resources>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/pia_tile_height_small"
+    android:paddingHorizontal="16dp"
+    android:paddingBottom="8dp"
+    android:paddingTop="16dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/snooze_vpn_title"
+        android:textAppearance="@style/Style13"
+        android:textColor="@color/grey55"
+        android:layout_alignParentTop="true"
+        />
+
+    <LinearLayout
+        android:id="@+id/snooze_resume_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:clickable="true"
+            android:id="@+id/snooze_resume_button"
+            android:background="@drawable/shape_snooze_border"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:textColor="@color/snooze_border"
+            android:layout_marginEnd="4dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            style="@style/Style12"
+            android:textSize="10dp"
+            android:text="@string/snooze_resume"/>
+
+        <TextView
+            android:id="@+id/snooze_resume_time_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/snooze_paused"
+            android:textColor="?attr/grey20_white"
+            android:layout_marginTop="10dp"
+            android:textSize="10dp"
+            android:textStyle="bold"
+            android:layout_gravity="center_horizontal"
+            style="@style/Style12"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/snooze_times_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:clickable="true"
+                android:id="@+id/snooze_short_button"
+                android:background="@drawable/shape_snooze_border"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:layout_height="wrap_content"
+                android:textColor="@color/snooze_border"
+                android:layout_marginEnd="4dp"
+                style="@style/Style12"
+                android:textSize="10dp"
+                android:text="@string/snooze_short"
+                android:maxLines="1" />
+
+            <TextView
+                android:clickable="true"
+                android:id="@+id/snooze_medium_button"
+                android:background="@drawable/shape_snooze_border"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/snooze_medium"
+                android:maxLines="1"
+                android:textColor="@color/snooze_border"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:textSize="10dp"
+                style="@style/Style12"/>
+
+            <TextView
+                android:clickable="true"
+                android:id="@+id/snooze_long_button"
+                android:background="@drawable/shape_snooze_border"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/snooze_long"
+                android:maxLines="1"
+                android:textColor="@color/snooze_border"
+                android:layout_marginStart="4dp"
+                android:textSize="10dp"
+                style="@style/Style12"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/snooze_description"
+            android:textColor="?attr/grey20_white"
+            android:layout_marginTop="10dp"
+            android:textSize="10dp"
+            android:textStyle="bold"
+            style="@style/Style12"/>
+
+    </LinearLayout>
+
+</LinearLayout>

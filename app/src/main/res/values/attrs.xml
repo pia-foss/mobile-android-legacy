@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<resources>
+    <declare-styleable name="SwipeBackLayout">
+        <attr name="edge_size" format="dimension"/>
+        <attr name="edge_flag">
+            <enum name="left" value="0" />
+            <enum name="right" value="1" />
+            <enum name="bottom" value="2" />
+            <enum name="all" value="3" />
+        </attr>
+        <attr name="shadow_left" format="reference"/>
+        <attr name="shadow_right" format="reference"/>
+        <attr name="shadow_bottom" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="PanelItem">
+        <attr name="shouldChangeTextColors" format="boolean"/>
+        <attr name="focusedTextColor" format="color" />
+        <attr name="unfocusedTextColor" format="color" />
+    </declare-styleable>
+
+    <attr name="SwipeBackLayoutStyle" format="reference"/>
+    <attr name="splash_background" format="reference"/>
+    <attr name="buy_account_button" format="reference"/>
+    <attr name="edit_background" format="reference"/>
+    <attr name="scan_background" format="reference"/>
+
+    <attr name="tos_color" format="reference" />
+    <attr name="piax_edit_text_color" format="reference" />
+    <attr name="piax_edit_underline_color" format="reference"/>
+    <attr name="grey20_white" format="reference" />
+
+    <attr name="checkmark_icon" format="reference" />
+    <attr name="checkmark_icon_selected" />
+
+    <attr name="purchasing_finalize_background" format="reference" />
+    <attr name="search_background" format="reference" />
+    <attr name="region_selection_background" format="reference" />
+    <attr name="region_list_item_background" format="reference" />
+    <attr name="dialog_header_background" format="reference" />
+    <attr name="dialog_body_background" format="reference" />
+
+    <declare-styleable name="GraphView">
+        <attr name="maxElements" format="integer"/>
+        <attr name="textColor" format="color"/>
+        <attr name="showLegend" format="boolean"/>
+        <attr name="showDownloadSpeed" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="PiaxEditText">
+        <attr name="hint" format="string"/>
+        <attr name="errorColor" format="color"/>
+        <attr name="textColorMain" format="color"/>
+        <attr name="hintColor" format="color"/>
+        <attr name="underlineColor" format="color"/>
+        <attr name="showLeftIcon" format="boolean"/>
+        <attr name="hideHint" format="boolean"/>
+        <attr name="maxLines" format="integer"/>
+    </declare-styleable>
+
+</resources>

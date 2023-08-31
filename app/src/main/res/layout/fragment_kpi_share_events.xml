@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/windowBackground"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/fragment_trial_logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="32dp"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/ic_consent" />
+
+    <TextView
+        style="@style/Style02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:text="@string/kpi_connection_attempts_onboarding_title" />
+
+    <TextView
+        style="@style/Style08"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/kpi_connection_attempts_onboarding_body" />
+
+    <Button
+        android:id="@+id/fragment_kpi_share_events_more"
+        style="@style/Style12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="8dp"
+        android:focusable="true"
+        android:focusableInTouchMode="false"
+        android:minHeight="0dp"
+        android:padding="8dp"
+        android:background="@drawable/shape_rect_no_border"
+        android:text="@string/find_out_more"
+        android:textColor="@color/textColorPrimary" />
+
+    <Button
+        android:id="@+id/fragment_kpi_share_events_accept"
+        style="@style/PiaxGreenButton"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="32dp"
+        android:focusable="true"
+        android:focusableInTouchMode="false"
+        android:text="@string/accept"
+        android:textAllCaps="true" />
+
+    <Button
+        android:id="@+id/fragment_kpi_share_events_decline"
+        style="@style/BuyAccountButton"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:background="?attr/buy_account_button"
+        android:focusable="true"
+        android:focusableInTouchMode="false"
+        android:text="@string/no_thanks"
+        android:textAllCaps="true" />
+
+</LinearLayout>

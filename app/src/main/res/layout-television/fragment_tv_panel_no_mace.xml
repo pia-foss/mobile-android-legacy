@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:clipChildren="false"
+    android:paddingLeft="24dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:background="@color/tv_grey_20"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dashboard_header_height"
+        android:paddingTop="@dimen/panel_vertical_padding"
+        android:paddingBottom="@dimen/panel_vertical_padding"
+        android:paddingLeft="@dimen/panel_horizontal_padding"
+        android:paddingRight="@dimen/panel_horizontal_padding">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/ic_pia_logo"
+            android:layout_gravity="center"/>
+
+    </FrameLayout>
+
+    <com.privateinternetaccess.android.ui.tv.views.PanelItem
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/dashboard_panel_spacing"
+        android:focusable="true"
+        android:id="@+id/panel_port_item"
+        app:shouldChangeTextColors="true"
+        app:focusedTextColor="@color/tv_grey_15"
+        app:unfocusedTextColor="@color/white"
+        android:layout_weight="1.5">
+
+        <com.privateinternetaccess.android.ui.tv.views.IPPortView
+            android:id="@+id/panel_port_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="6dp"
+            android:paddingTop="6dp"/>
+
+    </com.privateinternetaccess.android.ui.tv.views.PanelItem>
+
+    <com.privateinternetaccess.android.ui.tv.views.PanelItem
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/panel_graph_item"
+        android:layout_marginTop="@dimen/dashboard_panel_spacing"
+        android:focusable="true"
+        app:shouldChangeTextColors="true"
+        app:focusedTextColor="@color/tv_grey_15"
+        app:unfocusedTextColor="@color/white"
+        android:layout_weight="2.5">
+
+        <com.privateinternetaccess.android.ui.tv.views.GraphView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="6dp"
+            android:paddingTop="6dp"
+            app:showLegend="false"
+            app:maxElements="20"
+            />
+
+    </com.privateinternetaccess.android.ui.tv.views.PanelItem>
+
+    <com.privateinternetaccess.android.ui.tv.views.PanelItem
+        android:id="@+id/panel_per_app_item"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/dashboard_panel_spacing"
+        android:focusable="true"
+        app:shouldChangeTextColors="true"
+        app:focusedTextColor="@color/tv_grey_15"
+        app:unfocusedTextColor="@color/white"
+        android:layout_weight="1">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="6dp"
+            android:paddingTop="6dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:text="@string/tv_per_app_settings"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="17dp"
+                android:layout_height="24dp"
+                android:scaleType="fitXY"
+                android:layout_marginEnd="3.5dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                app:srcCompat="@drawable/ic_lock_closed"/>
+
+        </RelativeLayout>
+
+    </com.privateinternetaccess.android.ui.tv.views.PanelItem>
+
+    <com.privateinternetaccess.android.ui.tv.views.PanelItem
+        android:id="@+id/panel_favorites_item"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/dashboard_panel_spacing"
+        android:focusable="true"
+        app:shouldChangeTextColors="true"
+        app:focusedTextColor="@color/tv_grey_15"
+        app:unfocusedTextColor="@color/white"
+        android:layout_weight="1">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="6dp"
+            android:paddingTop="6dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                android:text="@string/favorites_panel_title"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="24dp"
+                android:layout_height="20dp"
+                android:scaleType="fitXY"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                app:srcCompat="@drawable/ic_heart"/>
+
+        </RelativeLayout>
+
+    </com.privateinternetaccess.android.ui.tv.views.PanelItem>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/dashboard_panel_spacing"
+        android:orientation="horizontal"
+        android:clipToPadding="false"
+        android:clipChildren="false"
+        android:layout_weight="1">
+
+        <com.privateinternetaccess.android.ui.tv.views.PanelItem
+            android:id="@+id/panel_settings_item"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:focusable="true"
+            android:layout_weight="1"
+            android:layout_marginRight="2dp"
+            app:shouldChangeTextColors="true"
+            app:focusedTextColor="@color/tv_grey_15"
+            app:unfocusedTextColor="@color/white">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="6dp"
+                android:paddingTop="6dp">
+
+                <LinearLayout
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/ic_settings"
+                        android:layout_marginRight="4dp"
+                        android:gravity="center_vertical"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:text="@string/menu_settings"
+                        android:gravity="center_vertical" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </com.privateinternetaccess.android.ui.tv.views.PanelItem>
+
+        <com.privateinternetaccess.android.ui.tv.views.PanelItem
+            android:id="@+id/panel_logout_item"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:focusable="true"
+            android:layout_weight="1"
+            android:layout_marginLeft="2dp"
+            app:shouldChangeTextColors="true"
+            app:focusedTextColor="@color/tv_grey_15"
+            app:unfocusedTextColor="@color/white">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="6dp"
+                android:paddingTop="6dp">
+
+                <LinearLayout
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/ic_logout"
+                        android:layout_marginRight="4dp"
+                        android:gravity="center_vertical"/>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:text="@string/logout_title"
+                        android:gravity="center_vertical" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </com.privateinternetaccess.android.ui.tv.views.PanelItem>
+
+    </LinearLayout>
+
+</LinearLayout>
