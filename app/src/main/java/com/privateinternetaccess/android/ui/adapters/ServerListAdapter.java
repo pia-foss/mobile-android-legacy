@@ -384,9 +384,9 @@ public class ServerListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                 IVPN vpn = PIAFactory.getInstance().getVPN(mContext);
 
                 if(!vpn.isVPNActive()) {
-                    vpn.start();
+                    vpn.start(true);
                 } else {
-                    vpn.stop();
+                    vpn.stop(true);
                 }
 
                 return true;

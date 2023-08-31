@@ -329,17 +329,27 @@ public class PurchasingProcessFragment extends Fragment {
             });
         } else if (isLoginWithReceipt) {
             isLoginWithReceipt = false;
-            account.loginWithReceipt(
-                    PiaPrefHandler.getPurchasingToken(requireContext()),
-                    PiaPrefHandler.getPurchasingSku(requireContext()),
-                    (loginRequestResponseStatus) -> {
+            if (PIAApplication.isAmazon()) {
+                final AmazonPurchaseData data = PiaPrefHandler.getAmazonPurchaseData(requireContext());
+                if (data != null) {
+                    account.amazonLoginWithReceipt(data.getReceiptId(), data.getUserId(), (loginRequestResponseStatus) -> {
                         handleLoginWithReceipt(loginRequestResponseStatus);
                         return null;
-                    }
-            );
+                    });
+                }
+            } else {
+                account.loginWithReceipt(
+                        PiaPrefHandler.getPurchasingToken(requireContext()),
+                        PiaPrefHandler.getPurchasingSku(requireContext()),
+                        (loginRequestResponseStatus) -> {
+                            handleLoginWithReceipt(loginRequestResponseStatus);
+                            return null;
+                        }
+                );
+            }
         } else {
             if (PIAApplication.isAmazon()) {
-                AmazonPurchaseData data = PiaPrefHandler.getAmazonPurchaseData(requireContext());
+                final AmazonPurchaseData data = PiaPrefHandler.getAmazonPurchaseData(requireContext());
                 account.amazonSignUp(data.getUserId(), data.getReceiptId(), (signUpInformation, responseStatus) -> {
                     handleAmazonSignUpResponse(signUpInformation, responseStatus);
                     return null;

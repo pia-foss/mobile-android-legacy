@@ -1,0 +1,9 @@
+package com.privateinternetaccess.android.ui.connection.controller
+
+enum class WireguardMigrationControllerErrorCode {
+    WIREGUARD_MIGRATION_HAS_BEEN_DONE,
+    SELECTED_PROTOCOL_IS_NOT_OPENVPN,
+    OPENVPN_DEFAULT_AND_USER_CONFIGURATION_ARE_DIFFERENT,
+    MARK_WIREGUARD_MIGRATION_AS_DONE_FAILED,
+    SET_WIREGUARD_AS_SELECTED_PROTOCOL_FAILED
+}

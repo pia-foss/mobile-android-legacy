@@ -638,6 +638,8 @@
     <string name="settings_block_connections_description">To proceed, go to Settings - Network &amp; Internet - Advanced - VPN - tap on the Settings icon - <b>activate Always-on VPN.</b></string>
     <string name="settings_block_connections_button">Go to Network &amp; Internet Settings</string>
     <string name="settings_block_connections_error">Unable to navigate to network settings</string>
+    <string name="survey_message">Want to help make PIA better? Let us know how we can improve!</string>
+    <string name="survey_action">Take the Survey</string>
     <!-- KPI -->
     <string name="kpi_connection_attempts_onboarding_title">Please help us improve our service</string>
     <string name="kpi_connection_attempts_onboarding_body">To help us ensure our service\'s connection performance, you can anonymously share your connection stats with us. These reports do not include any personally identifiable information.</string>
@@ -649,7 +651,8 @@
     <string name="kpi_connection_attempts_more_information">This minimal information assists us in identifying and fixing potential connection issues. Note that sharing this information requires consent and manual activation as it is turned off by default. We will collect information about the following events:\n\n
             • Connection Attempt\n
             • Connection Canceled\n
-            • Connection Established\n\n
+            • Connection Established\n
+            • Time to Connect\n\n
         For all of these events, we will collect the following information:\n\n
             • Platform\n
             • App version\n

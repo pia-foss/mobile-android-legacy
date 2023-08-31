@@ -19,9 +19,9 @@ package com.privateinternetaccess.android.pia.kpi
  */
 
 import android.content.Context
+import android.os.SystemClock
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ProcessLifecycleOwner
-import com.privateinternetaccess.android.BuildConfig
 import com.privateinternetaccess.android.PIAApplication
 import com.privateinternetaccess.android.model.states.VPNProtocol
 import com.privateinternetaccess.android.pia.api.PiaApi.ANDROID_HTTP_CLIENT
@@ -30,13 +30,55 @@ import com.privateinternetaccess.android.pia.model.events.VpnStateEvent
 import com.privateinternetaccess.android.pia.providers.ModuleClientStateProvider
 import com.privateinternetaccess.android.pia.utils.DLog
 import com.privateinternetaccess.kpi.*
+import com.privateinternetaccess.kpi.internals.utils.KTimeUnit
 import de.blinkt.openvpn.core.ConnectionStatus
+import kotlinx.datetime.Clock
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 
 
 class KPIManager {
 
+    /**
+     * Enum defining the different connection sources.
+     * e.g. Manual for user-related actions, Automatic for reconnections, etc.
+     */
+    public enum class KPIConnectionSource(val value: String) {
+        AUTOMATIC("Automatic"),
+        MANUAL("Manual"),
+    }
+
+    /**
+     * Enum defining the supported connection related events.
+     */
+    private enum class KPIConnectionEvent(val value: String) {
+        VPN_CONNECTION_ATTEMPT("VPN_CONNECTION_ATTEMPT"),
+        VPN_CONNECTION_CANCELLED("VPN_CONNECTION_CANCELLED"),
+        VPN_CONNECTION_ESTABLISHED("VPN_CONNECTION_ESTABLISHED"),
+    }
+
+    /**
+     * Enum defining the supported vpn protocols to report.
+     */
+    private enum class KPIVpnProtocol(val value: String) {
+        OPENVPN("OpenVPN"),
+        WIREGUARD("WireGuard"),
+    }
+
+    /**
+     * Enum defining the supported vpn protocols to report.
+     */
+    private enum class KPIEventPropertyKey(val value: String) {
+        CONNECTION_SOURCE("connection_source"),
+        USER_AGENT("user_agent"),
+        VPN_PROTOCOL("vpn_protocol"),
+        TIME_TO_CONNECT("time_to_connect")
+    }
+
+    /**
+     * Enum common representation of relevant connection statuses. Some protocols have specific ones
+     * which would be translated into this set of common ones for all protocols.
+     */
     private enum class KPIConnectionStatus {
         NOT_CONNECTED,
         STARTED,
@@ -48,8 +90,10 @@ class KPIManager {
 
     companion object {
         private const val TAG = "KPIManager"
-        private const val STAGING_EVENT_TOKEN = "3bd9fa1b7d7ae30b6d119e335afdcfa7"
-        private const val PRODUCTION_EVENT_TOKEN = "d5fe3babe96d218323dafe20a1981e4e"
+        private const val KPI_PREFERENCE_NAME = "PIA_KPI_PREFERENCE_NAME"
+
+        public const val PRODUCTION_EVENT_TOKEN = "d5fe3babe96d218323dafe20a1981e4e"
+        public const val STAGING_EVENT_TOKEN = "3bd9fa1b7d7ae30b6d119e335afdcfa7"
         public val sharedInstance = KPIManager()
     }
 
@@ -73,6 +117,9 @@ class KPIManager {
         )
     )
 
+    private var connectionInitiatedTime: Long = 0
+    private var connectionEstablishedTime: Long = 0
+
     fun start() {
         prepareModuleIfNeeded()
         if (!EventBus.getDefault().isRegistered(this)) {
@@ -85,7 +132,12 @@ class KPIManager {
         if (EventBus.getDefault().isRegistered(this)) {
             EventBus.getDefault().unregister(this)
         }
-        kpi?.stop()
+        kpi?.stop { error ->
+            error?.let {
+                DLog.d(TAG, "There was an error stopping KPI $it")
+            }
+        }
+
     }
 
     fun flush() {
@@ -138,6 +190,7 @@ class KPIManager {
                 }
             }
             KPIConnectionStatus.CONNECTING -> {
+                connectionInitiatedTime = SystemClock.elapsedRealtime()
                 submitConnectionEventIfPossible(
                     connectionEvent = KPIConnectionEvent.VPN_CONNECTION_ATTEMPT,
                     connectionSource = kpiConnectionSource
@@ -147,6 +200,7 @@ class KPIManager {
                 // If the target status is connected and we were previous connecting.
                 // Treat this as a established event.
                 if (kpiConnectionStatus == KPIConnectionStatus.CONNECTING) {
+                    connectionEstablishedTime = SystemClock.elapsedRealtime()
                     submitConnectionEventIfPossible(
                         connectionEvent = KPIConnectionEvent.VPN_CONNECTION_ESTABLISHED
                     )
@@ -162,12 +216,17 @@ class KPIManager {
             return
         }
 
+        KPIContextProvider.setApplicationContext(PIAApplication.get().applicationContext)
         val clientStateProvider = ModuleClientStateProvider(PIAApplication.get().baseContext)
         kpi = KPIBuilder()
-            .setKPIClientStateProvider(clientStateProvider)
+            .setKPIClientStateProvider(ModuleClientStateProvider(PIAApplication.get().baseContext))
             .setKPIFlushEventMode(KPISendEventsMode.PER_BATCH)
+            .setEventTimeRoundGranularity(KTimeUnit.HOURS)
+            .setEventTimeSendGranularity(KTimeUnit.MILLISECONDS)
+            .setRequestFormat(KPIRequestFormat.KAPE)
+            .setPreferenceName(KPI_PREFERENCE_NAME)
+            .setUserAgent(ANDROID_HTTP_CLIENT)
             .setCertificate(clientStateProvider.certificate)
-            .setAppVersion(BuildConfig.VERSION_NAME)
             .build()
     }
 
@@ -188,16 +247,11 @@ class KPIManager {
         }
         // we would like to only send events when the app is foreground
         if (ProcessLifecycleOwner.get().lifecycle.currentState == Lifecycle.State.RESUMED && connectionSource == KPIConnectionSource.MANUAL) {
-            DLog.d(TAG, "submitConnectionEventIfPossible $connectionEvent")
+            DLog.d(TAG, "submitConnectionEventIfPossible ${connectionEvent.value}")
             val event = KPIClientEvent(
-                eventName = connectionEvent,
-                eventProperties = KPIClientEvent.EventProperties(
-                    connectionSource = connectionSource,
-                    preRelease = false,
-                    userAgent = ANDROID_HTTP_CLIENT,
-                    vpnProtocol = activeProtocol
-                ),
-                eventToken = eventToken()
+                eventName = connectionEvent.value,
+                eventProperties = getEventProperties(connectionEvent, connectionSource),
+                eventInstant = Clock.System.now()
             )
             kpi?.submit(event) { error ->
                 error?.let {
@@ -205,6 +259,24 @@ class KPIManager {
                 }
             }
         }
+    }
+
+    private fun getEventProperties(
+        connectionEvent: KPIConnectionEvent,
+        connectionSource: KPIConnectionSource
+    ): Map<String, String> {
+        val timeToConnect =
+            (connectionEstablishedTime - connectionInitiatedTime).toFloat() / 1000
+        val eventProperties = mutableMapOf<String, String>()
+        eventProperties[KPIEventPropertyKey.CONNECTION_SOURCE.value] = connectionSource.value
+        eventProperties[KPIEventPropertyKey.USER_AGENT.value] = ANDROID_HTTP_CLIENT
+        eventProperties[KPIEventPropertyKey.VPN_PROTOCOL.value] = activeProtocol()!!.value
+        if (PiaPrefHandler.isShareTimeEventEnabled(PIAApplication.get())
+            && connectionEvent == KPIConnectionEvent.VPN_CONNECTION_ESTABLISHED
+        ) {
+            eventProperties[KPIEventPropertyKey.TIME_TO_CONNECT.value] = timeToConnect.toString()
+        }
+        return eventProperties
     }
 
     private fun ConnectionStatus.mapToKPIConnectionStatus(): KPIConnectionStatus =
@@ -263,13 +335,6 @@ class KPIManager {
             VPNProtocol.Protocol.OpenVPN -> KPIVpnProtocol.OPENVPN
             VPNProtocol.Protocol.WireGuard -> KPIVpnProtocol.WIREGUARD
             null -> null
-        }
-
-    private fun eventToken(): String =
-        if (PiaPrefHandler.useStaging(PIAApplication.get().baseContext)) {
-            STAGING_EVENT_TOKEN
-        } else {
-            PRODUCTION_EVENT_TOKEN
         }
     // endregion
 }

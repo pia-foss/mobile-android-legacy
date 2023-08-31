@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/survey_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_alert_green" />
+
+    <TextView
+        android:id="@+id/survey_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:paddingTop="16dp"
+        android:text="@string/survey_message"
+        android:textAppearance="@style/Style07"
+        android:textColor="?attr/grey20_white"
+        app:layout_constraintEnd_toStartOf="@id/survey_close"
+        app:layout_constraintStart_toEndOf="@+id/survey_icon"
+        app:layout_constraintTop_toTopOf="@+id/survey_icon" />
+
+    <TextView
+        android:id="@+id/survey_action"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:paddingBottom="16dp"
+        android:text="@string/survey_action"
+        android:textAppearance="@style/Style07"
+        android:textColor="?attr/colorPrimary"
+        app:layout_constraintEnd_toStartOf="@id/survey_close"
+        app:layout_constraintStart_toEndOf="@+id/survey_icon"
+        app:layout_constraintTop_toBottomOf="@+id/survey_content" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/survey_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:tint="?attr/grey20_white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_close" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

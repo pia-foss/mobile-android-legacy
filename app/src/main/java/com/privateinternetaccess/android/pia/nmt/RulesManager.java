@@ -36,11 +36,12 @@ public class RulesManager {
         this.mContext = context;
     }
 
+    public static RulesChangedListener rulesChangedListener = null;
+
     public static NetworkItem.NetworkBehavior getBehavior(Context context, int networkType) {
         if (networkType == TYPE_WIFI) {
             return getWiFiBehavior(context);
-        }
-        else {
+        } else {
             return getMobileBehaviour(context);
         }
     }
@@ -72,8 +73,9 @@ public class RulesManager {
             NetworkItem rule = NetworkItem.fromString(serializedRule);
 
             if (rule != null) {
-                if (rule.networkName.equals(sanitizedSSID))
+                if (rule.networkName.equals(sanitizedSSID)) {
                     return rule.behavior;
+                }
 
                 if (rule.isDefaultOpen) {
                     defaultRule = rule;
@@ -91,18 +93,31 @@ public class RulesManager {
         newItem.networkName = network.SSID;
 
         PrefsHandler.saveNetworkRule(mContext, newItem);
+
+        if (rulesChangedListener != null && mContext != null) {
+            rulesChangedListener.onRulesChanged(mContext);
+        }
     }
 
     public void removeNetworkRule(NetworkItem rule) {
         PrefsHandler.removeNetworkRule(mContext, rule);
+
+        if (rulesChangedListener != null && mContext != null) {
+            rulesChangedListener.onRulesChanged(mContext);
+        }
     }
 
     public void updateNetworkRule(NetworkItem rule, NetworkItem.NetworkBehavior behavior) {
-        if (rule == null)
+        if (rule == null) {
             return;
+        }
 
         rule.behavior = behavior;
         PrefsHandler.saveNetworkRule(mContext, rule);
+
+        if (rulesChangedListener != null && mContext != null) {
+            rulesChangedListener.onRulesChanged(mContext);
+        }
     }
 
     public List<NetworkItem> getRules() {
@@ -112,8 +127,7 @@ public class RulesManager {
         if (serializedRules.size() == 0) {
             networkList.addAll(NetworkItem.defaultList(mContext));
             saveDefaults();
-        }
-        else {
+        } else {
             for (int i = 0; i < serializedRules.size(); i++) {
                 networkList.add(NetworkItem.fromString(serializedRules.get(i)));
             }
@@ -134,7 +148,7 @@ public class RulesManager {
     }
 
     public interface RulesChangedListener {
-        void onRulesChanged(List<NetworkItem> updatedRules);
+        void onRulesChanged(Context context);
     }
 }
 

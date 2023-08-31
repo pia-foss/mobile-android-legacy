@@ -20,11 +20,13 @@ package com.privateinternetaccess.android.pia.interfaces;
 
 import android.app.Activity;
 
-import com.android.billingclient.api.SkuDetails;
+import com.android.billingclient.api.ProductDetails;
 import com.privateinternetaccess.android.pia.model.PurchaseObj;
 import com.privateinternetaccess.android.pia.model.enums.PurchasingType;
 import com.privateinternetaccess.android.pia.model.events.SystemPurchaseEvent;
 import com.privateinternetaccess.core.utils.IPIACallback;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.List;
 
@@ -47,7 +49,8 @@ public interface IPurchasing {
     void init(
             Activity activity,
             List<String> purchasingList,
-            IPIACallback<SystemPurchaseEvent> systemCallback
+            IPIACallback<SystemPurchaseEvent> systemCallback,
+            EventBus eventBus
     );
 
     /**
@@ -60,9 +63,8 @@ public interface IPurchasing {
     /**
      * Get the current purchased object if there is one.
      *
-     * @return Can return null.
      */
-    PurchaseObj getPurchase(boolean savePurchase);
+    void getPurchase(boolean savePurchase, EventBus eventBus);
 
     /**
      * Calls the backend with the subscription type or product ID in most cases.
@@ -72,12 +74,12 @@ public interface IPurchasing {
     void purchase(String subType);
 
     /**
-     * Grabs the {@link SkuDetails} for a certain subtype.
+     * Grabs the {@link ProductDetails} for a certain subtype.
      *
-     * @param sku
-     * @return {@link SkuDetails} or null if not found.
+     * @param productId
+     * @return {@link ProductDetails} or null if not found.
      */
-    SkuDetails getSkuDetails(String sku);
+    ProductDetails getProductDetails(String productId);
 
     /**
      * Call this when you want to close and end the connection to the purchasing system.

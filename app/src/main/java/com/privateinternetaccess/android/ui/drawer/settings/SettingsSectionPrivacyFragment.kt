@@ -27,6 +27,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.privateinternetaccess.android.BuildConfig
+import com.privateinternetaccess.android.PIAApplication
 import com.privateinternetaccess.android.R
 import com.privateinternetaccess.android.databinding.FragmentSettingsSectionPrivacyBinding
 import com.privateinternetaccess.android.pia.handlers.PiaPrefHandler
@@ -37,9 +38,9 @@ class SettingsSectionPrivacyFragment : Fragment() {
     private lateinit var binding: FragmentSettingsSectionPrivacyBinding
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View {
         binding = FragmentSettingsSectionPrivacyBinding.inflate(inflater)
         return binding.root
@@ -95,11 +96,14 @@ class SettingsSectionPrivacyFragment : Fragment() {
 
     private fun applyPersistedStateToUi(context: Context) {
         binding.maceSwitchSetting.isChecked = PiaPrefHandler.isMaceEnabled(context)
-        binding.blockConnectionWithoutVpnSetting.visibility = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            View.VISIBLE
-        } else {
-            View.GONE
-        }
+        binding.blockConnectionWithoutVpnSetting.visibility =
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O
+                && !PIAApplication.isAndroidTV(requireContext())
+            ) {
+                View.VISIBLE
+            } else {
+                View.GONE
+            }
         binding.maceSetting.visibility = if (BuildConfig.FLAVOR_store == "playstore") {
             View.GONE
         } else {
@@ -108,7 +112,7 @@ class SettingsSectionPrivacyFragment : Fragment() {
     }
 
     private fun usingCustomDns(context: Context): Boolean =
-            !PiaPrefHandler.getPrimaryDns(context).isNullOrEmpty() ||
-                    !PiaPrefHandler.getSecondaryDns(context).isNullOrEmpty()
+        !PiaPrefHandler.getPrimaryDns(context).isNullOrEmpty() ||
+                !PiaPrefHandler.getSecondaryDns(context).isNullOrEmpty()
     // endregion
 }

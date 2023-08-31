@@ -170,8 +170,10 @@ public class DeveloperActivity extends BaseActivity {
     @BindView(R.id.developer_add_dip_token_edit_text) EditText etDIPAddTokenEditText;
     @BindView(R.id.developer_add_dip_token_button) Button bDIPAddTokenButton;
     @BindView(R.id.developer_stop_pinging_servers) Switch sStopPingingSwitch;
+    @BindView(R.id.developer_stop_pinging_servers_holder) View stopPingHolder;
     @BindView(R.id.developer_stop_using_meta_servers) Switch sStopUsingMetaSwitch;
-
+    @BindView(R.id.developer_stop_using_meta_servers_holder) View stopMetaHolder;
+    @BindView(R.id.override_dip) View overrideDip;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -559,23 +561,35 @@ public class DeveloperActivity extends BaseActivity {
     private void setupStopPingingServers() {
         Context context = this;
         sStopPingingSwitch.setChecked(PiaPrefHandler.isStopPingingServersEnabled(context));
-        sStopPingingSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            PiaPrefHandler.setStopPingingServersEnabled(context, isChecked);
-            if (PiaPrefHandler.isStopPingingServersEnabled(context)) {
-                PiaPrefHandler.resetLastServerBody(context);
-                closeApplication();
+        stopPingHolder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean newCheckedState = !PiaPrefHandler.isStopPingingServersEnabled(context);
+                sStopPingingSwitch.setChecked(newCheckedState);
+                PiaPrefHandler.setStopPingingServersEnabled(context, newCheckedState);
+                if (PiaPrefHandler.isStopPingingServersEnabled(context)) {
+                    PiaPrefHandler.resetLastServerBody(context);
+                    closeApplication();
+                }
             }
         });
+
+
     }
 
     private void setupStopUsingMetaServers() {
         Context context = this;
         sStopUsingMetaSwitch.setChecked(PiaPrefHandler.isStopUsingMetaServersEnabled(context));
-        sStopUsingMetaSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            PiaPrefHandler.setStopUsingMetaServersEnabled(context, isChecked);
-            if (PiaPrefHandler.isStopUsingMetaServersEnabled(context)) {
-                PiaPrefHandler.resetLastServerBody(context);
-                closeApplication();
+        stopMetaHolder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean newCheckedState = !PiaPrefHandler.isStopUsingMetaServersEnabled(context);
+                sStopUsingMetaSwitch.setChecked(newCheckedState);
+                PiaPrefHandler.setStopUsingMetaServersEnabled(context, newCheckedState);
+                if (PiaPrefHandler.isStopUsingMetaServersEnabled(context)) {
+                    PiaPrefHandler.resetLastServerBody(context);
+                    closeApplication();
+                }
             }
         });
     }
@@ -663,7 +677,7 @@ public class DeveloperActivity extends BaseActivity {
     {
         boolean override = PiaPrefHandler.overrideDIPTokens(getApplicationContext());
         sDIPAddTokenSwitch.setChecked(override);
-        sDIPAddTokenSwitch.setOnClickListener(new View.OnClickListener() {
+        overrideDip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 boolean override = !PiaPrefHandler.overrideDIPTokens(getApplicationContext());

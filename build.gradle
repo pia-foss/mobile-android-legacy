@@ -10,7 +10,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.1.0'
+        classpath 'com.android.tools.build:gradle:7.1.3'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -30,9 +30,9 @@ allprojects{
 
 //only change those when updating support-library, target and compile versions.
 ext {
-    buildToolsVersion = '30.0.0'
+    buildToolsVersion = '34.0.0'
     supportLibVersion = '27.1.1'
-    targetSdkVersion = 30
-    compileSdkVersion = 30
+    targetSdkVersion = 34
+    compileSdkVersion = 34
     minSdkVersion = 21
 }

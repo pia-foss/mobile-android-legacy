@@ -18,7 +18,6 @@
 
 package com.privateinternetaccess.android.ui.loginpurchasing;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -26,10 +25,13 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,15 +41,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.privateinternetaccess.android.BuildConfig;
 import com.privateinternetaccess.android.PIAApplication;
 import com.privateinternetaccess.android.R;
 import com.privateinternetaccess.android.pia.PIAFactory;
-import com.privateinternetaccess.android.pia.handlers.PIAServerHandler;
 import com.privateinternetaccess.android.pia.handlers.PiaPrefHandler;
 import com.privateinternetaccess.android.pia.interfaces.IAccount;
+import com.privateinternetaccess.android.pia.model.AmazonPurchaseData;
 import com.privateinternetaccess.android.pia.model.enums.RequestResponseStatus;
 import com.privateinternetaccess.android.pia.utils.DLog;
+import com.privateinternetaccess.android.pia.utils.Prefs;
 import com.privateinternetaccess.android.pia.utils.Toaster;
 import com.privateinternetaccess.android.ui.views.PiaxEditText;
 
@@ -63,20 +65,27 @@ import butterknife.Optional;
 public class LoginFragment extends Fragment {
 
     @Nullable
-    @BindView(R.id.fragment_login_user) PiaxEditText etLogin;
+    @BindView(R.id.fragment_login_user)
+    PiaxEditText etLogin;
     @Nullable
-    @BindView(R.id.fragment_login_password) PiaxEditText etPassword;
+    @BindView(R.id.fragment_login_password)
+    PiaxEditText etPassword;
 
-    @BindView(R.id.fragment_login_button) Button bLogin;
-    @BindView(R.id.fragment_login_progress) View progress;
+    @BindView(R.id.fragment_login_button)
+    Button bLogin;
+    @BindView(R.id.fragment_login_progress)
+    View progress;
 
     @Nullable
-    @BindView(R.id.fragment_login_receipt) TextView bLoginReceipt;
+    @BindView(R.id.fragment_login_receipt)
+    TextView bLoginReceipt;
 
     @Nullable
-    @BindView(R.id.fragment_tv_login_user) EditText tvLogin;
+    @BindView(R.id.fragment_tv_login_user)
+    EditText tvLogin;
     @Nullable
-    @BindView(R.id.fragment_tv_login_password) EditText tvPassword;
+    @BindView(R.id.fragment_tv_login_password)
+    EditText tvPassword;
 
     private static final String TAG = "LoginFragment";
     private static final String NON_MAIN_USERNAME_REGEX = "\\A\\s*x\\d+\\s*\\z";
@@ -85,7 +94,7 @@ public class LoginFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view;
-        if(!PIAApplication.isAndroidTV(getContext()))
+        if (!PIAApplication.isAndroidTV(getContext()))
             view = inflater.inflate(R.layout.fragment_login, container, false);
         else {
             view = inflater.inflate(R.layout.activity_tv_login_purchasing, container, false);
@@ -99,6 +108,15 @@ public class LoginFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initView();
+
+        if (PIAApplication.isAmazon()) {
+            PIAApplication.amazonPurchaseUtil.getObservableData().observe(getViewLifecycleOwner(), new Observer<AmazonPurchaseData>() {
+                @Override
+                public void onChanged(AmazonPurchaseData amazonPurchaseData) {
+                    PiaPrefHandler.saveAmazonPurchase(requireContext(), amazonPurchaseData.getUserId(), amazonPurchaseData.getReceiptId());
+                }
+            });
+        }
     }
 
     @Override
@@ -108,8 +126,7 @@ public class LoginFragment extends Fragment {
         if (PIAApplication.isAndroidTV(getContext())) {
             tvLogin.setText("");
             tvPassword.setText("");
-        }
-        else {
+        } else {
             etPassword.setText("");
             etLogin.setText("");
         }
@@ -152,7 +169,7 @@ public class LoginFragment extends Fragment {
 
             etPassword.setOnKeyListener((view, i, keyEvent) -> {
                 boolean handled = false;
-                if((keyEvent.getAction() == KeyEvent.ACTION_DOWN) && i == KeyEvent.KEYCODE_ENTER){
+                if ((keyEvent.getAction() == KeyEvent.ACTION_DOWN) && i == KeyEvent.KEYCODE_ENTER) {
                     bLogin.callOnClick();
                     handled = true;
                 }
@@ -230,8 +247,7 @@ public class LoginFragment extends Fragment {
             } else {
                 etPassword.setError(getContext().getResources().getString(R.string.no_username_or_password));
             }
-        }
-        else {
+        } else {
             if (!TextUtils.isEmpty(tvLogin.getText().toString()) && !TextUtils.isEmpty(tvPassword.getText().toString()) && connected) {
                 startLogin();
             } else if (!connected) {
@@ -360,16 +376,16 @@ public class LoginFragment extends Fragment {
     @OnClick(R.id.fragment_login_receipt)
     public void onReceiptClicked() {
         LoginPurchaseActivity activity = getLoginPurchaseActivity();
-        DLog.d("PIAAPI", "Has set email: " + PiaPrefHandler.hasSetEmail(getContext()));
-        if (activity != null) {
-            if (activity.getActiveSubscription() == null) {
+        if (PIAApplication.isAmazon()) {
+            if (PiaPrefHandler.getAmazonPurchaseData(requireContext()) == null) {
                 Toaster.l(getContext(), R.string.purchasing_no_subscription);
-            } else if (activity.getActiveSubscription() != null) {
-                activity.switchToPurchasingProcess(true, false, true);
-            } else if (PiaPrefHandler.hasSetEmail(getContext())) {
-                Toaster.l(getContext(), R.string.error_active_subscription);
             } else {
-                activity.switchToPurchasingProcess(true, false, false);
+                activity.switchToPurchasingProcess(true, false, true);
+            }
+        } else {
+            DLog.d("PIAAPI", "Has set email: " + PiaPrefHandler.hasSetEmail(getContext()));
+            if (activity != null) {
+                activity.loginWithReceipt();
             }
         }
     }

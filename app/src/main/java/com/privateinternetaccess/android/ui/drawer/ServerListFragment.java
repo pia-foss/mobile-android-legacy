@@ -554,7 +554,7 @@ public class ServerListFragment extends Fragment implements SwipeRefreshLayout.O
         } else {
             IVPN vpn = PIAFactory.getInstance().getVPN(context);
             if (!currentRegionKey.equals(previousRegionKey) || !vpn.isVPNActive()) {
-                vpn.start();
+                vpn.start(true);
             }
         }
     }

@@ -23,6 +23,7 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.IBinder;
 
 import com.privateinternetaccess.android.BuildConfig;
@@ -80,11 +81,17 @@ public class ExpiryNotificationService extends Service {
         else if (accountInformation.getTimeLeftMs() <= DAY_MS)
             text = getString(R.string.expirty_notification_oneday);
 
+        int intentFlags;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            intentFlags = PendingIntent.FLAG_IMMUTABLE;
+        } else {
+            intentFlags = 0;
+        }
         PendingIntent pendingIntent = PendingIntent.getActivity(
                 this,
                 0,
                 new Intent(this, LoginPurchaseActivity.class),
-                0
+                intentFlags
         );
         PIANotifications.Companion.getSharedInstance().showNotification(
                 this,
@@ -101,7 +108,13 @@ public class ExpiryNotificationService extends Service {
     public static void armReminders(Context c) {
         DLog.i("ExpiryNotificationService", "Arm Reminders");
         Intent serviceIntent = new Intent(c, ExpiryNotificationService.class);
-        PendingIntent pIntent = PendingIntent.getService(c, SERVICE_NOTIFY_EXPIRY, serviceIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        int flags;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            flags = PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT;
+        } else {
+            flags = PendingIntent.FLAG_UPDATE_CURRENT;
+        }
+        PendingIntent pIntent = PendingIntent.getService(c, SERVICE_NOTIFY_EXPIRY, serviceIntent, flags);
         AlarmManager alarmManager = (AlarmManager) c.getSystemService(Context.ALARM_SERVICE);
 
         // First cancel any armed event

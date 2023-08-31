@@ -49,6 +49,7 @@ class AccountImpl(private val context: Context) : IAccount {
     companion object {
         private const val TAG = "AccountImpl"
         private const val STORE = "google_play"
+        private const val AMAZON = "amazon_app_store"
         private lateinit var csi: CSIAPI
     }
 
@@ -143,7 +144,7 @@ class AccountImpl(private val context: Context) : IAccount {
             AmazonSignupInformation(
                 userId,
                 receiptId,
-                "empty@test.com"
+                ""
             )
         ) { details: SignUpInformation?, errors: List<AccountRequestError> ->
             if (errors.isNotEmpty()) {
@@ -209,6 +210,23 @@ class AccountImpl(private val context: Context) : IAccount {
                 logoutIfNeeded(errors)
                 callback(adaptResponseCode(errors.last().code))
                 return@loginWithReceipt
+            }
+
+            callback(RequestResponseStatus.SUCCEEDED)
+        }
+    }
+
+    override fun amazonLoginWithReceipt(
+        receiptId: String,
+        userId: String,
+        callback: (status: RequestResponseStatus) -> Unit
+    ) {
+        androidAccountAPI?.amazonLoginWithReceipt(receiptId, userId, AMAZON) { errors ->
+            if (errors.isNotEmpty()) {
+                DLog.w(TAG, "amazonLoginWithReceipt error: $errors")
+                logoutIfNeeded(errors)
+                callback(adaptResponseCode(errors.last().code))
+                return@amazonLoginWithReceipt
             }
 
             callback(RequestResponseStatus.SUCCEEDED)

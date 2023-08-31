@@ -18,6 +18,9 @@
 
 package com.privateinternetaccess.android.wireguard.backend;
 
+import static com.privateinternetaccess.android.pia.api.PiaApi.GEN4_MACE_ENABLED_DNS;
+import static de.blinkt.openvpn.core.OpenVPNService.NOTIFICATION_CHANNEL_NEWSTATUS_ID;
+
 import android.app.AlarmManager;
 import android.app.Notification;
 import android.app.PendingIntent;
@@ -28,11 +31,11 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.ParcelFileDescriptor;
-import androidx.annotation.Nullable;
-import androidx.collection.ArraySet;
-
 import android.text.TextUtils;
 import android.util.Log;
+
+import androidx.annotation.Nullable;
+import androidx.collection.ArraySet;
 
 import com.privateinternetaccess.android.BuildConfig;
 import com.privateinternetaccess.android.PIAApplication;
@@ -44,8 +47,8 @@ import com.privateinternetaccess.android.pia.api.PIACertPinningAPI;
 import com.privateinternetaccess.android.pia.api.PiaApi;
 import com.privateinternetaccess.android.pia.handlers.PIAServerHandler;
 import com.privateinternetaccess.android.pia.handlers.PiaPrefHandler;
-import com.privateinternetaccess.android.pia.providers.VPNFallbackEndpointProvider;
 import com.privateinternetaccess.android.pia.model.events.VpnStateEvent;
+import com.privateinternetaccess.android.pia.providers.VPNFallbackEndpointProvider;
 import com.privateinternetaccess.android.pia.receivers.PortForwardingReceiver;
 import com.privateinternetaccess.android.pia.utils.DLog;
 import com.privateinternetaccess.android.pia.utils.Prefs;
@@ -55,17 +58,17 @@ import com.privateinternetaccess.android.ui.connection.MainActivity;
 import com.privateinternetaccess.android.ui.notifications.PIANotifications;
 import com.privateinternetaccess.android.utils.DedicatedIpUtils;
 import com.privateinternetaccess.android.utils.SnoozeUtils;
+import com.privateinternetaccess.android.wireguard.config.Config;
+import com.privateinternetaccess.android.wireguard.config.InetNetwork;
 import com.privateinternetaccess.android.wireguard.config.Interface;
+import com.privateinternetaccess.android.wireguard.config.Peer;
+import com.privateinternetaccess.android.wireguard.crypto.Key;
+import com.privateinternetaccess.android.wireguard.crypto.KeyFormatException;
 import com.privateinternetaccess.android.wireguard.crypto.KeyPair;
 import com.privateinternetaccess.android.wireguard.model.Tunnel;
 import com.privateinternetaccess.android.wireguard.model.Tunnel.State;
 import com.privateinternetaccess.android.wireguard.model.Tunnel.Statistics;
 import com.privateinternetaccess.android.wireguard.util.SharedLibraryLoader;
-import com.privateinternetaccess.android.wireguard.config.Config;
-import com.privateinternetaccess.android.wireguard.config.InetNetwork;
-import com.privateinternetaccess.android.wireguard.config.Peer;
-import com.privateinternetaccess.android.wireguard.crypto.Key;
-import com.privateinternetaccess.android.wireguard.crypto.KeyFormatException;
 import com.privateinternetaccess.core.model.PIAServer;
 
 import org.greenrobot.eventbus.EventBus;
@@ -94,9 +97,6 @@ import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-
-import static com.privateinternetaccess.android.pia.api.PiaApi.GEN4_MACE_ENABLED_DNS;
-import static de.blinkt.openvpn.core.OpenVPNService.NOTIFICATION_CHANNEL_NEWSTATUS_ID;
 
 public final class GoBackend implements Backend {
     private String IPV4_PUBLIC_NETWORKS =
@@ -290,7 +290,13 @@ public final class GoBackend implements Backend {
 
             final Intent configureIntent = new Intent(context, MainActivity.class);
             configureIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            builder.setConfigureIntent(PendingIntent.getActivity(context, 0, configureIntent, 0));
+            int flags;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                flags = PendingIntent.FLAG_IMMUTABLE;
+            } else {
+                flags = 0;
+            }
+            builder.setConfigureIntent(PendingIntent.getActivity(context, 0, configureIntent, flags));
 
             for (final String excludedApplication : config.getInterface().getExcludedApplications())
                 builder.addDisallowedApplication(excludedApplication);
@@ -375,42 +381,46 @@ public final class GoBackend implements Backend {
             lastState = state;
             isConnecting = false;
         } else {
-            Log.i(TAG, "Bringing tunnel down");
+            disconnect();
+        }
+    }
 
-            if (currentTunnelHandle == -1) {
-                Log.w(TAG, "Tunnel already down");
-                return;
-            }
+    public void disconnect() throws Exception {
+        Log.i(TAG, "Bringing tunnel down");
 
-            wgTurnOff(currentTunnelHandle);
-            currentTunnel = null;
-            currentTunnelHandle = -1;
+        if (currentTunnelHandle == -1) {
+            Log.w(TAG, "Tunnel already down");
+            return;
+        }
 
-            //PIA Specific down logic
-            VpnService.activeTunnel = null;
+        wgTurnOff(currentTunnelHandle);
+        currentTunnel = null;
+        currentTunnelHandle = -1;
 
-            VpnStateEvent event = new VpnStateEvent(
-                    "CONNECT",
-                    "Wireguard Connect",
-                    R.string.state_exiting,
-                    ConnectionStatus.LEVEL_NOTCONNECTED
-            );
-            EventBus.getDefault().postSticky(event);
+        //PIA Specific down logic
+        VpnService.activeTunnel = null;
 
-            PiaPrefHandler.clearGatewayEndpoint(context);
-            clearPortForwarding();
+        VpnStateEvent event = new VpnStateEvent(
+                "CONNECT",
+                "Wireguard Connect",
+                R.string.state_exiting,
+                ConnectionStatus.LEVEL_NOTCONNECTED
+        );
+        EventBus.getDefault().postSticky(event);
 
-            lastState = state;
-            isConnecting = false;
+        PiaPrefHandler.clearGatewayEndpoint(context);
+        clearPortForwarding();
 
-            try {
-                VpnService service = vpnService.get(2, TimeUnit.SECONDS);
-                service.hideNotification();
-                VpnService.backend = null;
-                vpnService = vpnService.newIncompleteFuture();
-            } catch (final TimeoutException e) {
-                throw new Exception("Unable to start Android VPN service", e);
-            }
+        lastState = State.DOWN;
+        isConnecting = false;
+
+        try {
+            VpnService service = vpnService.get(2, TimeUnit.SECONDS);
+            service.hideNotification();
+            VpnService.backend = null;
+            vpnService = vpnService.newIncompleteFuture();
+        } catch (final TimeoutException e) {
+            throw new Exception("Unable to start Android VPN service", e);
         }
     }
 
@@ -442,8 +452,14 @@ public final class GoBackend implements Backend {
         }
 
         Intent intent = new Intent(context, PortForwardingReceiver.class);
+        int flags;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            flags = PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_CANCEL_CURRENT;
+        } else {
+            flags = PendingIntent.FLAG_CANCEL_CURRENT;
+        }
         portForwardingIntent = PendingIntent.getBroadcast(
-                context, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT
+                context, 0, intent, flags
         );
         alarmManager.setRepeating(
                 AlarmManager.RTC_WAKEUP,
@@ -806,15 +822,11 @@ public final class GoBackend implements Backend {
         @Override
         public void onDestroy() {
             if (backend != null) {
-                final Tunnel tunnel = backend.currentTunnel;
-                if (tunnel != null) {
-                    if (backend.currentTunnelHandle != -1)
-                        wgTurnOff(backend.currentTunnelHandle);
-                    backend.currentTunnel = null;
-                    backend.currentTunnelHandle = -1;
-                    tunnel.onStateChange(State.DOWN);
+                try {
+                    backend.disconnect();
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
                 }
-                vpnService = vpnService.newIncompleteFuture();
             }
             super.onDestroy();
         }
@@ -974,6 +986,12 @@ public final class GoBackend implements Backend {
                         getString(de.blinkt.openvpn.R.string.notifcation_title, server.getName());
             }
             int notificationId = NOTIFICATION_CHANNEL_NEWSTATUS_ID.hashCode();
+            int flags;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                flags = PendingIntent.FLAG_IMMUTABLE;
+            } else {
+                flags = 0;
+            }
             Notification notification = PIANotifications.Companion.getSharedInstance().showNotification(
                     this,
                     notificationId,
@@ -984,7 +1002,7 @@ public final class GoBackend implements Backend {
                     getIconByConnectionStatus(status),
                     getColorByConnectionStatus(status),
                     true,
-                    PendingIntent.getActivity(this, 0, new Intent(this, MainActivity.class), 0)
+                    PendingIntent.getActivity(this, 0, new Intent(this, MainActivity.class), flags)
             );
 
             startForeground(notificationId, notification);

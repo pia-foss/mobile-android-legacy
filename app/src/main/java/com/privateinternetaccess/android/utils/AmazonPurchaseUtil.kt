@@ -2,15 +2,13 @@ package com.privateinternetaccess.android.utils
 
 import android.content.Context
 import androidx.lifecycle.MutableLiveData
+import com.amazon.device.drm.LicensingService
 import com.amazon.device.iap.PurchasingListener
 import com.amazon.device.iap.PurchasingService
-import com.amazon.device.iap.model.ProductDataResponse
-import com.amazon.device.iap.model.PurchaseResponse
-import com.amazon.device.iap.model.PurchaseUpdatesResponse
-import com.amazon.device.iap.model.UserDataResponse
+import com.amazon.device.iap.model.*
 import com.privateinternetaccess.android.model.events.PricingLoadedEvent
 import com.privateinternetaccess.android.pia.handlers.PiaPrefHandler
-import org.greenrobot.eventbus.EventBus
+import com.privateinternetaccess.android.pia.model.AmazonPurchaseData
 
 class AmazonPurchaseUtil(private val context: Context) {
 
@@ -20,13 +18,17 @@ class AmazonPurchaseUtil(private val context: Context) {
 
     val observableProducts = MutableLiveData<PricingLoadedEvent?>()
     val observablePurchase = MutableLiveData<PurchaseResponse?>()
+    val observableData = MutableLiveData<AmazonPurchaseData>()
 
     private var selectedProduct: String? = null
 
     init {
+        LicensingService.verifyLicense(context) {
+            // currently do nothing
+        }
         PurchasingService.registerListener(context, object : PurchasingListener {
             override fun onUserDataResponse(userData: UserDataResponse?) {
-                TODO("Not yet implemented")
+                // currently do nothing
             }
 
             override fun onProductDataResponse(productData: ProductDataResponse?) {
@@ -43,9 +45,10 @@ class AmazonPurchaseUtil(private val context: Context) {
             }
 
             override fun onPurchaseUpdatesResponse(purchaseUpdate: PurchaseUpdatesResponse?) {
-                TODO("Not yet implemented")
+                purchaseUpdate?.let {
+                    observableData.postValue(AmazonPurchaseData(it.userData.userId, it.receipts[0].receiptId))
+                }
             }
-
         })
     }
 
@@ -75,7 +78,10 @@ class AmazonPurchaseUtil(private val context: Context) {
             }
         }
         return subscriptionId
+    }
 
+    fun getPurchaseUpdates() {
+        PurchasingService.getPurchaseUpdates(false)
     }
 
 }

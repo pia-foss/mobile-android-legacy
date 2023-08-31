@@ -25,11 +25,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.appcompat.app.AlertDialog;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
@@ -37,7 +32,11 @@ import android.text.style.ClickableSpan;
 import android.view.View;
 import android.widget.TextView;
 
-import com.android.billingclient.api.SkuDetails;
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
+import com.android.billingclient.api.ProductDetails;
 import com.privateinternetaccess.android.BuildConfig;
 import com.privateinternetaccess.android.PIAApplication;
 import com.privateinternetaccess.android.R;
@@ -58,11 +57,11 @@ import com.privateinternetaccess.android.pia.utils.Toaster;
 import com.privateinternetaccess.android.ui.connection.MainActivityHandler;
 import com.privateinternetaccess.android.ui.features.WebviewActivity;
 import com.privateinternetaccess.android.ui.superclasses.BaseActivity;
-import com.privateinternetaccess.android.utils.AmazonPurchaseUtil;
 import com.privateinternetaccess.android.utils.SubscriptionsUtils;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -85,7 +84,8 @@ public class LoginPurchaseActivity extends BaseActivity {
     public String mYearlyCost;
 
     private boolean showPurchasing;
-    public AmazonPurchaseUtil purchaseUtil;
+    private String subscriptionType;
+    private boolean isSignUpFlow;
 
     IPurchasing purchasingHandler;
 
@@ -96,8 +96,6 @@ public class LoginPurchaseActivity extends BaseActivity {
         setContentView(R.layout.activity_login_purchasing);
 
         ButterKnife.bind(this);
-
-        purchaseUtil = new AmazonPurchaseUtil(this);
 
         if (savedInstanceState != null) {
             mMonthlyCost = savedInstanceState.getString(EXTRA_MONTHLY_COST);
@@ -123,7 +121,7 @@ public class LoginPurchaseActivity extends BaseActivity {
             List<String> purchases = new ArrayList<>();
             purchases.add(monthlySubscriptionId);
             purchases.add(yearlySubscriptionId);
-            purchasingHandler.init(this, purchases, systemPurchaseEvent -> onSystemPurchaseEvent(systemPurchaseEvent));
+            purchasingHandler.init(this, purchases, systemPurchaseEvent -> onSystemPurchaseEvent(systemPurchaseEvent), EventBus.getDefault());
         }
     }
 
@@ -191,6 +189,7 @@ public class LoginPurchaseActivity extends BaseActivity {
                 frag = new AmazonGetStartedFragment();
             } else if (!PiaPrefHandler.hasSetEmail(this) && !PiaPrefHandler.isPurchasingProcessDone(this)) {
                 switchToPurchasingProcess(true, false, false);
+                return;
             } else if (PiaPrefHandler.isFeatureActive(this, MainActivityHandler.FEATURE_NEW_INITIAL_SCREEN)
                     && !BuildConfig.FLAVOR_store.equals("noinapp")) {
                 frag = new NewGetStartedFragment();
@@ -198,7 +197,7 @@ public class LoginPurchaseActivity extends BaseActivity {
                 frag = new GetStartedFragment();
             }
             FragmentTransaction trans = getSupportFragmentManager().beginTransaction();
-            trans.add(R.id.container, frag);
+            trans.replace(R.id.container, frag);
             trans.commit();
 
             if (showPurchasing) {
@@ -216,9 +215,9 @@ public class LoginPurchaseActivity extends BaseActivity {
 
     public void switchToStart() {
         runOnUiThread(() -> {
-            Fragment frag = new GetStartedFragment();
+            Fragment frag = new NewGetStartedFragment();
             FragmentTransaction trans = getSupportFragmentManager().beginTransaction();
-            trans.add(R.id.container, frag);
+            trans.replace(R.id.container, frag);
             trans.commit();
         });
 
@@ -255,7 +254,7 @@ public class LoginPurchaseActivity extends BaseActivity {
             frag.setFireOffPurchasing(fireOffPurchasing);
             frag.setTrial(isTrial);
             frag.setLoginWithReceipt(isLoginWithReceipt);
-            getSupportFragmentManager().beginTransaction().add(R.id.container, frag).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, frag).commit();
         });
     }
 
@@ -293,15 +292,33 @@ public class LoginPurchaseActivity extends BaseActivity {
     }
 
     public void onSubscribeClicked(String subscriptionType) {
+        isSignUpFlow = true;
+        this.subscriptionType = subscriptionType;
         showPurchasing = false;
-        PurchaseObj mActiveSubscription = purchasingHandler.getPurchase(false);
-        if (!PIAApplication.isQA())
-            if (mActiveSubscription != null) {
-                Toaster.l(getApplicationContext(), R.string.error_active_subscription);
-                return;
-            }
+        purchasingHandler.getPurchase(false, EventBus.getDefault());
 
-        purchasingHandler.purchase(subscriptionType);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onSubscriptionReceived(PurchaseObj subscription) {
+        if (isSignUpFlow) {
+            if (!subscription.isValid()) {
+                purchasingHandler.purchase(subscriptionType);
+            } else {
+                if (!PIAApplication.isQA())
+                    Toaster.l(getApplicationContext(), R.string.error_active_subscription);
+            }
+        } else {
+            if (!subscription.isValid()) {
+                Toaster.l(this, R.string.purchasing_no_subscription);
+            } else if (subscription.isValid()) {
+                switchToPurchasingProcess(true, false, true);
+            } else if (PiaPrefHandler.hasSetEmail(this)) {
+                Toaster.l(this, R.string.error_active_subscription);
+            } else {
+                switchToPurchasingProcess(true, false, false);
+            }
+        }
     }
 
     public void onContinuePurchasingClicked(String subscriptionType) {
@@ -344,11 +361,20 @@ public class LoginPurchaseActivity extends BaseActivity {
         String yearlySubscriptionId =
                 SubscriptionsUtils.INSTANCE.getYearlySubscriptionId(getBaseContext());
 
-        SkuDetails monthlySub = purchasingHandler.getSkuDetails(monthlySubscriptionId);
-        SkuDetails yearlySub = purchasingHandler.getSkuDetails(yearlySubscriptionId);
-        if (monthlySub != null && yearlySub != null) {
-            mMonthlyCost = monthlySub.getPrice();
-            mYearlyCost = yearlySub.getPrice();
+        ProductDetails monthlySub = purchasingHandler.getProductDetails(monthlySubscriptionId);
+        ProductDetails yearlySub = purchasingHandler.getProductDetails(yearlySubscriptionId);
+
+        if (monthlySub != null && monthlySub.getSubscriptionOfferDetails() != null
+                && yearlySub != null && yearlySub.getSubscriptionOfferDetails() != null) {
+
+            mMonthlyCost = monthlySub.getSubscriptionOfferDetails().get(0).getPricingPhases()
+                    .getPricingPhaseList().get(0).getFormattedPrice();
+
+            for (int i = 0; i < yearlySub.getSubscriptionOfferDetails().get(0).getPricingPhases().getPricingPhaseList().size(); i++) {
+                if (yearlySub.getSubscriptionOfferDetails().get(0).getPricingPhases().getPricingPhaseList().get(i).getPriceAmountMicros() != 0) {
+                    mYearlyCost = yearlySub.getSubscriptionOfferDetails().get(0).getPricingPhases().getPricingPhaseList().get(i).getFormattedPrice();
+                }
+            }
 
             EventBus.getDefault().postSticky(new PricingLoadedEvent(mMonthlyCost, mYearlyCost));
 
@@ -438,11 +464,9 @@ public class LoginPurchaseActivity extends BaseActivity {
         tv.setText(spanTxt, TextView.BufferType.SPANNABLE);
     }
 
-    public PurchaseObj getActiveSubscription() {
-        if (purchasingHandler == null)
-            return null;
-
-        return purchasingHandler.getPurchase(true);
+    public void loginWithReceipt() {
+        isSignUpFlow = false;
+        purchasingHandler.getPurchase(true, EventBus.getDefault());
     }
 
     public void navigateToBuyVpnSite() {

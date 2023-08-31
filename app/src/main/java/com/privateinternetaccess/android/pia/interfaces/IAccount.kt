@@ -102,6 +102,17 @@ interface IAccount {
     )
 
     /**
+     * @param receiptId
+     * @param userId
+     * @param callback
+     */
+    fun amazonLoginWithReceipt(
+        receiptId: String,
+        userId: String,
+        callback: (status: RequestResponseStatus) -> Unit
+    )
+
+    /**
      * @return `boolean`
      */
     fun loggedIn(): Boolean

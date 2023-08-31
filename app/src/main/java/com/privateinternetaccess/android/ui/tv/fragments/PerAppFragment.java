@@ -21,6 +21,7 @@ package com.privateinternetaccess.android.ui.tv.fragments;
 import android.Manifest;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -44,6 +45,7 @@ import com.privateinternetaccess.android.pia.utils.DLog;
 import com.privateinternetaccess.android.pia.utils.Prefs;
 import com.privateinternetaccess.android.pia.utils.Toaster;
 import com.privateinternetaccess.android.ui.adapters.AllowedAppsAdapter;
+import com.privateinternetaccess.android.utils.PerAppSettingsUtils;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -156,51 +158,32 @@ public class PerAppFragment extends Fragment implements IAllowedApps {
     }
 
     private void genInternetPackagesList() {
-       // pbLoad.setVisibility(View.VISIBLE);
-        Thread t = new Thread(new Runnable() {
+        mPm = getContext().getPackageManager();
+        Vector<ApplicationInfo> apps = new Vector<>();
+        List<ApplicationInfo> appInfoList = PerAppSettingsUtils.INSTANCE.getInstalledApps(mPm);
+        for (ApplicationInfo appInfo : appInfoList) {
+            if (!PerAppSettingsUtils.INSTANCE.containsPackageName(apps, appInfo.packageName) &&
+                    !appInfo.packageName.equals(getContext().getPackageName())) {
+                apps.add(appInfo);
+            }
+        }
+
+        Collections.sort(apps, new ApplicationInfo.DisplayNameComparator(mPm));
+
+        mPackages = apps;
+
+        perAppList.post(new Runnable() {
             @Override
             public void run() {
-                mPm = getContext().getPackageManager();
-                List<ApplicationInfo> installedPackages = mPm.getInstalledApplications(PackageManager.GET_META_DATA);
-
-                int androidSystemUid = 0;
-                ApplicationInfo system;
-                Vector<ApplicationInfo> apps = new Vector<>();
-
-                try {
-                    system = mPm.getApplicationInfo("android", PackageManager.GET_META_DATA);
-                    androidSystemUid = system.uid;
-                    apps.add(system);
-                } catch (PackageManager.NameNotFoundException e) {
-                }
-
-                for (ApplicationInfo app : installedPackages) {
-                    if (mPm.checkPermission(Manifest.permission.INTERNET, app.packageName) == PackageManager.PERMISSION_GRANTED &&
-                            app.uid != androidSystemUid && !app.packageName.equals("com.privateinternetaccess.android")) {
-                        apps.add(app);
+                if (mAdapter != null) {
+                    mAdapter.setmPackages(mPackages);
+                    if(!TextUtils.isEmpty(searchView.getText().toString())){
+                        mAdapter.filter(searchView.getText().toString());
                     }
+
                 }
-
-                Collections.sort(apps, new ApplicationInfo.DisplayNameComparator(mPm));
-
-                mPackages = apps;
-
-                perAppList.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        //pbLoad.setVisibility(View.GONE);
-                        if (mAdapter != null) {
-                            mAdapter.setmPackages(mPackages);
-                            if(!TextUtils.isEmpty(searchView.getText().toString())){
-                                mAdapter.filter(searchView.getText().toString());
-                            }
-
-                        }
-                    }
-                });
             }
         });
-        t.start();
     }
 
     private void saveSelectedApps() {

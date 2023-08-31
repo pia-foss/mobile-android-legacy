@@ -9,6 +9,7 @@ import com.privateinternetaccess.android.pia.PIAFactory
 import com.privateinternetaccess.android.pia.handlers.PIAServerHandler
 import com.privateinternetaccess.android.pia.handlers.PIAServerHandler.ServerSortingType
 import com.privateinternetaccess.android.pia.handlers.PiaPrefHandler
+import com.privateinternetaccess.android.pia.kpi.KPIManager
 import com.privateinternetaccess.android.pia.utils.DLog
 import com.privateinternetaccess.regions.IRegionEndpointProvider
 import com.privateinternetaccess.regions.RegionEndpoint
@@ -33,6 +34,7 @@ class ModuleClientStateProvider(
         private const val ACCOUNT_PROXY_ROOT_DOMAIN = "piaproxy.net"
         private const val REGION_BASE_ENDPOINT = "serverlist.piaservers.net"
         private const val CSI_BASE_ENDPOINT = "csi.supreme.tools"
+        private const val KPI_ENDPOINT_PATH = "/api/client/v2/service-quality"
 
         public val CERTIFICATE =
             PIAApplication.getRSA4096Certificate().bufferedReader().use(BufferedReader::readText)
@@ -122,16 +124,14 @@ class ModuleClientStateProvider(
         val endpoints = mutableListOf<KPIEndpoint>()
         endpoints.add(
             KPIEndpoint(
-                ACCOUNT_BASE_ROOT_DOMAIN,
-                isProxy = false,
+                ACCOUNT_BASE_ROOT_DOMAIN + KPI_ENDPOINT_PATH,
                 usePinnedCertificate = false,
                 certificateCommonName = null
             )
         )
         endpoints.add(
             KPIEndpoint(
-                ACCOUNT_PROXY_ROOT_DOMAIN,
-                isProxy = true,
+                ACCOUNT_PROXY_ROOT_DOMAIN + KPI_ENDPOINT_PATH,
                 usePinnedCertificate = false,
                 certificateCommonName = null
             )
@@ -146,8 +146,7 @@ class ModuleClientStateProvider(
             endpoints.clear()
             endpoints.add(
                 KPIEndpoint(
-                    stagingHost.replace("https://", "").replace("http://", ""),
-                    isProxy = false,
+                    stagingHost.replace("https://", "").replace("http://", "") + KPI_ENDPOINT_PATH,
                     usePinnedCertificate = false,
                     certificateCommonName = null
                 )
@@ -156,8 +155,16 @@ class ModuleClientStateProvider(
         return endpoints
     }
 
+    override fun projectToken(): String {
+        return if (PiaPrefHandler.useStaging(PIAApplication.get().baseContext)) {
+            KPIManager.STAGING_EVENT_TOKEN
+        } else {
+            KPIManager.PRODUCTION_EVENT_TOKEN
+        }
+    }
+
     override fun kpiAuthToken(): String {
-        return PIAFactory.getInstance().getAccount(context).vpnToken() ?: ""
+        return PIAFactory.getInstance().getAccount(context).apiToken() ?: ""
     }
     // endregion
 
@@ -216,7 +223,7 @@ class ModuleClientStateProvider(
         // Add the MAX_META_ENDPOINTS regions with the lowest latencies.
         for (region in regionsWithValidLatency.subList(0, MAX_META_ENDPOINTS)) {
             // We want different meta regions. Provide just one meta per region region.
-            val selectedEndpoint = region.endpoints[PIAServer.Protocol.META]?.first()
+            val selectedEndpoint = region.endpoints[PIAServer.Protocol.META]?.firstOrNull()
             if (selectedEndpoint != null) {
                 endpoints.add(
                     GenericEndpoint(

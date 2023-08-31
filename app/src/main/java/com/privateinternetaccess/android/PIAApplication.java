@@ -50,6 +50,7 @@ import com.privateinternetaccess.android.pia.utils.Prefs;
 import com.privateinternetaccess.android.ui.notifications.OVPNNotificationsBridge;
 import com.privateinternetaccess.android.ui.connection.MainActivity;
 import com.privateinternetaccess.android.ui.tv.DashboardActivity;
+import com.privateinternetaccess.android.utils.AmazonPurchaseUtil;
 import com.privateinternetaccess.android.wireguard.backend.Backend;
 import com.privateinternetaccess.android.wireguard.backend.GoBackend;
 import com.privateinternetaccess.android.wireguard.model.Tunnel;
@@ -109,6 +110,8 @@ public class PIAApplication extends Application {
     public static AsyncWorker getAsyncWorker() {
         return get().asyncWorker;
     }
+
+    public static AmazonPurchaseUtil amazonPurchaseUtil;
 
     public static GoBackend getBackend() {
         final PIAApplication app = get();

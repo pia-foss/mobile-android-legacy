@@ -31,6 +31,7 @@ import com.privateinternetaccess.android.ui.views.QuickConnectView;
 import com.privateinternetaccess.android.ui.views.QuickSettingsView;
 import com.privateinternetaccess.android.ui.views.ServerSelectionView;
 import com.privateinternetaccess.android.ui.views.SnoozeView;
+import com.privateinternetaccess.android.ui.views.SurveyView;
 import com.privateinternetaccess.android.ui.views.UsageView;
 
 import java.util.ArrayList;
@@ -40,6 +41,7 @@ public class WidgetManager {
 
     public enum WidgetType {
         WIDGET_CONNECTION,
+        WIDGET_SURVEY_MESSAGE,
         WIDGET_SERVER,
         WIDGET_IP,
         WIDGET_PERFORMANCE,
@@ -64,6 +66,8 @@ public class WidgetManager {
         switch (type) {
             case WIDGET_CONNECTION:
                 return new ConnectionSlider(context);
+            case WIDGET_SURVEY_MESSAGE:
+                return new SurveyView(context);
             case WIDGET_IN_APP_MESSAGE:
                 return new InAppMessageView(context);
             case WIDGET_SERVER:
@@ -99,11 +103,9 @@ public class WidgetManager {
 
             if (getView(mContext, item.widgetType) == null) {
                 continue;
-            }
-            else if (isOrganizing && item.widgetType != WidgetType.WIDGET_CONNECTION && item.widgetType != WidgetType.WIDGET_IN_APP_MESSAGE) {
+            } else if (isOrganizing && item.widgetType != WidgetType.WIDGET_CONNECTION && item.widgetType != WidgetType.WIDGET_IN_APP_MESSAGE) {
                 items.add(item);
-            }
-            else if (!isOrganizing && item.isVisible) {
+            } else if (!isOrganizing && item.isVisible) {
                 items.add(item);
             }
         }
@@ -114,6 +116,7 @@ public class WidgetManager {
     private List<WidgetItem> createDefaultList() {
         List<WidgetItem> defaultList = new ArrayList<>();
         defaultList.add(new WidgetItem(WidgetType.WIDGET_CONNECTION, true));
+        defaultList.add(new WidgetItem(WidgetType.WIDGET_SURVEY_MESSAGE, true));
         defaultList.add(new WidgetItem(WidgetType.WIDGET_IN_APP_MESSAGE, true));
         defaultList.add(new WidgetItem(WidgetType.WIDGET_SERVER, true));
         defaultList.add(new WidgetItem(WidgetType.WIDGET_IP, true));
@@ -135,8 +138,7 @@ public class WidgetManager {
 
         if (serializedItems.size() == 0) {
             widgetList.addAll(defaultList);
-        }
-        else {
+        } else {
             for (int i = 0; i < serializedItems.size(); i++) {
                 String[] fields = serializedItems.get(i).split(" ");
                 WidgetItem item = new WidgetItem(WidgetType.values()[Integer.parseInt(fields[0])], Boolean.parseBoolean(fields[1]));
@@ -153,9 +155,8 @@ public class WidgetManager {
                 }
 
                 if (!itemExists && item.widgetType == WidgetType.WIDGET_IN_APP_MESSAGE) {
-                    widgetList.add(1 ,item);
-                }
-                else if (!itemExists) {
+                    widgetList.add(1, item);
+                } else if (!itemExists) {
                     widgetList.add(item);
                 }
             }

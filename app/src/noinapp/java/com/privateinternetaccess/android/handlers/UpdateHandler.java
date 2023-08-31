@@ -91,12 +91,19 @@ public class UpdateHandler {
         String message = context.getResources().getString(R.string.updater_notification_body);
         String download = context.getResources().getString(R.string.updater_alert_confirm);
 
+        int flags;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            flags = PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_CANCEL_CURRENT;
+        } else {
+            flags = PendingIntent.FLAG_CANCEL_CURRENT;
+        }
+
         Intent updateIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(DOWNLOAD_URL));
         PendingIntent pendingIntent = PendingIntent.getActivity(
                 context,
                 LAUNCH_UPDATE_ID,
                 updateIntent,
-                PendingIntent.FLAG_CANCEL_CURRENT);
+                flags);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             PIANotifications.Companion.getSharedInstance().createNotificationChannel(

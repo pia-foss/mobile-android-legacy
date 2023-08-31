@@ -33,7 +33,7 @@ type in what folder you want to put in without the ** or use a graphical interfa
 
 This will pull the main repository as well as the required submodules and initialize them.
 
-Once the inital pull is done, update the submodules recursively:
+Once the initial pull is done, update the submodules recursively:
 
 `git submodule sync --recursive`
 

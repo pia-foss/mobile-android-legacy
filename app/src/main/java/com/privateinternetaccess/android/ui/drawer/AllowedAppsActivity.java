@@ -21,6 +21,7 @@ package com.privateinternetaccess.android.ui.drawer;
 import android.Manifest;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -52,6 +53,7 @@ import com.privateinternetaccess.android.pia.utils.Prefs;
 import com.privateinternetaccess.android.pia.utils.Toaster;
 import com.privateinternetaccess.android.ui.adapters.AllowedAppsAdapter;
 import com.privateinternetaccess.android.ui.superclasses.BaseActivity;
+import com.privateinternetaccess.android.utils.PerAppSettingsUtils;
 
 import org.greenrobot.eventbus.Subscribe;
 
@@ -298,75 +300,50 @@ public class AllowedAppsActivity extends BaseActivity implements IAllowedApps {
 
     private void genInternetPackagesList() {
         pbLoad.setVisibility(View.VISIBLE);
-        Thread t = new Thread(new Runnable() {
+
+        mPm = getPackageManager();
+        Vector<ApplicationInfo> apps = new Vector<>();
+        List<ApplicationInfo> appInfoList = PerAppSettingsUtils.INSTANCE.getInstalledApps(mPm);
+
+        boolean thereIsAProblemApp = false;
+        for (ApplicationInfo appInfo : appInfoList) {
+            if (!PerAppSettingsUtils.INSTANCE.containsPackageName(apps, appInfo.packageName) &&
+                    !appInfo.packageName.equals(getPackageName())) {
+                apps.add(appInfo);
+                if(isProblem(appInfo.packageName))
+                    thereIsAProblemApp = true;
+            }
+        }
+
+        final boolean isthereaproblem = thereIsAProblemApp;
+        tvAppProblemExplanation.post(new Runnable() {
             @Override
             public void run() {
-                mPm = getPackageManager();
-                List<ApplicationInfo> installedPackages = mPm.getInstalledApplications(PackageManager.GET_META_DATA);
-
-                // Remove apps not using Internet
-                int androidSystemUid = 0;
-                ApplicationInfo system;
-                Vector<ApplicationInfo> apps = new Vector<>();
-
-                try {
-                    system = mPm.getApplicationInfo("android", PackageManager.GET_META_DATA);
-                    androidSystemUid = system.uid;
-                    apps.add(system);
-                } catch (PackageManager.NameNotFoundException e) {
+                if(isthereaproblem){
+                    tvAppProblemExplanation.setVisibility(View.VISIBLE);
+                } else {
+                    tvAppProblemExplanation.setVisibility(View.GONE);
                 }
-
-                boolean thereIsAProblemApp = false;
-                for (ApplicationInfo app : installedPackages) {
-                    if (mPm.checkPermission(Manifest.permission.INTERNET, app.packageName) == PackageManager.PERMISSION_GRANTED &&
-                            app.uid != androidSystemUid && !app.packageName.equals("com.privateinternetaccess.android")) {
-                        apps.add(app);
-                        if(isProblem(app.packageName))
-                            thereIsAProblemApp = true;
-                    }
-                }
-
-                final boolean isthereaproblem = thereIsAProblemApp;
-                tvAppProblemExplanation.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        if(isthereaproblem){
-                            tvAppProblemExplanation.setVisibility(View.VISIBLE);
-                        } else {
-                            tvAppProblemExplanation.setVisibility(View.GONE);
-                        }
-                    }
-                });
-
-                Collections.sort(apps, new ApplicationInfo.DisplayNameComparator(mPm));
-
-                Collections.sort(apps, new Comparator<ApplicationInfo>() {
-                    @Override
-                    public int compare(ApplicationInfo applicationInfo, ApplicationInfo t1) {
-                        boolean isT1Problem = isProblem(applicationInfo.packageName);
-                        boolean isT2Problem = isProblem(t1.packageName);
-                        return (isT2Problem == isT1Problem) ? 0 : (isT2Problem ? 1 : -1); // Changed from Boolean.Compare due to api 16 needs
-                    }
-                });
-
-                mPackages = apps;
-
-                rvListView.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        pbLoad.setVisibility(View.GONE);
-                        if (mListAdapter != null) {
-                            mListAdapter.setmPackages(mPackages);
-                            if(!TextUtils.isEmpty(etSearch.getText().toString())){
-                                mListAdapter.filter(etSearch.getText().toString());
-                            }
-
-                        }
-                    }
-                });
             }
         });
-        t.start();
+
+        Collections.sort(apps, new ApplicationInfo.DisplayNameComparator(mPm));
+
+        mPackages = apps;
+
+        rvListView.post(new Runnable() {
+            @Override
+            public void run() {
+                pbLoad.setVisibility(View.GONE);
+                if (mListAdapter != null) {
+                    mListAdapter.setmPackages(mPackages);
+                    if(!TextUtils.isEmpty(etSearch.getText().toString())){
+                        mListAdapter.filter(etSearch.getText().toString());
+                    }
+
+                }
+            }
+        });
     }
 
     private void saveSelectedApps() {

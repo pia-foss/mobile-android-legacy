@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~  Copyright (c) 2020 Private Internet Access, Inc.
   ~
   ~  This file is part of the Private Internet Access Android Client.
@@ -20,287 +19,296 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        >
+        android:orientation="vertical">
 
-        <include layout="@layout/snippet_header"/>
+        <include layout="@layout/snippet_header" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:paddingTop="15dp"
             android:animateLayoutChanges="true"
-            >
+            android:orientation="vertical"
+            android:paddingTop="15dp">
             <!-- extra parameters area -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:paddingLeft="15dp"
-                android:paddingRight="15dp"
-                >
+                android:paddingRight="15dp">
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    >
+                    android:layout_height="wrap_content">
 
                     <EditText
+                        android:id="@+id/developer_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/developer_text"
+                        android:layout_margin="5dp"
                         android:gravity="top"
                         android:hint="Extra VPN parameters here"
-                        android:minHeight="150dp"
-                        android:layout_margin="5dp"
-                        />
+                        android:minHeight="150dp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <RelativeLayout
+                    android:id="@+id/developer_bottom_area"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/developer_bottom_area"
-                    android:paddingBottom="10dp"
-                    >
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/clear"
-                        style="@style/PIAButton.Green.Small"
-                        android:id="@+id/developer_clear"
-                        android:layout_marginLeft="10dp"
-                        />
+                    android:paddingBottom="10dp">
 
                     <Button
+                        android:id="@+id/developer_clear"
+                        style="@style/PIAButton.Green.Small"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="@string/clear" />
+
+                    <Button
                         android:id="@+id/developer_save"
-                        android:text="@string/save"
                         style="@style/PIAButton.Green.Small"
-                        android:layout_marginRight="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
-                        />
+                        android:layout_marginRight="10dp"
+                        android:text="@string/save" />
                 </RelativeLayout>
             </LinearLayout>
 
-            <View android:layout_width="match_parent"
+            <View
+                android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/per_app_divider"/>
+                android:background="@color/per_app_divider" />
 
             <!-- Debug mode -->
             <RelativeLayout
+                android:id="@+id/developer_debug_mode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/developer_debug_mode"
-                android:padding="15dp"
                 android:background="?android:attr/selectableItemBackground"
-                >
+                android:focusable="true"
+                android:clickable="true"
+                android:padding="15dp">
 
                 <TextView
+                    style="@style/PiaTextBody1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Debug Mode (Performance hit)"
-                    style="@style/PiaTextBody1"
-                    />
+                    android:text="Debug Mode (Performance hit)" />
 
                 <Switch
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:id="@+id/developer_debug_mode_switch"
-                    android:checked="false"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
+                    android:checked="false"
                     android:clickable="false"
-                    android:focusableInTouchMode="false"
                     android:focusable="false"
-                    />
+                    android:focusableInTouchMode="false" />
             </RelativeLayout>
 
 
-            <View android:layout_width="match_parent"
+            <View
+                android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/per_app_divider"/>
+                android:background="@color/per_app_divider" />
 
             <!-- Debug mode -->
             <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/developer_clear_cache"
-                android:padding="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:background="?android:attr/selectableItemBackground"
-                >
+                android:padding="15dp"
+                android:focusable="true"
+                android:clickable="true">
 
                 <TextView
+                    style="@style/PiaTextBody1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Clear App Cache"
-                    style="@style/PiaTextBody1"
-                    />
+                    android:text="Clear App Cache" />
             </RelativeLayout>
 
 
-            <View android:layout_width="match_parent"
+            <View
+                android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/per_app_divider"/>
+                android:background="@color/per_app_divider" />
 
             <!-- Debug mode -->
             <RelativeLayout
+                android:id="@+id/developer_clear_app_timers"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/developer_clear_app_timers"
-                android:padding="15dp"
                 android:background="?android:attr/selectableItemBackground"
-                >
+                android:padding="15dp"
+                android:focusable="true"
+                android:clickable="true">
 
                 <TextView
+                    style="@style/PiaTextBody1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Clear App Timers"
-                    style="@style/PiaTextBody1"
-                    />
+                    android:text="Clear App Timers" />
             </RelativeLayout>
 
 
-            <View android:layout_width="match_parent"
+            <View
+                android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/per_app_divider"/>
+                android:background="@color/per_app_divider" />
 
             <!-- Unexpected Crash -->
             <RelativeLayout
+                android:id="@+id/developer_crash_application"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/developer_crash_application"
-                android:padding="15dp"
                 android:background="?android:attr/selectableItemBackground"
-                >
+                android:padding="15dp"
+                android:focusable="true"
+                android:clickable="true">
 
                 <TextView
+                    style="@style/PiaTextBody1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Crash the application"
-                    style="@style/PiaTextBody1"
-                    />
+                    android:text="Crash the application" />
             </RelativeLayout>
 
-            <View android:layout_width="match_parent"
+            <View
+                android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/per_app_divider"/>
+                android:background="@color/per_app_divider" />
 
             <RelativeLayout
+                android:id="@+id/developer_stop_pinging_servers_holder"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
                 android:padding="15dp"
-                android:background="?android:attr/selectableItemBackground" >
+                android:focusable="true"
+                android:clickable="true">
 
                 <TextView
+                    style="@style/PiaTextBody1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Stop Pinging Servers"
-                    style="@style/PiaTextBody1" />
+                    android:text="Stop Pinging Servers" />
 
                 <Switch
                     android:id="@+id/developer_stop_pinging_servers"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:focusableInTouchMode="false"
-                    android:checked="false" />
+                    android:checked="false"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false" />
 
             </RelativeLayout>
 
-            <View android:layout_width="match_parent"
+            <View
+                android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/per_app_divider"/>
+                android:background="@color/per_app_divider" />
 
             <RelativeLayout
+                android:id="@+id/developer_stop_using_meta_servers_holder"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
                 android:padding="15dp"
-                android:background="?android:attr/selectableItemBackground" >
+                android:focusable="true"
+                android:clickable="true">
 
                 <TextView
+                    style="@style/PiaTextBody1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Stop using Meta Servers"
-                    style="@style/PiaTextBody1" />
+                    android:text="Stop using Meta Servers" />
 
                 <Switch
                     android:id="@+id/developer_stop_using_meta_servers"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:focusableInTouchMode="false"
-                    android:checked="false" />
+                    android:checked="false"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false" />
 
             </RelativeLayout>
 
-            <View android:layout_width="match_parent"
+            <View
+                android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/per_app_divider"/>
+                android:background="@color/per_app_divider" />
 
             <!-- Staging mode -->
             <RelativeLayout
+                android:id="@+id/staging_servers"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="15dp"
-                android:id="@+id/staging_servers"
                 android:background="?android:attr/selectableItemBackground"
-                >
+                android:padding="15dp"
+                android:focusable="true"
+                android:clickable="true">
 
                 <TextView
+                    style="@style/PiaTextBody1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Use Staging servers"
-                    style="@style/PiaTextBody1"
-                    />
+                    android:text="Use Staging servers" />
 
                 <Switch
+                    android:id="@+id/developer_use_staging"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/developer_use_staging"
-                    android:checked="false"
                     android:layout_alignParentRight="true"
+                    android:checked="false"
                     android:clickable="false"
-                    android:focusableInTouchMode="false"
                     android:focusable="false"
-                    />
+                    android:focusableInTouchMode="false" />
             </RelativeLayout>
 
 
-            <View android:layout_width="match_parent"
+            <View
+                android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/per_app_divider"/>
+                android:background="@color/per_app_divider" />
 
             <!-- Override DIP Tokens -->
             <RelativeLayout
+                android:id="@+id/override_dip"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="15dp"
                 android:background="?android:attr/selectableItemBackground"
-                >
+                android:padding="15dp"
+                android:focusable="true"
+                android:clickable="true">
 
                 <TextView
+                    style="@style/PiaTextBody1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Override DIP Tokens"
-                    style="@style/PiaTextBody1"
-                    />
+                    android:text="Override DIP Tokens" />
 
                 <Switch
+                    android:id="@+id/developer_override_dip_switch"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/developer_override_dip_switch"
-                    android:checked="false"
                     android:layout_alignParentRight="true"
+                    android:checked="false"
                     android:clickable="false"
-                    android:focusableInTouchMode="false"
                     android:focusable="false"
-                    />
+                    android:focusableInTouchMode="false" />
             </RelativeLayout>
 
             <!-- Add DIP Tokens -->
@@ -308,627 +316,588 @@
                 android:id="@+id/developer_add_dip_token_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="15dp"
                 android:background="?android:attr/selectableItemBackground"
-                android:visibility="gone"
                 android:orientation="vertical"
-                >
+                android:padding="15dp"
+                android:visibility="gone">
 
                 <EditText
+                    android:id="@+id/developer_add_dip_token_edit_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/developer_add_dip_token_edit_text"
-                    android:gravity="top"
-                    android:textSize="13sp"
-                    android:hint="Days to apply to today's date for the token's expiration date"
                     android:layout_margin="5dp"
-                    />
+                    android:gravity="top"
+                    android:hint="Days to apply to today's date for the token's expiration date"
+                    android:textSize="13sp" />
 
                 <Button
+                    android:id="@+id/developer_add_dip_token_button"
+                    style="@style/PIAButton.Green.Small"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/developer_add_dip_token_button"
-                    android:text="Add"
-                    style="@style/PIAButton.Green.Small"
                     android:layout_gravity="center"
-                    />
+                    android:text="Add" />
 
             </LinearLayout>
 
-            <View android:layout_width="match_parent"
+            <View
+                android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/per_app_divider"/>
+                android:background="@color/per_app_divider" />
 
             <!-- VPN Control -->
 
             <TextView
+                style="@style/PiaTextBody1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                style="@style/PiaTextBody1"
                 android:layout_gravity="center"
-                android:text="VPN Controls"
-                />
+                android:text="VPN Controls" />
 
             <TextView
                 android:id="@+id/developer_vpn_status"
-                android:text="Disconnected"
-                android:gravity="center"
-                android:layout_height="50dp"
                 android:layout_width="match_parent"
-                />
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:text="Disconnected" />
 
             <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:columnCount="2"
-                android:rowCount="3"
-                android:padding="5dp"
                 android:layout_marginBottom="10dp"
-                >
+                android:columnCount="2"
+                android:padding="5dp"
+                android:rowCount="3">
 
                 <Button
-                    android:layout_columnWeight="1"
-                    android:layout_rowWeight="1"
                     android:id="@+id/developer_vpn_start"
-                    android:text="Start VPN"
                     style="@style/PIAButton.Green.Small"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
                     android:layout_gravity="center"
                     android:layout_margin="5dp"
-                    />
+                    android:text="Start VPN" />
 
                 <Button
-                    android:layout_columnWeight="1"
-                    android:layout_rowWeight="1"
                     android:id="@+id/developer_vpn_pause"
-                    android:text="Pause VPN"
                     style="@style/PIAButton.Green.Small"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
                     android:layout_gravity="center"
                     android:layout_margin="5dp"
-                    />
+                    android:text="Pause VPN" />
 
                 <Button
-                    android:layout_columnWeight="1"
-                    android:layout_rowWeight="1"
                     android:id="@+id/developer_vpn_resume"
-                    android:text="Resume VPN"
                     style="@style/PIAButton.Green.Small"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
                     android:layout_gravity="center"
                     android:layout_margin="5dp"
-                    />
+                    android:text="Resume VPN" />
+
                 <Button
-                    android:layout_columnWeight="1"
-                    android:layout_rowWeight="1"
                     android:id="@+id/developer_vpn_stop"
-                    android:text="Stop VPN"
                     style="@style/PIAButton.Green.Small"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
                     android:layout_gravity="center"
                     android:layout_margin="5dp"
-                    />
+                    android:text="Stop VPN" />
+
                 <Button
-                    android:layout_columnWeight="1"
-                    android:layout_rowWeight="1"
                     android:id="@+id/developer_vpn_stop_without_user"
-                    android:text="Bomb VPN"
                     style="@style/PIAButton.Green.Small"
-                    android:layout_gravity="center"
-                    android:layout_margin="5dp"
-                    />
-                <Button
-                    android:layout_columnWeight="1"
                     android:layout_rowWeight="1"
-                    android:id="@+id/developer_vpn_stop_killswitch"
-                    android:text="Stop Killswitch"
-                    style="@style/PIAButton.Green.Small"
+                    android:layout_columnWeight="1"
                     android:layout_gravity="center"
                     android:layout_margin="5dp"
-                    />
+                    android:text="Bomb VPN" />
+
+                <Button
+                    android:id="@+id/developer_vpn_stop_killswitch"
+                    style="@style/PIAButton.Green.Small"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:text="Stop Killswitch" />
 
             </GridLayout>
 
-            <View android:layout_width="match_parent"
+            <View
+                android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/per_app_divider"/>
+                android:background="@color/per_app_divider" />
 
             <!-- Purchase testing mode -->
             <RelativeLayout
+                android:id="@+id/developer_testing_purchasing"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/developer_testing_purchasing"
-                android:padding="15dp"
                 android:background="?android:attr/selectableItemBackground"
-                >
+                android:padding="15dp"
+                android:focusable="true"
+                android:clickable="true">
 
                 <TextView
+                    style="@style/PiaTextBody1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Purchase Testing Data"
-                    style="@style/PiaTextBody1"
-                    />
+                    android:text="Purchase Testing Data" />
 
                 <Switch
+                    android:id="@+id/developer_testing_purchasing_switch"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/developer_testing_purchasing_switch"
-                    android:checked="false"
                     android:layout_alignParentRight="true"
+                    android:checked="false"
                     android:clickable="false"
-                    android:focusableInTouchMode="false"
                     android:focusable="false"
-                    />
+                    android:focusableInTouchMode="false" />
             </RelativeLayout>
             <!-- Testing input area -->
             <LinearLayout
+                android:id="@+id/developer_testing_purchasing_area"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:id="@+id/developer_testing_purchasing_area"
-                android:visibility="gone"
-                tools:visibility="visible"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                >
+                android:visibility="gone"
+                tools:visibility="visible">
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    >
+                    android:layout_height="wrap_content">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/developer_testing_purchasing_et_status"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Status Response (eg 200, 201, 300)"
-                        android:id="@+id/developer_testing_purchasing_et_status"
-                        android:inputType="number"
-                        />
+                        android:inputType="number" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    >
+                    android:layout_height="wrap_content">
+
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/developer_testing_purchasing_et_username"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Username"
-                        android:id="@+id/developer_testing_purchasing_et_username"
-                        android:inputType="text"
-                        />
+                        android:inputType="text" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    >
+                    android:layout_height="wrap_content">
+
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/developer_testing_purchasing_et_password"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Password"
-                        android:id="@+id/developer_testing_purchasing_et_password"
-                        android:inputType="text"
-                        />
+                        android:inputType="text" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    >
+                    android:layout_height="wrap_content">
+
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/developer_testing_purchasing_et_exception"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Exception message"
-                        android:id="@+id/developer_testing_purchasing_et_exception"
-                        android:inputType="text"
-                        />
+                        android:inputType="text" />
                 </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
 
-            <View android:layout_width="match_parent"
+            <View
+                android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/per_app_divider"/>
+                android:background="@color/per_app_divider" />
 
             <!-- Trial testing mode -->
             <RelativeLayout
+                android:id="@+id/developer_testing_trial"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/developer_testing_trial"
-                android:padding="15dp"
                 android:background="?android:attr/selectableItemBackground"
-                >
+                android:padding="15dp"
+                android:focusable="true"
+                android:clickable="true">
 
                 <TextView
+                    style="@style/PiaTextBody1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Trial Testing Data"
-                    style="@style/PiaTextBody1"
-                    />
+                    android:text="Trial Testing Data" />
 
                 <Switch
+                    android:id="@+id/developer_testing_trial_switch"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/developer_testing_trial_switch"
-                    android:checked="false"
                     android:layout_alignParentRight="true"
+                    android:checked="false"
                     android:clickable="false"
-                    android:focusableInTouchMode="false"
                     android:focusable="false"
-                    />
+                    android:focusableInTouchMode="false" />
             </RelativeLayout>
             <!-- Trial Testing input area -->
             <LinearLayout
+                android:id="@+id/developer_testing_trial_area"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:id="@+id/developer_testing_trial_area"
-                android:visibility="gone"
-                tools:visibility="visible"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                >
+                android:visibility="gone"
+                tools:visibility="visible">
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    >
+                    android:layout_height="wrap_content">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/developer_testing_trial_et_status"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Status Response (eg 200, 201, 300)"
-                        android:id="@+id/developer_testing_trial_et_status"
-                        android:inputType="number"
-                        />
+                        android:inputType="number" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    >
+                    android:layout_height="wrap_content">
+
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/developer_testing_trial_et_message"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Server Message"
-                        android:id="@+id/developer_testing_trial_et_message"
-                        android:inputType="text"
-                        />
+                        android:inputType="text" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
+                    style="@style/PiaTextCaptionSmall"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/PiaTextCaptionSmall"
-                    android:text="Trial States: bad_email, redeemed, not_found, too_many_attempts, canceled"
                     android:paddingBottom="5dp"
-                    />
+                    android:text="Trial States: bad_email, redeemed, not_found, too_many_attempts, canceled" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    >
+                    android:layout_height="wrap_content">
+
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/developer_testing_trial_et_username"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Username"
-                        android:id="@+id/developer_testing_trial_et_username"
-                        android:inputType="text"
-                        />
+                        android:inputType="text" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    >
+                    android:layout_height="wrap_content">
+
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/developer_testing_trial_et_password"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Password"
-                        android:id="@+id/developer_testing_trial_et_password"
-                        android:inputType="text"
-                        />
+                        android:inputType="text" />
                 </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
 
-            <View android:layout_width="match_parent"
+            <View
+                android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/per_app_divider"/>
+                android:background="@color/per_app_divider" />
 
             <!-- Webview link blocking-->
             <RelativeLayout
+                android:id="@+id/developer_testing_webview_area"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="15dp"
-                android:id="@+id/developer_testing_webview_area"
                 android:background="?android:attr/selectableItemBackground"
-                >
+                android:padding="15dp"
+                android:focusable="true"
+                android:clickable="true">
 
                 <TextView
+                    style="@style/PiaTextBody1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Webview link blocking"
-                    style="@style/PiaTextBody1"
-                    />
+                    android:text="Webview link blocking" />
 
                 <Switch
+                    android:id="@+id/developer_testing_webview_switch"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/developer_testing_webview_switch"
-                    android:checked="false"
                     android:layout_alignParentRight="true"
+                    android:checked="false"
                     android:clickable="false"
-                    android:focusableInTouchMode="false"
                     android:focusable="false"
-                    />
+                    android:focusableInTouchMode="false" />
             </RelativeLayout>
             <!-- Webview Link blocking input area-->
             <LinearLayout
+                android:id="@+id/developer_testing_webview_input_area"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/developer_testing_webview_input_area"
                 android:orientation="vertical"
                 android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                >
+                android:paddingRight="20dp">
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    >
+                    android:layout_height="wrap_content">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/developer_testing_webview_site"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Webview url to load"
-                        android:id="@+id/developer_testing_webview_site"
-                        android:inputType="text"
-                        />
+                        android:inputType="text" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
 
-            <View android:layout_width="match_parent"
+            <View
+                android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/per_app_divider"/>
+                android:background="@color/per_app_divider" />
 
             <!-- Theme Toggle -->
             <RelativeLayout
+                android:id="@+id/developer_theme_toggle_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/developer_theme_toggle_layout"
-                android:padding="15dp"
                 android:background="?android:attr/selectableItemBackground"
-                >
+                android:padding="15dp"
+                android:focusable="true"
+                android:clickable="true">
 
                 <TextView
+                    style="@style/PiaTextBody1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Dark Theme"
-                    style="@style/PiaTextBody1"
-                    />
+                    android:text="Dark Theme" />
 
                 <Switch
+                    android:id="@+id/developer_theme_toggle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/developer_theme_toggle"
-                    android:checked="false"
                     android:layout_alignParentRight="true"
+                    android:checked="false"
                     android:clickable="false"
-                    android:focusableInTouchMode="false"
                     android:focusable="false"
-                    />
+                    android:focusableInTouchMode="false" />
             </RelativeLayout>
 
             <!-- Randomize region offline state -->
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="15dp"
                 android:background="?android:attr/selectableItemBackground"
-                >
+                android:padding="15dp"
+                android:focusable="true"
+                android:clickable="true">
 
                 <TextView
+                    style="@style/PiaTextBody1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Randomize by 20% region's offline state"
-                    style="@style/PiaTextBody1"
-                    />
+                    android:text="Randomize by 20% region's offline state" />
 
                 <Switch
+                    android:id="@+id/developer_testing_region_offline_random_switch"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/developer_testing_region_offline_random_switch"
-                    android:checked="false"
                     android:layout_alignParentRight="true"
+                    android:checked="false"
                     android:clickable="true"
                     android:focusable="true"
-                    android:focusableInTouchMode="false"
-                    />
+                    android:focusableInTouchMode="false" />
             </RelativeLayout>
 
             <!-- Randomize region initial connection success -->
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="15dp"
                 android:background="?android:attr/selectableItemBackground"
-                >
+                android:padding="15dp"
+                android:focusable="true"
+                android:clickable="true">
 
                 <TextView
+                    style="@style/PiaTextBody1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Randomize by 70% region's initial connection success"
-                    style="@style/PiaTextBody1"
-                    />
+                    android:text="Randomize by 70% region's initial connection success" />
 
                 <Switch
+                    android:id="@+id/developer_testing_region_initial_conn_success_random_switch"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/developer_testing_region_initial_conn_success_random_switch"
-                    android:checked="false"
                     android:layout_alignParentRight="true"
+                    android:checked="false"
                     android:clickable="true"
                     android:focusable="true"
-                    android:focusableInTouchMode="false"
-                    />
+                    android:focusableInTouchMode="false" />
             </RelativeLayout>
 
             <!-- Updater Testing -->
             <RelativeLayout
+                android:id="@+id/developer_testing_updater_area"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="15dp"
-                android:id="@+id/developer_testing_updater_area"
                 android:background="?android:attr/selectableItemBackground"
-                >
+                android:padding="15dp"
+                android:focusable="true"
+                android:clickable="true">
 
                 <TextView
+                    style="@style/PiaTextBody1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Updater Testing"
-                    style="@style/PiaTextBody1"
-                    />
+                    android:text="Updater Testing" />
 
                 <Switch
+                    android:id="@+id/developer_testing_updater_switch"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/developer_testing_updater_switch"
-                    android:checked="false"
                     android:layout_alignParentRight="true"
+                    android:checked="false"
                     android:clickable="false"
-                    android:focusableInTouchMode="false"
                     android:focusable="false"
-                    />
+                    android:focusableInTouchMode="false" />
             </RelativeLayout>
 
             <LinearLayout
+                android:id="@+id/developer_testing_updater_input_area"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:id="@+id/developer_testing_updater_input_area"
                 android:paddingLeft="20dp"
-                android:paddingRight="20dp" >
+                android:paddingRight="20dp">
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    >
+                    android:layout_height="wrap_content">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/developer_testing_update_show_dialog"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Always show update dialog"
-                        android:id="@+id/developer_testing_update_show_dialog"
-                        android:inputType="number"
-                        />
+                        android:inputType="number" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    >
+                    android:layout_height="wrap_content">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/developer_testing_update_show_notification"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Always show update notification"
-                        android:id="@+id/developer_testing_update_show_notification"
-                        android:inputType="number"
-                        />
+                        android:inputType="number" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    >
+                    android:layout_height="wrap_content">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/developer_testing_update_interval"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Update Check Interval"
-                        android:id="@+id/developer_testing_update_interval"
-                        android:inputType="number"
-                        />
+                        android:inputType="number" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    >
+                    android:layout_height="wrap_content">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/developer_testing_update_build_version"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Testing Build Version"
-                        android:id="@+id/developer_testing_update_build_version"
-                        android:inputType="number"
-                        />
+                        android:inputType="number" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
+                    android:id="@+id/developer_testing_updater_reset_button"
+                    style="@style/PiaTextBody1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
+                    android:background="@drawable/shape_standard_background"
+                    android:clickable="true"
                     android:gravity="center_vertical"
                     android:minHeight="60dp"
-                    android:id="@+id/developer_testing_updater_reset_button"
-                    style="@style/PiaTextBody1"
-                    android:clickable="true"
-                    android:background="@drawable/shape_standard_background"
-                    android:text="Reset Last Seen Version"
-                    />
+                    android:text="Reset Last Seen Version" />
 
             </LinearLayout>
 
             <!-- Flag testing -->
             <RelativeLayout
+                android:id="@+id/developer_testing_flags_area"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="15dp"
-                android:id="@+id/developer_testing_flags_area"
                 android:background="?android:attr/selectableItemBackground"
-                >
+                android:padding="15dp"
+                android:focusable="true"
+                android:clickable="true">
 
                 <TextView
+                    style="@style/PiaTextBody1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Flag Testing"
-                    style="@style/PiaTextBody1"
-                    />
+                    android:text="Flag Testing" />
             </RelativeLayout>
             <!-- Webview Link blocking input area-->
             <RelativeLayout
+                android:id="@+id/developer_testing_flags_input_area"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/developer_testing_flags_input_area"
                 android:orientation="vertical"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                android:visibility="gone"
-                >
+                android:visibility="gone">
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignRight="@+id/developer_testing_flags_icon"
                     android:layout_alignEnd="@+id/developer_testing_flags_icon"
-                    >
+                    android:layout_alignRight="@+id/developer_testing_flags_icon"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/developer_testing_flags_input"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="Enter country name or iso"
-                        android:id="@+id/developer_testing_flags_input"
-                        android:inputType="text"
-                        />
+                        android:inputType="text" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -936,114 +905,108 @@
                     android:id="@+id/developer_testing_flags_icon"
                     android:layout_width="55dp"
                     android:layout_height="30dp"
-                    android:scaleType="fitXY"
-                    tools:background="@drawable/flag_canada"
-                    android:background="@drawable/flag_world"
-                    android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true"
-                    />
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/flag_world"
+                    android:scaleType="fitXY"
+                    tools:background="@drawable/flag_canada" />
             </RelativeLayout>
 
-            <View android:layout_width="match_parent"
+            <View
+                android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/per_app_divider"/>
+                android:background="@color/per_app_divider" />
 
             <!-- Debug log area-->
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="60dp"
                 android:id="@+id/developer_debug_log_button"
                 style="@style/PiaTextBody1"
-                android:clickable="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:background="@drawable/shape_standard_background"
-                android:text="@string/send_debug_log"
+                android:clickable="true"
+                android:minHeight="60dp"
                 android:padding="15dp"
-                />
+                android:text="@string/send_debug_log" />
 
-            <View android:layout_width="match_parent"
+            <View
+                android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/per_app_divider"/>
+                android:background="@color/per_app_divider" />
 
             <!-- Log area -->
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="15dp"
-                >
+                android:padding="15dp">
 
                 <Button
+                    android:id="@+id/developer_delete_log_file"
+                    style="@style/PIAButton.Green.Small"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Delete Log File"
-                    android:id="@+id/developer_delete_log_file"
                     android:layout_alignParentLeft="true"
-                    style="@style/PIAButton.Green.Small"
-                    />
+                    android:text="Delete Log File" />
 
                 <ProgressBar
+                    android:id="@+id/developer_delete_log_progress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
-                    android:id="@+id/developer_delete_log_progress"
-                    android:visibility="gone"
-                    />
+                    android:visibility="gone" />
 
                 <TextView
+                    android:id="@+id/developer_log_level"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:layout_toRightOf="@+id/developer_delete_log_file"
                     android:layout_toLeftOf="@+id/developer_print_file"
-                    android:id="@+id/developer_log_level"
+                    android:layout_toRightOf="@+id/developer_delete_log_file"
                     android:clickable="true"
                     android:gravity="center"
-                    android:text="Base Text"
-                    />
+                    android:text="Base Text" />
 
                 <Button
+                    android:id="@+id/developer_print_file"
+                    style="@style/PIAButton.Green.Small"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Print Log File"
-                    android:id="@+id/developer_print_file"
                     android:layout_alignParentRight="true"
-                    style="@style/PIAButton.Green.Small"
-                    />
+                    android:text="Print Log File" />
 
                 <ProgressBar
+                    android:id="@+id/developer_print_file_progress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:id="@+id/developer_print_file_progress"
-                    android:visibility="gone"
-                    />
+                    android:visibility="gone" />
 
                 <!--<Button-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:text="Send Debug File"-->
-                    <!--android:id="@+id/developer_send_debug"-->
-                    <!--android:layout_alignParentRight="true"-->
-                    <!--style="@style/button_main_normal.accent"-->
-                    <!--/>-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Send Debug File"-->
+                <!--android:id="@+id/developer_send_debug"-->
+                <!--android:layout_alignParentRight="true"-->
+                <!--style="@style/button_main_normal.accent"-->
+                <!--/>-->
             </RelativeLayout>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/developer_text_file"
-                android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                android:layout_marginRight="@dimen/activity_horizontal_margin"
-                />
 
             <TextView
+                android:id="@+id/developer_text_file"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin" />
+
+            <TextView
+                android:id="@+id/developer_token"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/developer_token"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginBottom="46dp"
-                android:textIsSelectable="true"/>
+                android:textIsSelectable="true" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

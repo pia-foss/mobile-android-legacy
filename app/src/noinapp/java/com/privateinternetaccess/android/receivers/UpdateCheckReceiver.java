@@ -5,6 +5,7 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.SystemClock;
 
 import com.privateinternetaccess.android.BuildConfig;
@@ -34,9 +35,14 @@ public class UpdateCheckReceiver extends BroadcastReceiver {
                 Prefs.with(context).get(PiaPrefHandler.TESTING_UPDATER_INTERVAL, 0L) != 0) {
             alarmInterval = Prefs.with(context).get(PiaPrefHandler.TESTING_UPDATER_INTERVAL, alarmInterval);
         }
-
+        int flags;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            flags = PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_CANCEL_CURRENT;
+        } else {
+            flags = PendingIntent.FLAG_CANCEL_CURRENT;
+        }
         PendingIntent pendingBroadcast = PendingIntent.getBroadcast(context,
-                UPDATE_RECEIVER_CODE, broadcastIntent, PendingIntent.FLAG_CANCEL_CURRENT);
+                UPDATE_RECEIVER_CODE, broadcastIntent, flags);
 
         AlarmManager alarmManager = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
         alarmManager.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP,

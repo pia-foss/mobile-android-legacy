@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: Apache-2.0
  *
- * Copyright (C) 2017-2019 Jason A. Donenfeld <Jason@zx2c4.com>. All Rights Reserved.
+ * Copyright © 2017-2022 Jason A. Donenfeld <Jason@zx2c4.com>. All Rights Reserved.
  */
 
 package main
@@ -16,6 +16,8 @@ import (
 	"os"
 	"os/signal"
 	"runtime"
+	"runtime/debug"
+	"strings"
 	"unsafe"
 
 	"golang.org/x/sys/unix"
@@ -86,7 +88,7 @@ func wgTurnOn(interfaceName string, tunFd int32, settings string) int32 {
 	}
 
 	logger.Verbosef("Attaching to interface %v", name)
-	device := device.NewDevice(tun, logger)
+	device := device.NewDevice(tun, conn.NewStdNetBind(), logger)
 
 	err = device.IpcSet(settings)
 	if err != nil {
@@ -206,7 +208,20 @@ func wgGetConfig(tunnelHandle int32) *C.char {
 
 //export wgVersion
 func wgVersion() *C.char {
-	return C.CString(device.WireGuardGoVersion)
+	info, ok := debug.ReadBuildInfo()
+	if !ok {
+		return C.CString("unknown")
+	}
+	for _, dep := range info.Deps {
+		if dep.Path == "golang.zx2c4.com/wireguard" {
+			parts := strings.Split(dep.Version, "-")
+			if len(parts) == 3 && len(parts[2]) == 12 {
+				return C.CString(parts[2][:7])
+			}
+			return C.CString(dep.Version)
+		}
+	}
+	return C.CString("unknown")
 }
 
 func main() {}

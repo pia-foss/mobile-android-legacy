@@ -22,6 +22,7 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 
 import com.privateinternetaccess.android.PIAKillSwitchStatus;
 import com.privateinternetaccess.android.PIAOpenVPNTunnelLibrary;
@@ -167,8 +168,14 @@ public class ConnectionResponder implements VpnStatus.StateListener, PIAKillSwit
         }
 
         Intent intent = new Intent(context, PortForwardingReceiver.class);
+        int flags;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            flags = PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_CANCEL_CURRENT;
+        } else {
+            flags = PendingIntent.FLAG_CANCEL_CURRENT;
+        }
         portForwardingIntent = PendingIntent.getBroadcast(
-                context, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT
+                context, 0, intent, flags
         );
         alarmManager.setRepeating(
                 AlarmManager.RTC_WAKEUP,

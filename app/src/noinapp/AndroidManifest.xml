@@ -21,14 +21,14 @@
     package="com.privateinternetaccess.android">
     <application>
 
-        <receiver android:name=".receivers.UpdateCheckReceiver">
+        <receiver android:name=".receivers.UpdateCheckReceiver" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.QUICKBOOT_POWERON" /> <!-- HTC boot notification -->
             </intent-filter>
         </receiver>
 
-        <receiver android:name=".receivers.FetchUpdateReceiver">
+        <receiver android:name=".receivers.FetchUpdateReceiver" android:exported="true">
             <intent-filter>
                 <action android:name="com.privateinternetaccess.android.FETCH_UPDATE"/>
             </intent-filter>

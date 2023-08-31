@@ -19,11 +19,10 @@
 package com.privateinternetaccess.android.pia.handlers;
 
 import android.content.Context;
+import android.text.TextUtils;
 
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
-
-import android.text.TextUtils;
 
 import com.privateinternetaccess.account.model.response.AndroidSubscriptionsInformation;
 import com.privateinternetaccess.account.model.response.DedicatedIPInformationResponse;
@@ -36,7 +35,6 @@ import com.privateinternetaccess.android.pia.model.AccountInformation;
 import com.privateinternetaccess.android.pia.model.AmazonPurchaseData;
 import com.privateinternetaccess.android.pia.model.PurchaseData;
 import com.privateinternetaccess.android.pia.model.TrialData;
-import com.privateinternetaccess.android.pia.utils.DLog;
 import com.privateinternetaccess.android.pia.utils.Prefs;
 
 import org.greenrobot.eventbus.EventBus;
@@ -55,9 +53,9 @@ import kotlinx.serialization.json.Json;
 
 /**
  * Gives access to our preferences used to control the vpn's features.
- *
+ * <p>
  * Uses our {@link Prefs} class to perform actions.
- *
+ * <p>
  * Created by hfrede on 6/13/17.
  */
 
@@ -230,6 +228,7 @@ public class PiaPrefHandler {
     private static final String OVERRIDE_DIP_TOKENS = "overrideDipTokens";
 
     private static final String KPI_SHARE_CONN_EVENTS = "kpiShareConnectionEvents";
+    private static final String KPI_SHARE_CONN_TIME_EVENTS = "kpiShareConnectionTimeEvents";
     public static final String DISABLE_NMT_FEATURE_FLAG = "disable-nmt-enabled";
 
     public static final String RPORT = "rport";
@@ -239,6 +238,9 @@ public class PiaPrefHandler {
     public static final int LPORT_MAX_RANGE = 65535;
 
     public static final String LAST_KNOWN_EXCEPTION_KEY = "LAST_KNOWN_EXCEPTION_KEY";
+    public static final String SUCCESSFUL_CONNECTIONS = "successfulConnections";
+    public static final String IS_SURVEY_DISMISSED = "surveyDismissed";
+    public static final String WIREGUARD_MIGRATION_DONE = "WIREGUARD_MIGRATION_DONE";
 
     public static void setInvitesDetails(
             Context context,
@@ -292,55 +294,67 @@ public class PiaPrefHandler {
         return subscriptionsInformation;
     }
 
-    public static void setLastServerBody(Context context, String value){
+    public static void setWireguardMigrationAsDone(Context context) {
+        Prefs.with(context).set(WIREGUARD_MIGRATION_DONE, true);
+    }
+
+    public static Boolean isWireguardMigrationDone(Context context) {
+        return Prefs.with(context).get(WIREGUARD_MIGRATION_DONE, false);
+    }
+
+    private static void resetWireguardMigrationFlag(Context context) {
+        Prefs.with(context).remove(WIREGUARD_MIGRATION_DONE);
+    }
+
+    public static void setLastServerBody(Context context, String value) {
         Prefs.with(context).set(GEN4_LAST_SERVER_BODY, value);
     }
 
-    public static String lastServerBody(Context context){
+    public static String lastServerBody(Context context) {
         return Prefs.with(context).get(GEN4_LAST_SERVER_BODY, "");
     }
 
-    public static void resetLastServerBody(Context context){
+    public static void resetLastServerBody(Context context) {
         Prefs.with(context).remove(GEN4_LAST_SERVER_BODY);
     }
 
-    public static void setStopPingingServersEnabled(Context context, boolean value){
+    public static void setStopPingingServersEnabled(Context context, boolean value) {
         Prefs.with(context).set(PREF_DEBUG_STOP_PING_SERVER, value);
     }
 
-    public static boolean isStopPingingServersEnabled(Context context){
+    public static boolean isStopPingingServersEnabled(Context context) {
         return Prefs.with(context).get(PREF_DEBUG_STOP_PING_SERVER, false);
     }
 
-    public static void setStopUsingMetaServersEnabled(Context context, boolean value){
+    public static void setStopUsingMetaServersEnabled(Context context, boolean value) {
         Prefs.with(context).set(PREF_DEBUG_STOP_USING_META_SERVER, value);
     }
 
-    public static boolean isStopUsingMetaServersEnabled(Context context){
+    public static boolean isStopUsingMetaServersEnabled(Context context) {
         return Prefs.with(context).get(PREF_DEBUG_STOP_USING_META_SERVER, false);
     }
 
-    public static boolean isPortForwardingEnabled(Context context){
+    public static boolean isPortForwardingEnabled(Context context) {
         return Prefs.with(context).getBoolean(PORTFORWARDING);
     }
 
-    public static void setPortForwardingEnabled(Context context, boolean portForwarding){
+    public static void setPortForwardingEnabled(Context context, boolean portForwarding) {
         Prefs.with(context).set(PORTFORWARDING, portForwarding);
     }
 
-    public static void resetPortForwardingEnabled(Context context){
+    public static void resetPortForwardingEnabled(Context context) {
         Prefs.with(context).remove(PORTFORWARDING);
     }
 
-    public static String getRatingState(Context context){
+    public static String getRatingState(Context context) {
         return Prefs.with(context).getString(RATING_STATE);
     }
 
-    public static void setRatingState(Context context, String ratingState){
+    public static void setRatingState(Context context, String ratingState) {
         Prefs.with(context).set(RATING_STATE, ratingState);
     }
 
-    public static void setBindPortForwardInformation(Context context, String data){
+    public static void setBindPortForwardInformation(Context context, String data) {
         Prefs.with(context).set(PORTFORWARDING_INFO, data);
     }
 
@@ -352,7 +366,7 @@ public class PiaPrefHandler {
         Prefs.with(context).remove(PORTFORWARDING_INFO);
     }
 
-    public static void setGatewayEndpoint(Context context, String endpoint){
+    public static void setGatewayEndpoint(Context context, String endpoint) {
         Prefs.with(context).set(GEN4_GATEWAY_ENDPOINT, endpoint);
     }
 
@@ -368,7 +382,7 @@ public class PiaPrefHandler {
         Prefs.with(context).set(HAPTIC_FEEDBACK, value);
     }
 
-    public static boolean isHapticFeedbackEnabled(Context context){
+    public static boolean isHapticFeedbackEnabled(Context context) {
         return Prefs.with(context).get(HAPTIC_FEEDBACK, true);
     }
 
@@ -376,11 +390,11 @@ public class PiaPrefHandler {
         Prefs.with(context).remove(HAPTIC_FEEDBACK);
     }
 
-    public static String getGraphUnit(Context context){
+    public static String getGraphUnit(Context context) {
         return Prefs.with(context).get(GRAPHUNIT, "8192");
     }
 
-    public static void setGraphUnit(Context context, String value){
+    public static void setGraphUnit(Context context, String value) {
         Prefs.with(context).set(GRAPHUNIT, value);
     }
 
@@ -441,11 +455,11 @@ public class PiaPrefHandler {
         Prefs.with(context, LOGINDATA).set(EMAIL, email);
     }
 
-    public static void saveTrialEmail(Context context, String email){
+    public static void saveTrialEmail(Context context, String email) {
         Prefs.with(context).set(TRIAL_EMAIL_TEMP, email);
     }
 
-    public static String getTrialEmail(Context context){
+    public static String getTrialEmail(Context context) {
         return Prefs.with(context).get(TRIAL_EMAIL_TEMP, "");
     }
 
@@ -463,11 +477,11 @@ public class PiaPrefHandler {
         return Prefs.with(context, LOGINDATA).getBoolean(IS_USER_LOGGED_IN);
     }
 
-    public static void saveLastIP(Context context, String ip){
+    public static void saveLastIP(Context context, String ip) {
         Prefs.with(context).set(LAST_IP, ip);
     }
 
-    public static String getLastIP(Context context){
+    public static String getLastIP(Context context) {
         String lastIp = Prefs.with(context).getString(LAST_IP);
         return lastIp == null ? "---" : lastIp;
     }
@@ -603,8 +617,7 @@ public class PiaPrefHandler {
             for (int i = 0; i < array.length(); i++) {
                 items[i] = array.getString(i);
             }
-        }
-        catch (JSONException e) {
+        } catch (JSONException e) {
             e.printStackTrace();
         }
 
@@ -628,8 +641,7 @@ public class PiaPrefHandler {
             for (int i = 0; i < array.length(); i++) {
                 items.add(array.getString(i));
             }
-        }
-        catch (JSONException e) {
+        } catch (JSONException e) {
             e.printStackTrace();
         }
 
@@ -662,8 +674,7 @@ public class PiaPrefHandler {
             for (int i = 0; i < array.length(); i++) {
                 items.add(array.getString(i));
             }
-        }
-        catch (JSONException e) {
+        } catch (JSONException e) {
             e.printStackTrace();
         }
         return items;
@@ -691,8 +702,7 @@ public class PiaPrefHandler {
     public static void toggleFavorite(Context context, String serverName) {
         if (isFavorite(context, serverName)) {
             removeFavorite(context, serverName);
-        }
-        else {
+        } else {
             addFavorite(context, serverName);
         }
     }
@@ -813,7 +823,7 @@ public class PiaPrefHandler {
         Prefs.with(c).remove(AUTOCONNECT);
     }
 
-    public static void savePurchasingTask(Context context, String order_id, String token, String sku){
+    public static void savePurchasingTask(Context context, String order_id, String token, String sku) {
         Prefs prefs = Prefs.with(context);
         prefs.set(PURCHASING_ORDER_ID, order_id);
         prefs.set(PURCHASING_TOKEN, token);
@@ -827,8 +837,12 @@ public class PiaPrefHandler {
     }
 
     public static AmazonPurchaseData getAmazonPurchaseData(Context context) {
-        Prefs prefs = Prefs.with(context);
-        return new AmazonPurchaseData(prefs.getString(AMAZON_USER_ID), prefs.getString(AMAZON_RECEIPT_ID));
+        final Prefs prefs = Prefs.with(context);
+        if (prefs.getString(AMAZON_USER_ID) != null && prefs.getString(AMAZON_RECEIPT_ID) != null) {
+            return new AmazonPurchaseData(prefs.getString(AMAZON_USER_ID), prefs.getString(AMAZON_RECEIPT_ID));
+        } else {
+            return null;
+        }
     }
 
     public static PurchaseData getPurchasingData(Context context) {
@@ -836,13 +850,13 @@ public class PiaPrefHandler {
         String token = PiaPrefHandler.getPurchasingToken(context);
         String productId = PiaPrefHandler.getPurchasingSku(context);
 
-        if(!TextUtils.isEmpty(productId))
+        if (!TextUtils.isEmpty(productId))
             return new PurchaseData(token, productId, orderId);
         else
             return null;
     }
 
-    public static void clearPurchasingInfo(Context context){
+    public static void clearPurchasingInfo(Context context) {
         Prefs prefs = Prefs.with(context);
         prefs.remove(PURCHASING_EMAIL);
         prefs.remove(PURCHASING_ORDER_ID);
@@ -850,93 +864,102 @@ public class PiaPrefHandler {
         prefs.remove(PURCHASING_SKU);
     }
 
-    public static boolean isPurchasingProcessDone(Context context){
+    public static boolean isPurchasingProcessDone(Context context) {
         Prefs prefs = Prefs.with(context);
         return TextUtils.isEmpty(prefs.getString(PURCHASING_ORDER_ID));
     }
 
-    public static String getPurchasingEmail(Context context){
+    public static String getPurchasingEmail(Context context) {
         return Prefs.with(context).getString(PURCHASING_EMAIL);
     }
 
-    public static String getPurchasingOrderId(Context context){
+    public static String getPurchasingOrderId(Context context) {
         return Prefs.with(context).getString(PURCHASING_ORDER_ID);
     }
 
-    public static String getPurchasingToken(Context context){
+    public static String getPurchasingToken(Context context) {
         return Prefs.with(context).getString(PURCHASING_TOKEN);
     }
 
-    public static String getPurchasingSku(Context context){
+    public static String getPurchasingSku(Context context) {
         return Prefs.with(context).getString(PURCHASING_SKU);
     }
 
-    public static boolean isPurchasingTesting(Context context){
+    public static boolean isPurchasingTesting(Context context) {
         return Prefs.with(context).getBoolean(PURCHASING_TESTING_MODE);
     }
 
-    public static void setPurchaseTesting(Context context, boolean testing){
-         Prefs.with(context).set(PURCHASING_TESTING_MODE, testing);
+    public static void setPurchaseTesting(Context context, boolean testing) {
+        Prefs.with(context).set(PURCHASING_TESTING_MODE, testing);
     }
 
-    public static boolean useStaging(Context context){
+    public static boolean useStaging(Context context) {
         if (BuildConfig.FLAVOR_pia.equals("production"))
             return false;
         else
             return Prefs.with(context).getBoolean(USE_STAGING);
     }
 
-    public static void setUseStaging(Context context, boolean testing){
+    public static void setUseStaging(Context context, boolean testing) {
         Prefs.with(context).set(USE_STAGING, testing);
     }
 
-    public static boolean overrideDIPTokens(Context context){
+    public static boolean overrideDIPTokens(Context context) {
         if (BuildConfig.FLAVOR_pia.equals("production"))
             return false;
         else
             return Prefs.with(context).getBoolean(OVERRIDE_DIP_TOKENS);
     }
 
-    public static void setOverrideDipTokens(Context context, boolean testing){
+    public static void setOverrideDipTokens(Context context, boolean testing) {
         Prefs.with(context).set(OVERRIDE_DIP_TOKENS, testing);
     }
 
-    public static void setPurchaseTestingStatus(Context context, int data){
+    public static void setPurchaseTestingStatus(Context context, int data) {
         Prefs.with(context).set(PURCHASING_TESTING_STATUS, data);
     }
-    public static void setPurchaseTestingUsername(Context context, String data){
+
+    public static void setPurchaseTestingUsername(Context context, String data) {
         Prefs.with(context).set(PURCHASING_TESTING_USERNAME, data);
     }
-    public static void setPurchaseTestingPassword(Context context, String data){
+
+    public static void setPurchaseTestingPassword(Context context, String data) {
         Prefs.with(context).set(PURCHASING_TESTING_PASSWORD, data);
     }
-    public static void setPurchaseTestingException(Context context, String data){
+
+    public static void setPurchaseTestingException(Context context, String data) {
         Prefs.with(context).set(PURCHASING_TESTING_EXCEPTION, data);
     }
-    public static boolean getDebugMode(Context context){
+
+    public static boolean getDebugMode(Context context) {
         return Prefs.with(context).getBoolean(PREF_DEBUG_MODE);
     }
-    public static void setDebugMode(Context context, boolean debugMode){
+
+    public static void setDebugMode(Context context, boolean debugMode) {
         Prefs.with(context).set(PREF_DEBUG_MODE, debugMode);
     }
-    public static int getDebugLevel(Context context){
+
+    public static int getDebugLevel(Context context) {
         return Prefs.with(context).get(PREF_DEBUG_LEVEL, 1);
     }
-    public static void setDebugLevel(Context context, int debugLevel){
+
+    public static void setDebugLevel(Context context, int debugLevel) {
         Prefs.with(context).set(PREF_DEBUG_LEVEL, debugLevel);
     }
 
-    public static boolean getWebviewTesting(Context context){
+    public static boolean getWebviewTesting(Context context) {
         return Prefs.with(context).get(TESTING_WEB_VIEW, false);
     }
-    public static void setWebviewTesting(Context context, boolean testing){
+
+    public static void setWebviewTesting(Context context, boolean testing) {
         Prefs.with(context).set(TESTING_WEB_VIEW, testing);
     }
 
-    public static String getWebviewTestingSite(Context context){
+    public static String getWebviewTestingSite(Context context) {
         return Prefs.with(context).get(TESTING_WEBVIEW_SITE, "");
     }
-    public static void setWebviewTestingSite(Context context, String site){
+
+    public static void setWebviewTestingSite(Context context, String site) {
         Prefs.with(context).set(TESTING_WEBVIEW_SITE, site);
     }
 
@@ -964,7 +987,7 @@ public class PiaPrefHandler {
         Prefs.with(context).set(TESTING_UPDATER, testing);
     }
 
-    public static TrialData getTempTrialData(Context context){
+    public static TrialData getTempTrialData(Context context) {
         Prefs prefs = Prefs.with(context);
         TrialData data = new TrialData(
                 prefs.getString(TRIAL_EMAIL),
@@ -973,30 +996,31 @@ public class PiaPrefHandler {
         return data;
     }
 
-    public static void saveTempTrialData(Context context, TrialData data){
+    public static void saveTempTrialData(Context context, TrialData data) {
         Prefs prefs = Prefs.with(context);
         prefs.set(TRIAL_EMAIL, data.getEmail());
         prefs.set(TRIAL_PIN, data.getPin());
     }
 
-    public static void cleanTempTrialData(Context context){
+    public static void cleanTempTrialData(Context context) {
         Prefs prefs = Prefs.with(context);
         prefs.remove(TRIAL_PIN);
         prefs.remove(TRIAL_EMAIL);
     }
 
-    public static boolean isTrialTesting(Context context){
+    public static boolean isTrialTesting(Context context) {
         return Prefs.with(context).get(TRIAL_TESTING, false);
     }
-    public static void setTrialTesting(Context context, boolean testing){
+
+    public static void setTrialTesting(Context context, boolean testing) {
         Prefs.with(context).set(TRIAL_TESTING, testing);
     }
 
-    public static boolean isConnectionUserEnded(Context context){
+    public static boolean isConnectionUserEnded(Context context) {
         return Prefs.with(context).get(CONNECTION_ENDED, false);
     }
 
-    public static void setUserEndedConnection(Context context, boolean val){
+    public static void setUserEndedConnection(Context context, boolean val) {
         Prefs.with(context).set(CONNECTION_ENDED, val);
     }
 
@@ -1007,9 +1031,9 @@ public class PiaPrefHandler {
      * @param resetOnYes
      * @return
      */
-    public static boolean wasConnectionEndedByUser(Context context, boolean resetOnYes){
+    public static boolean wasConnectionEndedByUser(Context context, boolean resetOnYes) {
         boolean userEnded = isConnectionUserEnded(context);
-        if(resetOnYes && userEnded) {
+        if (resetOnYes && userEnded) {
             setUserEndedConnection(context, false);
         }
         return userEnded;
@@ -1027,8 +1051,7 @@ public class PiaPrefHandler {
             for (int i = 0; i < array.length(); i++) {
                 ipList.add(Json.Default.decodeFromString(DedicatedIPInformationResponse.DedicatedIPInformation.Companion.serializer(), array.getString(i)));
             }
-        }
-        catch (JSONException e) {
+        } catch (JSONException e) {
             e.printStackTrace();
         }
 
@@ -1084,11 +1107,11 @@ public class PiaPrefHandler {
         Prefs.with(context).set(LAST_VERSION, version);
     }
 
-    public static boolean wasVPNConnecting(Context context){
+    public static boolean wasVPNConnecting(Context context) {
         return Prefs.with(context).getBoolean(VPN_CONNECTING);
     }
 
-    public static void setVPNConnecting(Context context, boolean value){
+    public static void setVPNConnecting(Context context, boolean value) {
         Prefs.with(context).set(VPN_CONNECTING, value);
     }
 
@@ -1096,11 +1119,11 @@ public class PiaPrefHandler {
         return Prefs.with(context).get(CONNECT_ON_APP_UPDATED, false);
     }
 
-    public static void setConnectOnAppUpdate(Context context, boolean value){
+    public static void setConnectOnAppUpdate(Context context, boolean value) {
         Prefs.with(context).set(CONNECT_ON_APP_UPDATED, value);
     }
 
-    public static void resetConnectOnAppUpdate(Context context){
+    public static void resetConnectOnAppUpdate(Context context) {
         Prefs.with(context).remove(CONNECT_ON_APP_UPDATED);
     }
 
@@ -1260,15 +1283,15 @@ public class PiaPrefHandler {
         Prefs.with(context).remove(DNS_SECONDARY);
     }
 
-    public static void setKillswitchEnabled(Context context, boolean value){
+    public static void setKillswitchEnabled(Context context, boolean value) {
         Prefs.with(context).set(KILLSWITCH, value);
     }
 
-    public static boolean isKillswitchEnabled(Context context){
+    public static boolean isKillswitchEnabled(Context context) {
         return Prefs.with(context).getBoolean(KILLSWITCH);
     }
 
-    public static void resetKillswitchEnabled(Context context){
+    public static void resetKillswitchEnabled(Context context) {
         Prefs.with(context).remove(KILLSWITCH);
     }
 
@@ -1284,39 +1307,39 @@ public class PiaPrefHandler {
         Prefs.with(context).remove(GEO_SERVERS_ACTIVE);
     }
 
-    public static void setBlockIpv6Enabled(Context context, boolean value){
+    public static void setBlockIpv6Enabled(Context context, boolean value) {
         Prefs.with(context).set(IPV6, value);
     }
 
-    public static boolean isBlockIpv6Enabled(Context context){
+    public static boolean isBlockIpv6Enabled(Context context) {
         return Prefs.with(context).get(IPV6, context.getResources().getBoolean(R.bool.useblockipv6));
     }
 
-    public static void resetBlockIpv6Enabled(Context context){
+    public static void resetBlockIpv6Enabled(Context context) {
         Prefs.with(context).remove(IPV6);
     }
 
-    public static void setAllowLocalLanEnabled(Context context, boolean value){
+    public static void setAllowLocalLanEnabled(Context context, boolean value) {
         Prefs.with(context).set(ALLOW_LOCAL_LAN, value);
     }
 
-    public static boolean isAllowLocalLanEnabled(Context context){
+    public static boolean isAllowLocalLanEnabled(Context context) {
         return Prefs.with(context).get(ALLOW_LOCAL_LAN, false);
     }
 
-    public static void resetAllowLocalLanEnabled(Context context){
+    public static void resetAllowLocalLanEnabled(Context context) {
         Prefs.with(context).remove(ALLOW_LOCAL_LAN);
     }
 
-    public static void setMaceEnabled(Context context, boolean value){
+    public static void setMaceEnabled(Context context, boolean value) {
         Prefs.with(context).set(PIA_MACE, value);
     }
 
-    public static boolean isMaceEnabled(Context context){
+    public static boolean isMaceEnabled(Context context) {
         return Prefs.with(context).getBoolean(PIA_MACE);
     }
 
-    public static void resetMaceEnabled(Context context){
+    public static void resetMaceEnabled(Context context) {
         Prefs.with(context).remove(PIA_MACE);
     }
 
@@ -1325,63 +1348,63 @@ public class PiaPrefHandler {
                 PiaPrefHandler.isFeatureActive(context, PiaPrefHandler.DISABLE_NMT_FEATURE_FLAG);
     }
 
-    public static void setNetworkManagementEnabled(Context context, boolean value){
+    public static void setNetworkManagementEnabled(Context context, boolean value) {
         Prefs.with(context).set(NETWORK_MANAGEMENT, value);
     }
 
-    public static boolean isNetworkManagementEnabled(Context context){
+    public static boolean isNetworkManagementEnabled(Context context) {
         return Prefs.with(context).getBoolean(NETWORK_MANAGEMENT);
     }
 
-    public static void resetNetworkManagementEnabled(Context context){
+    public static void resetNetworkManagementEnabled(Context context) {
         Prefs.with(context).remove(NETWORK_MANAGEMENT);
     }
 
-    public static void setConnectViaProxyEnabled(Context context, boolean value){
+    public static void setConnectViaProxyEnabled(Context context, boolean value) {
         Prefs.with(context).set(PROXY_ENABLED, value);
     }
 
-    public static boolean isConnectViaProxyEnabled(Context context){
+    public static boolean isConnectViaProxyEnabled(Context context) {
         return Prefs.with(context).getBoolean(PROXY_ENABLED);
     }
 
-    public static void resetConnectViaProxyEnabled(Context context){
+    public static void resetConnectViaProxyEnabled(Context context) {
         Prefs.with(context).remove(PROXY_ENABLED);
     }
 
-    public static void setProxyApp(Context context, String value){
+    public static void setProxyApp(Context context, String value) {
         Prefs.with(context).set(PROXY_APP, value);
     }
 
-    public static String getProxyApp(Context context){
+    public static String getProxyApp(Context context) {
         return Prefs.with(context).get(PROXY_APP, "");
     }
 
-    public static void resetProxyApp(Context context){
+    public static void resetProxyApp(Context context) {
         Prefs.with(context).remove(PROXY_APP);
     }
 
-    public static void setProxyPort(Context context, String value){
+    public static void setProxyPort(Context context, String value) {
         Prefs.with(context).set(PROXY_PORT, value);
     }
 
-    public static String getProxyPort(Context context){
+    public static String getProxyPort(Context context) {
         return Prefs.with(context).get(PROXY_PORT, "8080");
     }
 
-    public static void resetProxyPort(Context context){
+    public static void resetProxyPort(Context context) {
         Prefs.with(context).remove(PROXY_PORT);
     }
 
-    public static void setVpnExcludedApps(Context context, Set<String> value){
+    public static void setVpnExcludedApps(Context context, Set<String> value) {
         Prefs.with(context).set(VPN_PER_APP_PACKAGES, value);
     }
 
-    public static Set<String> getVpnExcludedApps(Context context){
+    public static Set<String> getVpnExcludedApps(Context context) {
         return Prefs.with(context).getStringSet(VPN_PER_APP_PACKAGES);
     }
 
-    public static void resetVpnExcludedApps(Context context){
+    public static void resetVpnExcludedApps(Context context) {
         Prefs.with(context).remove(VPN_PER_APP_PACKAGES);
     }
 
@@ -1391,10 +1414,19 @@ public class PiaPrefHandler {
 
     public static void setKpiShareConnectionEventsEnabled(Context context, boolean enabled) {
         Prefs.with(context).set(KPI_SHARE_CONN_EVENTS, enabled);
+        Prefs.with(context).set(KPI_SHARE_CONN_TIME_EVENTS, enabled);
     }
 
     public static void resetKpiShareConnectionEventsEnabled(Context context) {
         Prefs.with(context).remove(KPI_SHARE_CONN_EVENTS);
+    }
+
+    public static boolean isShareTimeEventEnabled(Context context) {
+        return Prefs.with(context).getBoolean(KPI_SHARE_CONN_TIME_EVENTS);
+    }
+
+    public static void resetShareTimeEnabled(Context context) {
+        Prefs.with(context).remove(KPI_SHARE_CONN_TIME_EVENTS);
     }
 
     public static void setLastKnownException(Context context, String value) {
@@ -1403,6 +1435,26 @@ public class PiaPrefHandler {
 
     public static String getLastKnownException(Context context) {
         return Prefs.with(context).get(LAST_KNOWN_EXCEPTION_KEY, "");
+    }
+
+    public static void recordSuccessfulConnection(Context context) {
+        Prefs.with(context).set(SUCCESSFUL_CONNECTIONS, Prefs.with(context).get(SUCCESSFUL_CONNECTIONS, 0) + 1);
+    }
+
+    public static int getSuccessfulConnections(Context context) {
+        if (isSurveyDismissed(context)) {
+            return 0;
+        } else {
+            return Prefs.with(context).getInt(SUCCESSFUL_CONNECTIONS);
+        }
+    }
+
+    public static boolean isSurveyDismissed(Context context) {
+        return Prefs.with(context).get(IS_SURVEY_DISMISSED, false);
+    }
+
+    public static void dismissSurvey(Context context) {
+        Prefs.with(context).set(IS_SURVEY_DISMISSED, true);
     }
 
     public static void resetSettings(Context context) {
@@ -1420,6 +1472,7 @@ public class PiaPrefHandler {
         PiaPrefHandler.resetProxyApp(context);
         PiaPrefHandler.resetMaceEnabled(context);
         PiaPrefHandler.resetKillswitchEnabled(context);
+        PiaPrefHandler.resetWireguardMigrationFlag(context);
 
         //Blocking
         PiaPrefHandler.resetBlockIpv6Enabled(context);
@@ -1470,5 +1523,6 @@ public class PiaPrefHandler {
         PiaPrefHandler.clearTrustedNetworks(context);
         PiaPrefHandler.clearDedicatedIps(context);
         PiaPrefHandler.resetKpiShareConnectionEventsEnabled(context);
+        PiaPrefHandler.resetShareTimeEnabled(context);
     }
 }

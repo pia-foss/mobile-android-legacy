@@ -1,6 +1,6 @@
 # SPDX-License-Identifier: Apache-2.0
 #
-# Copyright © 2017-2019 WireGuard LLC. All Rights Reserved.
+# Copyright © 2017-2021 WireGuard LLC. All Rights Reserved.
 
 BUILDDIR ?= $(CURDIR)/build
 DESTDIR ?= $(CURDIR)/out
@@ -14,39 +14,40 @@ NDK_GO_ARCH_MAP_mips64 := mips64x
 
 CLANG_FLAGS := --target=$(ANDROID_LLVM_TRIPLE) --gcc-toolchain=$(ANDROID_TOOLCHAIN_ROOT) --sysroot=$(ANDROID_SYSROOT)
 export CGO_CFLAGS := $(CLANG_FLAGS) $(CFLAGS)
-export CGO_LDFLAGS := $(CLANG_FLAGS) $(LDFLAGS)
+export CGO_LDFLAGS := $(CLANG_FLAGS) $(LDFLAGS) -Wl,-soname=libwg-go.so
 export CC := $(ANDROID_C_COMPILER)
 export GOARCH := $(NDK_GO_ARCH_MAP_$(ANDROID_ARCH_NAME))
 export GOOS := android
 export CGO_ENABLED := 1
+export PATH=$(shell printenv PATH):/opt/homebrew/bin
 
-DESIRED_GO_VERSION := 1.15.6
+GO_VERSION := 1.18.2
+GO_PLATFORM := $(shell uname -s | tr '[:upper:]' '[:lower:]')-$(NDK_GO_ARCH_MAP_$(shell uname -m))
+GO_TARBALL := go$(GO_VERSION).$(GO_PLATFORM).tar.gz
+GO_HASH_darwin-amd64 := 1f5f539ce0baa8b65f196ee219abf73a7d9cf558ba9128cc0fe4833da18b04f2
+GO_HASH_darwin-arm64 := 6c7df9a2405f09aa9bab55c93c9c4ce41d3e58127d626bc1825ba5d0a0045d5c
+GO_HASH_linux-amd64 := e54bec97a1a5d230fc2f9ad0880fcbabb5888f30ed9666eca4a91c5a32e86cbc
 
 default: $(DESTDIR)/libwg-go.so
 
-ifeq ($(OS), Windows_NT) # Windows
-$(BUILDDIR)/go-$(DESIRED_GO_VERSION)/.prepared:
+$(BUILDDIR)/caches/golang/$(GO_TARBALL):
 	mkdir -p "$(dir $@)"
-	curl -o "$(BUILDDIR)/go-$(DESIRED_GO_VERSION)/gofile.zip" "https://dl.google.com/go/go$(DESIRED_GO_VERSION).windows-amd64.zip"
-	unzip -o "$(BUILDDIR)/go-$(DESIRED_GO_VERSION)/gofile.zip" -d "$(dir $@)"
-	rm -f "$(BUILDDIR)/go-$(DESIRED_GO_VERSION)/gofile.zip"
+	flock "$@.lock" -c ' \
+	[ -f "$@" ] && exit 0; \
+	curl -o "$@.tmp" "https://dl.google.com/go/$(GO_TARBALL)" && \
+	echo "$(GO_HASH_$(GO_PLATFORM))  $@.tmp" | sha256sum -c && \
+	mv "$@.tmp" "$@"'
 
-	patch -p1 -f -N -r- -d "$(dir $@)go/" < goruntime-boottime-over-monotonic.diff
-	touch "$@"
-
-$(DESTDIR)/libwg-go.so: export PATH := $(BUILDDIR)/go-$(DESIRED_GO_VERSION)/go/bin/:$(PATH)
-else
-UNAME_S := $(shell uname -s)
-ifeq ($(UNAME_S), $(filter $(UNAME_S), Darwin Linux)) # Macos / Linux
-$(BUILDDIR)/go-$(DESIRED_GO_VERSION)/.prepared:
+$(BUILDDIR)/go-$(GO_VERSION)/.prepared: $(BUILDDIR)/caches/golang/$(GO_TARBALL)
 	mkdir -p "$(dir $@)"
-	curl "https://dl.google.com/go/go$(DESIRED_GO_VERSION).$(shell uname -s | tr '[:upper:]' '[:lower:]')-$(NDK_GO_ARCH_MAP_$(shell uname -m)).tar.gz" | tar -C "$(dir $@)" --strip-components=1 -xzf -
-	patch -p1 -f -N -r- -d "$(dir $@)" < goruntime-boottime-over-monotonic.diff
-	touch "$@"
+	flock "$@.lock" -c ' \
+	[ -f "$@" ] && exit 0; \
+	tar -C "$(dir $@)" --strip-components=1 -xzf "$^" && \
+	patch -p1 -f -N -r- -d "$(dir $@)" < goruntime-boottime-over-monotonic.diff && \
+	touch "$@"'
 
-$(DESTDIR)/libwg-go.so: export PATH := $(BUILDDIR)/go-$(DESIRED_GO_VERSION)/bin/:$(PATH)
-endif
-endif
+$(DESTDIR)/libwg-go.so: export PATH := $(BUILDDIR)/go-$(GO_VERSION)/bin/:$(PATH)
+$(DESTDIR)/libwg-go.so: $(BUILDDIR)/go-$(GO_VERSION)/.prepared go.mod
+	go build -tags linux -ldflags="-X golang.zx2c4.com/wireguard/ipc.socketDirectory=/data/data/$(ANDROID_PACKAGE_NAME)/cache/wireguard" -v -trimpath -o "$@" -buildmode c-shared
 
-$(DESTDIR)/libwg-go.so: $(BUILDDIR)/go-$(DESIRED_GO_VERSION)/.prepared go.mod
-	go build -tags linux -ldflags="-X golang.zx2c4.com/wireguard/ipc.socketDirectory=/data/data/com.privateinternetaccess.android/cache/wireguard" -v -trimpath -o "$@" -buildmode c-shared
+.DELETE_ON_ERROR:

@@ -75,7 +75,7 @@ public class PiaOvpnConfig {
         }
 
         ConfigParser cp = new ConfigParser();
-        cp.parseConfig(new StringReader(PiaOvpnConfig.genConfig(context, user, pw, endpoint)));
+        cp.parseConfig(new StringReader(PiaOvpnConfig.generateOpenVPNUserConfiguration(context, user, pw, endpoint)));
         final VpnProfile vp = cp.convertProfile();
         Prefs prefs = new Prefs(context);
         if (vp.checkProfile(context) != R.string.no_error_found)
@@ -132,7 +132,7 @@ public class PiaOvpnConfig {
         return vp;
     }
 
-    public static String genConfig(
+    public static String generateOpenVPNUserConfiguration(
             Context context,
             String user,
             String password,
@@ -233,6 +233,80 @@ public class PiaOvpnConfig {
 
         String devConfigurations = prefs.getString(DeveloperActivity.PREF_DEVELOPER_CONFIGURATION);
         DLog.d("PIAOVPNConfig", "dev = " + devConfigurations);
+        if (!TextUtils.isEmpty(devConfigurations)) {
+            config.append("\n").append(devConfigurations).append("\n");
+        }
+
+        return config.toString();
+    }
+
+    public static String generateOpenVPNAppDefaultConfiguration(
+            Context context,
+            String user,
+            String password,
+            VPNFallbackEndpointProvider.VPNEndpoint endpoint
+    ) throws IOException {
+        Prefs prefs = new Prefs(context);
+
+        InputStream conf = context.getAssets().open("vpn.conf");
+        InputStreamReader isr = new InputStreamReader(conf);
+        BufferedReader br = new BufferedReader(isr);
+        StringBuilder config = new StringBuilder();
+        String line;
+        while ((line = br.readLine()) != null){
+            config.append(line).append("\n");
+        }
+
+        config.append("proto udp\n");
+        config.append(getInlineCa(context, OVPN_HANDSHAKE));
+        config.append("cipher AES-128-GCM\n");
+        config.append("auth SHA256\n");
+
+        PIAServerHandler handler = PIAServerHandler.getInstance(context);
+        String autoserver = endpoint.getEndpoint();
+        String remoteip = autoserver;
+        String remoteport = "";
+        if (autoserver.contains(":")) {
+            remoteip = autoserver.split(":")[0];
+        }
+
+        if (useSignalSettings(endpoint)) {
+            config.append("pia-signal-settings\n");
+            config.append("ncp-disable\n");
+        }
+
+
+        Vector<Integer> ports = handler.getInfo().getUdpPorts();
+        remoteport = ports.firstElement().toString();
+        config.append(String.format(Locale.ENGLISH, "remote %s %s\n", remoteip, remoteport));
+        for(Integer i : ports)
+            if(!i.toString().equals(remoteport))
+                config.append(String.format(Locale.ENGLISH, "remote %s %s\n", remoteip, i));
+
+        config.append("connect-timeout 5\n");
+        config.append("connect-retry-max 1\n");
+
+        if (PiaPrefHandler.isConnectViaProxyEnabled(context))
+            config.append(String.format(Locale.ENGLISH, "socks-proxy 127.0.0.1 %s\n", prefs.get("proxyport", "8080")));
+
+        config.append("nobind\n");
+        config.append(String.format("<auth-user-pass>\n%s\n%s\n</auth-user-pass>\n",
+                user, password));
+
+        if (PiaPrefHandler.getOvpnSmallPacketSizeEnabled(context))
+            config.append("mssfix 1250\n");
+
+
+        // IPv6 kill
+        if (PiaPrefHandler.isBlockIpv6Enabled(context)) {
+            if (!VpnProfile.mIsOpenVPN22) {
+                config.append("ifconfig-ipv6 fd15:53b6:dead::2/64 fd15:53b6:dead::1\n");
+                config.append("route-ipv6 ::/0 ::1\n");
+            }
+            config.append("block-ipv6\n");
+        }
+
+        String devConfigurations = prefs.getString(DeveloperActivity.PREF_DEVELOPER_CONFIGURATION);
         if (!TextUtils.isEmpty(devConfigurations)) {
             config.append("\n").append(devConfigurations).append("\n");
         }

@@ -27,6 +27,14 @@
             <category android:name="android.intent.category.BROWSABLE" />
             <data android:scheme="https" />
         </intent>
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+        </intent>
     </queries>
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -37,14 +45,23 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SYSTEM_EXEMPTED"/>
     <uses-permission android:name="android.permission.VIBRATE"/>
+    <!--Android 13-->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
 
     <uses-feature android:name="android.software.leanback"
         android:required="false" />
 
     <uses-feature android:name="android.hardware.touchscreen"
         android:required="false" />
+
+    <!--    Needed for Amazon-->
+    <uses-feature android:name="android.hardware.location" android:required="false" />
+    <uses-feature android:name="android.hardware.location.gps" android:required="false" />
 
     <application
         android:allowBackup="false"
@@ -65,11 +82,6 @@
             android:exported="false" />
 
         <provider
-            android:name="com.privateinternetaccess.kpi.KPIContentProvider"
-            android:authorities="com.privateinternetaccess.kpi.KPIContentProvider"
-            android:exported="false" />
-
-        <provider
             android:name="com.privateinternetaccess.account.AccountContentProvider"
             android:authorities="com.privateinternetaccess.account.AccountContentProvider"
             android:exported="false" />
@@ -77,7 +89,8 @@
         <activity
             android:name=".ui.LauncherActivity"
             android:theme="@style/SplashScreenTheme"
-            android:noHistory="true" >
+            android:noHistory="true"
+            android:exported="true">
 
             <intent-filter >
                 <action android:name="android.intent.action.VIEW" />
@@ -111,7 +124,7 @@
         <activity
             android:name=".ui.connection.MainActivity"
             android:exported="true"
-            android:launchMode="singleTask"
+            android:launchMode="singleInstance"
             android:resizeableActivity="true"
             android:label="@string/launcher_name"
             >
@@ -124,7 +137,7 @@
 
         <activity
             android:name=".ui.loginpurchasing.LoginPurchaseActivity"
-            android:launchMode="singleTask"
+            android:launchMode="singleInstance"
             android:windowSoftInputMode="stateHidden|adjustResize"
             >
             <layout android:defaultHeight="500dp"
@@ -136,7 +149,7 @@
 
         <activity
             android:name=".ui.tv.DashboardActivity"
-            android:launchMode="singleTask" />
+            android:launchMode="singleInstance" />
 
         <activity
             android:name=".ui.drawer.ServerListActivity"
@@ -158,7 +171,8 @@
                 android:minWidth="300dp" />
             </activity>
 
-        <activity android:name=".ui.features.WebviewActivity">
+        <activity android:name=".ui.features.WebviewActivity"
+            android:exported="true">
             <layout
                 android:defaultWidth="600dp"
                 android:defaultHeight="500dp"
@@ -263,7 +277,8 @@
         <activity android:name=".ui.views.QuickSettingsKillSwitchActivity"/>
 
         <!-- Receivers-->
-        <receiver android:name=".receivers.OnBootReceiver">
+        <receiver android:name=".receivers.OnBootReceiver"
+            android:exported="true">
             <intent-filter android:priority="999">
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.QUICKBOOT_POWERON" /> <!-- HTC boot notification -->
@@ -271,7 +286,8 @@
         </receiver>
 
         <receiver android:name = "com.amazon.device.iap.ResponseReceiver"
-            android:permission = "com.amazon.inapp.purchasing.Permission.NOTIFY" >
+            android:permission = "com.amazon.inapp.purchasing.Permission.NOTIFY"
+            android:exported="true">
             <intent-filter>
                 <action android:name = "com.amazon.inapp.purchasing.NOTIFY" />
             </intent-filter>
@@ -284,14 +300,16 @@
         <receiver android:name=".receivers.NotificationReceiver" />
         <receiver android:name=".receivers.OnRevokeReceiver" />
 
-        <receiver android:name=".receivers.OnAppUpdatedReceiver">
+        <receiver android:name=".receivers.OnAppUpdatedReceiver"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
             </intent-filter>
         </receiver>
 
         <!-- Widget -->
-        <receiver android:name=".ui.widgets.WidgetLongProvider" android:label="@string/widget_long_title">
+        <receiver android:name=".ui.widgets.WidgetLongProvider" android:label="@string/widget_long_title"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -299,7 +317,8 @@
                 android:resource="@xml/widget_main_long" />
         </receiver>
 
-        <receiver android:name=".ui.widgets.WidgetProvider" android:label="@string/widget_square_connect">
+        <receiver android:name=".ui.widgets.WidgetProvider" android:label="@string/widget_square_connect"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -307,7 +326,8 @@
                 android:resource="@xml/widget_main_square" />
         </receiver>
 
-        <receiver android:name=".ui.widgets.WidgetSmallProvider" android:label="@string/widget_small_connect">
+        <receiver android:name=".ui.widgets.WidgetSmallProvider" android:label="@string/widget_small_connect"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -315,7 +335,8 @@
                 android:resource="@xml/widget_main_small" />
         </receiver>
 
-        <receiver android:name=".ui.widgets.WidgetCCProvider" android:label="@string/widget_cc">
+        <receiver android:name=".ui.widgets.WidgetCCProvider" android:label="@string/widget_cc"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -323,7 +344,8 @@
                 android:resource="@xml/widget_main_cc" />
         </receiver>
 
-        <receiver android:name=".ui.widgets.WidgetTextProvider" android:label="@string/widget_text">
+        <receiver android:name=".ui.widgets.WidgetTextProvider" android:label="@string/widget_text"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -333,7 +355,9 @@
 
         <service
             android:name=".wireguard.backend.GoBackend$VpnService"
-            android:permission="android.permission.BIND_VPN_SERVICE">
+            android:permission="android.permission.BIND_VPN_SERVICE"
+            android:foregroundServiceType="systemExempted"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.net.VpnService" />
             </intent-filter>
@@ -359,7 +383,8 @@
             android:value="true"
             android:label="@string/qs_title"
             android:icon="@drawable/ic_stat_pia_robot_white"
-            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE" />
             </intent-filter>
@@ -372,7 +397,8 @@
             android:autoRemoveFromRecents="true"
             android:excludeFromRecents="true"
             android:taskAffinity=".LaunchVPN"
-            tools:ignore="ExportedActivity">
+            tools:ignore="ExportedActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

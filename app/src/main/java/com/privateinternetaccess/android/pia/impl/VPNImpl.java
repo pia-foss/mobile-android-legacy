@@ -40,8 +40,6 @@ import com.privateinternetaccess.android.tunnel.PIAVpnStatus;
 import com.privateinternetaccess.android.ui.widgets.WidgetBaseProvider;
 import com.privateinternetaccess.android.utils.SnoozeUtils;
 import com.privateinternetaccess.core.model.PIAServer;
-import com.privateinternetaccess.kpi.KPIConnectionEvent;
-import com.privateinternetaccess.kpi.KPIConnectionSource;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -90,9 +88,9 @@ public class VPNImpl implements IVPN {
         // Report KPI connection source in order to send it along with the connection attempt.
         prepareKpi(context);
         if (connectPressed) {
-            KPIManager.Companion.getSharedInstance().setConnectionSource(KPIConnectionSource.MANUAL);
+            KPIManager.Companion.getSharedInstance().setConnectionSource(KPIManager.KPIConnectionSource.MANUAL);
         } else {
-            KPIManager.Companion.getSharedInstance().setConnectionSource(KPIConnectionSource.AUTOMATIC);
+            KPIManager.Companion.getSharedInstance().setConnectionSource(KPIManager.KPIConnectionSource.AUTOMATIC);
         }
 
         VPNFallbackEndpointProvider.Companion.getSharedInstance().start(context, (vpnEndpoint, error) -> {

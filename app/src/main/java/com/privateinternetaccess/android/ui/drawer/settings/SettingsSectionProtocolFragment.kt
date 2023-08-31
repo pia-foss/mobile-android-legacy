@@ -29,7 +29,6 @@ import androidx.fragment.app.Fragment
 import com.privateinternetaccess.android.R
 import com.privateinternetaccess.android.databinding.FragmentSettingsSectionProtocolBinding
 import com.privateinternetaccess.android.model.states.VPNProtocol
-import com.privateinternetaccess.android.pia.PIAFactory
 import com.privateinternetaccess.android.pia.handlers.PIAServerHandler
 import com.privateinternetaccess.android.pia.handlers.PiaPrefHandler
 import com.privateinternetaccess.android.pia.utils.Toaster
@@ -44,9 +43,9 @@ class SettingsSectionProtocolFragment : Fragment() {
     private lateinit var binding: FragmentSettingsSectionProtocolBinding
 
     override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View {
         binding = FragmentSettingsSectionProtocolBinding.inflate(inflater)
         return binding.root
@@ -132,7 +131,7 @@ class SettingsSectionProtocolFragment : Fragment() {
         when (VPNProtocol.Protocol.valueOf(PiaPrefHandler.getProtocol(context))) {
             VPNProtocol.Protocol.OpenVPN -> {
                 binding.smallPacketsSwitchSetting.isChecked =
-                        PiaPrefHandler.getOvpnSmallPacketSizeEnabled(context)
+                    PiaPrefHandler.getOvpnSmallPacketSizeEnabled(context)
                 binding.handshakeSummarySetting.text = OVPN_HANDSHAKE
                 binding.dataEncryptionSetting.visibility = View.VISIBLE
                 binding.remotePortSetting.visibility = View.VISIBLE
@@ -141,7 +140,7 @@ class SettingsSectionProtocolFragment : Fragment() {
             }
             VPNProtocol.Protocol.WireGuard -> {
                 binding.smallPacketsSwitchSetting.isChecked =
-                        PiaPrefHandler.getWireguardSmallPacketSizeEnabled(context)
+                    PiaPrefHandler.getWireguardSmallPacketSizeEnabled(context)
                 binding.handshakeSummarySetting.text = WG_HANDSHAKE
                 binding.dataEncryptionSetting.visibility = View.GONE
                 binding.remotePortSetting.visibility = View.GONE
@@ -152,16 +151,19 @@ class SettingsSectionProtocolFragment : Fragment() {
     }
 
     private fun showProtocolDialog(context: Context) {
-        val protocols = VPNProtocol.Protocol.values().map { protocol -> protocol.name }.toTypedArray()
+        val protocols =
+            VPNProtocol.Protocol.values().map { protocol -> protocol.name }.toTypedArray()
         val adapter = SettingsAdapter(context).apply {
             setOptions(protocols)
             setDisplayNames(protocols)
             selected = PiaPrefHandler.getProtocol(context)
         }
-
         val selectionCallback = { dialogInterface: DialogInterface, _: Int ->
             val targetProtocol = VPNProtocol.Protocol.valueOf(protocols[adapter.selectedIndex])
-            (context as SettingsFragmentsEvents).showReconnectDialogIfNeeded(context, targetProtocol) {
+            (context as SettingsFragmentsEvents).showReconnectDialogIfNeeded(
+                context,
+                targetProtocol
+            ) {
                 applyPersistedStateToUi(context)
                 dialogInterface.dismiss()
             }
@@ -169,25 +171,30 @@ class SettingsSectionProtocolFragment : Fragment() {
 
         val builder = AlertDialog.Builder(context)
         builder.setTitle(R.string.settings_protocol)
-        builder.setCancelable(true)
-        builder.setAdapter(adapter, selectionCallback)
+        builder.setSingleChoiceItems(
+            adapter, protocols.indexOf(PiaPrefHandler.getProtocol(requireContext()))
+        ) { _, which ->
+            adapter.selected = protocols[which]
+            adapter.notifyDataSetChanged()
+        }
         builder.setPositiveButton(R.string.save, selectionCallback)
         builder.setNegativeButton(R.string.cancel, null)
         builder.show()
     }
 
     private fun showProtocolTransportDialog(context: Context) {
+        val protocolTransportList = resources.getStringArray(R.array.protocol_transport)
         val adapter = SettingsAdapter(context).apply {
-            setOptions(resources.getStringArray(R.array.protocol_transport))
-            setDisplayNames(resources.getStringArray(R.array.protocol_transport))
+            setOptions(protocolTransportList)
+            setDisplayNames(protocolTransportList)
             selected = PiaPrefHandler.getProtocolTransport(context)
         }
 
         val selectionCallback = { dialogInterface: DialogInterface, _: Int ->
-            val index = adapter.selectedIndex
+            val target = protocolTransportList[adapter.selectedIndex]
             PiaPrefHandler.setProtocolTransport(
-                    context,
-                    resources.getStringArray(R.array.protocol_transport)[index]
+                context,
+                target
             )
             PiaPrefHandler.resetRemotePort(context)
             (context as SettingsFragmentsEvents).showOrbotDialogIfNeeded(context)
@@ -199,22 +206,31 @@ class SettingsSectionProtocolFragment : Fragment() {
         val builder = AlertDialog.Builder(context)
         builder.setTitle(R.string.transport)
         builder.setCancelable(true)
-        builder.setAdapter(adapter, selectionCallback)
+        builder.setSingleChoiceItems(
+            adapter, protocolTransportList.indexOf(PiaPrefHandler.getProtocol(requireContext()))
+        ) { _, which ->
+            adapter.selected = protocolTransportList[which]
+            adapter.notifyDataSetChanged()
+        }
         builder.setPositiveButton(R.string.save, selectionCallback)
         builder.setNegativeButton(R.string.cancel, null)
         builder.show()
     }
 
     private fun showDataEncryptionDialog(context: Context) {
+        val values = resources.getStringArray(R.array.ciphers_values)
         val adapter = SettingsAdapter(context).apply {
-            setOptions(resources.getStringArray(R.array.ciphers_values))
-            setDisplayNames(resources.getStringArray(R.array.cipher_list))
+            setOptions(values)
+            setDisplayNames(values)
             selected = PiaPrefHandler.getDataCipher(context)
         }
 
         val selectionCallback = { dialogInterface: DialogInterface, _: Int ->
-            val index = adapter.selectedIndex
-            PiaPrefHandler.setDataCipher(context, resources.getStringArray(R.array.ciphers_values)[index])
+            val selected = values[adapter.selectedIndex]
+            PiaPrefHandler.setDataCipher(
+                context,
+                selected
+            )
             (context as SettingsFragmentsEvents).showReconnectDialogIfNeeded(context)
             applyPersistedStateToUi(context)
             dialogInterface.dismiss()
@@ -223,7 +239,12 @@ class SettingsSectionProtocolFragment : Fragment() {
         val builder = AlertDialog.Builder(context)
         builder.setTitle(R.string.data_encyrption)
         builder.setCancelable(true)
-        builder.setAdapter(adapter, selectionCallback)
+        builder.setSingleChoiceItems(
+            adapter, values.indexOf(PiaPrefHandler.getDataCipher(context))
+        ) { _, which ->
+            adapter.selected = values[which]
+            adapter.notifyDataSetChanged()
+        }
         builder.setPositiveButton(R.string.save, selectionCallback)
         builder.setNegativeButton(R.string.cancel, null)
         builder.show()
@@ -233,12 +254,12 @@ class SettingsSectionProtocolFragment : Fragment() {
         val supportedProtocols = resources.getStringArray(R.array.protocol_transport)
         val options = when {
             PiaPrefHandler.getProtocolTransport(context) == supportedProtocols[0] ->
-                PIAServerHandler.getInstance(context).info.udpPorts.map {
-                    port -> port.toString()
+                PIAServerHandler.getInstance(context).info.udpPorts.map { port ->
+                    port.toString()
                 }.toMutableList()
             PiaPrefHandler.getProtocolTransport(context) == supportedProtocols[1] ->
-                PIAServerHandler.getInstance(context).info.tcpPorts.map {
-                    port -> port.toString()
+                PIAServerHandler.getInstance(context).info.tcpPorts.map { port ->
+                    port.toString()
                 }.toMutableList()
             else ->
                 throw IllegalArgumentException("Unsupported")
@@ -251,8 +272,8 @@ class SettingsSectionProtocolFragment : Fragment() {
         }
 
         val selectionCallback = { dialogInterface: DialogInterface, _: Int ->
-            val index = adapter.selectedIndex
-            PiaPrefHandler.setRemotePort(context, options[index])
+            val selected = options[adapter.selectedIndex]
+            PiaPrefHandler.setRemotePort(context, selected)
             (context as SettingsFragmentsEvents).showReconnectDialogIfNeeded(context)
             applyPersistedStateToUi(context)
             dialogInterface.dismiss()
@@ -261,7 +282,12 @@ class SettingsSectionProtocolFragment : Fragment() {
         val builder = AlertDialog.Builder(context)
         builder.setTitle(R.string.remote_port)
         builder.setCancelable(true)
-        builder.setAdapter(adapter, selectionCallback)
+        builder.setSingleChoiceItems(
+            adapter, options.indexOf(PiaPrefHandler.getRemotePort(context))
+        ) { _, which ->
+            adapter.selected = options[which]
+            adapter.notifyDataSetChanged()
+        }
         builder.setPositiveButton(R.string.save, selectionCallback)
         builder.setNegativeButton(R.string.cancel, null)
         builder.show()

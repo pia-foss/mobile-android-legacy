@@ -26,6 +26,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
 import com.privateinternetaccess.android.PIAApplication
 import com.privateinternetaccess.android.R
@@ -52,6 +53,10 @@ class SettingsSectionGeneralFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         context?.let {
+            if (PIAApplication.isAndroidTV(it)) {
+                binding.widgetSetting.isGone = true
+                binding.hapticFeedbackOnConnectSetting.isGone = true
+            }
             (it as SettingsActivity).setTitle(R.string.menu_settings_general)
             applyPersistedStateToUi(it)
             prepareClickListeners(it)

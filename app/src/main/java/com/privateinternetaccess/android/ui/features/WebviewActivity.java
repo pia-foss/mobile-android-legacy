@@ -28,8 +28,12 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.webkit.CookieManager;
+import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
+import android.webkit.WebSettings;
+import android.webkit.WebStorage;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -55,6 +59,7 @@ public class WebviewActivity extends BaseActivity {
             "https://www.privateinternetaccess.com/account/client-sign-in#subscription-overview";
     public static final String PRIVACY_POLICY = "https://www.privateinternetaccess.com/pages/privacy-policy/";
     public static final String TERMS_OF_USE = "https://www.privateinternetaccess.com/pages/terms-of-service/";
+    public static final String SURVEY = "https://privateinternetaccess.typeform.com/to/VnjpMDTk";
 
     private static final String[] WHITELIST_URLS = {
             "https://www.privateinternetaccess.com",
@@ -66,7 +71,8 @@ public class WebviewActivity extends BaseActivity {
             "https://www.privateinternetaccess.com/helpdesk/new-ticket/",
             "https://www.privateinternetaccess.com/blog/wireguide-all-about-the-wireguard-vpn-protocol/",
             "https://www.privateinternetaccess.com/helpdesk/kb/articles/removing-openvpn-handshake-and-authentication-settings/",
-            SUBSCRIPTION_OVERVIEW_SITE
+            SUBSCRIPTION_OVERVIEW_SITE,
+            SURVEY
     };
 
     private WebView mWebView;
@@ -87,6 +93,8 @@ public class WebviewActivity extends BaseActivity {
                     mURL = TERMS_OF_USE;
                 } else if (getIntent().getScheme().equalsIgnoreCase("privacy")) {
                     mURL = PRIVACY_POLICY;
+                } else if (getIntent().getScheme().equalsIgnoreCase("survey")) {
+                    mURL = SURVEY;
                 }
             } else {
                 mURL = getIntent().getStringExtra(EXTRA_URL);
@@ -106,6 +114,15 @@ public class WebviewActivity extends BaseActivity {
     @SuppressLint("SetJavaScriptEnabled")
     private void bindView() {
         mWebView = findViewById(R.id.webview_webview);
+        mWebView.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
+        mWebView.getSettings().setSaveFormData(false);
+        mWebView.getSettings().setAllowFileAccess(false);
+
+        WebStorage.getInstance().deleteAllData();
+        CookieManager.getInstance().removeAllCookies(null);
+        CookieManager.getInstance().flush();
+        CookieManager.getInstance().setAcceptCookie(false);
+
         swipeRefreshLayout = findViewById(R.id.swipe_to_refresh);
 
         hideIconButton();
@@ -128,11 +145,7 @@ public class WebviewActivity extends BaseActivity {
         mWebView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    mURL = request.getUrl().toString();
-                } else {
-                    mURL = mWebView.getUrl();
-                }
+                mURL = request.getUrl().toString();
 
                 if (PiaPrefHandler.getWebviewTesting(getApplicationContext()))
                     mURL = PiaPrefHandler.getWebviewTestingSite(getApplicationContext());

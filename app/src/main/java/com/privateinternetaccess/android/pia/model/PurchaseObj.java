@@ -26,14 +26,14 @@ public class PurchaseObj {
 
     private String orderId;
     private String getPackageName;
-    private String sku;
+    private String productId;
     private long purchaseTime;
     private String purchaseToken;
 
     public PurchaseObj(String orderId, String getPackageName, String sku, long purchaseTime, String purchaseToken) {
         this.orderId = orderId;
         this.getPackageName = getPackageName;
-        this.sku = sku;
+        this.productId = sku;
         this.purchaseTime = purchaseTime;
         this.purchaseToken = purchaseToken;
     }
@@ -54,12 +54,12 @@ public class PurchaseObj {
         this.getPackageName = getPackageName;
     }
 
-    public String getSku() {
-        return sku;
+    public String getProductId() {
+        return productId;
     }
 
-    public void setSku(String sku) {
-        this.sku = sku;
+    public void setProductId(String productId) {
+        this.productId = productId;
     }
 
     public long getPurchaseTime() {
@@ -76,5 +76,9 @@ public class PurchaseObj {
 
     public void setPurchaseToken(String purchaseToken) {
         this.purchaseToken = purchaseToken;
+    }
+
+    public boolean isValid() {
+        return orderId != null && purchaseToken != null;
     }
 }

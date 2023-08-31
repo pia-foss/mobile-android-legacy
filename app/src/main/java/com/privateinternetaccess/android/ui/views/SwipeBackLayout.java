@@ -24,13 +24,14 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
-import androidx.core.content.ContextCompat;
-import androidx.core.view.ViewCompat;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+
+import androidx.core.content.ContextCompat;
+import androidx.core.view.ViewCompat;
 
 import com.privateinternetaccess.android.R;
 
@@ -407,9 +408,7 @@ public class SwipeBackLayout extends FrameLayout {
 
     @Override
     public void requestLayout() {
-        if (!mInLayout) {
-            super.requestLayout();
-        }
+        super.requestLayout();
     }
 
     @Override

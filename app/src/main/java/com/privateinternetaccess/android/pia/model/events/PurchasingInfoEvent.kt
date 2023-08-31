@@ -18,6 +18,6 @@
 
 package com.privateinternetaccess.android.pia.model.events
 
-import com.android.billingclient.api.SkuDetails
+import com.android.billingclient.api.ProductDetails
 
-data class PurchasingInfoEvent(val skuDetailsList: Map<String, SkuDetails>)
+data class PurchasingInfoEvent(val skuDetailsList: Map<String, ProductDetails>)

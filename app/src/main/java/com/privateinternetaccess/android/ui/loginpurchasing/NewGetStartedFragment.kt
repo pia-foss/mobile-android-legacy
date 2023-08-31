@@ -8,6 +8,7 @@ import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
 import butterknife.ButterKnife
 import com.privateinternetaccess.account.model.response.AndroidSubscriptionsInformation
@@ -91,12 +92,16 @@ class NewGetStartedFragment : Fragment() {
 
     @Subscribe(sticky = true)
     fun loadPricing(event: PricingLoadedEvent) {
-        pricesLoaded = !TextUtils.isEmpty(event.yearlyCost)
-        description.text = getString(R.string.startup_region_message_new, event.yearlyCost)
-        setUpCosts(event.monthlyCost, event.yearlyCost)
+        requireActivity().runOnUiThread {
+            pricesLoaded = !TextUtils.isEmpty(event.yearlyCost)
+            description.text = getString(R.string.startup_region_message_new, event.yearlyCost)
+            setUpCosts(event.monthlyCost, event.yearlyCost)
+        }
     }
 
     private fun pricesLoaded() {
+        yearlySpinner.isGone = true
+        monthlySpinner.isGone = true
         EventBus.getDefault().postSticky(SubscriptionsEvent())
         selectedProduct = getYearlySubscriptionId(requireContext())
         handleSelection(true)

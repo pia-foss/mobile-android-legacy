@@ -30,6 +30,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.view.GravityCompat;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -118,6 +119,7 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         DLog.i("MainActivity", "onCreate");
+        MainViewModel mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
 
         IAccount account = PIAFactory.getInstance().getAccount(this);
         if (!account.loggedIn()) {
@@ -125,6 +127,7 @@ public class MainActivity extends BaseActivity {
             return;
         }
 
+        mainViewModel.migrateToWireguard(this);
         checkKillswitch();
 
         Rating.Companion.start(this);

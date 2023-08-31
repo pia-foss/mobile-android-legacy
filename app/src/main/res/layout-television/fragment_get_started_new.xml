@@ -101,6 +101,8 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="25dp"
             android:background="@drawable/shape_vpn_package_selection"
+            android:focusable="true"
+            android:focusableInTouchMode="false"
             android:padding="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -175,6 +177,16 @@
 
             </LinearLayout>
 
+            <ProgressBar
+                android:id="@+id/yearlySpinner"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="16dp"
+                android:clickable="false"
+                android:focusable="false" />
+
         </RelativeLayout>
 
         <RelativeLayout
@@ -185,6 +197,8 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="25dp"
             android:background="@drawable/shape_vpn_package_selection"
+            android:focusable="true"
+            android:focusableInTouchMode="false"
             android:padding="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -225,6 +239,16 @@
                     tools:text="$6.95/mo" />
 
             </LinearLayout>
+
+            <ProgressBar
+                android:id="@+id/monthlySpinner"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="16dp"
+                android:clickable="false"
+                android:focusable="false" />
 
         </RelativeLayout>
 

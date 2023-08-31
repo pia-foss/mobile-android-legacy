@@ -21,12 +21,13 @@ package com.privateinternetaccess.android.handlers;
 import android.app.Activity;
 
 
-import com.android.billingclient.api.SkuDetails;
+import com.android.billingclient.api.ProductDetails;
 import com.privateinternetaccess.android.pia.interfaces.IPurchasing;
-import com.privateinternetaccess.android.pia.model.PurchaseObj;
 import com.privateinternetaccess.android.pia.model.enums.PurchasingType;
 import com.privateinternetaccess.android.pia.model.events.SystemPurchaseEvent;
 import com.privateinternetaccess.core.utils.IPIACallback;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.List;
 
@@ -39,7 +40,8 @@ public class PurchasingHandler implements IPurchasing {
     public void init(
             Activity activity,
             List<String> purchasingList,
-            IPIACallback<SystemPurchaseEvent> systemCallback
+            IPIACallback<SystemPurchaseEvent> systemCallback,
+            EventBus eventBus
     ) { }
 
     @Override
@@ -48,15 +50,15 @@ public class PurchasingHandler implements IPurchasing {
     }
 
     @Override
-    public PurchaseObj getPurchase(boolean savePurchase) {
-        return null;
+    public void getPurchase(boolean savePurchase, EventBus eventBus) {
+
     }
 
     @Override
     public void purchase(String subType) { }
 
     @Override
-    public SkuDetails getSkuDetails(String sku) {
+    public ProductDetails getProductDetails(String productId) {
         return null;
     }
 

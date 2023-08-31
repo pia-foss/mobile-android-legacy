@@ -33,6 +33,7 @@ import android.graphics.drawable.Drawable;
 import android.net.VpnService;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.SystemClock;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
@@ -52,6 +53,7 @@ import com.privateinternetaccess.android.PIAApplication;
 import com.privateinternetaccess.android.R;
 import com.privateinternetaccess.android.handlers.PurchasingHandler;
 import com.privateinternetaccess.android.model.events.ExpiredApiTokenEvent;
+import com.privateinternetaccess.android.model.events.SurveyEvent;
 import com.privateinternetaccess.android.model.events.TrustedWifiEvent;
 import com.privateinternetaccess.android.pia.PIAFactory;
 import com.privateinternetaccess.android.pia.handlers.LogoutHandler;
@@ -111,6 +113,7 @@ public abstract class BaseActivity extends SwipeBackBaseActivity implements Netw
     private int iconResId = -1;
     private int iconResIdDisconnected = -1;
     private final BroadcastReceiver receiver = new NetworkReceiver(this);
+    private long lastTimeConnected;
 
     private enum UiState {
         GREY,
@@ -652,6 +655,11 @@ public abstract class BaseActivity extends SwipeBackBaseActivity implements Netw
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void updateState(VpnStateEvent event) {
+        if (event.level == LEVEL_CONNECTED && SystemClock.elapsedRealtime() - lastTimeConnected > CLIENT_STATUS_DELAY_MS) {
+            PiaPrefHandler.recordSuccessfulConnection(this);
+            lastTimeConnected = SystemClock.elapsedRealtime();
+            EventBus.getDefault().post(new SurveyEvent());
+        }
         setBackground();
         fetchClientStatus(event.level, 0);
         handleAuthenticationFailure(event.level);

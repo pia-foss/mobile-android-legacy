@@ -39,6 +39,8 @@ import android.graphics.RectF;
 import android.graphics.drawable.GradientDrawable;
 import android.net.VpnService;
 import androidx.core.content.ContextCompat;
+
+import android.os.Build;
 import android.view.View;
 import android.widget.RemoteViews;
 
@@ -90,7 +92,13 @@ public class WidgetBaseProvider extends AppWidgetProvider  {
 
         Intent intent = new Intent(context, WidgetProvider.class);
         intent.setAction(LAUNCH);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
+        int flags;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            flags = PendingIntent.FLAG_IMMUTABLE;
+        } else {
+            flags = 0;
+        }
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, flags);
         int clickId = R.id.widget_area;
         views.setOnClickPendingIntent(clickId, pendingIntent);
 
@@ -137,7 +145,13 @@ public class WidgetBaseProvider extends AppWidgetProvider  {
     private void setUpCC(Context context, RemoteViews views) {
         Intent i = new Intent(context, WidgetProvider.class);
         i.setAction(MainActivity.CHANGE_VPN_SERVER);
-        PendingIntent intent = PendingIntent.getBroadcast(context, 0, i, 0);
+        int flags;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            flags = PendingIntent.FLAG_IMMUTABLE;
+        } else {
+            flags = 0;
+        }
+        PendingIntent intent = PendingIntent.getBroadcast(context, 0, i, flags);
         views.setOnClickPendingIntent(R.id.widget_image, intent);
 
 //        DLog.d("WidgetProvider", lastSpeed + "");

@@ -18,29 +18,25 @@
 
 package com.privateinternetaccess.android.utils;
 
+import static android.os.Looper.getMainLooper;
+
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Handler;
+import android.provider.Settings;
 
-import com.privateinternetaccess.android.PIAApplication;
-import com.privateinternetaccess.android.R;
 import com.privateinternetaccess.android.pia.PIAFactory;
 import com.privateinternetaccess.android.pia.handlers.PiaPrefHandler;
 import com.privateinternetaccess.android.pia.model.events.SnoozeEvent;
-import com.privateinternetaccess.android.pia.utils.DLog;
 import com.privateinternetaccess.android.receivers.OnSnoozeReceiver;
 
 import org.greenrobot.eventbus.EventBus;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-
-import de.blinkt.openvpn.core.VpnStatus;
-
-import static android.os.Looper.getMainLooper;
 
 public class SnoozeUtils {
     private static final int SNOOZE_REQUEST_CODE = 24;
@@ -69,26 +65,50 @@ public class SnoozeUtils {
     }
 
     public static void setSnoozeAlarm(Context context, long time) {
-        AlarmManager alarmManager = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
+        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            if (!alarmManager.canScheduleExactAlarms()) {
+                final Intent intent = new Intent();
+                intent.setAction(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM);
+                context.startActivity(intent);
+            } else {
+                setSnooze(context, alarmManager, time);
+            }
+        } else {
+            setSnooze(context, alarmManager, time);
+        }
+    }
+
+    private static void setSnooze(Context context, AlarmManager alarmManager, long time) {
         Intent intent = new Intent(context, OnSnoozeReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, SNOOZE_REQUEST_CODE, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+        int flags;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            flags = PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_CANCEL_CURRENT;
+        } else {
+            flags = PendingIntent.FLAG_CANCEL_CURRENT;
+        }
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, SNOOZE_REQUEST_CODE, intent, flags);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC, time, pendingIntent);
-        }
-        else {
+        } else {
             alarmManager.set(AlarmManager.RTC, time, pendingIntent);
         }
 
         PiaPrefHandler.setLastSnoozeTime(context, time);
-
         EventBus.getDefault().post(new SnoozeEvent(false));
     }
 
     public static void resumeVpn(Context context, boolean forceStart) {
-        AlarmManager alarmManager = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
+        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(context, OnSnoozeReceiver.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, SNOOZE_REQUEST_CODE, intent, PendingIntent.FLAG_NO_CREATE);
+        int flags;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            flags = PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_NO_CREATE;
+        } else {
+            flags = PendingIntent.FLAG_NO_CREATE;
+        }
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, SNOOZE_REQUEST_CODE, intent, flags);
 
         if (pendingIntent != null) {
             alarmManager.cancel(pendingIntent);

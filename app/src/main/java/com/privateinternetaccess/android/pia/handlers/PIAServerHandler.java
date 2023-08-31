@@ -25,6 +25,7 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.text.TextUtils;
 
 import androidx.annotation.Nullable;
@@ -45,14 +46,14 @@ import com.privateinternetaccess.android.pia.utils.ServerResponseHelper;
 import com.privateinternetaccess.android.tunnel.PIAVpnStatus;
 import com.privateinternetaccess.android.utils.DedicatedIpUtils;
 import com.privateinternetaccess.android.utils.SystemUtils;
-import com.privateinternetaccess.regions.RegionLowerLatencyInformation;
-import com.privateinternetaccess.regions.RegionsUtils;
-import com.privateinternetaccess.regions.model.RegionsResponse;
 import com.privateinternetaccess.core.model.PIAServer;
 import com.privateinternetaccess.core.model.PIAServerInfo;
 import com.privateinternetaccess.core.model.ServerResponse;
+import com.privateinternetaccess.regions.RegionLowerLatencyInformation;
 import com.privateinternetaccess.regions.RegionsAPI;
 import com.privateinternetaccess.regions.RegionsBuilder;
+import com.privateinternetaccess.regions.RegionsUtils;
+import com.privateinternetaccess.regions.model.RegionsResponse;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -73,7 +74,6 @@ import java.util.Vector;
 import de.blinkt.openvpn.core.VpnStatus;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
-import kotlin.jvm.functions.Function2;
 
 
 /**
@@ -442,8 +442,14 @@ public class PIAServerHandler {
             // We set an initial delay as the initial fetching above will handle the initial
             // update of the server's list and latencies.
             if (fetchServersIntent == null) {
+                int flags;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    flags = PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_CANCEL_CURRENT;
+                } else {
+                    flags = PendingIntent.FLAG_CANCEL_CURRENT;
+                }
                 fetchServersIntent = PendingIntent.getBroadcast(
-                        context, 0, new Intent(context, FetchServersReceiver.class), PendingIntent.FLAG_CANCEL_CURRENT
+                        context, 0, new Intent(context, FetchServersReceiver.class), flags
                 );
                 getAlarmManager().setRepeating(
                         AlarmManager.RTC,
@@ -454,8 +460,14 @@ public class PIAServerHandler {
             }
 
             if (pingIntent == null) {
+                int flags;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    flags = PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_CANCEL_CURRENT;
+                } else {
+                    flags = PendingIntent.FLAG_CANCEL_CURRENT;
+                }
                 pingIntent = PendingIntent.getBroadcast(
-                        context, 0, new Intent(context, PingReceiver.class), PendingIntent.FLAG_CANCEL_CURRENT
+                        context, 0, new Intent(context, PingReceiver.class), flags
                 );
                 getAlarmManager().setRepeating(
                         AlarmManager.RTC,

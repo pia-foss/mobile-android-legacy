@@ -34,6 +34,7 @@ import com.privateinternetaccess.android.pia.PIAFactory
 import com.privateinternetaccess.android.pia.handlers.PiaPrefHandler
 import com.privateinternetaccess.android.pia.model.events.VpnStateEvent
 import com.privateinternetaccess.android.pia.nmt.NetworkManager
+import com.privateinternetaccess.android.pia.nmt.RulesManager
 import com.privateinternetaccess.android.pia.nmt.models.NetworkItem
 import com.privateinternetaccess.android.pia.utils.DLog
 import com.privateinternetaccess.android.ui.connection.MainActivity
@@ -45,7 +46,7 @@ import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
 
 
-class AutomationService : Service() {
+class AutomationService : Service(), RulesManager.RulesChangedListener {
 
     companion object {
         private const val TAG = "AutomationService"
@@ -88,6 +89,7 @@ class AutomationService : Service() {
 
     override fun onCreate() {
         super.onCreate()
+        RulesManager.rulesChangedListener = this
         registerReceiver(receiver, IntentFilter(ANDROID_CONNECTIVITY_FILTER))
         EventBus.getDefault().register(this)
         startForeground(notificationId(), targetNotification())
@@ -95,6 +97,7 @@ class AutomationService : Service() {
 
     override fun onDestroy() {
         super.onDestroy()
+        RulesManager.rulesChangedListener = null
         lastKnownVpnStateEvent = null
         unregisterReceiver(receiver)
         EventBus.getDefault().unregister(this)
@@ -141,6 +144,12 @@ class AutomationService : Service() {
         }
     }
 
+    // region RulesChangedListener
+    override fun onRulesChanged(context: Context) {
+        evaluateAutomationRulesIfNeeded(context)
+    }
+    // endregion
+
     // region private
     private fun evaluateAutomationRulesIfNeeded(context: Context) {
         if (PiaPrefHandler.isAutomationDisabledBySettingOrFeatureFlag(context)) {
@@ -167,7 +176,16 @@ class AutomationService : Service() {
     private fun automationNotification(): Notification {
         val pendingIntent: PendingIntent =
             Intent(this, MainActivity::class.java).let { notificationIntent ->
-                PendingIntent.getActivity(this, 0, notificationIntent, 0)
+                PendingIntent.getActivity(
+                    this,
+                    0,
+                    notificationIntent,
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        PendingIntent.FLAG_IMMUTABLE
+                    } else {
+                        0
+                    }
+                )
             }
 
         return NotificationCompat.Builder(this, OpenVPNService.NOTIFICATION_CHANNEL_NEWSTATUS_ID)

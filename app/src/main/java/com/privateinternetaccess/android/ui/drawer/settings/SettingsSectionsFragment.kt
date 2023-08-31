@@ -24,6 +24,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isGone
 import androidx.fragment.app.Fragment
 import com.privateinternetaccess.android.PIAApplication
 import com.privateinternetaccess.android.R
@@ -48,6 +49,10 @@ class SettingsSectionsFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         context?.let {
+            if (PIAApplication.isAndroidTV(it)) {
+                binding.automationSettings.isGone = true
+                binding.automationSummarySetting.isGone = true
+            }
             (it as SettingsActivity).setTitle(R.string.menu_settings)
             applyPersistedStateToUi(it)
             prepareClickListeners(it)

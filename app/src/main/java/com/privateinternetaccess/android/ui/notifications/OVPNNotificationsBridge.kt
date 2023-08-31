@@ -21,6 +21,7 @@ package com.privateinternetaccess.android.ui.notifications
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.provider.Settings
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
@@ -37,50 +38,65 @@ import de.blinkt.openvpn.core.VPNNotifications
 
 class OVPNNotificationsBridge : VPNNotifications {
 
+    val flags = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        PendingIntent.FLAG_IMMUTABLE
+    } else {
+        0
+    }
+
     override fun showRevokeNotification(context: Context) {
         context.sendBroadcast(Intent(context, OnRevokeReceiver::class.java))
         val openSettings =
-                PendingIntent.getActivity(context, 0, Intent(Settings.ACTION_WIRELESS_SETTINGS), 0)
-        val action = NotificationCompat.Action(
+            PendingIntent.getActivity(
+                context,
                 0,
-                context.getString(R.string.open_android_settings),
-                openSettings
+                Intent(Settings.ACTION_WIRELESS_SETTINGS),
+                flags
+            )
+        val action = NotificationCompat.Action(
+            0,
+            context.getString(R.string.open_android_settings),
+            openSettings
         )
         val style = NotificationCompat.BigTextStyle().bigText(
-                context.getString(R.string.vpn_revoke_text)
+            context.getString(R.string.vpn_revoke_text)
         )
         val notificationIntent = Intent(context, LauncherActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
         }
-        val intent = PendingIntent.getActivity(context, 0, notificationIntent, 0)
+        val intent = PendingIntent.getActivity(
+            context, 0, notificationIntent, flags
+        )
         PIANotifications.sharedInstance.showNotification(
-                context = context,
-                notificationId = OpenVPNService.NOTIFICATION_CHANNEL_NEWSTATUS_ID.hashCode(),
-                contentTitle = context.getString(R.string.vpn_revoke_title),
-                contentText = context.getString(R.string.vpn_revoke_text),
-                ticker = context.getString(R.string.vpn_revoke_text),
-                style = style,
-                intent = intent,
-                action = action
+            context = context,
+            notificationId = OpenVPNService.NOTIFICATION_CHANNEL_NEWSTATUS_ID.hashCode(),
+            contentTitle = context.getString(R.string.vpn_revoke_title),
+            contentText = context.getString(R.string.vpn_revoke_text),
+            ticker = context.getString(R.string.vpn_revoke_text),
+            style = style,
+            intent = intent,
+            action = action
         )
     }
 
     override fun showKillSwitchNotification(context: Context) {
         val style = NotificationCompat.BigTextStyle().bigText(
-                context.getString(R.string.killswitchstatus_description)
+            context.getString(R.string.killswitchstatus_description)
         )
         val notificationIntent = Intent(context, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
         }
-        val intent = PendingIntent.getActivity(context, 0, notificationIntent, 0)
+        val intent = PendingIntent.getActivity(
+            context, 0, notificationIntent, flags
+        )
         PIANotifications.sharedInstance.showNotification(
-                context = context,
-                notificationId = PIANotifications.NOTIFICATION_CHANNEL_ID.hashCode(),
-                contentTitle = context.getString(R.string.killswitch_notification_title),
-                contentText = context.getString(R.string.killswitchstatus_description),
-                ticker = context.getString(R.string.killswitch_notification_title),
-                style = style,
-                intent = intent
+            context = context,
+            notificationId = PIANotifications.NOTIFICATION_CHANNEL_ID.hashCode(),
+            contentTitle = context.getString(R.string.killswitch_notification_title),
+            contentText = context.getString(R.string.killswitchstatus_description),
+            ticker = context.getString(R.string.killswitch_notification_title),
+            style = style,
+            intent = intent
         )
     }
 
@@ -102,12 +118,12 @@ class OVPNNotificationsBridge : VPNNotifications {
         builder.addAction(
                 0,
                 context.getString(de.blinkt.openvpn.R.string.cancel_connection),
-                PendingIntent.getBroadcast(context, 0, disconnectVPN, 0)
+            PendingIntent.getBroadcast(context, 0, disconnectVPN, flags)
         )
         val pauseVPN = Intent(context, NotificationReceiver::class.java)
         if (deviceStateReceiver == null || !deviceStateReceiver.isUserPaused) {
             pauseVPN.action = NotificationReceiver.ACTION_PAUSE
-            val pauseVPNPending = PendingIntent.getBroadcast(context, 0, pauseVPN, 0)
+            val pauseVPNPending = PendingIntent.getBroadcast(context, 0, pauseVPN, flags)
             builder.addAction(
                     0,
                     context.getString(de.blinkt.openvpn.R.string.pauseVPN),
@@ -115,7 +131,7 @@ class OVPNNotificationsBridge : VPNNotifications {
             )
         } else {
             pauseVPN.action = NotificationReceiver.ACTION_RESUME
-            val resumeVPNPending = PendingIntent.getBroadcast(context, 0, pauseVPN, 0)
+            val resumeVPNPending = PendingIntent.getBroadcast(context, 0, pauseVPN, flags)
             builder.addAction(
                     0,
                     context.getString(de.blinkt.openvpn.R.string.resumevpn),
@@ -125,11 +141,11 @@ class OVPNNotificationsBridge : VPNNotifications {
         val changeServer = Intent(context, MainActivity::class.java).apply {
             action = MainActivity.CHANGE_VPN_SERVER
         }
-        val changeServerPI = PendingIntent.getActivity(context, 0, changeServer, 0)
+        val changeServerPI = PendingIntent.getActivity(context, 0, changeServer, flags)
         val changeServerA = NotificationCompat.Action(
-                0,
-                context.getString(R.string.change_server),
-                changeServerPI
+            0,
+            context.getString(R.string.change_server),
+            changeServerPI
         )
         builder.addAction(changeServerA)
     }

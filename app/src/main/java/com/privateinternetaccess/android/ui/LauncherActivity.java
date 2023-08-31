@@ -24,11 +24,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.net.VpnService;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.lifecycle.ProcessLifecycleOwner;
 
 import com.privateinternetaccess.android.PIAApplication;
@@ -45,6 +48,7 @@ import com.privateinternetaccess.android.ui.connection.MainActivityHandler;
 import com.privateinternetaccess.android.ui.connection.VPNPermissionActivity;
 import com.privateinternetaccess.android.ui.loginpurchasing.LoginPurchaseActivity;
 import com.privateinternetaccess.android.ui.tv.DashboardActivity;
+import com.privateinternetaccess.android.utils.AmazonPurchaseUtil;
 import com.privateinternetaccess.android.utils.DedicatedIpUtils;
 import com.privateinternetaccess.android.utils.InAppMessageManager;
 
@@ -61,12 +65,35 @@ public class LauncherActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Prefs.with(getApplicationContext()).set(HAS_AUTO_STARTED, false);
         ProcessLifecycleOwner.get().getLifecycle().addObserver(new PIALifecycleObserver(this));
+        if (PIAApplication.isAmazon()) {
+            PIAApplication.amazonPurchaseUtil = new AmazonPurchaseUtil(this);
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (!NotificationManagerCompat.from(this).areNotificationsEnabled()) {
+                requestPermissions(new String[]{"android.permission.POST_NOTIFICATIONS"}, 0);
+            } else {
+                loadData();
+            }
+        }
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+    }
+
+    private void loadData() {
         loadFlags(this);
+        if (PIAApplication.isAmazon()) {
+            PIAApplication.amazonPurchaseUtil.loadProducts();
+            PIAApplication.amazonPurchaseUtil.getPurchaseUpdates();
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        loadData();
     }
 
     private void nextActivityLogic() {
@@ -142,16 +169,6 @@ public class LauncherActivity extends AppCompatActivity {
 
         if (PIAApplication.isAndroidTV(this)) {
             PIAApplication.validatePreferences(this);
-        }
-
-        if (PiaPrefHandler.isShowInAppMessagesEnabled(context)) {
-            IAccount account = PIAFactory.getInstance().getAccount(context);
-            account.message((message, response) -> {
-                if (response == RequestResponseStatus.SUCCEEDED) {
-                    InAppMessageManager.queueRemoteMessage(message);
-                }
-                return null;
-            });
         }
     }
 
