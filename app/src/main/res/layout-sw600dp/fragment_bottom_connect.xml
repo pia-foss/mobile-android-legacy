@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_connect_bottom_area"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:weightSum="1.0"
+    android:gravity="center_vertical"
+    android:layout_marginTop="30dp"
+    android:layout_marginBottom="20dp"
+    android:layout_alignParentBottom="true"
+    >
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="0.45"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ip_short"
+                android:textAppearance="@style/PiaTextCaption"
+                android:layout_marginBottom="5dp"
+                />
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/fragment_connect_ip"
+                    android:textAppearance="@style/PiaTextSubheading"
+                    />
+
+                <ProgressBar
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:id="@+id/fragment_connect_ip_progress"
+                    android:visibility="gone"
+                    />
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/fragment_connect_port_area"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/remote_port_cap"
+                android:layout_marginBottom="5dp"
+                android:textAppearance="@style/PiaTextCaption"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/fragment_connect_port"
+                android:textAppearance="@style/PiaTextSubheading"
+                android:gravity="end"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_weight="0.1"
+
+        />
+
+    <LinearLayout
+        android:id="@+id/fragment_connect_flag_area"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_weight="0.45"
+        android:background="@drawable/shape_standard_background"
+        android:clickable="true"
+        android:focusable="true"
+        android:paddingLeft="@dimen/margin_side_status"
+        android:paddingRight="@dimen/margin_side_status"
+        android:paddingBottom="5dp"
+        android:layout_marginTop="5dp"
+        >
+
+        <TextView
+            android:id="@+id/fragment_connect_server_current_region"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/current_region"
+            android:textAppearance="@style/PiaTextCaption"
+            />
+
+        <ImageView
+            android:layout_width="55dp"
+            android:layout_height="30dp"
+            android:id="@+id/fragment_connect_server_icon"
+            tools:src="@drawable/flag_abkhazia"
+            android:layout_margin="10dp"
+            android:scaleType="center"
+            />
+
+        <TextView
+            android:id="@+id/fragment_connect_server_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Automatic server selection"
+            android:ellipsize="end"
+            android:textAppearance="@style/PiaTextSubheading"
+            android:layout_marginBottom="5dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/PiaTextHighlighted"
+            android:layout_marginTop="5dp"
+            android:text="@string/change_region"
+            android:layout_marginBottom="1dp"
+            />
+    </LinearLayout>
+</LinearLayout>

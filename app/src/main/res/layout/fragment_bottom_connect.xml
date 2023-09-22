@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginTop="20dp"
+    android:layout_marginBottom="10dp"
+    android:id="@+id/fragment_connect_bottom_area"
+    android:layout_alignParentBottom="true"
+    >
+
+    <RelativeLayout
+        android:id="@+id/fragment_connect_flag_area"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/margin_side_status"
+        android:paddingRight="@dimen/margin_side_status"
+        android:paddingBottom="10dp"
+        android:background="@drawable/shape_standard_background"
+        android:clickable="true"
+        android:focusable="true"
+        >
+        <TextView
+            android:id="@+id/fragment_connect_server_current_region"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/current_region"
+            android:textAppearance="@style/PiaTextCaption"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/fragment_connect_server_current_region"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            >
+
+            <ImageView
+                android:id="@+id/fragment_connect_server_icon"
+                android:layout_width="55dp"
+                android:layout_height="30dp"
+                tools:background="@drawable/flag_canada"
+                />
+
+            <TextView
+                android:id="@+id/fragment_connect_server_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Automatic server selection"
+                android:ellipsize="end"
+                android:textAppearance="@style/PiaTextSubheading"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:id="@+id/fragment_connect_server_arrow"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/ic_next"/>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/per_app_divider"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1.0"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="@dimen/margin_side_status"
+        android:paddingRight="@dimen/margin_side_status"
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.4"
+            android:orientation="vertical"
+            android:gravity="start"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ip_short"
+                android:textAppearance="@style/PiaTextCaption"
+                />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/fragment_connect_ip"
+                    android:textAppearance="@style/PiaTextSubheading"
+                    tools:text="111.222.333.444"
+                    />
+
+                <ProgressBar
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:id="@+id/fragment_connect_ip_progress"
+                    android:visibility="gone"
+                    />
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.6"
+            android:orientation="vertical"
+            android:gravity="end"
+            android:id="@+id/fragment_connect_port_area"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/remote_port_cap"
+                android:textAppearance="@style/PiaTextCaption"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/fragment_connect_port"
+                android:layout_marginTop="4dp"
+                android:textAppearance="@style/PiaTextSubheading"
+                android:gravity="end"
+                android:maxLines="1"
+                tools:text="4343"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

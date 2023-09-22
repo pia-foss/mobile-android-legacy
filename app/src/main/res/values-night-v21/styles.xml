@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<resources>
+    <style name="pia_theme_3_0" parent="MaterialDrawerTheme">
+        <item name="colorPrimary">@color/pia_gen_green</item>
+        <item name="colorPrimaryDark">@color/status_bar_color</item> <!-- notification color -->
+        <item name="colorAccent">@color/pia_gen_green</item>
+
+        <item name="android:windowBackground">@color/windowBackground</item>
+
+        <item name="android:textColorPrimary">@color/textColorPrimaryDark</item>
+        <item name="android:textColorSecondary">@color/textColorSecondaryDark</item>
+
+        <!-- MaterialDrawer specific values -->
+        <item name="material_drawer_background">@color/windowBackground</item>
+        <item name="material_drawer_primary_text">@color/textColorPrimaryDark</item>
+        <item name="material_drawer_primary_icon">@color/textColorPrimaryDark</item>
+        <item name="material_drawer_secondary_text">@color/textColorSecondaryDark</item>
+        <item name="material_drawer_hint_text">@color/material_drawer_dark_hint_text</item>
+        <item name="material_drawer_divider">@color/material_drawer_dark_divider</item>
+        <item name="material_drawer_selected">@color/greendark20</item>
+        <item name="material_drawer_selected_text">@color/textColorPrimaryDark</item>
+        <item name="material_drawer_header_selection_text">@color/material_drawer_dark_header_selection_text</item>
+
+        <item name="preferenceTheme">@style/PreferenceTheme</item>
+
+        <item name="colorControlNormal">@color/white</item>
+        <item name="colorControlActivated">@color/pia_gen_green</item>
+        <item name="colorControlHighlight">@color/pia_gen_green</item>
+
+        <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
+
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@color/status_bar_color</item>
+
+        <item name="splash_background">@drawable/map_bg_dark</item>
+        <item name="buy_account_button">@drawable/shape_rounded_border_white</item>
+        <item name="edit_background">@drawable/shape_round_top_fill_grey</item>
+        <item name="scan_background">@drawable/shape_rounded_scan_dark</item>
+
+        <item name="tos_color">@color/white</item>
+        <item name="piax_edit_text_color">@color/white</item>
+        <item name="piax_edit_underline_color">@color/grey15</item>
+
+        <item name="purchasing_finalize_background">@drawable/shape_rounded_border_grey55</item>
+
+        <item name="grey20_white">@color/white</item>
+
+        <item name="search_background">@color/grey15</item>
+        <item name="region_selection_background">@color/grey15</item>
+        <item name="region_list_item_background">@color/grey20</item>
+        <item name="dialog_header_background">@color/grey40</item>
+        <item name="dialog_body_background">@color/grey20</item>
+    </style>
+
+</resources>

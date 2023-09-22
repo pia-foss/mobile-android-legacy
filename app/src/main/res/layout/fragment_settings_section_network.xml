@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:animateLayoutChanges="true"
+        android:background="@color/account_details_background" >
+
+        <LinearLayout
+            android:id="@+id/dnsSetting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="64dp"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="@drawable/settings_bottom_divider" >
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingVertical="4dp"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="start|center"
+                    android:text="@string/dns_pref_header"
+                    android:textColor="@color/textColorPrimary"
+                    android:textAppearance="@style/Style07" />
+
+                <TextView
+                    android:id="@+id/dnsSummarySetting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="start|center"
+                    android:textAppearance="@style/Style08" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="9dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_arrow" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/portForwardingSetting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="64dp"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="@drawable/settings_bottom_divider" >
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingVertical="4dp"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="start|center"
+                    android:text="@string/portforwarding"
+                    android:textColor="@color/textColorPrimary"
+                    android:textAppearance="@style/Style07" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="start|center"
+                    android:text="@string/portforwarding_summary"
+                    android:textAppearance="@style/Style08" />
+
+            </LinearLayout>
+
+            <Switch
+                android:id="@+id/portForwardingSwitchSetting"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:clickable="false"
+                android:focusable="false"
+                android:checked="false"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/aggressiveIpv6BlockingSetting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="64dp"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="@drawable/settings_bottom_divider" >
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingVertical="4dp"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="start|center"
+                    android:text="@string/blockipv6"
+                    android:textColor="@color/textColorPrimary"
+                    android:textAppearance="@style/Style07" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="start|center"
+                    android:text="@string/blockipv6_summary"
+                    android:textAppearance="@style/Style08" />
+
+            </LinearLayout>
+
+            <Switch
+                android:id="@+id/aggressiveIpv6BlockingSwitchSetting"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:clickable="false"
+                android:focusable="false"
+                android:checked="@bool/useblockipv6"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/allowLanTrafficSetting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="64dp"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackground" >
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingVertical="4dp"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="start|center"
+                    android:text="@string/allow_locallan"
+                    android:textColor="@color/textColorPrimary"
+                    android:textAppearance="@style/Style07" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="start|center"
+                    android:text="@string/allow_locallan_details"
+                    android:textAppearance="@style/Style08" />
+
+            </LinearLayout>
+
+            <Switch
+                android:id="@+id/allowLanTrafficSwitchSetting"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:clickable="false"
+                android:focusable="false"
+                android:checked="false"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/per_app_divider"/>
+
+    </LinearLayout>
+
+</ScrollView>

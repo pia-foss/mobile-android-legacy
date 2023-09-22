@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include layout="@layout/snippet_activity_secondary_top" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="fill_vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/trusted_wifi_permission_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                    android:layout_marginRight="@dimen/activity_horizontal_margin"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    >
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="81dp"
+                        android:layout_height="108dp"
+                        app:srcCompat="@drawable/ic_vpn_permission"
+                        android:layout_marginTop="40dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/trusted_wifi_permission_body_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/network_permisions_top_text"
+                        style="@style/PiaTextTitle"
+                        android:gravity="center_horizontal"
+                        android:layout_marginTop="30dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/trusted_wifi_permission_body_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/network_permissions_middle_text"
+                        style="@style/PiaTextBody1"
+                        android:gravity="center_horizontal"
+                        android:layout_marginTop="18dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/trusted_wifi_permission_footer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/network_permission_network"
+                        style="@style/PiaTextSmallInfo"
+                        android:gravity="center_horizontal"
+                        android:layout_marginTop="72dp"
+                        />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/trusted_wifi_permissions_button"
+                        style="@style/PIAButton.Green"
+                        android:text="@string/ok"
+                        android:textAllCaps="false"
+                        android:layout_marginTop="15dp"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/trusted_wifi_list_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="16dp"
+                    android:visibility="visible"
+                    >
+
+                    <TextView
+                        android:id="@+id/trusted_wifi_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/Style02"
+                        android:textColor="?attr/grey20_white"
+                        android:textStyle="bold"
+                        android:text="@string/nmt_manage_title"
+                        tools:text="Manage Automation"/>
+
+                    <TextView
+                        android:id="@+id/trusted_wifi_description"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/Style13"
+                        android:text="@string/nmt_manage_description"
+                        tools:text="Configure how PIA behave on connection to WiFi or cellular networks. This excludes disconnecting manually."/>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/network_recyclerview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"/>
+
+                    <LinearLayout
+                        android:id="@+id/network_add_rule_button"
+                        android:layout_marginTop="32dp"
+                        android:layout_marginBottom="32dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_gravity="center_horizontal" >
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:layout_gravity="center_vertical"
+                            app:srcCompat="@drawable/ic_add"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="8dp"
+                            android:paddingBottom="1dp"
+                            style="@style/Style04"
+                            android:text="@string/nmt_add_new_rule" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </androidx.core.widget.NestedScrollView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</FrameLayout>

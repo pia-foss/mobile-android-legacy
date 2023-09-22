@@ -1,0 +1,7 @@
+include ':kpi'
+include ':csi'
+include ':account'
+include ':regions'
+include ':core'
+include ':app'
+include ':openvpnTunnel'

@@ -1,0 +1,40 @@
+<!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="53dp"
+    android:height="36dp"
+    android:viewportWidth="53"
+    android:viewportHeight="36">
+  <group>
+    <clip-path android:pathData="M0,0H53V36H0Z M 0,0"/>
+    <path
+        android:pathData="M0,0 L0,36 L53,36 L53,0 Z "
+        android:fillColor="#00FFFFFF"
+        android:strokeColor="#00000000"/>
+    <path
+        android:pathData="M26,23.3c.5,.5,.6,1.4,.1,2c-.5,.5,-1.4,.6,-2,.1L18.3,20.2l-5.7,5.2c-.6,.5,-1.5,.4,-2,-.1c-.5,-.6,-.5,-1.5,.1,-2l5.5,-5L10.7,13.4c-.6,-.5,-.6,-1.4,-.1,-2c.5,-.6,1.4,-.6,2,-.1l5.7,5.2l5.8,-5.2c.6,-.5,1.5,-.5,2,.1c.5,.6,.4,1.5,-.1,2l-5.6,4.9Zm4.7,-5C30.7,11.5,25.2,6,18.3,6C11.5,6,6,11.5,6,18.3c0,6.9,5.5,12.4,12.3,12.4c6.9,0,12.4,-5.5,12.4,-12.4Z"
+        android:fillColor="#5C6370"/>
+    <group>
+      <clip-path android:pathData="M0,36.7V0H53.1V36.7Z M 0,0"/>
+      <path
+          android:pathData="M18.3,2.6C9.2,2.6,1.8,10.4,2.6,19.8c.8,8.2,8,14.3,16.3,14.3H34.3c8.2,0,15.5,-6.1,16.2,-14.3C51.4,10.4,44,2.6,34.8,2.6ZM34.8,36.7H18.9C9.4,36.7,.9,29.6,.1,20C-.8,9.2,7.7,0,18.3,0H34.2c9.6,0,18,7.1,18.9,16.6c1,10.9,-7.6,20.1,-18.3,20.1Z"
+          android:fillColor="#5C6370"/>
+    </group>
+  </group>
+</vector>

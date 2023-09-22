@@ -1,0 +1,17 @@
+name: Push checks
+on:
+  push:
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/master' }}
+
+jobs:
+  build-playstore-version:
+    uses: ./.github/workflows/build-playstore-android.yaml
+    secrets: inherit
+  build-web-version:
+    uses: ./.github/workflows/build-web-android.yaml
+    secrets: inherit
+  test:
+    uses: ./.github/workflows/test-android.yaml
+    secrets: inherit

@@ -1,0 +1,661 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+<resources>
+    <string name="launcher_name">PIA VPN</string>
+    <string name="app_name">Private Internet Access의 VPN</string>
+    <string name="menu_settings">설정</string>
+    <string name="menu_settings_general">일반</string>
+    <string name="menu_settings_protocols">프로토콜</string>
+    <string name="menu_settings_network">네트워크</string>
+    <string name="menu_settings_privacy">프라이버시</string>
+    <string name="menu_settings_automation">자동화</string>
+    <string name="menu_settings_obfuscation">난독 처리</string>
+    <string name="menu_settings_help">도움말</string>
+    <!-- Please keep the %s, this is a formatted text. %s is a port number (ei 1024) -->
+    <string name="rportsummary">연결에 %s 포트 사용</string>
+    <!-- Please keep the %s, this is a formatted text. %s is a port number (ei 1024) -->
+    <string name="lportsummary">연결에 로컬 포트 %s 사용</string>
+    <string name="lportrandom">연결에 임의의 로컬 포트 사용</string>
+    <string name="server_selection">서버 선택</string>
+    <string name="auto_rport">자동 포트 선택 사용</string>
+    <string name="automatic_server_selection_main">자동</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is a server location (ei London, Berlin) -->
+    <string name="automatic_server_selection_main_region">자동 (%1$s)</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is an IP (ei 126.0.1.10)  -->
+    <string name="prompt_login">예: p1234567</string>
+    <string name="use_udp_summary">연결에 UDP를 사용합니다</string>
+    <string name="use_tcp_summary">연결에 TCP를 사용합니다</string>
+    <string name="transport">전송</string>
+    <string name="select_port">privateinternetaccess.com에 연결할 때 사용할 포트를 선택합니다</string>
+    <string name="remote_port">원격 포트</string>
+    <string name="remote_port_cap">전달된 포트</string>
+    <string name="remote_port_vpn_ip">VPN IP</string>
+    <string name="local_port">로컬 포트</string>
+    <string name="find_out_more"><u>자세히 보기</u></string>
+    <string name="connect_onstart_title">시작 시 연결</string>
+    <string name="connect_onstart">앱이 시작할 때 연결</string>
+    <string name="connect_on_boot">시스템 시작 시 실행</string>
+    <string name="portforwarding">포트 전달 요청</string>
+    <string name="portforwarding_summary">외부 포트를 통해 모바일 장치에 들어오는 연결을 허용합니다</string>
+    <!-- Please keep the %s, this is a formatted text. %s is an error message.  -->
+    <string name="portfwderror">포트 전달 요청 오류: %s</string>
+    <string name="mace_toggle">Mace Ad Blocker</string>
+    <string name="killswitch">VPN 킬 스위치</string>
+    <string name="killswitchsummary">VPN 연결이 해제될 때 인터넷 연결을 비활성화합니다.</string>
+    <string name="killswitchtext">인터넷 킬 스위치가 활성화됨</string>
+    <string name="killswitchstatus_description">인터넷 킬 스위치는 보호되지 않는 인터넷 활동을 허용하지 않습니다. 다시 연결되기를 기다리거나 당사의 VPN 서비스에 연결하거나 킬 스위치를 비활성화해서 인터넷 연결을 복구하세요.</string>
+    <string name="requestingportfw">전달된 포트 요청 중...</string>
+    <string name="killswitch_button">비활성화</string>
+    <string name="action_sign_in_short">로그인</string>
+    <string name="login">로그인</string>
+    <string name="logout">로그아웃</string>
+    <string name="accept">수락</string>
+    <string name="no_thanks">아니요</string>
+    <string name="read_more"><u>자세히 보기</u></string>
+    <string name="state_gen_config">구성 생성 중</string>
+    <string name="user_pw_invalid">사용자 이름/비밀번호가 잘못됨</string>
+    <string name="replace_login_title">로그인 정보 교체</string>
+    <!-- Please keep the %1$s %2$s, this is a formattered text. %1$s %2$s are usernames.  -->
+    <string name="replace_login_msg">로그인 정보를 새 로그인 정보로 교체합니까? (새 사용자 이름: %1$s, 이전 사용자 이름: %2$s)</string>
+    <string name="subscription_expires_in">구독 만료 시간:</string>
+    <string name="subscription_expired">귀하의 구독 항목:</string>
+    <string name="per_app_settings">앱당 설정</string>
+    <string name="tv_per_app_settings">앱당 설정</string>
+    <string name="help_improve_pia">PIA 개선 작업 지원하기</string>
+    <string name="username_password_already_saved">사용자 이름 및 비밀번호가 이미 저장됨!</string>
+    <string name="invalid_email_signup">유효한 이메일 주소를 제공하셔야 합니다</string>
+    <string name="buyvpn_url_localized">https://www.privateinternetaccess.com/pages/buy-vpn/</string>
+    <string name="localport_warning">로컬 포트는 1024 ~ 65535 사이이어야 합니다</string>
+    <string name="notanumber_localport">로컬 포트의 번호 형식이 잘못됨</string>
+    <string name="notanumber_proxyport">프록시 포트의 번호 형식이 잘못됨</string>
+    <string name="thankyou_monthly">월간 VPN에 가입해주셔서 감사합니다!</string>
+    <string name="thankyou_yearly">연간 VPN에 가입해주셔서 감사합니다!</string>
+    <string name="purchase_signing_up">가입 중...</string>
+    <string name="purchase_loading">로드 중</string>
+    <string name="logout_confirmation">로그아웃 확인</string>
+    <string name="logout_confirmation_text">로그아웃하면 진행 중인 VPN 연결이 종료되고 보호를 받지 못합니다.</string>
+    <string name="expiry_notification_title">구독이 곧 만료됩니다.</string>
+    <string name="expiry_notification_onnemonth">한달도 채 남지 않았습니다. 갱신해서 계속 보호 받으세요.</string>
+    <string name="expiry_notification_oneweek">일주일도 채 남지 않았습니다. 갱신해서 계속 보호 받으세요.</string>
+    <string name="expirty_notification_threedays">3일도 채 남지 않았습니다. 갱신해서 계속 보호 받으세요.</string>
+    <string name="expirty_notification_oneday">하루도 채 남지 않았습니다. 갱신해서 계속 보호 받으세요.</string>
+    <string name="error_renew_trial">체험 계정은 갱신할 수 없습니다. 서비스를 계속 이용하려면 만료 시 새 계정을 구매해주십시오.</string>
+    <string name="error_renew_expired">계정이 비활성화되어 새로운 결제를 수락할 수 없습니다. 로그아웃 후 다시 등록해서 새 계정을 생성하십시오.</string>
+    <string name="pending_purchase_found">대기 중인 인앱 결제가 있습니다. 로그인해서 현재 구독 항목을 갱신하십시오.</string>
+    <string name="account_not_renewable">귀하의 계정은 갱신할 수 없거나 자동으로 갱신됩니다.</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is an error message.  -->
+    <string name="error_subscribing">"구매 중 오류 발생: %1$s "</string>
+    <string name="error_active_subscription">이미 유효한 구독 항목이 있습니다!</string>
+    <string name="error_invalid_auth">문제가 발생했습니다. 다시 로그인해 보세요.</string>
+    <string name="usemssfix">일부 라우터 및 모바일 네트워크와의 호환성을 향상시키기 위해 IP 패킷의 크기를 약간 줄입니다.</string>
+    <string name="mssfixsummary">작은 패킷 사용</string>
+    <string name="settings_account_bottom_text">다른 장치에서도 Private Internet Access 앱을 다운로드받고 위의 사용자 이름으로 로그인해서 연결을 보호하세요.</string>
+    <string name="settings_account_bottom_text_4">다른 장치에서도 Private Internet Access 앱을 다운로드 받고 위의 사용자 이름을 사용해 로그인해서 연결을 보호하세요.</string>
+    <string name="update_email">이메일 업데이트</string>
+    <string name="email_sucessfully_changed">이메일 주소 변경 성공</string>
+    <string name="copy_toast_text">클립보드로 텍스트 복사 완료</string>
+    <string name="current_region">현재 지역</string>
+    <string name="full_licenses">정식 라이선스</string>
+    <string name="email">이메일</string>
+    <string name="please_wait">잠시만 기다리세요</string>
+    <string name="still_connecting">아직 연결을 시도하는 중입니다</string>
+    <string name="enabled">활성화됨</string>
+    <string name="disabled">비활성화됨</string>
+    <string name="account_details_password_bottom_text">표시하려면 \'눈\'을 누릅니다. 다시 누르면 비밀번호를 클립보드로 복사합니다.</string>
+    <string name="user_x_vs_p_error">\'p\'로 시작하는 귀하의 기본 사용자 이름(예: p12345)으로 로그인 중인지 확인해주십시오.</string>
+    <string name="vpn_revoke_text">PIA의 VPN 사용 허가가 취소되었습니다. VPN, 인터넷 킬 스위치 및 보안이 활성화되지 않았습니다. 여기를 눌러서 이 서비스를 다시 시작하고 인터넷 연결의 보안을 확보하십시오.</string>
+    <string name="vpn_revoke_title">PIA VPN 중단됨</string>
+    <!-- Please keep the % elements, this is a formatted text. %1$s is Private Internet Access, %2$s is version number(ei 1.4), %3$s is the version code (ei 114)  -->
+    <string name="login_operation_failed">로그인 실패. 나중에 다시 시도해주십시오.</string>
+    <string name="no_internet_connection_available">이용 가능한 인터넷 연결이 없습니다</string>
+    <string name="no_username_or_password">사용자 이름 및 비밀번호를 입력하셔야 합니다.</string>
+    <string name="please_unlock_your_device">장치의 잠금을 해제해주십시오</string>
+    <string name="please_unlock_your_device_message">비밀번호 확인 또는 계정 정보 업데이트.</string>
+    <string name="settings_mace">PIA MACE™</string>
+    <string name="settings_mace_summary">VPN에 연결된 동안 광고, 트래커 및 맬웨어를 차단합니다</string>
+    <string name="qs_title">PIA에 연결</string>
+    <string name="not_logged_in">로그인 중이 아님</string>
+    <!-- Please keep the %s, this is a formatted text. %s is a server name.  -->
+    <string name="qs_disconnect">VPN (%s) 연결 해제</string>
+    <string name="qs_disconnect_nolocation">VPN 연결 해제</string>
+    <string name="menu_about">정보</string>
+    <string name="reconnect_vpn">이 변경 사항을 적용하려면 VPN에 다시 연결하십시오</string>
+    <string name="reconnect">다시 연결</string>
+    <string name="later">나중에</string>
+    <string name="error_account_info">계정 정보를 찾지 못했습니다</string>
+    <string name="error_pinging_while_connected">VPN에 연결된 동안에는 대기 시간을 업데이트할 수 없습니다.</string>
+    <string name="allows_port_forwarding">포트 전달 허용</string>
+    <string name="about_privacy_policy">개인정보 취급방침</string>
+    <string name="version">버전</string>
+    <string name="application_information">애플리케이션 정보</string>
+    <string name="data_encyrption">데이터 암호화</string>
+    <string name="data_auth">데이트 인증</string>
+    <string name="handshake">핸드셰이크</string>
+    <string name="dismiss">취소</string>
+    <string name="recent_changes">최근 변경 사항</string>
+    <string name="refresh">새로 고침</string>
+    <string name="open_in_browser">브라우저에서 열기</string>
+    <string name="copy_link">링크 복사</string>
+    <string name="text_failed_to_copy">텍스트 복사 실패</string>
+    <string name="link_copied_to_clipboard">클립보드로 링크 복사 완료</string>
+    <string name="search_apps">앱 검색</string>
+    <string name="account_trail">체험</string>
+    <string name="account_yearly">연간</string>
+    <string name="account_montly">월간</string>
+    <string name="account_termination">귀하의 계정은 해지되었습니다</string>
+    <string name="preference_connection">연결</string>
+    <string name="preference_encryption">암호화</string>
+    <string name="vpn_stop">중단</string>
+    <string name="change_server">서버 변경</string>
+    <string name="click_to_connect">눌러서 연결하기</string>
+    <string name="widget_long_title">직사각형 연결</string>
+    <string name="widget_square_connect">정사각형 연결</string>
+    <string name="widget_small_connect">소형 연결</string>
+    <string name="mace_enabled">MACE 활성화됨</string>
+    <string name="send_debug_log">지원팀에 디버그 로그 보내기</string>
+    <!-- Please keep the %s, this is a formatted text. %s is an error message.  -->
+    <string name="failure_sending_log">디버그 로그 전송 실패: %s</string>
+    <string name="log_send_done_title">디버그 정보 제출 완료.</string>
+    <string name="log_send_done_msg">디버그 정보 제출 성공. \nID: %s\n저희 지원팀이 귀하의 제출 정보를 확인하려면 이 ID가 필요하므로 적어두시기 바랍니다.</string>
+    <string name="sending_debug_log">디버그 정보 전송 중...</string>
+    <string name="nought_always_on_warning">VPN 확인 대화 상자가 열리지 않은 경우 다른 앱에 \'항시 VPN 상태\'가 활성화되어 있기 때문일 가능성이 있습니다. 이 경우 오직 그 앱만 VPN에 연결할 수 있습니다. 설정-&gt;네트워크 등..-&gt;VPN에서 확인해주십시오</string>
+    <string name="open_settings">설정 열기</string>
+    <string name="settings_widget_configuration">위젯 구성</string>
+    <string name="preferences_widget_title">위젯 설정</string>
+    <string name="preferences_widget_summary">홈 화면에서 위젯 사용</string>
+    <string name="widget_flag_alpha">플래그 알파</string>
+    <string name="widget_background">배경색</string>
+    <string name="widget_color">텍스트 색</string>
+    <string name="widget_cc">PIA 커맨드 센터</string>
+    <string name="clear">지우기</string>
+    <string name="save">저장</string>
+    <string name="saved">저장됨</string>
+    <string name="speeds_shown_are_all_traffic_over_our_connection">표시된 속도는 VPN 연결의 트래픽입니다</string>
+    <string name="ip_short">공용 IP</string>
+    <string name="login_throttled_text">이 사용자 이름으로 너무 많은 로그인 시도가 실패했습니다. 나중에 다시 시도해주십시오.</string>
+    <string name="tap_to_connect">눌러서 연결하기</string>
+    <string name="building_configration">구성 생성 중...</string>
+    <!-- Please keep the %1$d, this is a formatted text. %1$d is a number (ei 1-31) -->
+    <string name="days_left">%d일</string>
+    <string name="one_day_left">1일</string>
+    <!-- Please keep the %1$d, this is a formatted text. %1$d is a number (ei 1-31) -->
+    <string name="hours_left">%d시간</string>
+    <string name="one_hour_left">1시간</string>
+    <!-- Please keep the %1$d, this is a formatted text. %1$d is a number (ei 1-31) -->
+    <string name="minutes_left">%d분</string>
+    <string name="one_minute_left">1분</string>
+    <string name="timeleft_expired">만료됨</string>
+    <string name="sign_in_to_your_account">계정에 로그인</string>
+    <string name="username_only">사용자 이름</string>
+    <string name="submit">제출</string>
+    <string name="please_enter_your_email_address">이메일 주소를 입력해주십시오</string>
+    <string name="select_vpn_plan">VPN 플랜 선택</string>
+    <string name="_7_day_money_back_guarantee">30일 이내 환불 보장</string>
+    <string name="monthly">월간</string>
+    <string name="yearly">연간</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is a currency (ei 1-31) -->
+    <string name="yearly_sub_text">매년 %1$s</string>
+    <string name="forgot_password">비밀번호 찾기</string>
+    <string name="tap_to_disconnect">눌러서 연결 해제</string>
+    <string name="drawer_account">계정</string>
+    <string name="drawer_refer_friend">친구 추천</string>
+    <string name="drawer_region_selection">지역 선택</string>
+    <string name="drawer_about">정보</string>
+    <string name="drawer_home_page">홈페이지</string>
+    <string name="drawer_contact_support">고객 지원 문의</string>
+    <string name="n_a_port_forwarding">---</string>
+    <!-- This string is going to be formatted by us so the "Buy now" is colored green. Please do not change the &lt;emph> or &lt;/emph> as that is formatting for us to find the buy now text. -->
+    <string name="dont_have_an_account">계정이 없으세요? &lt;emph&gt;지금 구입&lt;/emph&gt;</string>
+    <string name="buy_now">지금 구입!</string>
+    <string name="buy_now_button">지금 구입</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is a currency (ei 1-31) -->
+    <string name="purchasing_monthly_ending">%1$s/월</string>
+    <!-- Please keep the %1$s %2$s, this is a formatted text. %1$s is a currency (ei 1-31), %2$s is the currency (move this in front or keep it there depending on currency -->
+    <string name="purchasing_yearly_month_ending">%2$s%1$s/월</string>
+    <string name="change_region">지역 변경</string>
+    <!--Please keep the %1$s, this is a formatted text. %1$s is the up and down speeds on the connection. /s is per second-->
+    <string name="graph_under_formatting">%1$s/초</string>
+    <string name="allowed_apps_protected_text">PIA의 VPN을 이용해 자동으로 앱을 보호하세요</string>
+    <string name="allowed_apps_unprotected_text">PIA의 VPN을 사용할 앱 선택</string>
+    <string name="allowed_apps_spotlight_text">모든 앱이 기본으로 PIA의 VPN을 사용하거나 사용하지 않도록 전환합니다.</string>
+    <string name="allowed_apps_spotlight_title">앱당 전환</string>
+    <string name="toast_allowed_apps_default_positive">앱이 기본으로 PIA의 VPN을 사용함</string>
+    <string name="toast_allowed_apps_default_negative">앱이 기본으로 PIA의 VPN을 사용하지 않음</string>
+    <!-- Please keep %1$s %2%s as those are formatted numbers. %1$s is a version number like 2.0, %2$s is the version code like 141 -->
+    <string name="drawer_version">버전 %1$s (%2$s)</string>
+    <string name="cancel">취소</string>
+    <!-- Keep the <![CDATA[...]], translate everything in between-->
+    <string name="settings_port_number_restriction"><![CDATA[포트 번호는 1024 ~ 65535 사이이어야 합니다]]></string>
+    <!-- Keep the <![CDATA[...]], translate everything in between-->
+    <string name="settings_lport_hint"><![CDATA[1024 ~ 65535 사이의 포트]]></string>
+    <string name="startup_region_title">모든 지역에 쉽게 연결</string>
+    <string name="startup_region_message">전 세계에 있는 서버를 통해 언제나 보호를 받습니다.</string>
+    <string name="startup_region_message_cancel_anytime">약정 없음. 무료 체험 중 언제든지 취소할 수 있습니다.</string>
+    <string name="startup_region_message_new">전 세계에 있는 서버를 통해 언제나 보호를 받습니다. 7일 무료 체험 후 매년 %1$s. %2$s</string>
+    <string name="startup_region_footer"><a href="privacy:">개인정보 취급방침</a> 및 <a href="terms:">서비스 약관</a></string>
+    <string name="startup_region_header">Private Internet Access</string>
+    <string name="startup_ads_title">광고로부터 보호</string>
+    <string name="startup_ads_message">PIA MACE를 활성화하면 어디에서든 광고가 표시되지 않습니다.</string>
+    <string name="startup_connection_title">앱당 보호</string>
+    <string name="startup_connection_message">당사의 서비스를 이용할 앱을 관리함으로써 취향에 맞게 설정하세요(안드로이드 5.0 이상 필요).</string>
+    <string name="speed_graph">성능</string>
+    <string name="data_usage_over_time">시간별 데이터 사용량</string>
+    <!-- Please add in what word is the color red as we color it in code.  -->
+    <string name="per_app_warning">빨간색으로 표시된 앱은 당사의 서비스를 회피하거나 사용자를 취약하게 할 문제가 있는 기능을 보유하고 있습니다.</string>
+    <string name="purchasing_bottom">이미 계정이 있으세요? &lt;emph&gt; 로그인&lt;/emph&gt;</string>
+    <string name="ok">확인</string>
+    <string name="killswitch_title">킬 스위치가 활성화되었습니다</string>
+    <string name="skip">건너뛰기</string>
+    <string name="next">다음</string>
+    <string name="done">완료</string>
+    <string name="update_account">계정 업데이트</string>
+    <string name="local_port_titla">로컬 포트</string>
+    <string name="connection_couldnt_establish_title">연결을 수립할 수 없습니다</string>
+    <string name="connection_couldnt_establish_message">다른 지역을 선택해 보시거나 지원 티켓을 열어서 저희에게 알려 주세요</string>
+    <string name="send_feedback">피드백 보내기</string>
+    <string name="preference_application_settings">일반 설정</string>
+    <string name="preference_vpn_settings">VPN 설정</string>
+    <string name="preference_haptic_title">햅틱 피드백</string>
+    <string name="preference_dialog_graph_title">그래프의 측정 단위 선택</string>
+    <string name="preference_connect_on_boot_summary">시스템 시작 시 연결</string>
+    <string name="preference_haptic_feedback_summary">연결 클릭 시 진동</string>
+    <string name="best_value">최저가 - 무료 체험</string>
+    <string name="port_number">포트 번호</string>
+    <!-- Please keep the %s, this is a formatted text. %1$s is an app name -->
+    <string name="allowed_apps_toast_removed">%1$s 앱은 보호됩니다</string>
+    <!-- Please keep the %s, this is a formatted text. %1$s is an app name -->
+    <string name="allowed_apps_toast_added">%1$s 앱은 보호되지 않습니다</string>
+    <string name="shorthand_bytecount">%2$s %1$s</string>
+    <string name="preference_widget_icon_upload_title">아이콘 색상 업로드</string>
+    <string name="preference_widget_icon_download_title">아이콘 색상 다운로드</string>
+    <string name="preference_graph_unit">그래프 단위</string>
+    <string name="no">아니요</string>
+    <string name="color_picker_dialog_title">색상 선택</string>
+    <string name="username_example">사용자 이름 (예: p1234567)</string>
+    <string-array name="preference_graph_titles">
+        <item>비트</item>
+        <item>바이트</item>
+        <item>킬로비트</item>
+        <item>킬로바이트</item>
+        <item>메가비트</item>
+        <item>메가바이트</item>
+        <item>기가비트</item>
+        <item>기가바이트</item>
+    </string-array>
+    <!-- Logic in code uses the first and last letter to decide the unit to change the graph too. Be care what to use-->
+    <string name="channel_name_background">연결 통계</string>
+    <string name="channel_description_background">수립된 PIA VPN의 진행 중인 통계</string>
+    <string name="channel_name_status">연결 지위 변경 사항</string>
+    <string name="channel_description_status">PIA VPN의 상태 변경 사항 (연결 중, 인증 중 등)</string>
+    <string name="no_internet_click_here">인터넷에 연결되지 않아 가격 정보를 확인할 수 없습니다. 화면을 다시 고치려면 여기를 클릭하십시오</string>
+    <string name="failure_to_connect_alert">당사 또는 Google의 서버에 연결하지 못했습니다. 인터넷에 연결하십시오.</string>
+    <string name="blockipv6_summary">다른 방법을 사용해 IPv6 유출을 방지합니다. Android 버전 5.0 미만에서 IPv6 유출 차단 시 필요합니다.</string>
+    <string name="blockipv6">적극적인 IPv6 차단</string>
+    <string name="purchase_renew_title">새 계정 구매</string>
+    <string name="purchase_renew_message">고객님의 계정은 갱신 대상이 아닙니다. 서비스를 계속 이용하려면 새 계정을 구매해주십시오.</string>
+    <string name="purchase">구매</string>
+    <string name="purchase_complete">구매 완료</string>
+    <string name="purchase_complete_message">회원으로 가입해 주셔서 감사합니다. 계정 사용자명과 비밀번호를 귀하의 이메일 주소(%1$s)로 발송했습니다.</string>
+    <string name="password_only">비밀번호</string>
+    <string name="account_creation_failure">계정 생성 실패</string>
+    <string name="account_creation_failure_message">지금은 계정을 생성할 수 없습니다. ID %1$s에 대한 지원 티켓이 생성되어 고객지원 담당자가 곧 연락을 드릴 것입니다. 나중에 다시 앱을 시작하여 프로세스를 종료할 수 있습니다.</string>
+    <string name="get_started">시작하기</string>
+    <string name="no_internet_message">인터넷에 연결되지 않았습니다. 인터넷에 연결되어 있는지 확인하신 후 아래에서 다시 시도를 누르십시오.\n\n나중에 앱에 다시 돌아와서 이 과정을 완료할 수 있습니다.</string>
+    <string name="no_internet_title">앗!</string>
+    <string name="retry">재시도</string>
+    <string name="go_to_login">로그인 페이지로 이동</string>
+    <string name="unable_change_email">이메일을 변경하지 못했습니다. 나중에 다시 시도해주십시오.</string>
+    <string name="preference_reset_settings">기본값으로 설정 초기화</string>
+    <string name="pref_reset_settings">설정을 초기화합니까?</string>
+    <string name="pref_reset_settings_message">이 작업은 앱을 기본값으로 되돌립니다. 모든 변경 사항이 삭제됩니다.</string>
+    <string name="reset">초기화</string>
+    <string name="settings_reset">설정 초기화</string>
+    <string name="widget_radius">위젯 범위</string>
+    <string name="widget_text">텍스트 위젯</string>
+    <string name="account_creation_failure_message_no_ticket_id">지금은 계정을 생성할 수 없습니다. 나중에 다시 시도해주십시오.\n\n 앱을 다시 열면 계정 생성을 다시 시도합니다.</string>
+    <string name="try_again">다시 시도</string>
+    <string name="default_base">기본</string>
+    <string name="confirm_purchase">구매 확인</string>
+    <string name="purchase_failed">구매 실패</string>
+    <string name="confirming_purchase">저희 시스템에서 고객님의 구매를 확인하고 있습니다. 약간 시간이 소요될 수 있으므로 양해 부탁드립니다.</string>
+    <!-- %1$d and %2$d are numbers. Example of this string would be Attempt 1 of 5, 2 of 5, 3 of 5. -->
+    <string name="attempt">%2$d번 중 %1$d번의 시도</string>
+    <string name="piaaccountneeded">로그인하려면 privateinternetaccess.com 계정이 필요합니다</string>
+    <string name="piaaccountneeded_samsung">privateinternetaccess.com을 방문해서 이 서비스에 가입하세요.</string>
+    <string name="piaaccountneeded_amazon">privateinternetaccess.com을 방문해서 이 서비스에 가입하세요.</string>
+    <string name="vpn_permisions_top_text">PIA가 트래픽을 안전하게 하려면 VPN 구성에 접근할 수 있어야 합니다.</string>
+    <string name="vpn_permissions_middle_text">PIA VPN에 대한 요청이 표시되면 VPN 구성에 대한 접근을 허용하셔야 합니다. 계속 진행하려면 \'확인\'을 누르세요.</string>
+    <string name="vpn_permission_network">저희는 어떤 네트워크 활동도 모니터링, 필터링하거나 로그를 보관하지 않습니다.</string>
+    <string name="vpn_permission_title">PIA</string>
+    <string name="contact">고객 문의</string>
+    <string name="permissions_message">애플리케이션이 작동하려면 이 권한이 필요합니다. 도움이 필요하시면 저희 고객 지원팀에 문의하셔도 됩니다.</string>
+    <string name="send_email">이메일 보내기</string>
+    <string-array name="themes_list">
+        <item>라이트</item>
+        <item>다크</item>
+    </string-array>
+    <string name="preference_app_theme">다크 테마</string>
+    <string name="auth_setby_gcm">AES-GCM와 같은 AEAD 암호화는 통합 인증 메커니즘을 사용합니다.</string>
+    <string name="allow_locallan">LAN 트래픽 허용</string>
+    <string name="allow_locallan_details">내 로컬 네트워크에 있는 기기 간 트래픽 항상 허용</string>
+    <string name="pref_block_dialog_title">로컬 네트워크에 접근 허용</string>
+    <string name="pref_block_dialog_message">로컬 네트워크에 접근이 허용되면 일부 시스템 애플리케이션(Google 앱 등)은 VPN을 우회할 수 있음에 유의하세요.</string>
+    <string name="killswitch_notification_title">활성화된 킬 스위치</string>
+    <string name="open_android_settings">Android 설정 열기</string>
+    <string name="data_in">아래</string>
+    <string name="data_out">위</string>
+    <string name="pia_channel_name">PIA</string>
+    <string name="pia_channel_description">일반 이벤트 및 알림</string>
+    <string name="tv_startup_press_right">오른쪽 누르기</string>
+    <string name="androidalwayson">VPN 킬 스위치</string>
+    <string name="androidalwaysonsummary">Android에는 킬스위치 기능보다 더 좋은 대체 기능이 포함되어 있습니다. 클릭하여 자세히 알아보세요</string>
+    <string name="preference_blocking">차단</string>
+    <string name="preference_connect_proxy">프록시를 통해 연결</string>
+    <string name="preference_connect_proxy_app">선택된 프록시 앱</string>
+    <string name="preference_connect_proxy_summary">연결하려면 각 앱 설정에서 사용 중인 앱을 차단하세요.</string>
+    <string name="preference_proxy_port">프록시 포트</string>
+    <string name="proxy_selection_title">프록시 앱 선택</string>
+    <string name="app_is_proxy">이 앱은 귀하의 프록시 애플리케이션입니다. 작동하려면 차단되어야 합니다.</string>
+    <string name="app_must_be_selected">저장할 앱을 선택하셔야 합니다.</string>
+    <string name="proxy_settings_title">프록시 설정</string>
+    <string name="enable_proxy_dialog_title">프록시 앱 설정하기</string>
+    <string name="enable_proxy_dialog_message">저희 앱으로 프록시를 사용하려면, 사용하시려는 앱이 무엇인지 저희가 알아야 합니다.</string>
+    <string name="vpn_activity_title">VPN 디버그 로그</string>
+    <string name="preference_vpn_log_title">VPN 디버그 로그 보기</string>
+    <string name="preference_vpn_log_summary">VPN 로그를 확인하는 고급 사용자 보기</string>
+    <string name="preference_orbot_title">프록시 앱은 Orbot입니다</string>
+    <string name="preference_orbot_summary">Orbot 통합 사용</string>
+    <string name="settings_orbot_udp_problem_message">Orbot이 작동하려면 TCP가 필요합니다. TCP를 활성화하시겠습니까?</string>
+    <string name="settings_orbot_udp_problem_title">프록시 필수요건</string>
+    <!-- %d is a digit for ping latency(ie, 0-10000). ms is milliseconds. -->
+    <string name="ping_string">%d ms</string>
+    <string name="status_server_ping">최적의 서버를 찾는 중</string>
+    <!-- &lt;emph> and &lt;/emph> should not be touched. These are how we know what to color in this string. -->
+    <string name="trial_account">기프트 카드 또는 체험 카드가 있으세요? &lt;emph&gt;지금 교환하기&lt;/emph&gt;</string>
+    <!-- &lt;emph> and &lt;/emph> should not be touched. These are how we know what to color in this string. -->
+    <string name="trial_remember_password">비밀번호를 기억하세요? &lt;emph&gt;로그인&lt;/emph&gt;</string>
+    <string name="trial_card_pin">카드 PIN</string>
+    <string name="trial_screen_redeem">기프트 카드 사용</string>
+    <string name="trial_screen_message">이메일 주소 및 기프트 카드 또는 체험 카드의 16자리 PIN을 아래에 입력하세요</string>
+    <string name="card_pin_invalid">카드 PIN이 유효하지 않습니다</string>
+    <string name="confirming_trial_account">시스템에서 카드 PIN을 확인하고 있습니다. 약간 시간이 소요될 수 있으므로 양해 부탁드립니다.</string>
+    <string name="trial_success_message">사용자 이름과 비밀번호가 포함된 이메일을 곧 보내드리겠습니다.</string>
+    <string name="trial_success_title">완료되었습니다!</string>
+    <string name="trial_failure_redeemed_title">카드가 이미 교환됨</string>
+    <string name="trial_failure_redeemed_message">이 카드는 이미 다른 계정에서 사용된 것 같습니다. 다른 PIN을 입력해보세요.</string>
+    <string name="trial_failure_invalid_title">유효하지 않은 카드 PIN</string>
+    <string name="trial_failure_invalid_message">유효하지 않은 PIN을 입력한 것 같습니다. 다시 시도하세요.</string>
+    <string name="trial_failure_expired_title">카드가 만료됨</string>
+    <string name="trial_failure_expired_message">다른 PIN을 입력해보세요.</string>
+    <string name="trial_failure_throttled_title">너무 많은 시도</string>
+    <string name="trial_failure_throttled_message">시도가 너무 많습니다. 나중에 다시 시도하세요.</string>
+    <string name="trial_failure_email_title">잘못된 이메일</string>
+    <string name="trial_failure_email_message">잘못된 이메일을 입력한 것 같습니다. 다시 시도하세요.</string>
+    <!-- Keep %1$s and %2$s. This is a formatted text and %1$s is Terms of Service and %2$s is Privacy Policy -->
+    <string name="tos_pos_text" formatted="true">회원으로 가입함으로써 %1$s 및 %2$s에 동의합니다</string>
+    <string name="tos_text">서비스 약관</string>
+    <string name="pp_text">개인정보 취급방침</string>
+    <string name="website_isnt_protected">웹사이트가 보호되지 않았습니다.</string>
+    <string name="api_check_failure_title">연결 실패</string>
+    <string name="api_check_message">Private Internet Access에 접속할 수 없습니다. 인터넷 연결 상태가 좋지 않거나 귀하의 국가에서 당사의 서비스가 차단된 것 같습니다. 인터넷 연결 상태가 안정적인지 확인하고, 설정에서 앱을 강제 종료한 후 앱을 다시 시작해 보세요.</string>
+    <string name="invalid_qr_code">QR 코드 시퀀스가 유효하지 않습니다. 다시 시도하세요.</string>
+    <string name="empty_qr_code">QR 내용이 비어 있습니다. 다시 시도하세요.</string>
+    <string name="your_plan_will_expire_on">현재 플랜 만료일:</string>
+    <!-- TV specific strings -->
+    <string name="favorites_title">즐겨찾기 관리</string>
+    <string name="favorites_panel_title">즐겨찾기</string>
+    <string name="logout_title">로그아웃</string>
+    <string name="pia_access">PIA 액세스</string>
+    <string name="preference_app_update_title">앱 업데이트 시 연결</string>
+    <string name="preference_app_update_message">앱이 업데이트되면, 계속 보호될 수 있도록 자동으로 연결됩니다.</string>
+    <string name="server_search">검색</string>
+    <string name="tile_killswitch">킬 스위치 활성화</string>
+    <string name="auto_dns_setting_summary">PIA DNS</string>
+    <string name="pia_dns">PIA DNS</string>
+    <string name="edit_custom_dns">편집</string>
+    <string name="custom_dns">사용자 정의 DNS</string>
+    <string name="custom_dns_warning_body">PIA DNS를 사용하지 않으면 DNS 트래픽이 제3자에게 노출되고 프라이버시가 침해될 수 있습니다.</string>
+    <string name="custom_dns_warning_title">@string/custom_dns</string>
+    <string name="custom_primary_dns">기본 DNS</string>
+    <string name="custom_secondary_dns">보조 DNS (선택 사항)</string>
+    <string name="custom_primary_dns_invalid">기본 DNS가 유효하지 않습니다</string>
+    <string name="custom_secondary_dns_invalid">보조 DNS가 유효하지 않습니다</string>
+    <string name="custom_dns_mace_warning">MACE를 활성화하려면 기본 DNS를 사용해야 합니다. DNS를 기본값으로 재설정하시겠습니까?</string>
+    <string name="custom_dns_disabling_mace">사용자 정의 DNS를 사용하는 동안 MACE가 비활성화됩니다.</string>
+    <string name="password_required">PIA 비밀번호가 필요합니다</string>
+    <string name="password_required_body">보안상의 이유로 계정에서 변경 작업을 수행하려면 PIA 비밀번호가 필요합니다. 계속 진행하려면 PIA 비밀번호를 입력하세요.</string>
+    <string name="password_empty">비밀번호는 필수 입력 항목입니다</string>
+    <string name="trusted_cellular_title">신뢰하는 무선통신 네트워크</string>
+    <string name="trusted_cellular_message">모바일 데이터에서 VPN 자동 연결 해제</string>
+    <string name="trusted_wifi_title">신뢰하는 WiFi</string>
+    <string name="trusted_wifi_message">사용자가 화이트리스트에 추가한 WiFi를 제외하고 VPN이 모든 WiFi 네트워크에서 자동으로 연결됩니다</string>
+    <string name="trusted_wifi_enable_message">신뢰하는 네트워크에 연결될 때 VPN 비활성화</string>
+    <string name="trusted_wifi_singular">신뢰할 수 있는 네트워크</string>
+    <string name="trusted_wifi_plural">신뢰할 수 있는 네트워크</string>
+    <string name="available_wifi_header">이용 가능한 네트워크</string>
+    <string name="trusted_wifi_no_wifi">신뢰하는 네트워크를 선택하려면 WiFi를 활성화하세요.</string>
+    <string name="trusted_wifi_no_permission">신뢰할 수 있는 WiFi가 근처에 있는 WiFi 네트워크를 검색하려면 위치 권한이 필요합니다. 이 권한을 철회하면, 이 기능은 더 이상 작동하지 않습니다.\n\n이 기능을 사용하려면 설정&gt;앱&gt;PIA VPN으로 이동해서 위치 권한이 켜져 있는지 확인하세요.</string>
+    <string name="no_permission_title">접근 권한 필요</string>
+    <string name="trusted_wifi_not_available">이용 가능한 네트워크 없음</string>
+    <string name="trusted_wifi_no_trusted">신뢰하는 네트워크가 없습니다</string>
+    <string name="account_invalid_warning">"유효하지 않은 계정 정보"</string>
+    <!-- PIAX Specific Strings -->
+    <string name="buy_account">계정 구입</string>
+    <string name="redeem_gift_card">기프트 카드 사용</string>
+    <string name="email_address">이메일 주소</string>
+    <string name="gift_card_pin">기프트 카드 PIN</string>
+    <string name="redeemed_successful">카드 사용 성공</string>
+    <string name="redeemed_login_header">로그인 정보</string>
+    <string name="redeeming_gift_card">저희 시스템에서 고객님의 카드 코드를 확인하고 있습니다. 약간 시간이 소요될 수 있으므로 양해 부탁드립니다.</string>
+    <string name="redeeming_gift_title">서버에서 확인</string>
+    <string name="redeemed_to_login">로그인 진행</string>
+    <string name="username_enter">사용자명 입력</string>
+    <string name="password_enter">비밀번호 입력</string>
+    <string name="total_cost">총 비용</string>
+    <string name="confirm_your_purchase">구매 확인</string>
+    <string name="enter_email">이메일 주소를 입력하세요</string>
+    <string name="you_are_purchasing">%1$s 플랜을 구매하십니다</string>
+    <string name="continue_only">계속</string>
+    <string name="plan_only">플랜</string>
+    <string name="yearly_only">연간</string>
+    <string name="monthly_only">월간</string>
+    <string name="search_region">지역 검색</string>
+    <string name="region_dialog_header">지역 정렬 기준</string>
+    <string name="menu_filters">필터</string>
+    <string name="menu_update">업데이트</string>
+    <string name="menu_reorder">정리</string>
+    <string name="port_not_available">이용 불가</string>
+    <string name="refer_yes">예</string>
+    <string name="refer_no">아니요</string>
+    <string name="region_filter_name">이름</string>
+    <string name="region_filter_latency">대기 시간</string>
+    <string name="region_filter_favorites">즐겨찾기</string>
+    <!-- Free Trial Strings -->
+    <string name="free_trial_header">7일 무료 체험!</string>
+    <string name="free_trial_cost">매년 단 %s 결제</string>
+    <string name="free_trial_guarantee">30일 이내 환불 보장</string>
+    <string name="free_trial_protection_header">1년간 프라이버시 및 신원 보호</string>
+    <string name="free_trial_protection_text">익명 탐색 및 IP 숨기기</string>
+    <string name="free_trial_devices_header">한 번에 10대의 장치 지원</string>
+    <string name="free_trial_devices_text">한 번에 최대 10대의 장치에서 보호</string>
+    <string name="free_trial_region_header">어떤 지역에든 간편히 연결</string>
+    <string name="free_trial_region_text">32개국 3300대 이상의 서버</string>
+    <string name="free_trial_start">구독 시작</string>
+    <string name="free_trial_see_all">이용 가능한 모든 플랜 보기</string>
+    <!-- Tiles Strings -->
+    <string name="snooze_vpn_title">VPN 스누즈</string>
+    <string name="snooze_short">5분 스누즈</string>
+    <string name="snooze_medium">15분 스누즈</string>
+    <string name="snooze_long">1시간 스누즈</string>
+    <string name="snooze_description">타이머가 경과될 때 VPN 연결을 해제하고 자동으로 다시 연결합니다.</string>
+    <string name="snooze_resume">재개</string>
+    <string name="snooze_paused">%s까지 일시 중지</string>
+    <string name="snooze_status">스누즈 중</string>
+    <string name="snooze_notification">스누즈됨</string>
+    <string name="failed_connect_status">연결할 수 없음</string>
+    <!-- Quick Settings Strings -->
+    <string name="quick_settings_title">빠른 설정</string>
+    <string name="quick_settings_network_toggle">네트워크 관리</string>
+    <string name="quick_settings_private_browser">개인 브라우저</string>
+    <!-- Quick Connect String -->
+    <string name="quick_connect_title">빠른 연결</string>
+    <string name="quick_connect_favorites_title">즐겨 사용하는 서버</string>
+    <!-- Usage Strings -->
+    <string name="usage_title">사용 현황</string>
+    <string name="usage_download">다운로드</string>
+    <string name="usage_upload">업로드</string>
+    <!-- Settings -->
+    <string name="settings_protocol">프로토콜 선택</string>
+    <string name="protocol_ovpn">OpenVPN</string>
+    <string name="protocol_wireguard">WireGuard</string>
+    <string name="wg_per_app_warning">WireGuard로 전환하면 앱당 설정 기능이 비활성화됩니다</string>
+    <string name="wg_protocol_warning">다음 기능은 WireGuard에서 사용할 수 없습니다.</string>
+    <string name="wg_connecting">연결 중</string>
+    <string name="wg_connected">VPN 연결됨</string>
+    <string name="block_connections_body_1">PIA의 \"VPN 없는 연결 차단\" 기능을 사용하려면 Android 설정에서 \'VPN 항상 켜기\'를 활성화해야 합니다.</string>
+    <string name="block_connections_body_2">계속하려면 설정 - 네트워크 및 인터넷 - 고급 - VPN - 설정 아이콘 탭하기 - \'VPN 항상 켜기\' 활성화의 순서로 작업합니다.</string>
+    <string name="block_connections_button">네트워크 및 인터넷 설정으로 이동</string>
+    <string name="ks_removal_warning">킬스위치가 활성화되었음을 발견했습니다. WireGuard 및 OpenVPN 모두에 대하여 Android의 \"VPN 없는 연결 차단\" 설정을 통합함으로써 이 기능의 작동 방식을 변경하였습니다. 설정에서 변경 사항을 확인하여 계속 보호되고 있는지 확인하세요.</string>
+    <string name="preference_on_boot_always_on">시스템 시작 시 연결. VPN 항상 켜기를 사용하고 있으면 이 설정을 활성화하실 것을 권장합니다.</string>
+    <string name="ovpn_cipher_removal_description">OpenVPN 실행 관련 정보가 업데이트되었습니다. 자세한 정보는<b>여기</b>를 클릭하여 확인하세요.</string>
+    <!-- Wireguard -->
+    <string name="tunnel_error_already_exists">“%s” 터널은 이미 존재합니다</string>
+    <string name="tunnel_error_invalid_name">유효하지 않은 이름</string>
+    <string name="preview">미리 보기</string>
+    <!-- GEO Servers -->
+    <string name="geo_servers">지리적 위치 기반 지역 표시</string>
+    <!-- Rating -->
+    <string name="rating_enjoy_title">PIA VPN이 마음에 드세요?</string>
+    <string name="rating_enjoy_message">저희 VPN 제품이 고객님의 기대에 부응하기를 바랍니다.</string>
+    <string name="rating_review_title">Google Play에 리뷰를 남겨주시겠습니까?</string>
+    <string name="rating_review_message">고객님의 경험을 공유해 주시면 감사하겠습니다.</string>
+    <string name="rating_feedback_title">어떤 문제가 있었습니까?</string>
+    <string name="rating_feedback_message">피드백을 보내 주시겠습니까? 더 나은 PIA를 경험하실 수 있도록 도와 드리겠습니다.</string>
+    <!-- Get Started Purchasing-->
+    <string name="getstarted_subscribe">지금 구독</string>
+    <string name="getstarted_trial_payment">결제는 평가판이 종료될 때만 계정으로 청구됩니다.</string>
+    <string name="getstarted_free_trial">7일 무료 체험 시작</string>
+    <string name="getstarted_trial_price">이후 매년 %s</string>
+    <string name="purchasing_email_reason">사용자 이름 및 비밀번호를 보내려면 고객님의 이메일 주소가 필요합니다.</string>
+    <string name="purchasing_all_plans">이용 가능한 모든 플랜 보기</string>
+    <string name="purchasing_login_receipt">구매 영수증을 사용해 로그인</string>
+    <string name="purchasing_no_subscription">구독 중인 항목이 없습니다.</string>
+    <string name="purchasing_sure">확실한가요?</string>
+    <string name="purchasing_return">홈 화면으로 돌아가시겠습니까? 로그인-&gt;구매 영수증을 사용해 로그인을 클릭하여 언제든 구독 절차를 다시 시작할 수 있습니다.</string>
+    <string name="purchasing_magic_link">이메일 링크를 사용해 간편하게 로그인</string>
+    <string name="purchasing_magic_send">링크 보내기</string>
+    <string name="magic_login_enter_email">이메일 입력</string>
+    <string name="purchasing_magic_success">로그인 링크가 담긴 이메일을 확인하세요.</string>
+    <string name="connection_tile_header">연결</string>
+    <string name="connection_tile_tcp">TCP</string>
+    <string name="connection_tile_udp">UDP</string>
+    <!-- Update -->
+    <string name="settings_calling_header">최근 소식</string>
+    <string name="update_3_7_1_header">지금 WireGuard®를 사용해 보세요!</string>
+    <string name="update_3_7_1_description">새롭고 더 효율적인 VPN 프로토콜을 통해 더 우수한 성능, 더 적은 CPU 사용량 및 더 긴 배터리 수명을 제공합니다.</string>
+    <string name="update_3_7_1_cta_1">지금 WireGuard® 사용해 보기</string>
+    <string name="update_3_7_1_cta_2"><u>자세히 보기</u></string>
+    <!-- Network Management -->
+    <string name="nmt_notification_title">자동화가 활성화되었습니다</string>
+    <string name="nmt_notification_description">VPN이 연결 해제되었습니다</string>
+    <string name="nmt_secure_wifi">안전한 Wi-Fi</string>
+    <string name="nmt_open_wifi">Wi-Fi</string>
+    <string name="nmt_mobile_data">모바일 데이터</string>
+    <string name="nmt_disconnect">항상 VPN 연결 해제</string>
+    <string name="nmt_connect">항상 VPN 연결</string>
+    <string name="nmt_retain">VPN 상태 유지</string>
+    <string name="nmt_manage_title">자동화 관리</string>
+    <string name="nmt_manage_description">WiFi 또는 셀룰러 네트워크에 연결 시 PIA의 작동 방식을 구성합니다. 수동 연결 해제는 제외됩니다. \n\n이 기능은 아직 실험 단계입니다.</string>
+    <string name="nmt_add_description">새 규칙을 추가할 WiFi 네트워크를 선택하세요.</string>
+    <string name="nmt_rule_for">%s에 대한 규칙</string>
+    <string name="nmt_remove_rule">규칙 제거</string>
+    <string name="nmt_add_new_rule">새 규칙 추가</string>
+    <string name="nmt_settings_title">자동화</string>
+    <string name="nmt_settings_description">규칙을 설정하여 신뢰하는 네트워크와 신뢰하지 않는 네트워크에 대한 자동 연결 규칙을 적용합니다. \n\n이 기능은 아직 실험 단계입니다.</string>
+    <string name="nmt_management_title">자동화 관리</string>
+    <string name="network_permisions_top_text">PIA VPN이 회원님의 위치에 접근하도록 허용합니다. 이를 통해 근처에 있는 Wi-Fi 네트워크를 검색할 수 있습니다.</string>
+    <string name="network_permissions_middle_text">위치 접근 허가를 요청하는 메시지가 표시됩니다. 계속하려면 \"앱을 사용하는 동안\"을 탭하세요</string>
+    <string name="network_permission_network">저희는 어떤 네트워크 활동도 모니터링, 필터링하거나 로그를 보관하지 않습니다.</string>
+    <string name="network_permission_button_allow">허용</string>
+    <string name="network_permissions_top_background">좋습니다! 거의 다 되었습니다! PIA 네트워크 관리 기능도 백그라운드 위치 서비스에 대한 접근 권한이 필요합니다.</string>
+    <string name="network_permissions_middle_background">계속하려면 설정 &gt; 앱 &gt; PIA &gt; 권한으로 이동한 다음, 위치 서비스에 대한 백그라운드 접근을 활성화합니다.</string>
+    <string name="network_permissions_button_goto">권한 설정으로 이동</string>
+    <!-- Dedicated IP -->
+    <string name="dip_menu_title">전용 IP</string>
+    <string name="dip_description">아래 양식에 회원님의 토큰을 붙여넣어서 전용 IP를 활성화하세요. 최근에 전용 IP를 구매하신 경우 PIA 웹사이트로 이동하여 토큰을 생성하실 수 있습니다.</string>
+    <string name="dip_summary">원하는 국가의 전용 IP를 사용하여 어떤 자산에 대해서든 원격 연결을 안전하게 보호하세요. 구독 기간 중 이 IP는 회원님만 사용하실 수 있으며, 가장 강력한 암호화 기술로 회원님의 데이터 전송을 보호합니다.</string>
+    <string name="dip_your_header">회원님의 전용 IP</string>
+    <string name="dip_activate">활성화</string>
+    <string name="dip_remove_header">전용 IP 제거</string>
+    <string name="dip_remove_body">%s - %s을(를) 제거할까요?</string>
+    <string name="dip_will_expire_warning">전용 IP가 곧 만료됩니다.</string>
+    <string name="dip_get_a_new_one">새로 받으세요.</string>
+    <string name="dip_expired_warning">회원님의 토큰은 만료되었습니다. 웹사이트의 계정 페이지에서 새로운 토큰을 생성하세요.</string>
+    <string name="dip_updated_warning">전용 IP가 업데이트되었습니다.</string>
+    <string name="dip_invalid">토큰이 유효하지 않습니다. 올바른 토큰을 입력했는지 확인하세요.</string>
+    <string name="dip_success">회원님의 전용 IP가 성공적으로 활성화되었습니다. 지역 선택 목록에서 사용하실 수 있습니다.</string>
+    <string name="dip_tag">전용 IP</string>
+    <string name="dip_enter_token_hint">여기에 토큰을 붙여넣으세요</string>
+    <!-- Inapp Messaging -->
+    <string name="inapp_pref_title">서비스 통신 메시지 표시</string>
+    <string name="settings_updated">설정이 업데이트되었습니다</string>
+    <string name="hide_payment">기술적인 문제로 인해 지금은 Google Play를 통해 구매하실 수 없습니다. 문제가 빨리 해결될 수 있도록 최선을 다하겠습니다.\n\n구독을 하고 있는 계정이 이미 있다면, 로그인 버튼을 눌러 로그인하실 수 있습니다.</string>
+    <string name="settings_block_connections_title">PIA의 \"VPN 킬 스위치\" 기능을 사용하려면 Android 설정에서 \'VPN 항상 켜기\'를 활성화해야 합니다.</string>
+    <string name="settings_block_connections_description">계속하려면 설정 - 네트워크 및 인터넷 - 고급 - VPN - 설정 아이콘 탭하기 - <b>\'VPN 항상 켜기\' 활성화</b>의 순서로 작업합니다.</string>
+    <string name="settings_block_connections_button">네트워크 및 인터넷 설정으로 이동</string>
+    <string name="settings_block_connections_error">네트워크 설정으로 이동할 수 없습니다</string>
+    <!-- KPI -->
+    <string name="kpi_connection_attempts_onboarding_title">저희 서비스를 개선하도록 도와 주세요</string>
+    <string name="kpi_connection_attempts_onboarding_body">연결 상태를 저희와 익명으로 공유해 주시면 저희 서비스의 연결 성능을 개선하는 데 도움이 됩니다. 이 보고서에는 개인 식별 정보가 포함되지 않습니다.</string>
+    <string name="kpi_connection_attempts_settings_title">PIA 개선 작업 지원하기</string>
+    <string name="kpi_connection_attempts_settings_body">VPN 연결 통계를 공유하여 저희 서비스를 개선하도록 도와 주세요. 이 보고서에는 개인 식별 정보가 절대로 포함되지 않습니다.</string>
+    <string name="kpi_connection_attempts_settings_details">공유된 데이터 보기</string>
+    <string name="kpi_connection_attempts_no_events">최근 이벤트가 없습니다</string>
+    <string name="kpi_connection_attempts_stats">연결 통계</string>
+    <string name="kpi_connection_attempts_more_information">이 최소한의 정보는 잠재적인 연결 문제를 식별하고 해결하는 데 도움이 됩니다. 이 정보를 공유하려면 기본적으로 해제되어 있는 승인과 수동 활성화가 필요합니다. 저희가 수집하는 이벤트에 관한 정보는 다음과 같습니다.\n\n
+            • 연결 시도\n
+            • 취소된 연결\n
+            • 수립된 연결\n\n
+        이러한 이벤트에 관하여 저희가 수집하는 정보는 다음과 같습니다.\n\n
+            • 플랫폼\n
+            • 앱 버전\n
+            • 앱 유형 (사전 출시 여부)\n
+            • 사용된 프로토콜\n
+            • 연결 소스 (수동 또는 자동 사용)\n\n
+        모든 이벤트에는 무작위로 생성된 고유 ID가 포함됩니다. 이 ID는 사용자 계정과 연결되지 않습니다. 이 고유 ID는 개인 정보 보호 목적을 위하여 매일 다시 생성됩니다.\n\n
+        회원님은 언제나 이를 통제할 수 있습니다. 설정에서 저희가 수집하는 데이터를 확인하고, 언제든지 해제하실 수 있습니다.</string>
+    <!-- Renewal -->
+    <string name="renewal_title">다시 오신 걸 환영합니다!</string>
+    <string name="renewal_description">Private Internet Access를 이용하려면 구독을 갱신해야 합니다.</string>
+    <string name="renewal_button">지금 갱신</string>
+    <string name="use_tcp">TCP 사용</string>
+    <string name="oneclickconnect">원클릭 연결</string>
+    <string name="startup_region_message_new_bold">7일 무료 체험</string>
+    <string name="allow_locallan_on">로컬 네트워크에 대한 접근이 허용됩니다. 일부 앱(예: Google 앱)은 회원님의 실제 IP를 유출하고 보고할 수 있습니다.</string>
+    <string name="allow_locallan_off">로컬 네트워크에 대한 접근이 차단됩니다</string>
+    <string name="block_locallan_off">로컬 네트워크에 접근이 허용됩니다. 일부 앱(Google 앱 등)은 사용자의 IP를 유출 및 보고할 수 있습니다.</string>
+    <string name="block_locallan_on">로컬 네트워크에 접근이 차단됩니다</string>
+    <string name="block_locallan">로컬 네트워크 차단</string>
+    <string name="block_connection_wo_vpn">VPN 없는 커넥션 차단</string>
+    <string name="always_oreo_message">VPN 없이는 절대로 연결되지 않도록 Android 설정에서 VPN 없는 연결 차단을 활성화하실 것을 권장합니다. 이 옵션은 PIA에 대하여 VPN 항상 켜기를 선택한 후에 활성화할 수 있습니다. 이 옵션은 연결 시 Android가 항상 PIA VPN을 실행하도록 하며 VPN 없는 연결은 차단(즉, VPN 킬스위치)하도록 합니다. Android 8.0 이후 이 기능이 내장됨에 따라 Android 설정에서 시스템 수준으로 \"VPN 없는 연결 차단\"을 설정하도록 PIA VPN 앱의 킬스위치 설정은 사용이 중단되었습니다. 문제가 있을 경우 Android가 VPN을 거치지 않는 모든 인터넷 연결을 차단하게 됩니다.</string>
+    <string-array name="dns_names">
+        <item>PIA DNS</item>
+        <item>사용자 정의 DNS</item>
+    </string-array>
+</resources>

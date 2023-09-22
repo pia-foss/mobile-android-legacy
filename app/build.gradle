@@ -1,0 +1,253 @@
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.1.3'
+        classpath "org.jetbrains.kotlin:kotlin-serialization:$kotlin_version"
+    }
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlinx-serialization'
+
+repositories {
+    google()
+    jcenter()
+    mavenCentral()
+    maven { url "https://jitpack.io" }
+}
+
+dependencies {
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
+
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.preference:preference:1.1.0'
+    implementation 'com.madgag.spongycastle:core:1.54.0.0'
+    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'androidx.appcompat:appcompat:1.2.0-alpha03'
+    implementation "androidx.core:core-ktx:1.3.0"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+
+    // PIA
+    implementation project(':openvpnTunnel')
+    implementation project(":core")
+    implementation project(":regions")
+    implementation project(":account")
+    implementation project(":csi")
+    implementation project(":kpi")
+
+    // Commons
+    implementation "io.ktor:ktor-client-okhttp:1.6.1"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+    implementation "org.jetbrains.kotlinx:kotlinx-datetime:0.2.1"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.1"
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-core:1.2.1"
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.2.1"
+    implementation "androidx.security:security-crypto:1.1.0-alpha03"
+    implementation "com.russhwolf:multiplatform-settings:0.8"
+
+    // Tests
+    testImplementation 'com.github.gmazzo:okhttp-mock:1.3.2'
+    testImplementation "org.json:json:20180813"
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'androidx.test:core:1.4.0'
+    testImplementation 'org.robolectric:robolectric:4.4'
+    testImplementation 'org.mockito:mockito-inline:2.23.0'
+    testImplementation "org.mockito.kotlin:mockito-kotlin:3.2.0"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.0"
+    androidTestImplementation 'com.github.gmazzo:okhttp-mock:1.3.2'
+    androidTestImplementation 'androidx.test:runner:1.4.0'
+    androidTestImplementation 'androidx.test:core:1.4.0'
+
+    // EventBus
+    implementation 'org.greenrobot:eventbus:3.1.1'
+
+    //ButterKnife
+    implementation 'com.jakewharton:butterknife:10.2.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
+
+    //Wireguard
+    implementation "com.jakewharton.threetenabp:threetenabp:1.2.1"
+    implementation "net.i2p.crypto:eddsa:0.3.0"
+    implementation "androidx.databinding:databinding-runtime:3.5.3"
+
+    // amazon
+    implementation 'com.amazon.device:amazon-appstore-sdk:3.0.2'
+
+    //google
+    def billing_version = "5.2.1"
+
+    implementation "com.android.billingclient:billing:$billing_version"
+    // https://github.com/jrummyapps/colorpicker
+    implementation 'com.jrummyapps:colorpicker:2.1.6'
+    //https://github.com/PhilJay/MPAndroidChart
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
+
+    //https://github.com/apl-devs/AppIntro
+    implementation 'com.github.paolorotolo:appintro:4.1.0'
+    //https://github.com/chrisjenx/Calligraphy
+    implementation 'io.github.inflationx:calligraphy3:3.1.1'
+    implementation 'io.github.inflationx:viewpump:2.0.3'
+    // https://github.com/mikepenz/MaterialDrawer
+    implementation('com.mikepenz:materialdrawer:6.0.9@aar') {
+        transitive = true
+    }
+    // https://github.com/Philio/PreferenceCompatExtended
+    implementation 'me.philio:preferencecompatextended:1.2.2'
+
+    // After Effect animations
+    implementation 'com.airbnb.android:lottie:2.6.0'
+    implementation 'com.github.mmin18:realtimeblurview:1.2.1'
+}
+
+android {
+    compileSdkVersion rootProject.compileSdkVersion
+    buildToolsVersion rootProject.buildToolsVersion
+
+    dataBinding.enabled true
+
+    buildFeatures {
+        viewBinding = true
+    }
+
+    compileOptions {
+        coreLibraryDesugaringEnabled true
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
+
+        renderscriptTargetApi rootProject.minSdkVersion
+        renderscriptSupportModeEnabled true
+
+        versionCode 589
+        versionName "3.22.2"
+
+        setProperty("archivesBaseName", "pia-$versionName-$versionCode")
+        vectorDrawables {
+            useSupportLibrary = true
+        }
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+    }
+
+    sourceSets {
+        main {
+            assets.srcDirs = ['src/main/assets', 'build/ovpnassets']
+            jniLibs.srcDirs = ['ovpnlibs/jniLibs']
+
+            jni.srcDirs = [] //disable automatic ndk-build
+            res.srcDirs = ['src/main/res', 'src/playstore/res/']
+        }
+        test {
+            java {
+                srcDir 'test'
+            }
+        }
+    }
+
+    lintOptions {
+        disable 'InvalidPackage', 'MissingTranslation', 'MissingDefaultResource', 'ExtraTranslation'
+    }
+
+    flavorDimensions "pia", "store"
+
+    productFlavors {
+        production {
+            // This field is not use in production, just just to a safe value
+            buildConfigField 'String', 'STAGEINGHOST', '"https://www.privateinternetaccess.com/"'
+            dimension "pia"
+        }
+
+        qa {
+            buildConfigField 'String','STAGEINGHOST','"https://staging-1-77b8e3a311bcb6ec5e96.privateinternetaccess.com/"'
+            dimension "pia"
+        }
+
+        playstore {
+            dimension "store"
+        }
+
+        noinapp {
+            dimension "store"
+        }
+
+        amazonstore {
+            dimension "store"
+        }
+    }
+
+    testOptions { //Used for testing as TextUtils isn't available when testing.
+        unitTests {
+            all {
+                jvmArgs '-noverify'
+            }
+            returnDefaultValues = true
+            includeAndroidResources = true
+        }
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("key.keystore")
+            keyAlias System.env["SIGNING_KEY_ALIAS"]
+            keyPassword System.env["SIGNING_KEY_PASSWORD"]
+            storePassword System.env["SIGNING_STORE_PASSWORD"]
+            v2SigningEnabled true
+        }
+        debug {
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            path 'tools/CMakeLists.txt'
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    def newName = output.outputFile.name
+                    if (newName.contains("debug")) {
+                        // Don't rename debug apks
+                    } else if (signingConfig.keyAlias == null || signingConfig.keyPassword == null || signingConfig.storePassword == null) {
+                        newName = newName.replace(".apk", "-unsigned.apk")
+                        newName = newName.replace(".aab", "-unsigned.aab")
+                    } else {
+                        newName = newName.replace(".apk", "-signed.apk")
+                        newName = newName.replace(".aab", "-signed.aab")
+                    }
+                    output.outputFileName =  newName
+                }
+            }
+        }
+        debug {
+            debuggable true
+        }
+    }
+    ndkVersion '21.1.6352462'
+}
+
+task fetchRegions {
+    println "Fetching initial list of regions"
+    def response = new URL("https://serverlist.piaservers.net/vpninfo/servers/v6").getText()
+    new File("$rootDir/app/src/main/assets/regions.json").write response
+}
+preBuild.dependsOn fetchRegions
+
+// Ensure native build is run before assets, so assets are ready to be merged into the apk
+android.applicationVariants.all { variant ->
+    variant.mergeAssets.dependsOn(variant.externalNativeBuildTasks)
+}

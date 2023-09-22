@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/tv_grey_20"
+    >
+
+    <com.privateinternetaccess.android.ui.tv.views.GraphView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:maxElements="60"
+        app:textColor="@color/pia_text_light_primary"
+        app:showLegend="false"
+        app:showDownloadSpeed="false"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/activity_graph_ip_status"
+        />
+
+    <TextView
+        android:id="@+id/activity_graph_connected_status"
+        style="@style/PiaTextTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="72dp"
+        android:layout_marginLeft="72dp"
+        android:layout_marginTop="72dp"
+        android:textColor="@color/pia_text_light_primary"
+        android:textSize="@dimen/text_large"
+        tools:text="Connected Sweden" />
+
+    <TextView
+        android:id="@+id/activity_graph_ip_status"
+        style="@style/PiaTextSubheading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/pia_text_light_secondary"
+        android:layout_below="@+id/activity_graph_connected_status"
+        android:layout_alignLeft="@+id/activity_graph_connected_status"
+        android:layout_marginTop="40dp"
+        tools:text="100.100.100.100" />
+
+
+    <TextView
+        android:id="@+id/activity_graph_download_amount"
+        style="@style/PiaTextTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="72dp"
+        android:layout_marginRight="72dp"
+        android:layout_marginTop="72dp"
+        android:textColor="@color/pia_text_light_primary"
+        android:textSize="@dimen/text_large"
+        tools:text="3000 mbps" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/activity_graph_download_image"
+        android:src="@drawable/ic_download_white"
+        android:tint="@color/pia_gen_green"
+        android:tintMode="multiply"
+        android:layout_toLeftOf="@+id/activity_graph_download_amount"
+        android:layout_alignTop="@+id/activity_graph_download_amount"
+        android:layout_marginRight="10dp"
+        />
+
+
+</RelativeLayout>

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:focusable="true" >
+
+    <LinearLayout
+        android:id="@+id/list_server_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="18dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="18dp"
+        android:background="?attr/selectableItemBackground" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:clipToPadding="false"
+            android:clipChildren="false" >
+
+            <ImageView
+                android:id="@+id/list_server_flag"
+                android:layout_width="32dp"
+                android:layout_height="22dp"
+                android:scaleType="fitCenter"
+                android:layout_gravity="center"
+                tools:background="@drawable/flag_jp" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_weight="2.5"
+                android:clipToPadding="false"
+                android:clipChildren="false" >
+
+                <TextView
+                    android:id="@+id/list_server_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:textColor="?attr/grey20_white"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    tools:text="Japan asdasdasdasd"
+                    style="@style/Style06" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/list_server_geo"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/ic_geo_unselected"
+                    android:visibility="gone" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/list_server_allows_port_forwarding"
+                    android:layout_width="18dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/ic_port_forwarding_unavailable" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/list_server_selected"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/ic_checkmark"
+                    android:visibility="gone" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/list_server_offline"
+                    android:layout_width="22dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_gravity="center"
+                    app:srcCompat="@drawable/ic_offline"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/list_server_spacer"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"/>
+
+            <TextView
+                android:id="@+id/list_server_ping"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginStart="10dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                style="@style/Style11"
+                tools:text="234 ms" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/list_server_favorite"
+                android:layout_width="24dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="10dp"
+                android:layout_gravity="center"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                app:srcCompat="@drawable/ic_heart_mobile"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/list_server_dip_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="42dp"
+            android:orientation="horizontal"
+            android:visibility="gone" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/grey40"
+                android:id="@+id/list_server_dip"
+                tools:text="8.8.8.8"
+                style="@style/Style06" />
+
+            <TextView
+                android:background="@drawable/shape_rounded_border_grey40"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="1dp"
+                android:paddingBottom="1dp"
+                android:layout_marginStart="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@color/grey40"
+                android:text="@string/dip_tag"
+                style="@style/Style06" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/list_server_basic_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?attr/region_selection_background" />
+
+    <View
+        android:id="@+id/list_server_large_divider"
+        android:layout_width="match_parent"
+        android:layout_height="16dp"
+        android:background="?attr/search_background" />
+
+</LinearLayout>

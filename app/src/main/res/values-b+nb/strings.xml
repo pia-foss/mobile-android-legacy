@@ -1,0 +1,661 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+<resources>
+    <string name="launcher_name">PIA VPN</string>
+    <string name="app_name">VPN fra Private Internet Access</string>
+    <string name="menu_settings">Innstillinger</string>
+    <string name="menu_settings_general">Generelt</string>
+    <string name="menu_settings_protocols">Protokoller</string>
+    <string name="menu_settings_network">Nettverk</string>
+    <string name="menu_settings_privacy">Personvern</string>
+    <string name="menu_settings_automation">Automatisering</string>
+    <string name="menu_settings_obfuscation">Formørkelse</string>
+    <string name="menu_settings_help">Hjelp</string>
+    <!-- Please keep the %s, this is a formatted text. %s is a port number (ei 1024) -->
+    <string name="rportsummary">Bruker porten %s for tilkobling</string>
+    <!-- Please keep the %s, this is a formatted text. %s is a port number (ei 1024) -->
+    <string name="lportsummary">Bruker lokal port %s for tilkobling</string>
+    <string name="lportrandom">Bruker tilfeldig lokal port for tilkobling</string>
+    <string name="server_selection">Valg av server</string>
+    <string name="auto_rport">Bruker automatisk valg av port</string>
+    <string name="automatic_server_selection_main">Automatisk</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is a server location (ei London, Berlin) -->
+    <string name="automatic_server_selection_main_region">Automatisk (%1$s)</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is an IP (ei 126.0.1.10)  -->
+    <string name="prompt_login">ie p1234567</string>
+    <string name="use_udp_summary">UDP vil brukes for å koble til</string>
+    <string name="use_tcp_summary">TCP vil brukes for å koble til</string>
+    <string name="transport">Transport</string>
+    <string name="select_port">Velg porten for å koble til privateinternetaccess.com</string>
+    <string name="remote_port">Ekstern port</string>
+    <string name="remote_port_cap">VIDERESENDT PORT</string>
+    <string name="remote_port_vpn_ip">VPN IP</string>
+    <string name="local_port">Lokal port</string>
+    <string name="find_out_more"><u>Finn ut mer</u></string>
+    <string name="connect_onstart_title">Koble til ved oppstart</string>
+    <string name="connect_onstart">Koble til når appen startes</string>
+    <string name="connect_on_boot">Koble til ved oppstart</string>
+    <string name="portforwarding">Forespør videresending av port</string>
+    <string name="portforwarding_summary">Tillater innkommende tilkoblinger til mobilenheten din over en ekstern port</string>
+    <!-- Please keep the %s, this is a formatted text. %s is an error message.  -->
+    <string name="portfwderror">Feil ved forespørsel av videresending av port: %s</string>
+    <string name="mace_toggle">Mace annonseblokkering</string>
+    <string name="killswitch">VPN-nødbryter</string>
+    <string name="killswitchsummary">Deaktiverer tilkoblingen din til Internet når VNP-en kobles fra.</string>
+    <string name="killswitchtext">INTERNETT-NØDBRYTER AKTIVERT</string>
+    <string name="killswitchstatus_description">Internett-nødbryteren tillater ikke ubeskyttet Internett-aktivitet. Vent på ny tilkobling eller koble til VPN-tjenesten eller deaktiver nødbryteren for å gjenopprette Internett-tilkoblingen.</string>
+    <string name="requestingportfw">Anmoder videresendt port …</string>
+    <string name="killswitch_button">Deaktiver</string>
+    <string name="action_sign_in_short">Pålogging</string>
+    <string name="login">LOGG INN</string>
+    <string name="logout">Logg ut</string>
+    <string name="accept">godta</string>
+    <string name="no_thanks">nei takk</string>
+    <string name="read_more"><u>Les mer</u></string>
+    <string name="state_gen_config">Genererer konfigurasjon</string>
+    <string name="user_pw_invalid">Ugyldig brukernavn/passord</string>
+    <string name="replace_login_title">Erstatt påloggingsinformasjon</string>
+    <!-- Please keep the %1$s %2$s, this is a formattered text. %1$s %2$s are usernames.  -->
+    <string name="replace_login_msg">Erstatte påloggingsinformasjon med ny påloggingsinformasjon? (Nytt brukernavn: %1$s, gammelt brukernavn: %2$s)</string>
+    <string name="subscription_expires_in">Abonnementet ditt løper ut om</string>
+    <string name="subscription_expired">Abonnementet ditt er</string>
+    <string name="per_app_settings">Per app-innstillinger</string>
+    <string name="tv_per_app_settings">PER APP-INNSTILLINGER</string>
+    <string name="help_improve_pia">HJELP MED Å FORBEDRE PIA</string>
+    <string name="username_password_already_saved">Brukernavn og passord er allerede lagret!</string>
+    <string name="invalid_email_signup">Du må oppgi en gyldig e-postadresse</string>
+    <string name="buyvpn_url_localized">https://www.privateinternetaccess.com/pages/buy-vpn/</string>
+    <string name="localport_warning">Lokal port må være mellom 1024 og 65535</string>
+    <string name="notanumber_localport">Ugyldig nummer-format for lokal port</string>
+    <string name="notanumber_proxyport">Ulovlig tallformat for proxyport</string>
+    <string name="thankyou_monthly">Takk for at du abonnerer på månedlig VPN!</string>
+    <string name="thankyou_yearly">Takk for at du abonnerer på årlig VPN!</string>
+    <string name="purchase_signing_up">Registrerer …</string>
+    <string name="purchase_loading">Laster inn</string>
+    <string name="logout_confirmation">Avloggingsbekreftelse</string>
+    <string name="logout_confirmation_text">Ved å logge ut avsluttes en aktiv VPN-tilkobling og du er ubeskyttet</string>
+    <string name="expiry_notification_title">Abonnementet ditt utløper snart.</string>
+    <string name="expiry_notification_onnemonth">Du har mindre enn én måned igjen. Forny for å holde deg beskyttet.</string>
+    <string name="expiry_notification_oneweek">Du har mindre enn én uke igjen. Forny for å holde deg beskyttet.</string>
+    <string name="expirty_notification_threedays">Du har mindre enn tre dager igjen. Forny for å holde deg beskyttet.</string>
+    <string name="expirty_notification_oneday">Du har mindre enn én dag igjen. Forny for å holde deg beskyttet.</string>
+    <string name="error_renew_trial">Prøvekontoer kan ikke fornyes. Du kan fortsette bruk av tjenesten ved å kjøpe en ny konto etter at prøvekontoen er gått ut.</string>
+    <string name="error_renew_expired">Kontoen din er inaktiv og kan ikke akseptere nye betalinger. Logg ut og registrer deg på nytt for å opprette en ny konto.</string>
+    <string name="pending_purchase_found">Kjøp venter på behandling i appen. Logg inn for å fornye ditt nåværende abonnement.</string>
+    <string name="account_not_renewable">Kontoen din kan ikke fornyes eller vil fornyes automatisk</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is an error message.  -->
+    <string name="error_subscribing">"Feil ved kjøp av: %1$s "</string>
+    <string name="error_active_subscription">Du har allerede et aktivt abonnement!</string>
+    <string name="error_invalid_auth">Noe gikk galt. Prøv å logge inn igjen.</string>
+    <string name="usemssfix">IP-pakkens størrelse vil bli noe mindre for å forbedre kompatibilitet med noen rutere og mobile nettverk.</string>
+    <string name="mssfixsummary">Bruk små pakker</string>
+    <string name="settings_account_bottom_text">Last ned Private Internet Access-appen for de andre enhetene dine og bruk brukernavnet ovenfor for å logge på og sikre tilkoblingen.</string>
+    <string name="settings_account_bottom_text_4">Få Private Internet Access-appen for dine andre enheter og bruk brukernavnet ovenfor til å logge på og sikre tilkoblingen din.</string>
+    <string name="update_email">Oppdater e-post</string>
+    <string name="email_sucessfully_changed">E-postadressen er endret</string>
+    <string name="copy_toast_text">Tekst kopiert til utklippstavlen</string>
+    <string name="current_region">NÅVÆRENDE REGION</string>
+    <string name="full_licenses">Fullstendige lisenser</string>
+    <string name="email">E-post</string>
+    <string name="please_wait">Vennligst vent</string>
+    <string name="still_connecting">Prøver fortsatt å koble til</string>
+    <string name="enabled">Aktivert</string>
+    <string name="disabled">Deaktivert</string>
+    <string name="account_details_password_bottom_text">Trykk på «øyet» for å vise det. Trykk igjen for å kopiere passordet til utklippstavlen.</string>
+    <string name="user_x_vs_p_error">Sørg for at du logger inn med hovedbrukernavnet ditt, som starter med «p» (f.eks. p12345)</string>
+    <string name="vpn_revoke_text">PIAs VPN-tillatelse er annullert. VPN, Internet-nødbryter og sikkerhet er ikke aktiv. Trykk her for å starte denne tjenesten på nytt og sikre Internett-tilkoblingen din.</string>
+    <string name="vpn_revoke_title">PIA VPN stoppet</string>
+    <!-- Please keep the % elements, this is a formatted text. %1$s is Private Internet Access, %2$s is version number(ei 1.4), %3$s is the version code (ei 114)  -->
+    <string name="login_operation_failed">Feil ved innlogging. Prøv igjen senere.</string>
+    <string name="no_internet_connection_available">Ingen Internett-tilkobling tilgjengelig</string>
+    <string name="no_username_or_password">Du må oppgi et brukernavn og passord</string>
+    <string name="please_unlock_your_device">Lås opp enheten din</string>
+    <string name="please_unlock_your_device_message">For å se passordet eller oppdatere kontoinformasjonen din.</string>
+    <string name="settings_mace">PIA MACE™</string>
+    <string name="settings_mace_summary">Blokkerer annonser, sporingssendere og skadelig programvare mens du er koblet til VPN</string>
+    <string name="qs_title">Koble til PIA</string>
+    <string name="not_logged_in">ikke innlogget</string>
+    <!-- Please keep the %s, this is a formatted text. %s is a server name.  -->
+    <string name="qs_disconnect">Koble fra VPN (%s)</string>
+    <string name="qs_disconnect_nolocation">Koble fra VPN</string>
+    <string name="menu_about">Om</string>
+    <string name="reconnect_vpn">Koble til VPN på nytt for å aktivere endringen</string>
+    <string name="reconnect">Koble til igjen</string>
+    <string name="later">Senere</string>
+    <string name="error_account_info">Kunne ikke hente kontoinformasjon</string>
+    <string name="error_pinging_while_connected">Kunne ikke oppdatere latens mens tilkoblet VPN.</string>
+    <string name="allows_port_forwarding">Tillater videresending av port</string>
+    <string name="about_privacy_policy">Personvern</string>
+    <string name="version">Versjon</string>
+    <string name="application_information">APPINFORMASJON</string>
+    <string name="data_encyrption">Datakryptering</string>
+    <string name="data_auth">Dataverifisering</string>
+    <string name="handshake">Håndtrykk</string>
+    <string name="dismiss">Avvis</string>
+    <string name="recent_changes">Nylige endringer</string>
+    <string name="refresh">Oppdater</string>
+    <string name="open_in_browser">Åpne i nettleser</string>
+    <string name="copy_link">Kopier lenke</string>
+    <string name="text_failed_to_copy">Kunne ikke kopiere tekst</string>
+    <string name="link_copied_to_clipboard">Lenke kopiert til utklippstavlen</string>
+    <string name="search_apps">Søk i apper</string>
+    <string name="account_trail">Prøveperiode</string>
+    <string name="account_yearly">Årlig</string>
+    <string name="account_montly">Månedlig</string>
+    <string name="account_termination">Kontoen din er avsluttet</string>
+    <string name="preference_connection">TILKOBLING</string>
+    <string name="preference_encryption">KRYPTERING</string>
+    <string name="vpn_stop">Stopp</string>
+    <string name="change_server">Endre server</string>
+    <string name="click_to_connect">Trykk for å koble til</string>
+    <string name="widget_long_title">Rektangulær tilkobling</string>
+    <string name="widget_square_connect">Kvadratisk tilkobling</string>
+    <string name="widget_small_connect">Liten tilkobling</string>
+    <string name="mace_enabled">MACE er aktivert</string>
+    <string name="send_debug_log">Send feilsøkingslogg til kundestøtte</string>
+    <!-- Please keep the %s, this is a formatted text. %s is an error message.  -->
+    <string name="failure_sending_log">Kunne ikke sende feilsøkingslogger: %s</string>
+    <string name="log_send_done_title">Debuginformasjon sendt.</string>
+    <string name="log_send_done_msg">Debuginformasjon sendt. \nID: %s\nSkriv ned denne ID-en, da kundestøtten trenger den for å finne meldingen din.</string>
+    <string name="sending_debug_log">Sender debuginformasjon …</string>
+    <string name="nought_always_on_warning">Hvis du ikke fikk et VPN-bekreftelsesvindu, har du kanskje «Alltid på VPN» aktivert for en annen app. I så fall er det abre den appen som kan koble til en VPN. Se Innstillinger-&gt; Nettverk mer … -&gt; VPN-&gt;</string>
+    <string name="open_settings">Åpne innstillinger</string>
+    <string name="settings_widget_configuration">Widget-konfigurasjon</string>
+    <string name="preferences_widget_title">Widget-innstillinger</string>
+    <string name="preferences_widget_summary">Få widgetene våre til å fungere med startskjermen din</string>
+    <string name="widget_flag_alpha">Rapporter alfa</string>
+    <string name="widget_background">Bakgrunnsfarge</string>
+    <string name="widget_color">Tekstfarge</string>
+    <string name="widget_cc">PIA-kommandosenter</string>
+    <string name="clear">Tøm</string>
+    <string name="save">Lagre</string>
+    <string name="saved">Lagret</string>
+    <string name="speeds_shown_are_all_traffic_over_our_connection">Hastigheter som vises her er for trafikk gjennom VPN-tilkoblingen din</string>
+    <string name="ip_short">Offentlig IP</string>
+    <string name="login_throttled_text">For mange mislykkede påloggingsforsøk med dette brukernavnet. Prøv igjen senere.</string>
+    <string name="tap_to_connect">TRYKK FOR Å KOBLE TIL</string>
+    <string name="building_configration">Bygger konfigurasjonen …</string>
+    <!-- Please keep the %1$d, this is a formatted text. %1$d is a number (ei 1-31) -->
+    <string name="days_left">%d dager</string>
+    <string name="one_day_left">Én dag</string>
+    <!-- Please keep the %1$d, this is a formatted text. %1$d is a number (ei 1-31) -->
+    <string name="hours_left">%d timer</string>
+    <string name="one_hour_left">Én time</string>
+    <!-- Please keep the %1$d, this is a formatted text. %1$d is a number (ei 1-31) -->
+    <string name="minutes_left">%d minutter</string>
+    <string name="one_minute_left">Ett minutt</string>
+    <string name="timeleft_expired">Utløpt</string>
+    <string name="sign_in_to_your_account">Logg inn på kontoen din</string>
+    <string name="username_only">Brukernavn</string>
+    <string name="submit">Send inn</string>
+    <string name="please_enter_your_email_address">Skriv inn e-postadressen din</string>
+    <string name="select_vpn_plan">Velg et VPN-abonnement</string>
+    <string name="_7_day_money_back_guarantee">30-dagers pengene-tilbake-garanti</string>
+    <string name="monthly">Månedlig</string>
+    <string name="yearly">Årlig</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is a currency (ei 1-31) -->
+    <string name="yearly_sub_text">%1$s per år</string>
+    <string name="forgot_password">Glemt passord</string>
+    <string name="tap_to_disconnect">TRYKK FOR Å KOBLE FRA</string>
+    <string name="drawer_account">Konto</string>
+    <string name="drawer_refer_friend">Verv en venn</string>
+    <string name="drawer_region_selection">Valg av region</string>
+    <string name="drawer_about">Om</string>
+    <string name="drawer_home_page">Startside</string>
+    <string name="drawer_contact_support">Kontakt kundestøtte</string>
+    <string name="n_a_port_forwarding">---</string>
+    <!-- This string is going to be formatted by us so the "Buy now" is colored green. Please do not change the &lt;emph> or &lt;/emph> as that is formatting for us to find the buy now text. -->
+    <string name="dont_have_an_account">Har du ikke en konto? &lt;emph&gt;Kjøp nå&lt;/emph&gt;</string>
+    <string name="buy_now">Kjøp nå!</string>
+    <string name="buy_now_button">Kjøp nå</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is a currency (ei 1-31) -->
+    <string name="purchasing_monthly_ending">%1$s/mnd</string>
+    <!-- Please keep the %1$s %2$s, this is a formatted text. %1$s is a currency (ei 1-31), %2$s is the currency (move this in front or keep it there depending on currency -->
+    <string name="purchasing_yearly_month_ending">%2$s%1$s/mnd</string>
+    <string name="change_region">BYTT REGION</string>
+    <!--Please keep the %1$s, this is a formatted text. %1$s is the up and down speeds on the connection. /s is per second-->
+    <string name="graph_under_formatting">%1$s/s</string>
+    <string name="allowed_apps_protected_text">Beskytt appene automatisk ved å bruke PIAs VPN</string>
+    <string name="allowed_apps_unprotected_text">Velg hvilke apper som skal bruke PIAs VPN</string>
+    <string name="allowed_apps_spotlight_text">Velger om alle appene skal bruke eller ikke bruke PIAs VPN som standard.</string>
+    <string name="allowed_apps_spotlight_title">Per app-valg</string>
+    <string name="toast_allowed_apps_default_positive">Apper som skal bruke PIAs VPN som standard</string>
+    <string name="toast_allowed_apps_default_negative">Apper som ikke skal bruke PIAs VPN som standard</string>
+    <!-- Please keep %1$s %2%s as those are formatted numbers. %1$s is a version number like 2.0, %2$s is the version code like 141 -->
+    <string name="drawer_version">Versjon %1$s (%2$s)</string>
+    <string name="cancel">Avbryt</string>
+    <!-- Keep the <![CDATA[...]], translate everything in between-->
+    <string name="settings_port_number_restriction"><![CDATA[Portnummeret må være mellom 1024 og 65535]]></string>
+    <!-- Keep the <![CDATA[...]], translate everything in between-->
+    <string name="settings_lport_hint"><![CDATA[Port mellom 1024 og 65535]]></string>
+    <string name="startup_region_title">Koble til hvilken som helst region på en enkel måte</string>
+    <string name="startup_region_message">Med serverer fra hele verden, er du alltid beskyttet.</string>
+    <string name="startup_region_message_cancel_anytime">Ingen forpliktelser. Du kan avbryte når som helst i løpet av prøveperioden.</string>
+    <string name="startup_region_message_new">Med servere over hele verden er du alltid beskyttet. Start en 7-dagers gratis prøveperiode og deretter %1$s per år. %2$s</string>
+    <string name="startup_region_footer"><a href="privacy:">Personvernerklæring</a> og <a href="terms:">tjenestevilkår</a></string>
+    <string name="startup_region_header">Private Internet Access</string>
+    <string name="startup_ads_title">Beskytt deg selv om reklame</string>
+    <string name="startup_ads_message">Aktivering av PIA MACE sikrer at reklame ikke blir vist, uansett hvor du er.</string>
+    <string name="startup_connection_title">Per app-beskyttelse</string>
+    <string name="startup_connection_message">Tilpass opplevelsen din ved å styre hvilke apper tjenesten vår skal gjelde for (Android 5.0+ kreves)</string>
+    <string name="speed_graph">PRESTASJON</string>
+    <string name="data_usage_over_time">DATAFORBRUK OVER TID</string>
+    <!-- Please add in what word is the color red as we color it in code.  -->
+    <string name="per_app_warning">Apper i rødt har enkelte funksjoner som kan forårsake problemer, dette ved at tjenesten vår kan omgås, noe som gjør at du ikke får beskyttelsen vår.</string>
+    <string name="purchasing_bottom">Har du allerede en konto? &lt;emph&gt; Logg inn&lt;/emph&gt;</string>
+    <string name="ok">Ok</string>
+    <string name="killswitch_title">Nødbryteren er aktivert</string>
+    <string name="skip">HOPP OVER</string>
+    <string name="next">NESTE</string>
+    <string name="done">FERDIG</string>
+    <string name="update_account">OPPDATER KONTO</string>
+    <string name="local_port_titla">Lokal port</string>
+    <string name="connection_couldnt_establish_title">Tilkoblingen kunne ikke opprettes</string>
+    <string name="connection_couldnt_establish_message">Du kan velge en annen region eller fortelle oss om det ved å åpne en støttesak</string>
+    <string name="send_feedback">Send tilbakemelding</string>
+    <string name="preference_application_settings">GENERELLE INNSTILLINGER</string>
+    <string name="preference_vpn_settings">VPN-INNSTILLINGER</string>
+    <string name="preference_haptic_title">Haptikktilbakemelding</string>
+    <string name="preference_dialog_graph_title">Velg målenhet for grafen</string>
+    <string name="preference_connect_on_boot_summary">Koble til ved systemoppstart</string>
+    <string name="preference_haptic_feedback_summary">Vibrer når tilkobling blir klikket på</string>
+    <string name="best_value">BEST VERDI – GRATIS PRØVEPERIODE</string>
+    <string name="port_number">Portnummer</string>
+    <!-- Please keep the %s, this is a formatted text. %1$s is an app name -->
+    <string name="allowed_apps_toast_removed">%1$s blir beskyttet</string>
+    <!-- Please keep the %s, this is a formatted text. %1$s is an app name -->
+    <string name="allowed_apps_toast_added">%1$s blir ikke beskyttet</string>
+    <string name="shorthand_bytecount">%2$s %1$s</string>
+    <string name="preference_widget_icon_upload_title">Last opp ikonfarge</string>
+    <string name="preference_widget_icon_download_title">Last ned ikonfarge</string>
+    <string name="preference_graph_unit">Grafenhet</string>
+    <string name="no">Nei</string>
+    <string name="color_picker_dialog_title">Velg en farge</string>
+    <string name="username_example">Brukernavn (ie p1234567)</string>
+    <string-array name="preference_graph_titles">
+        <item>Biter</item>
+        <item>Byte</item>
+        <item>Kilobit</item>
+        <item>Kilobyte</item>
+        <item>Megabit</item>
+        <item>Megabyte</item>
+        <item>Gigabit</item>
+        <item>Gigabyte</item>
+    </string-array>
+    <!-- Logic in code uses the first and last letter to decide the unit to change the graph too. Be care what to use-->
+    <string name="channel_name_background">Tilkoblingsstatistikk</string>
+    <string name="channel_description_background">Kontinuerlig statistikk over etablert PIA VPN</string>
+    <string name="channel_name_status">Endringer av tilkoblingsstatus</string>
+    <string name="channel_description_status">Statusen endres for PIA VPN (Tilkobling, godkjenning …)</string>
+    <string name="no_internet_click_here">Ingen internettforbindelse, kunne ikke hente priser. Klikk her for å oppdatere visningen.</string>
+    <string name="failure_to_connect_alert">Tilkobling til Google-serverne våre mislyktes. Vennligst koble deg til Internett.</string>
+    <string name="blockipv6_summary">Bruk en alternativ metode for å forhindre IPv6-lekkasjer. Påkrevd å blokkere IPv6-lekkasjer på Android &lt; 5.0.</string>
+    <string name="blockipv6">Aggressiv  IPv6-blokkering</string>
+    <string name="purchase_renew_title">Kjøp en ny konto</string>
+    <string name="purchase_renew_message">Kontoen er ikke kvalifisert for fornyelse. Kjøp en ny konto for å fortsette tjenesten.</string>
+    <string name="purchase">Kjøp</string>
+    <string name="purchase_complete">Kjøp fullført</string>
+    <string name="purchase_complete_message">Takk for at du registrerte deg. Vi har sendt deg kontonavnet og passordet ditt til e-postadressen din %1$s</string>
+    <string name="password_only">Passord</string>
+    <string name="account_creation_failure">Kunne ikke opprette kontoen</string>
+    <string name="account_creation_failure_message">Vi har for øyeblikket problemer med å opprette kontoen din. Vi har laget en støttesak med ID %1$s, en kundestøtterepresentant tar snart kontakt med deg. Du kan også prøve å starte appen på nytt senere for å fullføre prosessen.</string>
+    <string name="get_started">Komme i gang</string>
+    <string name="no_internet_message">Ingen internettilkobling. Bekreft at du er koblet til Internett og trykk på Prøv igjen nedenfor.\n\nDu kan komme tilbake til appen senere for å fullføre prosessen.</string>
+    <string name="no_internet_title">Ups!</string>
+    <string name="retry">Prøv igjen</string>
+    <string name="go_to_login">Gå til pålogging</string>
+    <string name="unable_change_email">Vi kunne ikke endre e-posten. Prøv igjen senere.</string>
+    <string name="preference_reset_settings">Tilbakestiller til fabrikkinnstillingene</string>
+    <string name="pref_reset_settings">Tilbakestill innstillinger?</string>
+    <string name="pref_reset_settings_message">Dette bringer appen tilbake til fabrikkinnstillingene. Du mister alle endringer.</string>
+    <string name="reset">Tilbakestill</string>
+    <string name="settings_reset">Tilbakestill innstillinger</string>
+    <string name="widget_radius">Widget-radius</string>
+    <string name="widget_text">Tekst-widget</string>
+    <string name="account_creation_failure_message_no_ticket_id">Vi kunne ikke opprette en konto nå. Prøv på nytt senere.\n\nNår du åpner appen igjen, vil den prøve å opprette kontoen på nytt.</string>
+    <string name="try_again">Prøv på nytt</string>
+    <string name="default_base">Standard</string>
+    <string name="confirm_purchase">Bekreft kjøp</string>
+    <string name="purchase_failed">Kjøpet mislyktes</string>
+    <string name="confirming_purchase">Vi bekrefter kjøpet i systemet vårt. Dette kan ta litt tid.</string>
+    <!-- %1$d and %2$d are numbers. Example of this string would be Attempt 1 of 5, 2 of 5, 3 of 5. -->
+    <string name="attempt"> %1$d av %2$d forsøk</string>
+    <string name="piaaccountneeded">Du må ha en privateinternetaccess.com-konto for å logge inn</string>
+    <string name="piaaccountneeded_samsung">Gå til privateinternetaccess.com for å registrere deg for denne tjenesten.</string>
+    <string name="piaaccountneeded_amazon">Gå til privateinternetaccess.com for å registrere deg for denne tjenesten.</string>
+    <string name="vpn_permisions_top_text">PIA trenger tilgang til VPN-konfigurasjonen din for å sikre trafikken din</string>
+    <string name="vpn_permissions_middle_text">Du vil få opp en melding om PIA VPN, og du må tillate tilgang til VPN-konfigurasjonen. For å fortsette, trykker du på «OK»</string>
+    <string name="vpn_permission_network">Vi overvåker, filtrerer eller logger ikke nettverksaktiviteten din.</string>
+    <string name="vpn_permission_title">PIA</string>
+    <string name="contact">Kontakt</string>
+    <string name="permissions_message">Vi trenger denne tillatelsen for at programmet skal virke. Du kan også ta kontakt med kundestøtte, hvis du trenger hjelp.</string>
+    <string name="send_email">Send e-post</string>
+    <string-array name="themes_list">
+        <item>Lys</item>
+        <item>Mør</item>
+    </string-array>
+    <string name="preference_app_theme">Mørkt tema</string>
+    <string name="auth_setby_gcm">AEAD-chiffrere som AES-GCM, bruker en integrert godkjenningsmekanisme</string>
+    <string name="allow_locallan">Tillat LAN-trafikk</string>
+    <string name="allow_locallan_details">Tillater alltid trafikk mellom enheter på ditt lokale nettverk</string>
+    <string name="pref_block_dialog_title">Tillat tilgang til lokale nettverk</string>
+    <string name="pref_block_dialog_message">Legg merke til at enkelte systemprogrammer (for eksempel Google-appen) kan omgå VPN når tilgang til det lokale nettverket er tillatt.</string>
+    <string name="killswitch_notification_title">Killswitch aktiv</string>
+    <string name="open_android_settings">Åpne Android-innstillinger</string>
+    <string name="data_in">ned</string>
+    <string name="data_out">opp</string>
+    <string name="pia_channel_name">PIA</string>
+    <string name="pia_channel_description">Generelle hendelser og varsler</string>
+    <string name="tv_startup_press_right">TRYKK HØYRE</string>
+    <string name="androidalwayson">VPN-nødbryter</string>
+    <string name="androidalwaysonsummary">Android har et bedre alternativ for killswitch-funksjonalitet. Klikk for mer informasjon</string>
+    <string name="preference_blocking">BLOKKERING</string>
+    <string name="preference_connect_proxy">Koble til via proxy</string>
+    <string name="preference_connect_proxy_app">Valgt proxyapp</string>
+    <string name="preference_connect_proxy_summary">Sørg for at du ekskluderer appen du bruker for å koble deg til i appinnstillingene</string>
+    <string name="preference_proxy_port">Proxyport</string>
+    <string name="proxy_selection_title">Velg proxyapp</string>
+    <string name="app_is_proxy">Denne appen er proxyappen din. Den må ekskluderes for å fungere.</string>
+    <string name="app_must_be_selected">Du må velge en app å lagre.</string>
+    <string name="proxy_settings_title">PROXYINNSTILLINGER</string>
+    <string name="enable_proxy_dialog_title">Konfigurer proxyappen</string>
+    <string name="enable_proxy_dialog_message">For å bruke proxy i appen vår, må du vite hvilken app du planlegger å bruke.</string>
+    <string name="vpn_activity_title">VPN Debug-logg</string>
+    <string name="preference_vpn_log_title">Vis VPN-feilsøkingsloggen</string>
+    <string name="preference_vpn_log_summary">Avansert brukervisning for å se VPN-loggen</string>
+    <string name="preference_orbot_title">Proxyappen er Orbot</string>
+    <string name="preference_orbot_summary">Bruk Orbot-integrering</string>
+    <string name="settings_orbot_udp_problem_message">TCP kreves for at Orbot skal fungere. Vil du aktivere TCP?</string>
+    <string name="settings_orbot_udp_problem_title">Proxykrav</string>
+    <!-- %d is a digit for ping latency(ie, 0-10000). ms is milliseconds. -->
+    <string name="ping_string">%d ms</string>
+    <string name="status_server_ping">Finner beste server</string>
+    <!-- &lt;emph> and &lt;/emph> should not be touched. These are how we know what to color in this string. -->
+    <string name="trial_account">Har du et gavekort eller prøvekort? &lt;emph&gt;Løs det inn nå&lt;/emph&gt;</string>
+    <!-- &lt;emph> and &lt;/emph> should not be touched. These are how we know what to color in this string. -->
+    <string name="trial_remember_password">Husker du passordet ditt? &lt;emph&gt;Logg inn&lt;/emph&gt;</string>
+    <string name="trial_card_pin">Kort-PIN</string>
+    <string name="trial_screen_redeem">Løs inn gavekort</string>
+    <string name="trial_screen_message">Angi e-postadressen og den 16-sifrede PIN-koden fra gavekortet eller prøvekortet nedenfor.</string>
+    <string name="card_pin_invalid">Kort-PIN er ugyldig</string>
+    <string name="confirming_trial_account">Vi bekrefter kort-PIN-en din i systemet vårt. Det kan ta et øyeblikk, så vennligst vent.</string>
+    <string name="trial_success_message">Du mottar også en e-post med brukernavn og passord.</string>
+    <string name="trial_success_title">Fullført!</string>
+    <string name="trial_failure_redeemed_title">Kortet er allerede brukt</string>
+    <string name="trial_failure_redeemed_message">Ser ut til at kortet allerede er brukt av en annen konto. Du kan prøve med en annen PIN.</string>
+    <string name="trial_failure_invalid_title">Ugyldig kort-PIN</string>
+    <string name="trial_failure_invalid_message">Ser ut til at du brukte en ugyldig kort-PIN. Prøv igjen</string>
+    <string name="trial_failure_expired_title">Kort utløpt</string>
+    <string name="trial_failure_expired_message">Du kan prøve en annen PIN.</string>
+    <string name="trial_failure_throttled_title">For mange forsøk.</string>
+    <string name="trial_failure_throttled_message">Du har prøvd for mange ganger. Prøv igjen senere.</string>
+    <string name="trial_failure_email_title">Ugyldig e-post</string>
+    <string name="trial_failure_email_message">Ser ut til at du brukte en ugyldig e-postadresse. Prøv igjen</string>
+    <!-- Keep %1$s and %2$s. This is a formatted text and %1$s is Terms of Service and %2$s is Privacy Policy -->
+    <string name="tos_pos_text" formatted="true">Ved å registrere deg godtar du %1$s og %2$s</string>
+    <string name="tos_text">tjenestevilkårene</string>
+    <string name="pp_text">retningslinjene om personvern</string>
+    <string name="website_isnt_protected">Nettsted er ikke beskyttet.</string>
+    <string name="api_check_failure_title">Feil med tilkobling</string>
+    <string name="api_check_message">Vi kan ikke koble til Private Internet Access. Dette kan skyldes dårlig Internett eller at tjenesten vår i landet ditt er blokkert. Sørg for at du har en stabil nettforbindelse, tving stopp fra appens innstillinger, start appen på nytt, og prøv igjen.</string>
+    <string name="invalid_qr_code">Ugyldig QR-kodesekvens. Prøv igjen.</string>
+    <string name="empty_qr_code">QR-innhold var tomt. Prøv igjen.</string>
+    <string name="your_plan_will_expire_on">Planen din utløper</string>
+    <!-- TV specific strings -->
+    <string name="favorites_title">Administrer favoritter</string>
+    <string name="favorites_panel_title">FAVORITTER</string>
+    <string name="logout_title">Logg av</string>
+    <string name="pia_access">PIA-tilgang</string>
+    <string name="preference_app_update_title">Koble til på appoppdatering</string>
+    <string name="preference_app_update_message">Etter at appen er oppdatert, kobler appen automatisk til for å beskytte deg.</string>
+    <string name="server_search">Søk</string>
+    <string name="tile_killswitch">Killswitch aktiv</string>
+    <string name="auto_dns_setting_summary">PIA DNS</string>
+    <string name="pia_dns">PIA DNS</string>
+    <string name="edit_custom_dns">Rediger</string>
+    <string name="custom_dns">Tilpasset DNS</string>
+    <string name="custom_dns_warning_body">Ved å bruke en DNS som ikke er PIA, kan du utsette DNS-trafikken din for tredjeparter, noe som kan påvirke personvernet ditt.</string>
+    <string name="custom_dns_warning_title">@string/custom_dns</string>
+    <string name="custom_primary_dns">Primær DNS</string>
+    <string name="custom_secondary_dns">Sekundær DNS (valgfritt)</string>
+    <string name="custom_primary_dns_invalid">Primær DNS er ikke gyldig</string>
+    <string name="custom_secondary_dns_invalid">Sekundær DNS er ikke gyldig</string>
+    <string name="custom_dns_mace_warning">For å kunne aktivere MACE må standard DNS brukes. Vil du tilbakestille DNS til standard?</string>
+    <string name="custom_dns_disabling_mace">MACE deaktiveres mens du bruker en tilpasset DNS.</string>
+    <string name="password_required">PIA-passord påkrevd</string>
+    <string name="password_required_body">Av sikkerhetsmessige hensyn krever vi PIA-passordet ditt for å utføre endringer av kontoen din. Skriv inn PIA-passordet ditt for å fortsette.</string>
+    <string name="password_empty">Passord-feltet kan ikke være tomt</string>
+    <string name="trusted_cellular_title">Stol på mobilnettverk</string>
+    <string name="trusted_cellular_message">Koble VPN-tilkoblingen automatisk av på mobildata</string>
+    <string name="trusted_wifi_title">Pålitelig WiFi</string>
+    <string name="trusted_wifi_message">VPN-tilkoblingen kobler automatisk til alle trådløse nettverk, med mindre de er hvitelistet av brukeren</string>
+    <string name="trusted_wifi_enable_message">Deaktiver VPN-tilkoblingen når koblet til pålitelige nettverk</string>
+    <string name="trusted_wifi_singular">Klarert nettverk</string>
+    <string name="trusted_wifi_plural">Klarerte nettverk</string>
+    <string name="available_wifi_header">Tilgjengelige nettverk</string>
+    <string name="trusted_wifi_no_wifi">Aktiver WiFi for å velge pålitelige nettverk.</string>
+    <string name="trusted_wifi_no_permission">Klarert Wi-Fi krever posisjonstillatelse for å finne Wi-Fi-nettverk i nærheten. Hvis tillatelsen trekkes tilbake, virker ikke denne funksjonene lenger.\n\nFor å bruke denne funksjonen går du til Innstillinger &gt; Apper &gt; PIA VPN, og deretter må du sjekke at poisjonstillatelsen er på.</string>
+    <string name="no_permission_title">Tillatelse kreves</string>
+    <string name="trusted_wifi_not_available">Ingen tilgjengelige nettverk</string>
+    <string name="trusted_wifi_no_trusted">Det finnes ingen pålitelige nettverk</string>
+    <string name="account_invalid_warning">"Ugyldig kontoinformasjon"</string>
+    <!-- PIAX Specific Strings -->
+    <string name="buy_account">KJØP KONTO</string>
+    <string name="redeem_gift_card">LØS INN GAVEKORT</string>
+    <string name="email_address">E-postadresse</string>
+    <string name="gift_card_pin">Kode for gavekort</string>
+    <string name="redeemed_successful">Kortet er løst inn</string>
+    <string name="redeemed_login_header">Innloggingsinformasjonen din</string>
+    <string name="redeeming_gift_card">Vi bekrefter koden for gavekortet i systemet vårt. Det kan ta et øyeblikk, så vennligst vent.</string>
+    <string name="redeeming_gift_title">Sjekker med serveren vår</string>
+    <string name="redeemed_to_login">FORTSETT TIL PÅLOGGING</string>
+    <string name="username_enter">Skriv inn brukernavn</string>
+    <string name="password_enter">Skriv inn passord</string>
+    <string name="total_cost">Totalpris</string>
+    <string name="confirm_your_purchase">Bekreft kjøpet ditt</string>
+    <string name="enter_email">Skriv inn e-postadressen din</string>
+    <string name="you_are_purchasing">Du kjøper %1$s-abonnementet</string>
+    <string name="continue_only">FORTSETT</string>
+    <string name="plan_only">Abonnement</string>
+    <string name="yearly_only">årlig</string>
+    <string name="monthly_only">månedlig</string>
+    <string name="search_region">Søk etter region</string>
+    <string name="region_dialog_header">Sorter regioner etter</string>
+    <string name="menu_filters">Filtere</string>
+    <string name="menu_update">OPPDATER</string>
+    <string name="menu_reorder">Organiser</string>
+    <string name="port_not_available">Ikke tilgjengelig</string>
+    <string name="refer_yes">Ja</string>
+    <string name="refer_no">Nei</string>
+    <string name="region_filter_name">Navn</string>
+    <string name="region_filter_latency">Latens</string>
+    <string name="region_filter_favorites">Favoritter</string>
+    <!-- Free Trial Strings -->
+    <string name="free_trial_header">Prøv gratis i 7 dager!</string>
+    <string name="free_trial_cost">Betal bare %s per år</string>
+    <string name="free_trial_guarantee">30-dagers pengene-tilbake-garanti</string>
+    <string name="free_trial_protection_header">1 år med beskyttelse av personvern og identitet</string>
+    <string name="free_trial_protection_text">Surf anonymt og skjul IP-adressen</string>
+    <string name="free_trial_devices_header">Støtter ti enheter samtidig</string>
+    <string name="free_trial_devices_text">Beskytt deg selv på opptil ti enheter samtidig</string>
+    <string name="free_trial_region_header">Du kan enkelt koble deg til hvilken som helst region</string>
+    <string name="free_trial_region_text">Mer enn 3300 servere i 32 land</string>
+    <string name="free_trial_start">START ABONNEMENT</string>
+    <string name="free_trial_see_all">Se alle abonnementene</string>
+    <!-- Tiles Strings -->
+    <string name="snooze_vpn_title">VPN-SLUMRING</string>
+    <string name="snooze_short">SLUMRE I 5 MINUTTER</string>
+    <string name="snooze_medium">SLUMRE I 15 MINUTTER</string>
+    <string name="snooze_long">SLUMRE I 1 TIME</string>
+    <string name="snooze_description">Kobler fra VPN-en og kobler automatisk til når tidtakeren er ferdig.</string>
+    <string name="snooze_resume">GJENOPPTA</string>
+    <string name="snooze_paused">Satt på pause til %s</string>
+    <string name="snooze_status">Slumrer</string>
+    <string name="snooze_notification">Slumret</string>
+    <string name="failed_connect_status">Kan ikke koble til</string>
+    <!-- Quick Settings Strings -->
+    <string name="quick_settings_title">HURTIGINNSTILLINGER</string>
+    <string name="quick_settings_network_toggle">Nettverksadministrering</string>
+    <string name="quick_settings_private_browser">Privat nettleser</string>
+    <!-- Quick Connect String -->
+    <string name="quick_connect_title">HURTIGTILKOBLING</string>
+    <string name="quick_connect_favorites_title">FAVORITTSERVERE</string>
+    <!-- Usage Strings -->
+    <string name="usage_title">BRUK</string>
+    <string name="usage_download">Last ned</string>
+    <string name="usage_upload">Last opp</string>
+    <!-- Settings -->
+    <string name="settings_protocol">Protokollvalg</string>
+    <string name="protocol_ovpn">OpenVPN</string>
+    <string name="protocol_wireguard">WireGuard</string>
+    <string name="wg_per_app_warning">Bytte til WireGuard deaktiverer funksjonen per appinnstillinger</string>
+    <string name="wg_protocol_warning">Følgende funksjoner er ikke tilgjengelige på WireGuard:</string>
+    <string name="wg_connecting">Kobler til</string>
+    <string name="wg_connected">VPN-tilkoblet</string>
+    <string name="block_connections_body_1">PIA-funksjonen «Blokker tilkoblinger uten VPN» krever at du slår PÅ Alltid VPN PÅ i Android-innstillingene.</string>
+    <string name="block_connections_body_2">For å fortsette, gå til Innstillinger – Nettverk og Internett – Avansert – VPN – trykk på Innstillinger-ikonet – aktiver Alltid VPN PÅ.</string>
+    <string name="block_connections_button">Gå til Nettverks- og Internettinnstillinger</string>
+    <string name="ks_removal_warning">Vi har oppdaget at du har aktivert Killswitch. Vi har endret hvordan denne funksjonen fungerer ved å integrere Android-blokkeringsforbindelser uten VPN-innstillingen for både WireGuard og OpenVPN. Les endringene i Innstillinger for å sikre at du forblir beskyttet.</string>
+    <string name="preference_on_boot_always_on">Koble til ved systemstart. Vi anbefaler å slå på denne innstillingen hvis du bruker VPN Always On.</string>
+    <string name="ovpn_cipher_removal_description">Vi oppdaterer OpenVPN-implementeringen. Du får mer informasjon ved å klikke <b>her</b></string>
+    <!-- Wireguard -->
+    <string name="tunnel_error_already_exists">Tunnelen «%s» eksisterer allerede</string>
+    <string name="tunnel_error_invalid_name">Ugyldig navn</string>
+    <string name="preview">FORHÅNDSVIS</string>
+    <!-- GEO Servers -->
+    <string name="geo_servers">Vis geolokaliserte regioner</string>
+    <!-- Rating -->
+    <string name="rating_enjoy_title">Liker du PIA VPN?</string>
+    <string name="rating_enjoy_message">Vi håper VPN-produktet svarer til forventningene dine</string>
+    <string name="rating_review_title">Hva med en vurdering på Google Play?</string>
+    <string name="rating_review_message">Vi setter pris på at du deler opplevelsen din</string>
+    <string name="rating_feedback_title">Hva gikk galt?</string>
+    <string name="rating_feedback_message">Ønsker du å sende en tilbakemelding? Vi kan hjelpe deg å forbedre opplevelsen din med PIA</string>
+    <!-- Get Started Purchasing-->
+    <string name="getstarted_subscribe">ABONNER NÅ</string>
+    <string name="getstarted_trial_payment">Betalingen belastes kontoen din først når prøveperioden er avsluttet.</string>
+    <string name="getstarted_free_trial">Start din gratis 7-dagers prøveperiode</string>
+    <string name="getstarted_trial_price">Deretter %s per år</string>
+    <string name="purchasing_email_reason">Vi trenger e-posten din for å sende deg brukernavnet og passordet ditt.</string>
+    <string name="purchasing_all_plans">Vis alle tilgjengelige abonnement</string>
+    <string name="purchasing_login_receipt">Logg på med kjøpsbevis</string>
+    <string name="purchasing_no_subscription">Du har ingen aktive abonnementer</string>
+    <string name="purchasing_sure">Er du sikker?</string>
+    <string name="purchasing_return">Vil du gå tilbake til startskjermen? Du kan gjenoppta abonnementsprosessen når som helst ved å klikke på Logg inn -&gt; Logg inn med kvittering.</string>
+    <string name="purchasing_magic_link">Innlogging med en magisk e-postkobling</string>
+    <string name="purchasing_magic_send">SEND KOBLING</string>
+    <string name="magic_login_enter_email">Skriv inn e-posten din</string>
+    <string name="purchasing_magic_success">Du finner en påloggingskobling i e-posten din.</string>
+    <string name="connection_tile_header">TILKOBLING</string>
+    <string name="connection_tile_tcp">TCP</string>
+    <string name="connection_tile_udp">UDP</string>
+    <!-- Update -->
+    <string name="settings_calling_header">Siste nyheter</string>
+    <string name="update_3_7_1_header">Prøv WireGuard® i dag!</string>
+    <string name="update_3_7_1_description">Det er en ny mer effektiv VPN-protokoll som tilbyr bedre ytelse, lavere CPU-bruk og lengre batteritid.</string>
+    <string name="update_3_7_1_cta_1">Prøv WireGuard® nå</string>
+    <string name="update_3_7_1_cta_2"><u>Finn ut mer</u></string>
+    <!-- Network Management -->
+    <string name="nmt_notification_title">Automatisering er aktiv</string>
+    <string name="nmt_notification_description">VPN er frakoblet</string>
+    <string name="nmt_secure_wifi">Sikker Wi-Fi</string>
+    <string name="nmt_open_wifi">Wi-Fi</string>
+    <string name="nmt_mobile_data">Mobile data</string>
+    <string name="nmt_disconnect">Koble alltid fra VPN</string>
+    <string name="nmt_connect">Koble alltid til VPN</string>
+    <string name="nmt_retain">Behold VPN-status</string>
+    <string name="nmt_manage_title">Administrer automatisering</string>
+    <string name="nmt_manage_description">Konfigurer hvordan PIA skal håndtere tilkobling til WiFi- eller mobilnettverk. Dette ekskluderer manuell frakobling.\n\nDenne funksjonen er under testing</string>
+    <string name="nmt_add_description">Velg et WiFi-nettverk for å legge til en ny regel.</string>
+    <string name="nmt_rule_for">Regler for %s</string>
+    <string name="nmt_remove_rule">Fjern regel</string>
+    <string name="nmt_add_new_rule">Legg til en ny regel</string>
+    <string name="nmt_settings_title">Automatisering</string>
+    <string name="nmt_settings_description">Angi regler for å håndtere regler for automatisk tilkobling av pålitelige og upålitelige nettverk.\n\nDenne funksjonen er under testing</string>
+    <string name="nmt_management_title">Administrer automatisering</string>
+    <string name="network_permisions_top_text">Gi PIA VPN tilgang til posisjonen din. Dette gjør at vi kan finne Wi-Fi-nettverk i nærheten.</string>
+    <string name="network_permissions_middle_text">Du får en melding som ber om posisjonstillatelse. For å fortsette, kan du trykke på «Mens du bruker appen»</string>
+    <string name="network_permission_network">Vi overvåker, filtrerer eller loggfører ingen nettverksaktivitet.</string>
+    <string name="network_permission_button_allow">Tillat</string>
+    <string name="network_permissions_top_background">Glimrende! Du er nesten ferdig! PIA Network Management-funksjonen krever også tilgang til bakgrunnstjenestetjenester.</string>
+    <string name="network_permissions_middle_background">For å fortsette, gå til Innstillinger &gt; Apper &gt; PIA &gt; Tillatelser – aktiver bakgrunnstilgang til posisjonstjenestene.</string>
+    <string name="network_permissions_button_goto">Gå til Tillatelsesinnstillinger</string>
+    <!-- Dedicated IP -->
+    <string name="dip_menu_title">Dedikert IP</string>
+    <string name="dip_description">Aktiver din dedikerte IP ved å lime inn tokenet ditt i skjemaet nedenfor. Hvis du nylig har kjøpt en dedikert IP, kan du generere tokenet ved å gå til PIA-nettstedet.</string>
+    <string name="dip_summary">Sikre eksterne tilkoblinger til alle eiendeler med en dedikert IP fra et land du velger. Under abonnementet ditt får du IP-en helt og holdent alene. I tillegg beskytter vi dataoverføringene dine med den sterkeste krypteringen som finnes.</string>
+    <string name="dip_your_header">DINE DEDIKERTE IP-ER</string>
+    <string name="dip_activate">Aktiver</string>
+    <string name="dip_remove_header">Fjern dedikert IP</string>
+    <string name="dip_remove_body">Vil du fjerne %s - %s?</string>
+    <string name="dip_will_expire_warning">Dedikerte IP-en din utløper snart.</string>
+    <string name="dip_get_a_new_one">Få en ny.</string>
+    <string name="dip_expired_warning">Tokenet er utløpt. Generer et nytt et fra kontosiden din på nettstedet.</string>
+    <string name="dip_updated_warning">Den dedikerte IP-en ble oppdatert.</string>
+    <string name="dip_invalid">Tokenet er ugyldig. Kontroller at du har skrevet tokenet riktig.</string>
+    <string name="dip_success">Den dedikerte IP-en din ble aktivert. Den blir tilgjengelig i regionvalg-listen.</string>
+    <string name="dip_tag">DEDIKERT IP</string>
+    <string name="dip_enter_token_hint">Lim inn tokenet her</string>
+    <!-- Inapp Messaging -->
+    <string name="inapp_pref_title">Vis tjenestekommunikasjonsmeldinger</string>
+    <string name="settings_updated">Innstillingene er oppdatert</string>
+    <string name="hide_payment">På grunn av et teknisk problem er kjøp via Google Play for øyeblikket deaktivert. Vi jobber med å løse problemet.\n\nHvis du allerede har en konto med et abonnement, kan du logge inn ved å trykke på Logg inn-knappen.</string>
+    <string name="settings_block_connections_title">PIA-funksjonen «VPN-nødbryter» krever at du slår PÅ Alltid VPN PÅ i Android-innstillingene</string>
+    <string name="settings_block_connections_description">For å fortsette, gå til Innstillinger – Nettverk og Internett – Avansert – VPN – trykk på Innstillinger-ikonet – <b>aktiver Alltid VPN PÅ.</b></string>
+    <string name="settings_block_connections_button">Gå til nettverks- og Internettinnstillinger</string>
+    <string name="settings_block_connections_error">Kan ikke navigere til nettverksinnstillinger</string>
+    <!-- KPI -->
+    <string name="kpi_connection_attempts_onboarding_title">Hjelp oss med å forbedre tjenesten vår</string>
+    <string name="kpi_connection_attempts_onboarding_body">For å hjelpe oss med å sikre tjenestens tilkoblingsytelse, kan du anonymt dele tilkoblingsstatistikken din med oss. Disse rapportene inkluderer informasjon som ikke er personlig identifiserbar.</string>
+    <string name="kpi_connection_attempts_settings_title">Hjelp med å forbedre PIA</string>
+    <string name="kpi_connection_attempts_settings_body">Hjelp oss med å forbedre oss ved å dele VPN-tilkoblingsstatistikk. Disse rapportene inneholder aldri personlig identifiserbar informasjon.</string>
+    <string name="kpi_connection_attempts_settings_details">Vis delte data</string>
+    <string name="kpi_connection_attempts_no_events">Det er ingen nylig hendelser</string>
+    <string name="kpi_connection_attempts_stats">Tilkoblingsstatistikk</string>
+    <string name="kpi_connection_attempts_more_information">Denne minimale informasjonen hjelper oss med å identifisere og rette opp potensielle tilkoblingsproblemer. Merk at deling av denne informasjonen krever samtykke og manuell aktivering fordi den er slått av som standard. Vi henter inn informasjon om følgende hendelser:\n\n
+• Tilkoblingsforsøk\n
+• Tilkoblinger som blir avbrutt\n
+• Forbindelser som etableres\n\n
+For alle disse hendelsene henter vi inn følgende informasjon:\n\n
+• Plattform\n
+• App-versjon\n
+• App-type (forhåndsutgivelse eller ikke)\n
+• Protokoll brukt\n
+• Tilkoblingskilde (manuell eller ved bruk av automatisering)\n\n
+Alle hendelsene inneholder en unik ID, som genereres tilfeldig. Denne ID-en er ikke tilknyttet brukerkontoen din. Den unike ID-en genereres på nytt hver dag for å sikre personvernet.\n\n
+Du beholder alltid kontrollen. Du kan se hvilke data vi har hentet inn fra Innstillinger, og du kan slå den av når som helst.</string>
+    <!-- Renewal -->
+    <string name="renewal_title">Velkommen tilbake!</string>
+    <string name="renewal_description">For å bruke en privat internettilgang, må du fornye abonnementet ditt.</string>
+    <string name="renewal_button">Forny nå</string>
+    <string name="use_tcp">Bruk TCP</string>
+    <string name="oneclickconnect">Ettklikks-tilkobling</string>
+    <string name="startup_region_message_new_bold">7-dagers gratis prøveperiode</string>
+    <string name="allow_locallan_on">Tilgang til lokale nettverk tillates. Noen apper (som Google-appen) kan lekke og rapportere din ekte IP.</string>
+    <string name="allow_locallan_off">Tilgang til lokale nettverk blokkeres</string>
+    <string name="block_locallan_off">Tilgang til lokale nettverk tillates. Noen apper (som Google-appen) kan lekke og rapportere din ekte IP.</string>
+    <string name="block_locallan_on">Tilgang til lokale nettverk blokkeres</string>
+    <string name="block_locallan">Blokker lokalt nettverk</string>
+    <string name="block_connection_wo_vpn">Blokker tilkoblinger uten VPN</string>
+    <string name="always_oreo_message">For å sikre at du aldri er koblet til uten VPN, foreslår vi at du aktiverer Blokker tilkobling uten VPN i Android-innstillingene. Dette kan aktiveres etter at du har slått på alltid VPN for PIA. Det sikrer at Android prøver å alltid å ha PIA VPN på til enhver tid når du er tilkoblet og blokkerer tilkoblinger uten VPN, altså en VPN-killswitch. Killswitch-innstillingen i PIA VPN-appen er utarbeidet for å stille inn «Blokker tilkoblinger uten VPN» på systemnivå i Android-innstillingene, siden Android 8.0+ nå har denne funksjonen innebygd. Hvis det noen gang er et problem, vil du bli varslet og Android vil blokkere alle internettforbindelser som ikke går gjennom VPN.</string>
+    <string-array name="dns_names">
+        <item>PIA DNS</item>
+        <item>Tilpasset DNS</item>
+    </string-array>
+</resources>

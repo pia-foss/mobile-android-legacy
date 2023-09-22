@@ -1,0 +1,40 @@
+name: Build Web Android
+on: [workflow_call]
+jobs:
+  build-android:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GHA_SUBMODULE_CHECKOUT_KEY }}
+          submodules: recursive
+      - uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: 11
+          cache: gradle
+      - name: use web version code
+        run: |
+          # Current build.gradle version code
+          version_code=$(grep "versionCode " app/build.gradle | awk '{print $2}' | tr -d '\n')
+          
+          # Increment it by 10 thousand as it is the expected for the web version code
+          version_code=$((version_code + 10000))
+          
+          # Update build.gradle with the updated version code
+          sed -i "s/versionCode [0-9]\+/versionCode $((version_code))/g" app/build.gradle
+      - name: key
+        run: openssl base64 -d -A -out /home/runner/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/app/key.keystore <<< ${{ secrets.SIGNING_WEB_KEYSTORE }}
+      - name: build APK
+        run: ./gradlew assembleProductionNoinappRelease --parallel
+        env:
+          SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_WEB_KEY_ALIAS }}
+          SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_WEB_KEY_PASSWORD }}
+          SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_WEB_STORE_PASSWORD }}
+      - name: explicit cleanup
+        run: rm /home/runner/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/app/key.keystore
+      - uses: actions/upload-artifact@v3
+        with:
+          name: pia-output
+          path: app/build/outputs/apk/
+          if-no-files-found: error

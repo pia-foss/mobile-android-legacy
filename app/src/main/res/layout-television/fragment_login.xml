@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/sign_in_to_your_account"
+        android:layout_marginBottom="@dimen/login_top_margin"
+        android:layout_marginTop="@dimen/login_top_margin"
+        android:textAppearance="@style/PiaTextTitle"
+        style="@style/PiaTextTitleStyle" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fragment_login_user_area"
+        android:paddingTop="2dp"
+        android:clipToPadding="false"
+        app:hintTextAppearance="@style/PiaTextLabel"
+        android:hint="@string/username_example"
+        >
+        <EditText
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:id="@+id/fragment_tv_login_user"
+            style="@style/PiaTextInput"
+            android:inputType="textEmailAddress"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/fragment_login_password_area"
+        android:paddingTop="2dp"
+        android:clipToPadding="false"
+        app:hintTextAppearance="@style/PiaTextLabel"
+        android:hint="@string/password_only"
+        >
+        <EditText
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:id="@+id/fragment_tv_login_password"
+            android:inputType="textPassword"
+            style="@style/PiaTextInput"
+            android:imeOptions="actionDone"
+            android:imeActionLabel="@string/action_sign_in_short"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgot Password?"
+        android:id="@+id/fragment_login_forgot_password"
+        style="@style/PiaTextSmallInfo"
+        android:padding="10dp"
+        android:layout_gravity="right"
+        android:textColor="@color/pia_gen_green"
+        android:clickable="true"
+        android:background="?attr/selectableItemBackground"
+        android:visibility="gone"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:layout_marginTop="10dp"
+        >
+
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:id="@+id/fragment_login_button"
+            style="@style/PIAButton.Green.Small"
+            android:text="@string/login"
+            />
+
+        <ProgressBar
+            android:id="@+id/fragment_login_progress"
+            style="@android:style/Widget.DeviceDefault.Light.ProgressBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:indeterminate="true"
+            android:layout_margin="10dp"
+            android:visibility="gone"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fragment_login_button"
+            android:layout_alignParentBottom="true"
+            android:visibility="gone"
+            >
+            <!-- include "Don't have an account?" -->
+            <include layout="@layout/snippet_no_account"
+                />
+        </RelativeLayout>
+    </RelativeLayout>
+</LinearLayout>

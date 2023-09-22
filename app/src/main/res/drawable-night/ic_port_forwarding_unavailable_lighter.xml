@@ -1,0 +1,46 @@
+<!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="23dp"
+    android:height="18dp"
+    android:viewportWidth="23"
+    android:viewportHeight="18">
+    <path
+        android:pathData="M10.725,13.056C10.442,13.056 10.198,13.049 10,13.038L10,16.5C10,16.693 9.889,16.869 9.714,16.952C9.539,17.035 9.332,17.009 9.183,16.886L0.683,9.886C0.567,9.791 0.5,9.649 0.5,9.5C0.5,9.351 0.567,9.209 0.683,9.113L9.183,2.113C9.332,1.99 9.539,1.964 9.714,2.048C9.889,2.13 10,2.307 10,2.5L10,6.108C10.507,6.22 11.51,6.4 12.748,6.4C15.519,6.4 19.296,5.509 21.56,1.265C21.648,1.099 21.819,1 22,1C22.041,1 22.081,1.005 22.122,1.015C22.344,1.07 22.5,1.271 22.5,1.5C22.5,12.223 13.486,13.056 10.725,13.056Z"
+        android:strokeWidth="1"
+        android:fillColor="#889099"
+        android:fillType="nonZero"
+        android:strokeColor="#00000000"/>
+    <path
+        android:pathData="M17.1819,1.8808L3.5504,15.5123"
+        android:strokeLineJoin="round"
+        android:strokeWidth="2.3"
+        android:fillColor="#00000000"
+        android:strokeColor="#889099"
+        android:fillType="evenOdd"
+        android:strokeLineCap="round"/>
+    <path
+        android:pathData="M18.3,4L6.1787,16.1225"
+        android:strokeLineJoin="round"
+        android:strokeWidth="2.3"
+        android:fillColor="#00000000"
+        android:strokeColor="#323642"
+        android:fillType="evenOdd"
+        android:strokeLineCap="round"/>
+</vector>

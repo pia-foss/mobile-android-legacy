@@ -1,0 +1,1012 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include layout="@layout/snippet_header" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical"
+            android:paddingTop="15dp">
+            <!-- extra parameters area -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/developer_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:gravity="top"
+                        android:hint="Extra VPN parameters here"
+                        android:minHeight="150dp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <RelativeLayout
+                    android:id="@+id/developer_bottom_area"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp">
+
+                    <Button
+                        android:id="@+id/developer_clear"
+                        style="@style/PIAButton.Green.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="@string/clear" />
+
+                    <Button
+                        android:id="@+id/developer_save"
+                        style="@style/PIAButton.Green.Small"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:text="@string/save" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/per_app_divider" />
+
+            <!-- Debug mode -->
+            <RelativeLayout
+                android:id="@+id/developer_debug_mode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:focusable="true"
+                android:clickable="true"
+                android:padding="15dp">
+
+                <TextView
+                    style="@style/PiaTextBody1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Debug Mode (Performance hit)" />
+
+                <Switch
+                    android:id="@+id/developer_debug_mode_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:checked="false"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false" />
+            </RelativeLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/per_app_divider" />
+
+            <!-- Debug mode -->
+            <RelativeLayout
+                android:id="@+id/developer_clear_cache"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="15dp"
+                android:focusable="true"
+                android:clickable="true">
+
+                <TextView
+                    style="@style/PiaTextBody1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Clear App Cache" />
+            </RelativeLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/per_app_divider" />
+
+            <!-- Debug mode -->
+            <RelativeLayout
+                android:id="@+id/developer_clear_app_timers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="15dp"
+                android:focusable="true"
+                android:clickable="true">
+
+                <TextView
+                    style="@style/PiaTextBody1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Clear App Timers" />
+            </RelativeLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/per_app_divider" />
+
+            <!-- Unexpected Crash -->
+            <RelativeLayout
+                android:id="@+id/developer_crash_application"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="15dp"
+                android:focusable="true"
+                android:clickable="true">
+
+                <TextView
+                    style="@style/PiaTextBody1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Crash the application" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/per_app_divider" />
+
+            <RelativeLayout
+                android:id="@+id/developer_stop_pinging_servers_holder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="15dp"
+                android:focusable="true"
+                android:clickable="true">
+
+                <TextView
+                    style="@style/PiaTextBody1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Stop Pinging Servers" />
+
+                <Switch
+                    android:id="@+id/developer_stop_pinging_servers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:checked="false"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/per_app_divider" />
+
+            <RelativeLayout
+                android:id="@+id/developer_stop_using_meta_servers_holder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="15dp"
+                android:focusable="true"
+                android:clickable="true">
+
+                <TextView
+                    style="@style/PiaTextBody1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Stop using Meta Servers" />
+
+                <Switch
+                    android:id="@+id/developer_stop_using_meta_servers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:checked="false"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false" />
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/per_app_divider" />
+
+            <!-- Staging mode -->
+            <RelativeLayout
+                android:id="@+id/staging_servers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="15dp"
+                android:focusable="true"
+                android:clickable="true">
+
+                <TextView
+                    style="@style/PiaTextBody1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Use Staging servers" />
+
+                <Switch
+                    android:id="@+id/developer_use_staging"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:checked="false"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false" />
+            </RelativeLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/per_app_divider" />
+
+            <!-- Override DIP Tokens -->
+            <RelativeLayout
+                android:id="@+id/override_dip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="15dp"
+                android:focusable="true"
+                android:clickable="true">
+
+                <TextView
+                    style="@style/PiaTextBody1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Override DIP Tokens" />
+
+                <Switch
+                    android:id="@+id/developer_override_dip_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:checked="false"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false" />
+            </RelativeLayout>
+
+            <!-- Add DIP Tokens -->
+            <LinearLayout
+                android:id="@+id/developer_add_dip_token_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:orientation="vertical"
+                android:padding="15dp"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/developer_add_dip_token_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:gravity="top"
+                    android:hint="Days to apply to today's date for the token's expiration date"
+                    android:textSize="13sp" />
+
+                <Button
+                    android:id="@+id/developer_add_dip_token_button"
+                    style="@style/PIAButton.Green.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Add" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/per_app_divider" />
+
+            <!-- VPN Control -->
+
+            <TextView
+                style="@style/PiaTextBody1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="VPN Controls" />
+
+            <TextView
+                android:id="@+id/developer_vpn_status"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:text="Disconnected" />
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:columnCount="2"
+                android:padding="5dp"
+                android:rowCount="3">
+
+                <Button
+                    android:id="@+id/developer_vpn_start"
+                    style="@style/PIAButton.Green.Small"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:text="Start VPN" />
+
+                <Button
+                    android:id="@+id/developer_vpn_pause"
+                    style="@style/PIAButton.Green.Small"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:text="Pause VPN" />
+
+                <Button
+                    android:id="@+id/developer_vpn_resume"
+                    style="@style/PIAButton.Green.Small"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:text="Resume VPN" />
+
+                <Button
+                    android:id="@+id/developer_vpn_stop"
+                    style="@style/PIAButton.Green.Small"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:text="Stop VPN" />
+
+                <Button
+                    android:id="@+id/developer_vpn_stop_without_user"
+                    style="@style/PIAButton.Green.Small"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:text="Bomb VPN" />
+
+                <Button
+                    android:id="@+id/developer_vpn_stop_killswitch"
+                    style="@style/PIAButton.Green.Small"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:text="Stop Killswitch" />
+
+            </GridLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/per_app_divider" />
+
+            <!-- Purchase testing mode -->
+            <RelativeLayout
+                android:id="@+id/developer_testing_purchasing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="15dp"
+                android:focusable="true"
+                android:clickable="true">
+
+                <TextView
+                    style="@style/PiaTextBody1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Purchase Testing Data" />
+
+                <Switch
+                    android:id="@+id/developer_testing_purchasing_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:checked="false"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false" />
+            </RelativeLayout>
+            <!-- Testing input area -->
+            <LinearLayout
+                android:id="@+id/developer_testing_purchasing_area"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/developer_testing_purchasing_et_status"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Status Response (eg 200, 201, 300)"
+                        android:inputType="number" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/developer_testing_purchasing_et_username"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Username"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/developer_testing_purchasing_et_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Password"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/developer_testing_purchasing_et_exception"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Exception message"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/per_app_divider" />
+
+            <!-- Trial testing mode -->
+            <RelativeLayout
+                android:id="@+id/developer_testing_trial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="15dp"
+                android:focusable="true"
+                android:clickable="true">
+
+                <TextView
+                    style="@style/PiaTextBody1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Trial Testing Data" />
+
+                <Switch
+                    android:id="@+id/developer_testing_trial_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:checked="false"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false" />
+            </RelativeLayout>
+            <!-- Trial Testing input area -->
+            <LinearLayout
+                android:id="@+id/developer_testing_trial_area"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/developer_testing_trial_et_status"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Status Response (eg 200, 201, 300)"
+                        android:inputType="number" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/developer_testing_trial_et_message"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Server Message"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    style="@style/PiaTextCaptionSmall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:text="Trial States: bad_email, redeemed, not_found, too_many_attempts, canceled" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/developer_testing_trial_et_username"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Username"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/developer_testing_trial_et_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Password"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/per_app_divider" />
+
+            <!-- Webview link blocking-->
+            <RelativeLayout
+                android:id="@+id/developer_testing_webview_area"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="15dp"
+                android:focusable="true"
+                android:clickable="true">
+
+                <TextView
+                    style="@style/PiaTextBody1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Webview link blocking" />
+
+                <Switch
+                    android:id="@+id/developer_testing_webview_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:checked="false"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false" />
+            </RelativeLayout>
+            <!-- Webview Link blocking input area-->
+            <LinearLayout
+                android:id="@+id/developer_testing_webview_input_area"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/developer_testing_webview_site"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Webview url to load"
+                        android:inputType="text" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/per_app_divider" />
+
+            <!-- Theme Toggle -->
+            <RelativeLayout
+                android:id="@+id/developer_theme_toggle_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="15dp"
+                android:focusable="true"
+                android:clickable="true">
+
+                <TextView
+                    style="@style/PiaTextBody1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dark Theme" />
+
+                <Switch
+                    android:id="@+id/developer_theme_toggle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:checked="false"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false" />
+            </RelativeLayout>
+
+            <!-- Randomize region offline state -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="15dp"
+                android:focusable="true"
+                android:clickable="true">
+
+                <TextView
+                    style="@style/PiaTextBody1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Randomize by 20% region's offline state" />
+
+                <Switch
+                    android:id="@+id/developer_testing_region_offline_random_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:checked="false"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:focusableInTouchMode="false" />
+            </RelativeLayout>
+
+            <!-- Randomize region initial connection success -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="15dp"
+                android:focusable="true"
+                android:clickable="true">
+
+                <TextView
+                    style="@style/PiaTextBody1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Randomize by 70% region's initial connection success" />
+
+                <Switch
+                    android:id="@+id/developer_testing_region_initial_conn_success_random_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:checked="false"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:focusableInTouchMode="false" />
+            </RelativeLayout>
+
+            <!-- Updater Testing -->
+            <RelativeLayout
+                android:id="@+id/developer_testing_updater_area"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="15dp"
+                android:focusable="true"
+                android:clickable="true">
+
+                <TextView
+                    style="@style/PiaTextBody1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Updater Testing" />
+
+                <Switch
+                    android:id="@+id/developer_testing_updater_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:checked="false"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/developer_testing_updater_input_area"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/developer_testing_update_show_dialog"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Always show update dialog"
+                        android:inputType="number" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/developer_testing_update_show_notification"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Always show update notification"
+                        android:inputType="number" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/developer_testing_update_interval"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Update Check Interval"
+                        android:inputType="number" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/developer_testing_update_build_version"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Testing Build Version"
+                        android:inputType="number" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/developer_testing_updater_reset_button"
+                    style="@style/PiaTextBody1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/shape_standard_background"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:minHeight="60dp"
+                    android:text="Reset Last Seen Version" />
+
+            </LinearLayout>
+
+            <!-- Flag testing -->
+            <RelativeLayout
+                android:id="@+id/developer_testing_flags_area"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:padding="15dp"
+                android:focusable="true"
+                android:clickable="true">
+
+                <TextView
+                    style="@style/PiaTextBody1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Flag Testing" />
+            </RelativeLayout>
+            <!-- Webview Link blocking input area-->
+            <RelativeLayout
+                android:id="@+id/developer_testing_flags_input_area"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:visibility="gone">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@+id/developer_testing_flags_icon"
+                    android:layout_alignRight="@+id/developer_testing_flags_icon"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/developer_testing_flags_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Enter country name or iso"
+                        android:inputType="text" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <ImageView
+                    android:id="@+id/developer_testing_flags_icon"
+                    android:layout_width="55dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/flag_world"
+                    android:scaleType="fitXY"
+                    tools:background="@drawable/flag_canada" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/per_app_divider" />
+
+            <!-- Debug log area-->
+
+            <TextView
+                android:id="@+id/developer_debug_log_button"
+                style="@style/PiaTextBody1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_standard_background"
+                android:clickable="true"
+                android:minHeight="60dp"
+                android:padding="15dp"
+                android:text="@string/send_debug_log" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/per_app_divider" />
+
+            <!-- Log area -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="15dp">
+
+                <Button
+                    android:id="@+id/developer_delete_log_file"
+                    style="@style/PIAButton.Green.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:text="Delete Log File" />
+
+                <ProgressBar
+                    android:id="@+id/developer_delete_log_progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/developer_log_level"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_toLeftOf="@+id/developer_print_file"
+                    android:layout_toRightOf="@+id/developer_delete_log_file"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:text="Base Text" />
+
+                <Button
+                    android:id="@+id/developer_print_file"
+                    style="@style/PIAButton.Green.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="Print Log File" />
+
+                <ProgressBar
+                    android:id="@+id/developer_print_file_progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:visibility="gone" />
+
+                <!--<Button-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Send Debug File"-->
+                <!--android:id="@+id/developer_send_debug"-->
+                <!--android:layout_alignParentRight="true"-->
+                <!--style="@style/button_main_normal.accent"-->
+                <!--/>-->
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/developer_text_file"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin" />
+
+            <TextView
+                android:id="@+id/developer_token"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="46dp"
+                android:textIsSelectable="true" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

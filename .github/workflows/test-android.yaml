@@ -1,0 +1,17 @@
+name: Test Android
+on: [workflow_call]
+jobs:
+  unit-tests:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GHA_SUBMODULE_CHECKOUT_KEY }}
+          submodules: recursive
+      - uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: 11
+          cache: gradle
+      - name: unit-tests
+        run: ./gradlew testProductionPlaystoreReleaseUnitTest testProductionNoinappReleaseUnitTest --parallel

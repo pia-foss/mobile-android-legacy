@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/killswitch_side"
+    android:paddingRight="@dimen/killswitch_side"
+    >
+    <LinearLayout
+        android:id="@+id/viewPagerCountDots"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="@dimen/activity_connect_pager_bottom_margin"
+        android:visibility="gone"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/activity_connect_killswitch_area"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:background="@drawable/shape_standard_background"
+        android:padding="4dp"
+        android:layout_margin="4dp"
+        android:clickable="true"
+        android:focusable="true"
+        >
+        <TextView
+            android:id="@+id/activity_connect_killswitch_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/killswitchtext"
+            android:layout_centerVertical="true"
+            style="@style/PiaTextSmallInfo"
+            />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/activity_connect_killswitch_text"
+            android:layout_toEndOf="@+id/activity_connect_killswitch_text"
+            android:layout_toLeftOf="@+id/activity_connect_killswitch"
+            android:layout_toStartOf="@+id/activity_connect_killswitch"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            >
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_info"
+                android:id="@+id/activity_connect_killswitch_icon"
+                android:layout_gravity="start|left"
+                android:tint="@color/killswitch_image_tint"
+                android:tintMode="multiply"
+                />
+        </FrameLayout>
+
+        <Button
+            android:id="@+id/activity_connect_killswitch"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="@string/killswitch_button"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:clickable="false"
+            android:focusableInTouchMode="false"
+            android:focusable="false"
+            android:layout_centerVertical="true"
+            android:textSize="14sp"
+            android:backgroundTint="@color/pia_gen_red"
+            android:background="@drawable/shape_round_rect_accent"
+            android:textColor="@color/textColorPrimaryDark"
+            />
+    </RelativeLayout>
+</LinearLayout>

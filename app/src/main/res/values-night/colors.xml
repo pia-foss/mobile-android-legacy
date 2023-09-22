@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+
+<resources>
+    <color name="selected_unselected_grey">#5AFFFFFF</color>
+    <color name="pia_action_bar_background">#232323</color>
+    <color name="killswitch_image_tint">@color/pia_text_light_white_87_percent</color>
+    <color name="killswitch_background">#00000000</color>
+    <color name="windowBackground">#323642</color>
+    <color name="per_app_divider">@color/pia_text_light_white_10_percent</color>
+    <color name="status_bar_color">#323642</color>
+    <color name="textColorPrimary">#FFFFFF</color>
+    <color name="textColorSecondary">#FFFFFF</color>
+    <color name="account_details_background">#3E4454</color>
+
+    <color name="referral_divider">#22252e</color>
+    <color name="referral_invite_background">#323642</color>
+
+    <!-- Latency colors -->
+    <color name="latency_green_faded">#5529CC41</color>
+    <color name="latency_yellow_faded">#554637</color>
+    <color name="latency_red_faded">#b2352d</color>
+
+    <color name="server_fade">#5c6370</color>
+    <color name="text_fade">#5c6370</color>
+
+    <!-- PIAX Colors -->
+    <color name="trial_bold">#FFFFFF</color>
+
+    <!-- Snooze Widget -->
+    <color name="snooze_border">@color/white</color>
+
+    <!-- Calling Card -->
+    <color name="calling_background">#323642</color>
+
+    <!-- Onboarding -->
+    <color name="purchase_panel_blur">#88323642</color>
+
+    <!-- DIP -->
+    <color name="dip_panel_background">@color/grey40A</color>
+
+</resources>

@@ -1,0 +1,661 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <!--
+  ~  Copyright (c) 2020 Private Internet Access, Inc.
+  ~
+  ~  This file is part of the Private Internet Access Android Client.
+  ~
+  ~  The Private Internet Access Android Client is free software: you can redistribute it and/or
+  ~  modify it under the terms of the GNU General Public License as published by the Free
+  ~  Software Foundation, either version 3 of the License, or (at your option) any later version.
+  ~
+  ~  The Private Internet Access Android Client is distributed in the hope that it will be useful,
+  ~  but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+  ~  or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+  ~  details.
+  ~
+  ~  You should have received a copy of the GNU General Public License along with the Private
+  ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
+  -->
+<resources>
+    <string name="launcher_name">PIA VPN</string>
+    <string name="app_name">Private Internet Access\'ten VPN</string>
+    <string name="menu_settings">Ayarlar</string>
+    <string name="menu_settings_general">Genel</string>
+    <string name="menu_settings_protocols">Protokoller.</string>
+    <string name="menu_settings_network">Ağ</string>
+    <string name="menu_settings_privacy">Gizlilik</string>
+    <string name="menu_settings_automation">Otomasyon</string>
+    <string name="menu_settings_obfuscation">Gizleme</string>
+    <string name="menu_settings_help">Yardım</string>
+    <!-- Please keep the %s, this is a formatted text. %s is a port number (ei 1024) -->
+    <string name="rportsummary">Bağlantı için %s bağlantı noktası kullanılıyor</string>
+    <!-- Please keep the %s, this is a formatted text. %s is a port number (ei 1024) -->
+    <string name="lportsummary">Bağlantı için %s yerel bağlantı noktası kullanılıyor</string>
+    <string name="lportrandom">Bağlantı için rastgele yerel bağlantı noktası kullanılıyor</string>
+    <string name="server_selection">Sunucu Seçimi</string>
+    <string name="auto_rport">Otomatik bağlantı noktası seçimi kullanılıyor</string>
+    <string name="automatic_server_selection_main">Otomatik</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is a server location (ei London, Berlin) -->
+    <string name="automatic_server_selection_main_region">Otomatik (%1$s)</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is an IP (ei 126.0.1.10)  -->
+    <string name="prompt_login">Örn. p1234567</string>
+    <string name="use_udp_summary">Bağlanmak için UDP kullanılacak</string>
+    <string name="use_tcp_summary">Bağlanmak için TCP kullanılacak</string>
+    <string name="transport">Taşıma</string>
+    <string name="select_port">\"privateinternetaccess.com\" adresine bağlanmak için bağlantı noktasını seçin</string>
+    <string name="remote_port">Uzak Bağlantı Noktası</string>
+    <string name="remote_port_cap">İLERLETİLEN B. NOKTASI</string>
+    <string name="remote_port_vpn_ip">VPN IP</string>
+    <string name="local_port">Yerel Bağlantı Noktası</string>
+    <string name="find_out_more"><u>Daha fazla bilgi edinin</u></string>
+    <string name="connect_onstart_title">Açıldığında Bağlan</string>
+    <string name="connect_onstart">Uygulama başlatıldığında bağlan</string>
+    <string name="connect_on_boot">Sistem Başlatıldığında Başlat</string>
+    <string name="portforwarding">Port Yönlendirme İste</string>
+    <string name="portforwarding_summary">Harici bir bağlantı noktasından mobil cihazınıza gelen bağlantıları kabul edecek</string>
+    <!-- Please keep the %s, this is a formatted text. %s is an error message.  -->
+    <string name="portfwderror">Bağlantı noktası iletme talebinde hata oluştu: %s</string>
+    <string name="mace_toggle">Mace Reklam Engelleyici</string>
+    <string name="killswitch">VPN Acil Anahtarı</string>
+    <string name="killswitchsummary">VPN bağlantısı kesildiğinde internet bağlantınızı devre dışı bırakır.</string>
+    <string name="killswitchtext">ACİL İNTERNET ANAHTARI ETKİN</string>
+    <string name="killswitchstatus_description">Acil İnternet anahtarımız, İnternet\'teki korunmasız eylemlere izin vermez. İnternet bağlantısını eski haline getirmek için tekrar bağlanmayı bekleyin, VPN hizmetimize bağlanın veya acil İnternet Anahtarını kapatın.</string>
+    <string name="requestingportfw">İletilen bağlantı noktası talep ediliyor...</string>
+    <string name="killswitch_button">Devre Dışı Bırak</string>
+    <string name="action_sign_in_short">Giriş yap</string>
+    <string name="login">GİRİŞ YAP</string>
+    <string name="logout">Çıkış yap</string>
+    <string name="accept">kabul et</string>
+    <string name="no_thanks">hayır teşekkürler</string>
+    <string name="read_more"><u>Daha fazlasını okuyun</u></string>
+    <string name="state_gen_config">Yapılandırma oluşturuluyor</string>
+    <string name="user_pw_invalid">Kullanıcı Adı/Şifre geçersiz</string>
+    <string name="replace_login_title">Giriş bilgilerini değiştir</string>
+    <!-- Please keep the %1$s %2$s, this is a formattered text. %1$s %2$s are usernames.  -->
+    <string name="replace_login_msg">Giriş bilgileri yeni giriş bilgileriyle değiştirilsin mi? (Yeni kullanıcı adı: %1$s, eski kullanıcı adı: %2$s)</string>
+    <string name="subscription_expires_in">Üyeliğinizin sona erme süresi:</string>
+    <string name="subscription_expired">Üyeliğiniz</string>
+    <string name="per_app_settings">Tek Uygulama Ayarları</string>
+    <string name="tv_per_app_settings">UYGULAMAYA ÖZEL AYARLAR</string>
+    <string name="help_improve_pia">PIA\'NIN İYİLEŞTİRİLMESİNE YARDIM EDİN</string>
+    <string name="username_password_already_saved">Kullanıcı Adı ve Şifre kaydedildi bile!</string>
+    <string name="invalid_email_signup">Geçerli bir e-posta adresi sağlamanız gerekiyor</string>
+    <string name="buyvpn_url_localized">https://www.privateinternetaccess.com/pages/buy-vpn/</string>
+    <string name="localport_warning">Yerel bağlantı noktası 1024 ila 65535 arasında olmalı</string>
+    <string name="notanumber_localport">Yerel bağlantı noktası için kural dışı numara formatı</string>
+    <string name="notanumber_proxyport">Proxy bağlantı noktası için geçersiz rakam biçimi</string>
+    <string name="thankyou_monthly">Aylık vpn üyeliği aldığınız için teşekkürler!</string>
+    <string name="thankyou_yearly">Yıllık vpn üyeliği aldığınız için teşekkürler!</string>
+    <string name="purchase_signing_up">Kayıt yapılıyor...</string>
+    <string name="purchase_loading">Yükleniyor</string>
+    <string name="logout_confirmation">Çıkış Onayı</string>
+    <string name="logout_confirmation_text">Çıkış yaptığınızda etkin olan bir VPN bağlantısı sonlanacak ve korunmasız kalacaksınız</string>
+    <string name="expiry_notification_title">Üyeliğiniz çok yakında sona erecek.</string>
+    <string name="expiry_notification_onnemonth">Bir aydan az zamanınız kalmış. Korunmaya devam etmek için yenileyin.</string>
+    <string name="expiry_notification_oneweek">Bir haftadan az zamanınız kalmış. Korunmaya devam etmek için yenileyin.</string>
+    <string name="expirty_notification_threedays">Üç günden az zamanınız kalmış. Korunmaya devam etmek için yenileyin.</string>
+    <string name="expirty_notification_oneday">Bir günden az zamanınız kalmış. Korunmaya devam etmek için yenileyin.</string>
+    <string name="error_renew_trial">Deneme hesabı yenilenemez. Hizmeti kullanmaya devam etmek için süresi dolduktan sonra lütfen yeni bir hesap satın alın.</string>
+    <string name="error_renew_expired">Hesabınız etkin değil ve yeni ödemeleri kabul edemez. Çıkış yapıp yeni bir hesap oluşturarak tekrar kaydolun.</string>
+    <string name="pending_purchase_found">Bekleyen Uygulama İçi satın alım işlemi bulundu. Mevcut üyeliğinizi yenilemek için giriş yapın.</string>
+    <string name="account_not_renewable">Hesabınız yenilenemiyor ya da yenileme işlemi otomatik yapılıyor</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is an error message.  -->
+    <string name="error_subscribing">"Satın alma hatası: %1$s "</string>
+    <string name="error_active_subscription">Zaten etkin bir üyeliğiniz var!</string>
+    <string name="error_invalid_auth">Bir sorun oluştu. Lütfen tekrar oturum açmayı deneyin.</string>
+    <string name="usemssfix">Bazı yönlendirici ve mobil ağlarla olan uyumluluğu artırmak için IP paket boyutunu hafif düşürecek.</string>
+    <string name="mssfixsummary">Küçük Paketler Kullan</string>
+    <string name="settings_account_bottom_text">Diğer cihazlarınıza Private Internet Access uygulamasını yükleyin ve yukarıdaki kullanıcı adıyla giriş yaparak bağlantınızı güvenceye alın.</string>
+    <string name="settings_account_bottom_text_4">Diğer cihazların için Private Internet Access uygulamasını edin ve oturum açmak için yukarıdaki kullanıcı adını kullan ve bağlantını güvenli yap.</string>
+    <string name="update_email">E-posta adresini güncelle</string>
+    <string name="email_sucessfully_changed">E-posta adresi başarıyla değiştirildi</string>
+    <string name="copy_toast_text">Metin Panoya Kopyalandı</string>
+    <string name="current_region">MEVCUT BÖLGE</string>
+    <string name="full_licenses">Tam lisanslar</string>
+    <string name="email">E-posta</string>
+    <string name="please_wait">Lütfen bekleyin</string>
+    <string name="still_connecting">Bağlanma işlemi devam ediyor</string>
+    <string name="enabled">Etkinleştirildi</string>
+    <string name="disabled">Devre dışı bırakıldı</string>
+    <string name="account_details_password_bottom_text">Açmak için \"göz\" simgesine dokunun. Tekrar dokunarak Şifreyi panoya kopyalayın.</string>
+    <string name="user_x_vs_p_error">Lütfen ana kullanıcı adınızla giriş yaptığınızdan emin olun; \"p\" ile başlaması gerekiyor (örn. p12345)</string>
+    <string name="vpn_revoke_text">PIA\'nın VPN izni kaldırıldı. VPN, acil İnternet anahtarı ve koruma etkin değil. Lütfen buraya dokunup bu hizmeti yeniden başlatarak İnternet bağlantınızı güvenceye alın.</string>
+    <string name="vpn_revoke_title">PIA VPN durduruldu</string>
+    <!-- Please keep the % elements, this is a formatted text. %1$s is Private Internet Access, %2$s is version number(ei 1.4), %3$s is the version code (ei 114)  -->
+    <string name="login_operation_failed">Giriş Yapılamadı. Lütfen daha sonra tekrar deneyin.</string>
+    <string name="no_internet_connection_available">İnternet bağlantısı mevcut değil</string>
+    <string name="no_username_or_password">Bir kullanıcı adı ile şifre girmelisiniz</string>
+    <string name="please_unlock_your_device">Lütfen cihazınızın kilidini açın</string>
+    <string name="please_unlock_your_device_message">Şifrenizi görüntülemek veya hesap bilgilerinizi güncellemek için.</string>
+    <string name="settings_mace">PIA MACE™</string>
+    <string name="settings_mace_summary">Siz VPN\'ye bağlıyken reklamları, takipçileri ve kötü amaçlı yazılımları engelleyecek</string>
+    <string name="qs_title">PIA\'ya bağlan</string>
+    <string name="not_logged_in">giriş yapılmadı</string>
+    <!-- Please keep the %s, this is a formatted text. %s is a server name.  -->
+    <string name="qs_disconnect">VPN bağlantısını kes (%s)</string>
+    <string name="qs_disconnect_nolocation">VPN bağlantısını kes</string>
+    <string name="menu_about">Hakkında</string>
+    <string name="reconnect_vpn">Bu değişikliği uygulamak için tekrar VPN\'ye bağlanın</string>
+    <string name="reconnect">Yeniden bağlan</string>
+    <string name="later">Sonra</string>
+    <string name="error_account_info">Hesap bilgileri bulunamadı</string>
+    <string name="error_pinging_while_connected">VPN\'e bağlıyken gecikme süresi güncellenemiyor</string>
+    <string name="allows_port_forwarding">Bağlantı Noktası İletmeye izin verir</string>
+    <string name="about_privacy_policy">Gizlilik Politikası</string>
+    <string name="version">Sürüm</string>
+    <string name="application_information">UYGULAMA BİLGİLERİ</string>
+    <string name="data_encyrption">Veri Şifrelemesi</string>
+    <string name="data_auth">Veri doğrulama</string>
+    <string name="handshake">Handshake</string>
+    <string name="dismiss">Kapat</string>
+    <string name="recent_changes">Son Değişiklikler</string>
+    <string name="refresh">Yenile</string>
+    <string name="open_in_browser">Tarayıcıda Aç</string>
+    <string name="copy_link">Linki Kopyala</string>
+    <string name="text_failed_to_copy">Metin Kopyalanamadı</string>
+    <string name="link_copied_to_clipboard">Link panoya kopyalandı</string>
+    <string name="search_apps">Uygulama Ara</string>
+    <string name="account_trail">Deneme</string>
+    <string name="account_yearly">Yıllık</string>
+    <string name="account_montly">Aylık</string>
+    <string name="account_termination">Hesabınız kapatıldı</string>
+    <string name="preference_connection">BAĞLANTI</string>
+    <string name="preference_encryption">ŞİFRELEME</string>
+    <string name="vpn_stop">Dur</string>
+    <string name="change_server">Sunucuyu Değiştir</string>
+    <string name="click_to_connect">Bağlanmak için dokunun</string>
+    <string name="widget_long_title">Dikdörtgen Bağlantı</string>
+    <string name="widget_square_connect">Kare Bağlantı</string>
+    <string name="widget_small_connect">Küçük Bağlantı</string>
+    <string name="mace_enabled">MACE Etkinleştirildi</string>
+    <string name="send_debug_log">Hata Ayıklama Kaydını Destek Ekibine Gönderin</string>
+    <!-- Please keep the %s, this is a formatted text. %s is an error message.  -->
+    <string name="failure_sending_log">Hata ayıklama kayıtları gönderilemedi: %s</string>
+    <string name="log_send_done_title">Hata ayıklama bilgileri gönderildi.</string>
+    <string name="log_send_done_msg">Hata ayıklama bilgileri başarıyla gönderildi. \nKimlik: %s\nLütfen bu kimlik numarasını bir yere kaydedin, çünkü destek ekibi bununla gönderinizi bulacak.</string>
+    <string name="sending_debug_log">Hata ayıklama bilgileri gönderiliyor…</string>
+    <string name="nought_always_on_warning">VPN onaylama mesajı almadıysanız \"Daima VPN\'de\" başka bir uygulama için etkinleştirilmiş olabilir. Bu durumda, sadece bu uygulama VPN\'ye bağlanabilir. Şuradan bakın: Ayarlar -&gt; Ağlar ve daha fazlası... -&gt; VPN\'ler&gt;</string>
+    <string name="open_settings">Ayarları Aç</string>
+    <string name="settings_widget_configuration">Widget Yapılandırması</string>
+    <string name="preferences_widget_title">Widget Ayarları</string>
+    <string name="preferences_widget_summary">Widget\'larımızı ana ekranınızda çalıştırın</string>
+    <string name="widget_flag_alpha">Alfa Bayrak</string>
+    <string name="widget_background">Arkaplan rengi</string>
+    <string name="widget_color">Metin rengi</string>
+    <string name="widget_cc">PIA Komut Merkezi</string>
+    <string name="clear">Temizle</string>
+    <string name="save">Kaydet</string>
+    <string name="saved">Kaydedildi</string>
+    <string name="speeds_shown_are_all_traffic_over_our_connection">Gösterilen hızlar, VPN bağlantınız üzerindeki veri akışını belirtir</string>
+    <string name="ip_short">Herkese Açık IP</string>
+    <string name="login_throttled_text">Bu kullanıcı adı ile birden fazla kez başarısız oturum açma girişiminde bulunuldu. Lütfen daha sonra tekrar deneyin.</string>
+    <string name="tap_to_connect">BAĞLANMAK İÇİN DOKUN</string>
+    <string name="building_configration">Yapılandırma kuruluyor…</string>
+    <!-- Please keep the %1$d, this is a formatted text. %1$d is a number (ei 1-31) -->
+    <string name="days_left">%d gün</string>
+    <string name="one_day_left">Bir gün</string>
+    <!-- Please keep the %1$d, this is a formatted text. %1$d is a number (ei 1-31) -->
+    <string name="hours_left">%d saat</string>
+    <string name="one_hour_left">Bir saat</string>
+    <!-- Please keep the %1$d, this is a formatted text. %1$d is a number (ei 1-31) -->
+    <string name="minutes_left">%d dakika</string>
+    <string name="one_minute_left">Bir dakika</string>
+    <string name="timeleft_expired">Süresi doldu</string>
+    <string name="sign_in_to_your_account">Hesabınıza giriş yapın</string>
+    <string name="username_only">Kullanıcı Adı</string>
+    <string name="submit">Gönder</string>
+    <string name="please_enter_your_email_address">Lütfen e-posta adresinizi girin</string>
+    <string name="select_vpn_plan">Bir VPN Planı seçin</string>
+    <string name="_7_day_money_back_guarantee">30 günlük para iade garantisi</string>
+    <string name="monthly">Aylık</string>
+    <string name="yearly">Yıllık</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is a currency (ei 1-31) -->
+    <string name="yearly_sub_text">Yıllık %1$s</string>
+    <string name="forgot_password">Şifremi Unuttum</string>
+    <string name="tap_to_disconnect">BAĞLANTIYI KESMEK İÇİN DOKUNUN</string>
+    <string name="drawer_account">Hesap</string>
+    <string name="drawer_refer_friend">Arkadaşınızı Aramıza Katın</string>
+    <string name="drawer_region_selection">Bölge Seçimi</string>
+    <string name="drawer_about">Hakkında</string>
+    <string name="drawer_home_page">Ana Sayfa</string>
+    <string name="drawer_contact_support">İletişim Desteği</string>
+    <string name="n_a_port_forwarding">---</string>
+    <!-- This string is going to be formatted by us so the "Buy now" is colored green. Please do not change the &lt;emph> or &lt;/emph> as that is formatting for us to find the buy now text. -->
+    <string name="dont_have_an_account">Hesabınız yok mu? &lt;emph&gt;Şimdi satın alın&lt;/emph&gt;</string>
+    <string name="buy_now">Hemen satın alın!</string>
+    <string name="buy_now_button">Hemen Satın Alın</string>
+    <!-- Please keep the %1$s, this is a formatted text. %1$s is a currency (ei 1-31) -->
+    <string name="purchasing_monthly_ending">Ayda %1$s</string>
+    <!-- Please keep the %1$s %2$s, this is a formatted text. %1$s is a currency (ei 1-31), %2$s is the currency (move this in front or keep it there depending on currency -->
+    <string name="purchasing_yearly_month_ending">Ayda %2$s%1$s</string>
+    <string name="change_region">BÖLGEYİ DEĞİŞTİR</string>
+    <!--Please keep the %1$s, this is a formatted text. %1$s is the up and down speeds on the connection. /s is per second-->
+    <string name="graph_under_formatting">%1$s/sn</string>
+    <string name="allowed_apps_protected_text">Uygulamaları PIA VPN hizmetiyle otomatik olarak korur</string>
+    <string name="allowed_apps_unprotected_text">Hangi uygulamaların PIA VPN kullanacağını seçin</string>
+    <string name="allowed_apps_spotlight_text">Tüm uygulamaların varsayılan olarak PIA VPN kullanıp kullanmayacağını seçer.</string>
+    <string name="allowed_apps_spotlight_title">Tek Uygulama Seçimi</string>
+    <string name="toast_allowed_apps_default_positive">PIA VPN seçili uygulamalar</string>
+    <string name="toast_allowed_apps_default_negative">PIA VPN seçili olmayan uygulamalar</string>
+    <!-- Please keep %1$s %2%s as those are formatted numbers. %1$s is a version number like 2.0, %2$s is the version code like 141 -->
+    <string name="drawer_version">Sürüm %1$s (%2$s)</string>
+    <string name="cancel">İptal</string>
+    <!-- Keep the <![CDATA[...]], translate everything in between-->
+    <string name="settings_port_number_restriction"><![CDATA[Bağlantı noktası 1024 ila 65535 arasında olmalı]]></string>
+    <!-- Keep the <![CDATA[...]], translate everything in between-->
+    <string name="settings_lport_hint"><![CDATA[1024 ila 65535 arası bağlantı noktası]]></string>
+    <string name="startup_region_title">Herhangi bir bölgeye kolayca bağlanın</string>
+    <string name="startup_region_message">Dünyanın dört bir yanındaki sunucularla her zaman koruma altındasınız.</string>
+    <string name="startup_region_message_cancel_anytime">Taahhüt yok. Ücretsiz deneme sırasında istediğiniz zaman iptal edin.</string>
+    <string name="startup_region_message_new">Dünyanın dört bir yanındaki sunucularla, her zaman koruma altındasınız. 7 günlük ücretsiz deneme sürümünüzü yıllık %1$s ücretle başlatın. %2$s</string>
+    <string name="startup_region_footer"><a href="privacy:">Gizlilik Politikası</a> ve <a href="terms:">Hizmet Koşulları</a></string>
+    <string name="startup_region_header">Private Internet Access</string>
+    <string name="startup_ads_title">Kendinizi reklamlardan koruyun</string>
+    <string name="startup_ads_message">PIA MACE işlevini açtığınızda dünyanın her yerinde reklamlardan korunursunuz.</string>
+    <string name="startup_connection_title">Uygulama başına koruma</string>
+    <string name="startup_connection_message">Hangi uygulamaların hizmetimizi kullanacağını kontrol ederek deneyiminizi kişiselleştirin (Android 5.0 ve üstü desteklenmektedir).</string>
+    <string name="speed_graph">PERFORMANS</string>
+    <string name="data_usage_over_time">ZAMAN İÇERİSİNDEKİ VERİ KULLANIMI</string>
+    <!-- Please add in what word is the color red as we color it in code.  -->
+    <string name="per_app_warning">Kırmızı renkteki uygulamaların hizmetimizi sekteye uğratacak veya sizi korunmasız bırakacak sorunlara yol açabilecek belirli özellikleri bulunmaktadır.</string>
+    <string name="purchasing_bottom">Zaten bir hesabınız mı var? &lt;emph&gt; Oturum açın&lt;/emph&gt;</string>
+    <string name="ok">Tamam</string>
+    <string name="killswitch_title">Acil İnternet anahtarı etkin</string>
+    <string name="skip">ATLA</string>
+    <string name="next">İLERİ</string>
+    <string name="done">TAMAM</string>
+    <string name="update_account">HESABI GÜNCELLE</string>
+    <string name="local_port_titla">Yerel B. Noktası</string>
+    <string name="connection_couldnt_establish_title">Bağlantı kurulamadı</string>
+    <string name="connection_couldnt_establish_message">Farklı bir bölge seçebilir ya da bir destek bileti açarak bize bilgi verebilirsiniz</string>
+    <string name="send_feedback">Geri Bildirim Gönder</string>
+    <string name="preference_application_settings">GENEL AYARLAR</string>
+    <string name="preference_vpn_settings">VPN AYARLARI</string>
+    <string name="preference_haptic_title">Dokunsal Geri Bildirim</string>
+    <string name="preference_dialog_graph_title">Grafiğin ölçüm birimini seçin</string>
+    <string name="preference_connect_on_boot_summary">Sistem açıldığında bağlan</string>
+    <string name="preference_haptic_feedback_summary">Bağlantı tıklandığında titret</string>
+    <string name="best_value">EN İYİ FİYAT - ÜCRETSİZ DENEME</string>
+    <string name="port_number">B. Noktası Numarası</string>
+    <!-- Please keep the %s, this is a formatted text. %1$s is an app name -->
+    <string name="allowed_apps_toast_removed">%1$s korunacak</string>
+    <!-- Please keep the %s, this is a formatted text. %1$s is an app name -->
+    <string name="allowed_apps_toast_added">%1$s korunmayacak</string>
+    <string name="shorthand_bytecount">%2$s %1$s</string>
+    <string name="preference_widget_icon_upload_title">Yükleme simgesi rengi</string>
+    <string name="preference_widget_icon_download_title">İndirme simgesi rengi</string>
+    <string name="preference_graph_unit">Grafik birimi</string>
+    <string name="no">Hayır</string>
+    <string name="color_picker_dialog_title">Bir Renk seçin</string>
+    <string name="username_example">Kullanıcı Adı (örn. p1234567)</string>
+    <string-array name="preference_graph_titles">
+        <item>Bit</item>
+        <item>Bayt</item>
+        <item>Kilobayt</item>
+        <item>Kilobayt</item>
+        <item>Megabayt</item>
+        <item>Megabayt</item>
+        <item>Gigabayt</item>
+        <item>Gigabayt</item>
+    </string-array>
+    <!-- Logic in code uses the first and last letter to decide the unit to change the graph too. Be care what to use-->
+    <string name="channel_name_background">Bağlantı istatistikleri</string>
+    <string name="channel_description_background">Kurulan PIA VPN\'nin devam eden istatistikleri</string>
+    <string name="channel_name_status">Bağlantı Durumu değişiklikleri</string>
+    <string name="channel_description_status">PIA VPN\'nin durum değişiklikleri</string>
+    <string name="no_internet_click_here">Fiyatları almak için internet bağlantısı bulunamadı. Görünümü yenilemek için buraya tıklayın</string>
+    <string name="failure_to_connect_alert">Bizim sunucularımıza veya Google\'ın sunucularına bağlanılamadı. Lütfen internete bağlanın.</string>
+    <string name="blockipv6_summary">IPv6 sızıntılarını önlemek için alternatif bir yöntem kullanın. Android 5.0 sürümünden düşük sürümlerde IPv6 sızıntılarını engellemek için gerekli.</string>
+    <string name="blockipv6">Agresif IPv6 engelleme</string>
+    <string name="purchase_renew_title">Yeni bir hesap satın alın</string>
+    <string name="purchase_renew_message">Hesabınız yenileme için uygun değil. Lütfen hizmeti kullanmaya devam etmek için yeni bir hesap satın alın.</string>
+    <string name="purchase">Satın Al</string>
+    <string name="purchase_complete">Satın Alma Tamamlandı</string>
+    <string name="purchase_complete_message">Bize kayıt olduğunuz için teşekkürler. Hesap kullanıcı adı ve parolanızı %1$s e-posta adresinize gönderdik</string>
+    <string name="password_only">Parola</string>
+    <string name="account_creation_failure">Hesap Oluşturma Hatası</string>
+    <string name="account_creation_failure_message">Şu anda hesabınızı oluşturamıyoruz. Sizin için %1$s sayılı bir destek taledi oluşturduk ve bir destek temsilcisi kısa süre içinde sizinle iletişime geçecek. Ayrıca süreci tamamlamak için uygulamayı deneyip daha sonra tekrar yeniden başlatabilirsiniz.</string>
+    <string name="get_started">Başlarken</string>
+    <string name="no_internet_message">İnternet bağlantısı yok. Lütfen İnternet bağlantınız olup olmadığını kontrol edin ve tekrar aşağıya tıklamayı deneyin.\n\nİşlemi bitirmek için uygulamaya daha sonra tekrar gelebilirsiniz.</string>
+    <string name="no_internet_title">Heeey!</string>
+    <string name="retry">Yeniden Dene</string>
+    <string name="go_to_login">Oturum Açmaya Git</string>
+    <string name="unable_change_email">E-postanızı değiştiremedik. Lütfen daha sonra tekrar deneyin.</string>
+    <string name="preference_reset_settings">Ayarları varsayılanlara sıfırla</string>
+    <string name="pref_reset_settings">Ayarlar sıfırlansın mı?</string>
+    <string name="pref_reset_settings_message">Bu işlem uygulama ayarlarını sıfırlayacak. Yapmış olduğunuz bütün değişiklikler kaybolacaktır.</string>
+    <string name="reset">Sıfırla</string>
+    <string name="settings_reset">Ayarlar Sıfırlandı</string>
+    <string name="widget_radius">Widget Yarıçapı</string>
+    <string name="widget_text">Metin Widget\'ı</string>
+    <string name="account_creation_failure_message_no_ticket_id">Şu anda hesap oluşturamıyoruz.\nLütfen daha sonra tekrar deneyin.\n\nUygulama yeniden açıldığından hesap oluşturma tekrar denenecektir.</string>
+    <string name="try_again">Tekrar Deneyin</string>
+    <string name="default_base">Varsayılan</string>
+    <string name="confirm_purchase">Satın Alımı Onayla</string>
+    <string name="purchase_failed">Satın Alım Başarısız</string>
+    <string name="confirming_purchase">Sistemimizle satın alım işleminizi onaylıyoruz. Biraz zaman alabilir; lütfen bekleyin.</string>
+    <!-- %1$d and %2$d are numbers. Example of this string would be Attempt 1 of 5, 2 of 5, 3 of 5. -->
+    <string name="attempt">Deneme: %1$d / %2$d</string>
+    <string name="piaaccountneeded">Oturum açmak için bir privateinternetaccess.com hesabınızın olması gerekir</string>
+    <string name="piaaccountneeded_samsung">Bu hizmete kaydolmak için lütfen privateinternetaccess.com adresini ziyaret edin.</string>
+    <string name="piaaccountneeded_amazon">Bu hizmete kaydolmak için lütfen privateinternetaccess.com adresini ziyaret edin.</string>
+    <string name="vpn_permisions_top_text">PIA\'nın veri trafiğinizi güven altına alabilmesi için VPN yapılandırmalarınıza erişmesi gerekmektedir</string>
+    <string name="vpn_permissions_middle_text">PIA VPN için bir komut istemi göreceksiniz. VPN yapılandırmalarına erişim izni vermeniz gerekecek. İlerlemek için \"Tamam\"a dokunun</string>
+    <string name="vpn_permission_network">Hiçbir ağ aktivitesini izlemiyor, filtrelemiyor ya da kayıt altına almıyoruz.</string>
+    <string name="vpn_permission_title">PIA</string>
+    <string name="contact">İletişim</string>
+    <string name="permissions_message">Uygulamanın işlev görmesi için bu izne ihtiyacımız var. Yardıma ihtiyacınız olursa müşteri desteği ile de iletişime geçebilirsiniz.</string>
+    <string name="send_email">E-posta Gönder</string>
+    <string-array name="themes_list">
+        <item>Açık</item>
+        <item>Koyu</item>
+    </string-array>
+    <string name="preference_app_theme">Koyu Tema</string>
+    <string name="auth_setby_gcm">AES-GCM gibi AEAD şifrelemeleri, bütünleşik bir kimlik doğrulama mekanizması kullanır</string>
+    <string name="allow_locallan">LAN Trafiğine İzin Ver</string>
+    <string name="allow_locallan_details">Yerel ağınızdaki cihazlar arasında her zaman trafiğe izin verir</string>
+    <string name="pref_block_dialog_title">Yerel ağlara erişime izin ver</string>
+    <string name="pref_block_dialog_message">Bazı sistem uygulamaları (Google gibi) yerel ağa erişime izin verildiğinde VPN hizmetini aşabilirler.</string>
+    <string name="killswitch_notification_title">Acil İnternet Anahtarı aktif</string>
+    <string name="open_android_settings">Android Ayarlarını Açın</string>
+    <string name="data_in">aşağı</string>
+    <string name="data_out">yukarı</string>
+    <string name="pia_channel_name">PIA</string>
+    <string name="pia_channel_description">Genel etkinlikler ve bildirimler</string>
+    <string name="tv_startup_press_right">SAĞA BASIN</string>
+    <string name="androidalwayson">VPN Acil Anahtarı</string>
+    <string name="androidalwaysonsummary">Android, Acil İnternet Anahtarı işlevi için daha iyi bir alternatif içerir; daha fazla bilgi için tıklayın</string>
+    <string name="preference_blocking">ENGELLEME</string>
+    <string name="preference_connect_proxy">Proxy ile bağlan</string>
+    <string name="preference_connect_proxy_app">Proxy uygulaması seçildi</string>
+    <string name="preference_connect_proxy_summary">Kullandığınız uygulamayı, uygulamaya özel ayarlardan hariç tuttuğunuzdan emin olun</string>
+    <string name="preference_proxy_port">Proxy bağlantı noktası</string>
+    <string name="proxy_selection_title">Proxy uygulaması seçin</string>
+    <string name="app_is_proxy">Bu uygulama sizin proxy uygulamanızdır. Çalışması için hariç tutulması gerekir.</string>
+    <string name="app_must_be_selected">Kaydetmek için bir uygulama seçmelisiniz.</string>
+    <string name="proxy_settings_title">PROXY AYARLARI</string>
+    <string name="enable_proxy_dialog_title">Proxy uygulamanızı ayarlayın</string>
+    <string name="enable_proxy_dialog_message">Uygulamamızla bir proxy kullanmak için, hangi uygulamayı kullanmayı planladığınızı bilmemiz gerekiyor.</string>
+    <string name="vpn_activity_title">VPN Hata Ayıklama Kaydı</string>
+    <string name="preference_vpn_log_title">VPN hata ayıklama günlüğünü görüntüle</string>
+    <string name="preference_vpn_log_summary">VPN kaydını görmek için gelişmiş kullanıcı görünümü</string>
+    <string name="preference_orbot_title">Proxy uygulaması Orbot</string>
+    <string name="preference_orbot_summary">Orbot entegrasyon kullanımı</string>
+    <string name="settings_orbot_udp_problem_message">Orbot\'un çalışması için TCP gereklidir. TCP\'yi etkinleştirmek ister misiniz?</string>
+    <string name="settings_orbot_udp_problem_title">Proxy Gereksinimleri</string>
+    <!-- %d is a digit for ping latency(ie, 0-10000). ms is milliseconds. -->
+    <string name="ping_string">%d ms</string>
+    <string name="status_server_ping">En iyi sunucu aranıyor</string>
+    <!-- &lt;emph> and &lt;/emph> should not be touched. These are how we know what to color in this string. -->
+    <string name="trial_account">Bir hediye kartı veya deneme kartınız mı var? &lt;emph&gt;Hemen Kullanın&lt;/emph&gt;</string>
+    <!-- &lt;emph> and &lt;/emph> should not be touched. These are how we know what to color in this string. -->
+    <string name="trial_remember_password">Parolanızı hatırlıyor musunuz? &lt;emph&gt;Oturum açın&lt;/emph&gt;</string>
+    <string name="trial_card_pin">Kart PIN\'i</string>
+    <string name="trial_screen_redeem">Hediye Kartı Kullan</string>
+    <string name="trial_screen_message">E-posta adresinizi ve hediye kartınızdaki ya da deneme kartınızdaki 16 haneli PIN\'i aşağıya girin.</string>
+    <string name="card_pin_invalid">Kart PIN\'i geçersiz</string>
+    <string name="confirming_trial_account">Kart PIN\'inizi sistemimizde onaylıyoruz. Bu biraz zaman alabilir, lütfen bekleyin.</string>
+    <string name="trial_success_message">Ayrıca kısa bir süre içinde kullanıcı adınızı ve şifrenizi içeren bir e-posta alacaksınız.</string>
+    <string name="trial_success_title">Tamamlandı!</string>
+    <string name="trial_failure_redeemed_title">Bu kart zaten kullanılmış</string>
+    <string name="trial_failure_redeemed_message">Görünüşe bakılırsa bu kart başka bir hesap tarafından kullanılmış. Farklı bir PIN girmeyi deneyebilirsiniz.</string>
+    <string name="trial_failure_invalid_title">Geçersiz kart PIN\'i</string>
+    <string name="trial_failure_invalid_message">Görünüşe bakılırsa geçersiz bir PIN girdiniz. Lütfen tekrar deneyin.</string>
+    <string name="trial_failure_expired_title">Kartın Süresi Dolmuş</string>
+    <string name="trial_failure_expired_message">Farklı bir PIN girmeyi deneyebilirsiniz.</string>
+    <string name="trial_failure_throttled_title">Aşırı sayıda deneme</string>
+    <string name="trial_failure_throttled_message">Aşırı sayıda denemede bulundunuz. Lütfen daha sonra tekrar deneyin.</string>
+    <string name="trial_failure_email_title">Geçersiz E-posta</string>
+    <string name="trial_failure_email_message">Görünüşe bakılırsa geçersiz bir e-posta girdiniz. Lütfen tekrar deneyin.</string>
+    <!-- Keep %1$s and %2$s. This is a formatted text and %1$s is Terms of Service and %2$s is Privacy Policy -->
+    <string name="tos_pos_text" formatted="true">Kayıt yaptırmak %1$s ile %2$s hükümlerinin kabul edildiği anlamına gelir.</string>
+    <string name="tos_text">Hizmet Koşulları</string>
+    <string name="pp_text">Gizlilik Politikası</string>
+    <string name="website_isnt_protected">Web sitesi korunmuyor.</string>
+    <string name="api_check_failure_title">Bağlantı Hatası</string>
+    <string name="api_check_message">Özel İnternet Erişimi\'ne ulaşamıyoruz. Bu, internet bağlantısının zayıf olması veya hizmetimizin sizin ülkenizde engellenmesi yüzünden olabilir. Lütfen istikrarlı bir internet bağlantısına sahip olduğunuzdan emin olun, Ayarlar\'dan uygulamayı Durmaya Zorla\'yın ve tekrar deneyin.</string>
+    <string name="invalid_qr_code">Geçersiz QR kod sırası. Lütfen tekrar deneyin.</string>
+    <string name="empty_qr_code">QR içerikleri boştu. Lütfen tekrar deneyin.</string>
+    <string name="your_plan_will_expire_on">Planınızın süresi şu tarihte sona erecek:</string>
+    <!-- TV specific strings -->
+    <string name="favorites_title">Favorileri Yönet</string>
+    <string name="favorites_panel_title">FAVORİLER</string>
+    <string name="logout_title">Oturumu Kapat</string>
+    <string name="pia_access">PIA Erişimi</string>
+    <string name="preference_app_update_title">Uygulama Güncellendiğinde Bağlan</string>
+    <string name="preference_app_update_message">Uygulama, güncellendikten sonra sizi korumaya devam etmek için otomatik olarak bağlanır.</string>
+    <string name="server_search">Ara</string>
+    <string name="tile_killswitch">Durdurma Anahtarı Aktif</string>
+    <string name="auto_dns_setting_summary">PIA DNS</string>
+    <string name="pia_dns">PIA DNS</string>
+    <string name="edit_custom_dns">Düzenle</string>
+    <string name="custom_dns">Özel DNS</string>
+    <string name="custom_dns_warning_body">PIA harici bir DNS kullanmak DNS trafiğini üçüncü tarafların görmesine neden olur ve gizliliğini tehlikeye atar.</string>
+    <string name="custom_dns_warning_title">@string/custom_dns</string>
+    <string name="custom_primary_dns">Birincil DNS</string>
+    <string name="custom_secondary_dns">İkincil DNS (isteğe bağlı)</string>
+    <string name="custom_primary_dns_invalid">Birincil DNS geçerli değil</string>
+    <string name="custom_secondary_dns_invalid">İkincil DNS geçerli değil</string>
+    <string name="custom_dns_mace_warning">MACE’yi etkinleştirmek için varsayılan DNS ayarlarının kullanılması gerekir. DNS ayarlarını varsayılan olarak sıfırlamak istiyor musun?</string>
+    <string name="custom_dns_disabling_mace">Özel DNS kullanılırken MACE devre dışı bırakılacak.</string>
+    <string name="password_required">PIA Parolası Gerekli</string>
+    <string name="password_required_body">Güvenlik nedenleriyle, hesabınızda herhangi bir değişiklik yapmak için PIA parolanızı girmeniz gerekli. Lütfen devam etmek için PIA parolanızı girin.</string>
+    <string name="password_empty">Parola alanı boş bırakılamaz</string>
+    <string name="trusted_cellular_title">Cep telefonu şebekelerine güven</string>
+    <string name="trusted_cellular_message">Mobil veri kullanılırken VPN bağlantısını otomatik sonlandır</string>
+    <string name="trusted_wifi_title">Güvenilir Wifi</string>
+    <string name="trusted_wifi_message">Kullanıcı tarafından beyaz listeye alınanlar hariç tüm wifi ağlarında VPN otomatik bağlanacaktır</string>
+    <string name="trusted_wifi_enable_message">Güvenilir ağlara bağlanırken VPN’i devre dışı bırak</string>
+    <string name="trusted_wifi_singular">Güvenilir Ağ</string>
+    <string name="trusted_wifi_plural">Güvenilir Ağlar</string>
+    <string name="available_wifi_header">Mevcut Ağlar</string>
+    <string name="trusted_wifi_no_wifi">Lütfen güvenilir ağları seçmek için WiFi bağlantısını etkinleştirin.</string>
+    <string name="trusted_wifi_no_permission">Güvenilir WiFi, yakındaki WiFi ağlarını tespit etmek için konum izinlerinin verilmesini gerektiriyor. Bu izin kaldırıldığı takdirde bu özellik artık çalışmayacak.\n\nBu özelliği kullanabilmek için, Ayarlar&gt;Uygulamalar&gt;PIA VPN\'e gidin ve konum izninin açık olduğundan emin olun.</string>
+    <string name="no_permission_title">İzin Gerekli</string>
+    <string name="trusted_wifi_not_available">Hiç kullanılabilir ağ yok</string>
+    <string name="trusted_wifi_no_trusted">Hiç güvenilir ağ yok</string>
+    <string name="account_invalid_warning">"Geçersiz hesap bilgileri"</string>
+    <!-- PIAX Specific Strings -->
+    <string name="buy_account">HESAP SATIN AL</string>
+    <string name="redeem_gift_card">HEDİYE KARTI KULLAN</string>
+    <string name="email_address">E-posta adresi</string>
+    <string name="gift_card_pin">Hediye Kartı PIN No</string>
+    <string name="redeemed_successful">Kart başarıyla kullanıldı</string>
+    <string name="redeemed_login_header">Oturum açma bilgileriniz</string>
+    <string name="redeeming_gift_card">Hediye kartı kodunuzu\nsistemlerimizde doğruluyoruz. Bu işlem biraz zaman\nalabilir, o yüzden biraz bekleyin.</string>
+    <string name="redeeming_gift_title">Sunucumuzda kontrol ediliyor</string>
+    <string name="redeemed_to_login">OTURUM AÇMAYA DEVAM ET</string>
+    <string name="username_enter">Kullanıcı Adı Girin</string>
+    <string name="password_enter">Parola Girin</string>
+    <string name="total_cost">Toplam Fiyat</string>
+    <string name="confirm_your_purchase">Satın almayı onaylayın</string>
+    <string name="enter_email">E-posta adresinizi girin</string>
+    <string name="you_are_purchasing">%1$s planını satın alıyorsunuz</string>
+    <string name="continue_only">DEVAM ET</string>
+    <string name="plan_only">Plan</string>
+    <string name="yearly_only">yıllık</string>
+    <string name="monthly_only">aylık</string>
+    <string name="search_region">Bir bölge ara</string>
+    <string name="region_dialog_header">Bölgeleri sırala:</string>
+    <string name="menu_filters">Filtreler</string>
+    <string name="menu_update">GÜNCELLE</string>
+    <string name="menu_reorder">Düzenle</string>
+    <string name="port_not_available">Kullanılamıyor</string>
+    <string name="refer_yes">Evet</string>
+    <string name="refer_no">Hayır</string>
+    <string name="region_filter_name">Ad</string>
+    <string name="region_filter_latency">Gecikme</string>
+    <string name="region_filter_favorites">Favoriler</string>
+    <!-- Free Trial Strings -->
+    <string name="free_trial_header">7 gün için ücretsiz deneyin</string>
+    <string name="free_trial_cost">Yıllık sadece %s ödeyin</string>
+    <string name="free_trial_guarantee">30 gün para iade garantisi</string>
+    <string name="free_trial_protection_header">1 yıl gizlilik ve kimlik koruması</string>
+    <string name="free_trial_protection_text">Anonim olarak sörf yapın ve IP\'nizi gizleyin</string>
+    <string name="free_trial_devices_header">Bir kerede 10 cihazı destekleyin</string>
+    <string name="free_trial_devices_text">Kendinizi bir kerede 10 cihaza kadar koruyun</string>
+    <string name="free_trial_region_header">Herhangi bir bölgeye kolayca bağlanın</string>
+    <string name="free_trial_region_text">32 ülkede 3300\'den fazla sunucu</string>
+    <string name="free_trial_start">ABONELİĞİ BAŞLATIN</string>
+    <string name="free_trial_see_all">Mevcut planların tümünü görün</string>
+    <!-- Tiles Strings -->
+    <string name="snooze_vpn_title">VPN\'İ ERTELEME</string>
+    <string name="snooze_short">5 DAKİKA ERTELE</string>
+    <string name="snooze_medium">15 DAKİKA ERTELE</string>
+    <string name="snooze_long">1 SAAT ERTELE</string>
+    <string name="snooze_description">VPN\'i devreden çıkarır ve zamanlayıcı süresi dolduğunda otomatik olarak tekrar bağlanır.</string>
+    <string name="snooze_resume">DEVAM ET</string>
+    <string name="snooze_paused">Şuna kadar duraklatıldı: %s</string>
+    <string name="snooze_status">Erteleniyor</string>
+    <string name="snooze_notification">Ertelendi</string>
+    <string name="failed_connect_status">Bağlanamıyor</string>
+    <!-- Quick Settings Strings -->
+    <string name="quick_settings_title">HIZLI AYARLAR</string>
+    <string name="quick_settings_network_toggle">Ağ Yönetimi</string>
+    <string name="quick_settings_private_browser">Özel Tarayıcı</string>
+    <!-- Quick Connect String -->
+    <string name="quick_connect_title">HIZLI BAĞLANMA</string>
+    <string name="quick_connect_favorites_title">FAVORİ SUNUCULAR</string>
+    <!-- Usage Strings -->
+    <string name="usage_title">KULLANIM</string>
+    <string name="usage_download">İndir</string>
+    <string name="usage_upload">Yükle</string>
+    <!-- Settings -->
+    <string name="settings_protocol">Protokol Seçimi</string>
+    <string name="protocol_ovpn">OpenVPN</string>
+    <string name="protocol_wireguard">WireGuard</string>
+    <string name="wg_per_app_warning">WireGuard\'a geçmek Tek Uygulama Ayarları özelliğini devreden çıkarır</string>
+    <string name="wg_protocol_warning">Şu özellikler WireGuard\'da  mevcut değildir:</string>
+    <string name="wg_connecting">Bağlanılıyor</string>
+    <string name="wg_connected">VPN Bağlandı</string>
+    <string name="block_connections_body_1">PIA \"VPN’siz bağlantıları engelle\" özelliği, Android Ayarlarından Her Zaman VPN AÇIK özelliğinin açılmasını gerektiriyor.</string>
+    <string name="block_connections_body_2">Devam etmek için Ayarlar - Ağ ve İnternet - Gelişmiş - VPN - bölümüne gidin Ayarlar simgesine dokunun - VPN her Zaman Açık özelliğini etkinleştirin.</string>
+    <string name="block_connections_button">Ağ ve İnternet Ayarlarına gidin</string>
+    <string name="ks_removal_warning">Acil İnternet Anahtarı\'nın etkin durumda olduğunu tespit ettik. Bu özelliğin çalışma şeklini Android\'in \"VPN\'siz bağlantıları engelle\" ayarını entegre ederek hem WireGuard hem Open VPN için değiştirmiş bulunuyoruz. Koruma altında olduğunuzdan emin olmak için lütfen bu değişiklikleri Ayarlar\'dan gözden geçirin.</string>
+    <string name="preference_on_boot_always_on">Sistem başlatıldığında bağlan. Her Zaman VPN Açık seçeneğini kullanıyorsanız bu ayarı açık konuma getirmenizi öneririz.</string>
+    <string name="ovpn_cipher_removal_description">OpenVPN uygulamamızı güncelliyoruz, daha fazla bilgi için <b>buraya</b> tıklayın</string>
+    <!-- Wireguard -->
+    <string name="tunnel_error_already_exists">“%s” tüneli zaten mevcut</string>
+    <string name="tunnel_error_invalid_name">Geçersiz ad</string>
+    <string name="preview">ÖNİZLEME</string>
+    <!-- GEO Servers -->
+    <string name="geo_servers">Coğrafi Konum Bölgelerini Göster</string>
+    <!-- Rating -->
+    <string name="rating_enjoy_title">PIA VPN\'i beğeniyor musunuz?</string>
+    <string name="rating_enjoy_message">Umarız VPN ürünümüz beklentilerinizi karşılıyordur</string>
+    <string name="rating_review_title">Google Play\'de bir değerlendirme yazmaya ne dersiniz?</string>
+    <string name="rating_review_message">Deneyiminizi paylaşmanız bizi memnun eder</string>
+    <string name="rating_feedback_title">Sorun nedir?</string>
+    <string name="rating_feedback_message">Geri bildirim göndermek ister misiniz? Bu, PIA kullanma deneyiminizi iyileştirmemize yardımcı olabilir</string>
+    <!-- Get Started Purchasing-->
+    <string name="getstarted_subscribe">HEMEN ABONE OLUN</string>
+    <string name="getstarted_trial_payment">Ödeme yalnızca deneme sürenizin sonunda hesabınızdan tahsil edilecektir.</string>
+    <string name="getstarted_free_trial">7 günlük ücretsiz denemenizi başlatın</string>
+    <string name="getstarted_trial_price">Daha sonra yıllık %s</string>
+    <string name="purchasing_email_reason">Kullanıcı adınızla parolanızı gönderebilmemiz için e-posta adresinize ihtiyacımız var.</string>
+    <string name="purchasing_all_plans">Mevcut planların tümüne göz atın</string>
+    <string name="purchasing_login_receipt">Alışveriş ekstrenizdeki bilgilerle oturum açın</string>
+    <string name="purchasing_no_subscription">Etkin bir aboneliğiniz bulunmuyor</string>
+    <string name="purchasing_sure">Emin misiniz?</string>
+    <string name="purchasing_return">Ana ekrana dönmek ister misiniz? Oturum açma ekranından alışveriş ekstrenizdeki bilgilerle oturum açarak abonelik işlemini dilediğiniz zaman tamamlayabilirsiniz.</string>
+    <string name="purchasing_magic_link">Sihirli e-posta bağlantısını kullanarak giriş yap</string>
+    <string name="purchasing_magic_send">BAĞLANTI GÖNDER</string>
+    <string name="magic_login_enter_email">E-posta girin</string>
+    <string name="purchasing_magic_success">Giriş bağlantısı için lütfen e-postanı kontrol et</string>
+    <string name="connection_tile_header">BAĞLANTI</string>
+    <string name="connection_tile_tcp">TCP</string>
+    <string name="connection_tile_udp">UDP</string>
+    <!-- Update -->
+    <string name="settings_calling_header">Son haberler</string>
+    <string name="update_3_7_1_header">WireGuard®\'ı bugün deneyin!</string>
+    <string name="update_3_7_1_description">Bu, daha iyi performans, daha düşük CPU kullanımı ve daha uzun pil ömrü sunan, yeni, daha verimli bir VPN protokolü.</string>
+    <string name="update_3_7_1_cta_1">WireGuard®\'ı hemen deneyin</string>
+    <string name="update_3_7_1_cta_2"><u>Daha fazla bilgi alın</u></string>
+    <!-- Network Management -->
+    <string name="nmt_notification_title">Otomasyon etkin</string>
+    <string name="nmt_notification_description">VPN bağlantısı kesildi</string>
+    <string name="nmt_secure_wifi">Güvenli Wi-Fi</string>
+    <string name="nmt_open_wifi">Wi-Fi</string>
+    <string name="nmt_mobile_data">Mobil veri</string>
+    <string name="nmt_disconnect">Her zaman VPN bağlantısını kes</string>
+    <string name="nmt_connect">Her zaman VPN bağlantısı yap</string>
+    <string name="nmt_retain">VPN durumunu koru</string>
+    <string name="nmt_manage_title">Otomasyonu Yönet</string>
+    <string name="nmt_manage_description">PIA\'nın, Wi-Fi veya hücresel ağlara bağlanırken nasıl davranacağını yapılandır. Elle bağlantının kesilmesi buna dahil değildir.\n\nBu özellik deneyseldir.</string>
+    <string name="nmt_add_description">Yeni kural eklemek için bir Wi-Fi ağı seç.</string>
+    <string name="nmt_rule_for">%s için kural</string>
+    <string name="nmt_remove_rule">Kuralı kaldır</string>
+    <string name="nmt_add_new_rule">Yeni kural ekle</string>
+    <string name="nmt_settings_title">Otomasyon</string>
+    <string name="nmt_settings_description">Güvenilen ve güvenilmeyen ağlar için otomatik bağlantı kurallarını yönetmek için kurallar belirleyin.\n\nBu özellik deneyseldir.</string>
+    <string name="nmt_management_title">Otomasyonu Yönet</string>
+    <string name="network_permisions_top_text">PIA VPN\'in konumunuza erişmesine izin verin. Bu işlem, yakındaki Wi-Fi ağlarını tespit etmemize izin verecek.</string>
+    <string name="network_permissions_middle_text">Konum izni için bir iletişim kutusu göreceksiniz. Devam etmek için “Uygulamayı kullanırken” seçeneğine dokunun</string>
+    <string name="network_permission_network">Herhangi bir ağ etkinliğini izleme, filtre veya kaydetme yapmıyoruz.</string>
+    <string name="network_permission_button_allow">İzin ver</string>
+    <string name="network_permissions_top_background">Harika! Neredeyse bitti! PIA Ağ Yönetim özelliği ayrıca arka plan konum hizmetlerine erişimi de gerektirir.</string>
+    <string name="network_permissions_middle_background">Devam etmek için Ayarlar &gt; Uygulamalar &gt; PIA &gt; İzinler bölümüne gidin - Arka planda konum hizmetlerine erişimi etkinleştirin.</string>
+    <string name="network_permissions_button_goto">İzin Ayarlarına Gidin</string>
+    <!-- Dedicated IP -->
+    <string name="dip_menu_title">Özel IP</string>
+    <string name="dip_description">Belirtecinizi aşağıdaki forma yapıştırarak Özel IP\'nizi etkinleştirin. Kısa süre önce bir özel IP satın aldıysanız belirteci PIA web sitesine giderek oluşturabilirsiniz.</string>
+    <string name="dip_summary">Herhangi bir  varlıkla olan uzaktan bağlantılarınızı, seçtiğiniz bir ülkeden özel bir IP ile  sabitleyin. Aboneliğiniz sırasında bu IP sadece size ait olacak ve veri transferleriniz en güçlü şifrelemeyle koruyacaktır.</string>
+    <string name="dip_your_header">ÖZEL IP\'LERİNİZ</string>
+    <string name="dip_activate">Etkinleştir</string>
+    <string name="dip_remove_header">Özel IP\'yi Kaldır</string>
+    <string name="dip_remove_body">%s - %s kaldırılsın mı?</string>
+    <string name="dip_will_expire_warning">Özel IP\'niz yakında sona erecek.</string>
+    <string name="dip_get_a_new_one">Yeni bir tane alın.</string>
+    <string name="dip_expired_warning">Belirtecinizin süresi dolmuş bulunuyor. Lütfen web sitesindeki Hesap sayfanızdan yeni bir tane oluşturun.</string>
+    <string name="dip_updated_warning">Özel IP\'niz güncellendi.</string>
+    <string name="dip_invalid">Belirteciniz geçersiz. Lütfen belirteci doğru şekilde girdiğinizden emin olun.</string>
+    <string name="dip_success">Özel IP\'niz başarıyla etkinleştirildi. Bölge seçim listenizde mevcut olacak.</string>
+    <string name="dip_tag">ÖZEL IP</string>
+    <string name="dip_enter_token_hint">Belirtecinizi buraya yapıştırın</string>
+    <!-- Inapp Messaging -->
+    <string name="inapp_pref_title">Servis İletişim Mesajlarını Göster</string>
+    <string name="settings_updated">Ayarlar güncellendi</string>
+    <string name="hide_payment">Teknik bir sorundan dolayı, Google Play üzerinden satın alma işlemleri şu anda devre dışı bırakıldı. Sorunu çözmeye çalışıyoruz.\n\nZaten üyeliği olan bir hesabınız varsa, Giriş Yap düğmesine basarak giriş yapabilirsiniz.</string>
+    <string name="settings_block_connections_title">PIA \"VPN Acil Anahtarı\" özelliği, Android Ayarlarından Her Zaman VPN AÇIK özelliğinin açılmasını gerektiriyor.</string>
+    <string name="settings_block_connections_description">Devam etmek için Ayarlar - Ağ &amp; İnternet - Gelişmiş - VPN - bölümüne gidin Ayarlar simgesine dokunun - <b>VPN her Zaman Açık</b> özelliğini etkinleştirin.</string>
+    <string name="settings_block_connections_button">Ağ ve İnternet Ayarlarına gidin</string>
+    <string name="settings_block_connections_error">Ağ ayarlarına gidilemiyor</string>
+    <!-- KPI -->
+    <string name="kpi_connection_attempts_onboarding_title">Lütfen hizmetimizi geliştirmemize yardımcı olun</string>
+    <string name="kpi_connection_attempts_onboarding_body">Hizmetimizin bağlantı performansını sağlamamıza yardımcı olmak için bağlantı istatistiklerinizi anonim olarak bizimle paylaşabilirsiniz. Bu raporlar herhangi bir kişisel olarak tanımlanabilir bilgi içermez.</string>
+    <string name="kpi_connection_attempts_settings_title">PIA\'nın iyileştirilmesine yardım edin</string>
+    <string name="kpi_connection_attempts_settings_body">VPN bağlantı istatistiklerini bizimle paylaşarak uygulamamızı geliştirmemize yardımcı olun. Bu raporlar hiç bir şekilde kişisel olarak tanımlanabilir bilgiler içermez.</string>
+    <string name="kpi_connection_attempts_settings_details">Paylaşılan verileri görüntüle</string>
+    <string name="kpi_connection_attempts_no_events">Hiç en son dosya yok</string>
+    <string name="kpi_connection_attempts_stats">Bağlantı İstatistikleri</string>
+    <string name="kpi_connection_attempts_more_information">Bu minimum bilgiler, olası bağlantı sorunlarını belirlememize ve çözmemize yardımcı olur. Varsayılan olarak kapalı olduğundan, bu bilgilerin paylaşılmasının onaylanması ve manuel olarak etkinleştirilmesi gerektirdiğini unutmayın. Aşağıdaki etkinlikler hakkında bilgi toplayacağız:\n\n
+            • Bağlantı Denemesi\n
+            • Bağlantı İptal Edildi\n
+            • Bağlantı Kuruldu\n\n
+        Tüm bu etkinlikler için aşağıdaki bilgileri toplayacağız:\n\n
+            • Platform\n
+            • Uygulama sürümü\n
+            • Uygulama türü (sürüm öncesi veya değil)\n
+            • Kullanılan protokol\n
+            • Bağlantı kaynağı (manuel veya otomasyon kullanarak)\n\n
+        Tüm etkinlikler, rastgele oluşturulan benzersiz bir kimlik içerir. Bu kimlik, kullanıcı hesabınızla ilişkili değildir. Bu benzersiz kimlik, gizlilik amacıyla günlük olarak yeniden oluşturulur.\n\n
+        Her zaman kontrol sizde olacak. Hangi verileri topladığımızı Ayarlar bölümünden görebilir ve istediğiniz zaman kapatabilirsiniz.</string>
+    <!-- Renewal -->
+    <string name="renewal_title">Tekrar Hoş Geldiniz!</string>
+    <string name="renewal_description">Private Internet Access kullanmak için aboneliğinizi yenilemeniz gerekiyor.</string>
+    <string name="renewal_button">Şimdi Yenile</string>
+    <string name="use_tcp">TCP kullan</string>
+    <string name="oneclickconnect">Tek tıkla bağlantı</string>
+    <string name="startup_region_message_new_bold">7 günlük ücretsiz deneme sürümünüz</string>
+    <string name="allow_locallan_on">Yerel ağa erişime izin verilecek. Bazı uygulamalar (Google uygulaması gibi) gerçek IP\'nizi sızdırabilir ve bildirebilir.</string>
+    <string name="allow_locallan_off">Yerel ağlara erişim engellenecek</string>
+    <string name="block_locallan_off">Yerel ağa erişime izin verilecek. Bazı uygulamalar (Google gibi) gerçek IP adresini sızdırıp bildirebilir.</string>
+    <string name="block_locallan_on">Yerel ağlara erişim engellenecek</string>
+    <string name="block_locallan">Yerel ağı engelle</string>
+    <string name="block_connection_wo_vpn">VPN\'siz bağlantıları engelle</string>
+    <string name="always_oreo_message">VPN\'ininiz olmadan asla bağlanmamanızı sağlamak için Android ayarlarınızdan VPN\'siz Bağlantıları Engelle seçeneğini etkinleştirmenizi öneririz. Bu özellik PIA Her Zaman Açık VPN özelliği açıldıktan sonra etkinleştirilebilir. Bu ise Android\'in, bağlandığınız zaman PIA VPN\'ininizin her zaman açık olmasını ve VPN\'i olmayan bağlantıları engellemesini (yani Acil İnternet Anahtarı\'nın kullanılmasını) sağlayarak, en iyi şekilde çalışmasını garanti eder. PIA VPN uygulamasındaki Acil İnternet Anahtarı devreden çıkarılmış olup, onun yerine Android 8.0 ve üstü sürümlerde sistem düzeyinde \"VPN\'siz Bağlantıları Engelle\" özelliği yerleşik bir özellik olarak devreye alınmış bulunuyor. Bir problem oluşması durumunda haber dar edileceksiniz ve Android VPN\'inizden geçmeyen tüm internet bağlantılarını engelleyecektir.</string>
+    <string-array name="dns_names">
+        <item>PIA DNS</item>
+        <item>Özel DNS</item>
+    </string-array>
+</resources>

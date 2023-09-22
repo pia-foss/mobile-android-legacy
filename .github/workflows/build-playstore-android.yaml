@@ -1,0 +1,30 @@
+name: Build Playstore Android
+on: [workflow_call]
+jobs:
+  build-android:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GHA_SUBMODULE_CHECKOUT_KEY }}
+          submodules: recursive
+      - uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: 11
+          cache: gradle
+      - name: key
+        run: openssl base64 -d -A -out /home/runner/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/app/key.keystore <<< ${{ secrets.SIGNING_PLAYSTORE_KEYSTORE }}
+      - name: build AAB
+        run: ./gradlew bundleProductionPlaystoreRelease --parallel
+        env:
+          SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_PLAYSTORE_KEY_ALIAS }}
+          SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_PLAYSTORE_KEY_PASSWORD }}
+          SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_PLAYSTORE_STORE_PASSWORD }}
+      - name: explicit cleanup
+        run: rm /home/runner/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/app/key.keystore
+      - uses: actions/upload-artifact@v3
+        with:
+          name: pia-output
+          path: app/build/outputs/bundle/
+          if-no-files-found: error
