@@ -6,7 +6,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GHA_SUBMODULE_CHECKOUT_KEY }}
           submodules: recursive
       - uses: actions/setup-java@v3
         with:
