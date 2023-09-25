@@ -1,4 +1,3 @@
 [submodule "openvpnTunnel"]
-    path = openvpnTunnel
-    url = ../cpz_pia-mobile_android_tunnel-android.git
-    branch = master
+	path = openvpnTunnel
+	url = https://github.com/pia-foss/mobile-android-openvpn-tunnel.git
