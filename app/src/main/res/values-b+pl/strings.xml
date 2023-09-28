@@ -69,6 +69,7 @@
     <string name="no_thanks">nie, dziękuję</string>
     <string name="read_more"><u>Dowiedz się więcej</u></string>
     <string name="state_gen_config">Generowanie konfiguracji</string>
+    <string name="state_waitconnectretry">Oczekiwanie %s sekund między próbami połączenia</string>
     <string name="user_pw_invalid">Nieprawidłowa nazwa użytkownika/Hasło</string>
     <string name="replace_login_title">Zmień dane logowania</string>
     <!-- Please keep the %1$s %2$s, this is a formattered text. %1$s %2$s are usernames.  -->

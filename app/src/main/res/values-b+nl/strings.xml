@@ -69,6 +69,7 @@
     <string name="no_thanks">nee, bedankt</string>
     <string name="read_more"><u> Meer lezen</u></string>
     <string name="state_gen_config">Configuratie genereren</string>
+    <string name="state_waitconnectretry">Wacht %s seconden en probeer opnieuw verbinding te maken</string>
     <string name="user_pw_invalid">Gebruikersnaam/wachtwoord ongeldig</string>
     <string name="replace_login_title">Inloginformatie vervangen</string>
     <!-- Please keep the %1$s %2$s, this is a formattered text. %1$s %2$s are usernames.  -->

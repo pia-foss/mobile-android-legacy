@@ -69,6 +69,7 @@
     <string name="no_thanks">いいえ、結構です</string>
     <string name="read_more"><u>詳細</u></string>
     <string name="state_gen_config">構成を生成中</string>
+    <string name="state_waitconnectretry">%s秒間隔で接続を待機</string>
     <string name="user_pw_invalid">ユーザー名/パスワードが無効です</string>
     <string name="replace_login_title">ログイン情報を置き換える</string>
     <!-- Please keep the %1$s %2$s, this is a formattered text. %1$s %2$s are usernames.  -->

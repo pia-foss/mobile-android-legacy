@@ -50,7 +50,7 @@ public class WidgetProvider extends WidgetBaseProvider {
         for (int i=0; i<N; i++) {
             int appWidgetId = appWidgetIds[i];
             AppWidgetProviderInfo info = appWidgetManager.getAppWidgetInfo(appWidgetId);
-            if(info != null) {
+            if (info != null) {
                 int resId = info.initialLayout;
 
                 RemoteViews views = new RemoteViews(context.getPackageName(), resId);

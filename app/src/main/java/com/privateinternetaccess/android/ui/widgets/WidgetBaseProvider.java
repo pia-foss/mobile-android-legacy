@@ -206,10 +206,6 @@ public class WidgetBaseProvider extends AppWidgetProvider  {
                 // make sure that if the user isn't logged in go to the login screen.
                 if (!connecting) {
                     EventBus.getDefault().register(listener);
-
-                    VpnStatus.updateStateString("GEN_CONFIG", "", R.string.state_gen_config,
-                            ConnectionStatus.LEVEL_START);
-
                     launchVPN(context);
                 } else {
                     IVPN vpn = PIAFactory.getInstance().getVPN(context.getApplicationContext());

@@ -70,6 +70,7 @@
     <string name="no_thanks">ไม่ล่ะ ขอบคุณ</string>
     <string name="read_more"><u>อ่านเพิ่มเติม</u></string>
     <string name="state_gen_config">กำลังสร้างการกำหนดค่า</string>
+    <string name="state_waitconnectretry">กำลังรอ %s วินาทีระหว่างความพยายามเชื่อมต่อ</string>
     <string name="user_pw_invalid">ชื่อผู้ใช้/รหัสผ่านไม่ถูกต้อง</string>
     <string name="replace_login_title">แทนที่ข้อมูลเข้าสู่ระบบ</string>
     <!-- Please keep the %1$s %2$s, this is a formattered text. %1$s %2$s are usernames.  -->

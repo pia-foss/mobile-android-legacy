@@ -69,6 +69,7 @@
     <string name="no_thanks">아니요</string>
     <string name="read_more"><u>자세히 보기</u></string>
     <string name="state_gen_config">구성 생성 중</string>
+    <string name="state_waitconnectretry">연결 시도 사이에 %s초를 기다리는 중</string>
     <string name="user_pw_invalid">사용자 이름/비밀번호가 잘못됨</string>
     <string name="replace_login_title">로그인 정보 교체</string>
     <!-- Please keep the %1$s %2$s, this is a formattered text. %1$s %2$s are usernames.  -->

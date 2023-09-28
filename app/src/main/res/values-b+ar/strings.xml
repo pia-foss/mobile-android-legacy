@@ -69,6 +69,7 @@
     <string name="no_thanks">لا، شكرًا</string>
     <string name="read_more"><u>قراءة المزيد</u></string>
     <string name="state_gen_config">جارٍ إنشاء التكوين</string>
+    <string name="state_waitconnectretry">يتم الانتظار %s ثوان بين محاولات الاتصال</string>
     <string name="user_pw_invalid">اسم المستخدم/كلمة المرور غير صحيحة</string>
     <string name="replace_login_title">استبدال معلومات تسجيل الدخول</string>
     <!-- Please keep the %1$s %2$s, this is a formattered text. %1$s %2$s are usernames.  -->

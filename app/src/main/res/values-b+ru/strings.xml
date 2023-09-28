@@ -69,6 +69,7 @@
     <string name="no_thanks">Спасибо, не надо</string>
     <string name="read_more"><u>Подробнее</u></string>
     <string name="state_gen_config">Генерирование конфигурации...</string>
+    <string name="state_waitconnectretry">Ждем %s с между попытками подключения</string>
     <string name="user_pw_invalid">Неверное сочетание имени пользователя и пароля</string>
     <string name="replace_login_title">Заменить учетные данные</string>
     <!-- Please keep the %1$s %2$s, this is a formattered text. %1$s %2$s are usernames.  -->

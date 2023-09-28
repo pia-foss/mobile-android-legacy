@@ -69,6 +69,7 @@
     <string name="no_thanks">hayır teşekkürler</string>
     <string name="read_more"><u>Daha fazlasını okuyun</u></string>
     <string name="state_gen_config">Yapılandırma oluşturuluyor</string>
+    <string name="state_waitconnectretry">Bağlanma denemeleri arasında %s saniye bekleniyor</string>
     <string name="user_pw_invalid">Kullanıcı Adı/Şifre geçersiz</string>
     <string name="replace_login_title">Giriş bilgilerini değiştir</string>
     <!-- Please keep the %1$s %2$s, this is a formattered text. %1$s %2$s are usernames.  -->

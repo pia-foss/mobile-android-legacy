@@ -638,21 +638,20 @@ public final class GoBackend implements Backend {
                         setState(endpoint, testTunnel, State.UP);
                     }
                     catch (Throwable e) {
-                        VpnStateEvent event = new VpnStateEvent(
-                                "CONNECT",
-                                "Wireguard Connect",
-                                R.string.failed_connect_status,
-                                ConnectionStatus.LEVEL_NONETWORK
-                        );
-                        EventBus.getDefault().postSticky(event);
-                        lastState = State.DOWN;
-                        isConnecting = false;
-
-                        PIANotifications.Companion.getSharedInstance().hideNotification(
-                                context,
-                                NOTIFICATION_CHANNEL_NEWSTATUS_ID.hashCode()
-                        );
                         e.printStackTrace();
+                        EventBus.getDefault().postSticky(
+                                new VpnStateEvent(
+                                        "CONNECT",
+                                        "Wireguard Connect",
+                                        R.string.failed_connect_status,
+                                        ConnectionStatus.LEVEL_NONETWORK
+                                )
+                        );
+                        try {
+                            disconnect();
+                        } catch (Throwable ex) {
+                            ex.printStackTrace();
+                        }
                     }
                 }
             });

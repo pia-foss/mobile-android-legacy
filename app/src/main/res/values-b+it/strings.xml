@@ -70,6 +70,7 @@ privateinternetaccess.com</string>
     <string name="no_thanks">no grazie</string>
     <string name="read_more"><u>Leggi di più</u></string>
     <string name="state_gen_config">Creando configurazione</string>
+    <string name="state_waitconnectretry">Attesa di %s secondi tra i tentativi di riconnessione</string>
     <string name="user_pw_invalid">Nome utente/password non validi</string>
     <string name="replace_login_title">Sostituisci dati d\'accesso</string>
     <!-- Please keep the %1$s %2$s, this is a formattered text. %1$s %2$s are usernames.  -->
