@@ -550,7 +550,7 @@
     <string name="rating_feedback_message">Deseja dar seu feedback? Podemos ajudar você a melhorar sua experiência de uso da PIA</string>
     <!-- Get Started Purchasing-->
     <string name="getstarted_subscribe">ASSINE AGORA</string>
-    <string name="getstarted_trial_payment">O pagamento só será cobrado de sua conta no final do período de avaliação.</string>
+    <string name="getstarted_trial_payment">O pagamento só será cobrado de sua conta no final do período de teste.</string>
     <string name="getstarted_free_trial">Comece seu teste grátis de 7 dias</string>
     <string name="getstarted_trial_price">Depois %s por ano</string>
     <string name="purchasing_email_reason">Precisamos do seu e-mail para enviarmos seu nome de usuário e senha.</string>

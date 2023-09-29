@@ -247,7 +247,7 @@
     <string name="settings_lport_hint"><![CDATA[Port mellom 1024 og 65535]]></string>
     <string name="startup_region_title">Koble til hvilken som helst region på en enkel måte</string>
     <string name="startup_region_message">Med serverer fra hele verden, er du alltid beskyttet.</string>
-    <string name="startup_region_message_cancel_anytime">Ingen forpliktelser. Du kan avbryte når som helst i løpet av prøveperioden.</string>
+    <string name="startup_region_message_cancel_anytime">Ingen forpliktelser. Avslutt når som helst i løpet av prøveperioden.</string>
     <string name="startup_region_message_new">Med servere over hele verden er du alltid beskyttet. Start en 7-dagers gratis prøveperiode og deretter %1$s per år. %2$s</string>
     <string name="startup_region_footer"><a href="privacy:">Personvernerklæring</a> og <a href="terms:">tjenestevilkår</a></string>
     <string name="startup_region_header">Private Internet Access</string>

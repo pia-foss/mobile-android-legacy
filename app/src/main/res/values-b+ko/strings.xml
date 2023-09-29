@@ -247,7 +247,7 @@
     <string name="settings_lport_hint"><![CDATA[1024 ~ 65535 사이의 포트]]></string>
     <string name="startup_region_title">모든 지역에 쉽게 연결</string>
     <string name="startup_region_message">전 세계에 있는 서버를 통해 언제나 보호를 받습니다.</string>
-    <string name="startup_region_message_cancel_anytime">약정 없음. 무료 체험 중 언제든지 취소할 수 있습니다.</string>
+    <string name="startup_region_message_cancel_anytime">약정없이 무료 체험 중 언제든지 취소할 수 있습니다.</string>
     <string name="startup_region_message_new">전 세계에 있는 서버를 통해 언제나 보호를 받습니다. 7일 무료 체험 후 매년 %1$s. %2$s</string>
     <string name="startup_region_footer"><a href="privacy:">개인정보 취급방침</a> 및 <a href="terms:">서비스 약관</a></string>
     <string name="startup_region_header">Private Internet Access</string>
@@ -550,7 +550,7 @@
     <string name="rating_feedback_message">피드백을 보내 주시겠습니까? 더 나은 PIA를 경험하실 수 있도록 도와 드리겠습니다.</string>
     <!-- Get Started Purchasing-->
     <string name="getstarted_subscribe">지금 구독</string>
-    <string name="getstarted_trial_payment">결제는 평가판이 종료될 때만 계정으로 청구됩니다.</string>
+    <string name="getstarted_trial_payment">요금은 체험이 종료된 후 청구됩니다.</string>
     <string name="getstarted_free_trial">7일 무료 체험 시작</string>
     <string name="getstarted_trial_price">이후 매년 %s</string>
     <string name="purchasing_email_reason">사용자 이름 및 비밀번호를 보내려면 고객님의 이메일 주소가 필요합니다.</string>
