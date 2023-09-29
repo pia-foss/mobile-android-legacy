@@ -550,7 +550,7 @@
     <string name="rating_feedback_message">Vil du give noget feedback? Vi kan hjælpe dig med at forbedre din oplevelse med PIA</string>
     <!-- Get Started Purchasing-->
     <string name="getstarted_subscribe">TILMELD DIG NU</string>
-    <string name="getstarted_trial_payment">Betalingen vil først blive trukket på din konto ved afslutningen af din prøveperiode.</string>
+    <string name="getstarted_trial_payment">Betalingen trækkes først på din konto, når prøveperioden slutter.</string>
     <string name="getstarted_free_trial">Start din 7-dages gratis prøveperiode</string>
     <string name="getstarted_trial_price">Derefter %s per år</string>
     <string name="purchasing_email_reason">Vi har brug for din e-mail for at sende dit brugernavn og din adgangskode.</string>

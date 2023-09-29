@@ -247,7 +247,7 @@
     <string name="settings_lport_hint"><![CDATA[Port entre 1024 et 65535]]></string>
     <string name="startup_region_title">Connectez-vous facilement à n\'importe quelle région</string>
     <string name="startup_region_message">Avec des serveurs partout dans le monde, vous êtes toujours protégé.</string>
-    <string name="startup_region_message_cancel_anytime">Pas d\'engagement. Annulez à tout moment pendant la période d\'essai gratuite.</string>
+    <string name="startup_region_message_cancel_anytime">Sans engagement. Annulez à tout moment pendant la période d\'essai gratuite.</string>
     <string name="startup_region_message_new">Avec des serveurs partout dans le monde, vous êtes toujours sous protection. Démarrez votre essai gratuit de 7 jours, payez ensuite %1$s par an. %2$s</string>
     <string name="startup_region_footer"><a href="privacy:">Politique de confidentialité</a> et <a href="terms:">Conditions générales</a></string>
     <string name="startup_region_header">Private Internet Access</string>

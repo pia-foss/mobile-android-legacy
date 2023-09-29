@@ -247,7 +247,7 @@
     <string name="settings_lport_hint"><![CDATA[1024から65535の間のポート]]></string>
     <string name="startup_region_title">すべての地域に簡単に接続</string>
     <string name="startup_region_message">世界中にサーバがあるので、常に保護された状態を確保できます。</string>
-    <string name="startup_region_message_cancel_anytime">お約束はありません。無料トライアル期間中はいつでもキャンセル可能です。</string>
+    <string name="startup_region_message_cancel_anytime">制限はありません。無料トライアル期間中はいつでもキャンセル可能です。</string>
     <string name="startup_region_message_new">世界中にサーバがあるので、お客様は常に保護された状態でいることができます。 7日間の無料トライアルを開始し、その後年間%1$sでご利用いただけます。%2$s</string>
     <string name="startup_region_footer"><a href="privacy:">プライバシーポリシ</a>ーおよび<a href="terms:">利用規約</a></string>
     <string name="startup_region_header">Private Internet Access</string>

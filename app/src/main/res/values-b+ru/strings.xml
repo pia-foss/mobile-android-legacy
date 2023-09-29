@@ -247,7 +247,7 @@
     <string name="settings_lport_hint"><![CDATA[Номер порта от 1024 до 65535]]></string>
     <string name="startup_region_title">Простое подключение к любому региону</string>
     <string name="startup_region_message">У нас есть серверы по всему миру, поэтому вы всегда будете защищены.</string>
-    <string name="startup_region_message_cancel_anytime">Никаких обязательств. Отмена в любое время во время бесплатной пробной версии.</string>
+    <string name="startup_region_message_cancel_anytime">Никаких обязательств. Отмена в любой момент бесплатного пробного периода.</string>
     <string name="startup_region_message_new">У нас есть серверы во всех уголках мира, поэтому вы всегда будете защищены. Начните с бесплатной 7-дневной пробы, после этого стоимость составит %1$s в год. %2$s</string>
     <string name="startup_region_footer"><a href="privacy:">Политика конфиденциальности</a> и <a href="terms:">Условия использования</a></string>
     <string name="startup_region_header">Private Internet Access</string>
