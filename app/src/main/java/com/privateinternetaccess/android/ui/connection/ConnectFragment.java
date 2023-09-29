@@ -97,10 +97,7 @@ public class ConnectFragment extends Fragment {
         VpnStateEvent event = EventBus.getDefault().getStickyEvent(VpnStateEvent.class);
         int lastStateResId = event.getLocalizedResId();
         if (lastStateResId != 0) {
-            if(lastStateResId == de.blinkt.openvpn.R.string.state_waitconnectretry)
-                tvStatus.setText(VpnStatus.getLastCleanLogMessage(tvStatus.getContext()));
-            else
-                tvStatus.setText(getString(lastStateResId).toUpperCase());
+            tvStatus.setText(getString(lastStateResId).toUpperCase());
         }
 
         ConnectionStatus status = event.getLevel();

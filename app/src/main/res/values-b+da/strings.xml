@@ -69,6 +69,7 @@
     <string name="no_thanks">nej tak</string>
     <string name="read_more"><u>Læs mere</u></string>
     <string name="state_gen_config">Genererer konfiguration</string>
+    <string name="state_waitconnectretry">Venter %s sekunder mellem forbindelsesforsøg</string>
     <string name="user_pw_invalid">Brugernavn eller kodeord ugyldigt</string>
     <string name="replace_login_title">Erstat log ind-information</string>
     <!-- Please keep the %1$s %2$s, this is a formattered text. %1$s %2$s are usernames.  -->

@@ -398,37 +398,33 @@ public abstract class BaseActivity extends SwipeBackBaseActivity implements Netw
             int lastStateResId = event.getLocalizedResId();
             String text = connectionText.getText().toString();
             if (lastStateResId != 0) {
-                if (lastStateResId == de.blinkt.openvpn.R.string.state_waitconnectretry) {
-                    text = VpnStatus.getLastCleanLogMessage(this);
-                } else {
-                    switch (status) {
-                        case LEVEL_CONNECTED:
-                            PIAServer server =
-                                    PIAServerHandler.getInstance(this).getSelectedRegion(this, false);
-                            text = getString(R.string.state_connected) + ": " + server.getName();
-                            break;
-                        case LEVEL_NONETWORK:
-                            text = getString(R.string.failed_connect_status);
-                            break;
-                        case LEVEL_NOTCONNECTED:
-                        case LEVEL_VPNPAUSED:
-                        case LEVEL_CONNECTING_SERVER_REPLIED:
-                        case LEVEL_CONNECTING_NO_SERVER_REPLY_YET:
-                        case LEVEL_START:
-                        case LEVEL_AUTH_FAILED:
-                        case LEVEL_WAITING_FOR_USER_INPUT:
-                        case UNKNOWN_LEVEL:
-                            if (disconnectedSpecialCase) {
-                                text = this.getString(R.string.snooze_status);
-                                if (TrustedWifiUtils.isEnabledAndConnected(this)) {
-                                    text = getString(R.string.state_exiting) + ": " +
-                                            getString(R.string.trusted_wifi_singular);
-                                }
-                            } else {
-                                text = this.getString(lastStateResId);
+                switch (status) {
+                    case LEVEL_CONNECTED:
+                        PIAServer server =
+                                PIAServerHandler.getInstance(this).getSelectedRegion(this, false);
+                        text = getString(R.string.state_connected) + ": " + server.getName();
+                        break;
+                    case LEVEL_NONETWORK:
+                        text = getString(R.string.failed_connect_status);
+                        break;
+                    case LEVEL_NOTCONNECTED:
+                    case LEVEL_VPNPAUSED:
+                    case LEVEL_CONNECTING_SERVER_REPLIED:
+                    case LEVEL_CONNECTING_NO_SERVER_REPLY_YET:
+                    case LEVEL_START:
+                    case LEVEL_AUTH_FAILED:
+                    case LEVEL_WAITING_FOR_USER_INPUT:
+                    case UNKNOWN_LEVEL:
+                        if (disconnectedSpecialCase) {
+                            text = this.getString(R.string.snooze_status);
+                            if (TrustedWifiUtils.isEnabledAndConnected(this)) {
+                                text = getString(R.string.state_exiting) + ": " +
+                                        getString(R.string.trusted_wifi_singular);
                             }
-                            break;
-                    }
+                        } else {
+                            text = this.getString(lastStateResId);
+                        }
+                        break;
                 }
             }
 

@@ -69,6 +69,7 @@
     <string name="no_thanks">不了，謝謝</string>
     <string name="read_more"><u>深入了解</u></string>
     <string name="state_gen_config">正在產生配置</string>
+    <string name="state_waitconnectretry">在嘗試連線之間等待 %s 秒</string>
     <string name="user_pw_invalid">使用者名稱／密碼不正確</string>
     <string name="replace_login_title">取代登入資料</string>
     <!-- Please keep the %1$s %2$s, this is a formattered text. %1$s %2$s are usernames.  -->

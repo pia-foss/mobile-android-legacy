@@ -69,6 +69,7 @@
     <string name="no_thanks">不用，谢谢</string>
     <string name="read_more"><u>阅读更多</u></string>
     <string name="state_gen_config">正在生成配置</string>
+    <string name="state_waitconnectretry">正在等候%s秒后重试连接</string>
     <string name="user_pw_invalid">用户名/密码无效</string>
     <string name="replace_login_title">更换登录信息</string>
     <!-- Please keep the %1$s %2$s, this is a formattered text. %1$s %2$s are usernames.  -->

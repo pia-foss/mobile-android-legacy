@@ -77,10 +77,7 @@ public class GraphActivity extends BaseActivity {
         String connectionText = getString(R.string.state_exiting);
         int lastStateResId = vpnEvent.getLocalizedResId();
         if (lastStateResId != 0) {
-            if(lastStateResId == de.blinkt.openvpn.R.string.state_waitconnectretry)
-                connectionText = VpnStatus.getLastCleanLogMessage(getApplicationContext());
-            else
-                connectionText = getString(lastStateResId);
+            connectionText = getString(lastStateResId);
         }
 
         PIAServerHandler handler =  PIAServerHandler.getInstance(getApplicationContext());
