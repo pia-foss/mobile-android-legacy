@@ -21,6 +21,8 @@ package com.privateinternetaccess.android.ui.drawer.settings
 import android.app.AlertDialog
 import android.content.Context
 import android.content.DialogInterface
+import android.net.InetAddresses
+import android.os.Build
 import android.os.Bundle
 import android.util.Patterns
 import android.view.LayoutInflater
@@ -70,7 +72,7 @@ class SettingsSectionNetworkFragment : Fragment() {
     // region private
     private fun prepareClickListeners(context: Context) {
         binding.dnsSetting.setOnClickListener {
-            updateDNSSetting(context)
+            showDNSDialog(context)
         }
         binding.portForwardingSetting.setOnClickListener {
             updatePortForwardingSetting(context)
@@ -81,10 +83,6 @@ class SettingsSectionNetworkFragment : Fragment() {
         binding.allowLanTrafficSetting.setOnClickListener {
             updateAllowLanTrafficSetting(context)
         }
-    }
-
-    private fun updateDNSSetting(context: Context) {
-        showDNSDialog(context)
     }
 
     private fun updatePortForwardingSetting(context: Context) {
@@ -125,16 +123,23 @@ class SettingsSectionNetworkFragment : Fragment() {
     private fun showDNSDialog(context: Context) {
 
         // Prepare the list of options.
-        val options = mutableListOf(getString(R.string.pia_dns))
-        customDnsString(context)?.let { customDnsString ->
+        val options = mutableListOf(
+            getString(R.string.pia_dns),
+        )
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            options.add(getString(R.string.system_resolver_dns))
+        }
+        val customDnsString = customDnsString(context)
+        if (customDnsString.isNotEmpty()) {
             options.add(customDnsString)
         }
 
-        // We only support one custom dns pair. So, it's either custom or PIA.
         val selectedOption = if (PiaPrefHandler.isCustomDnsSelected(context)) {
-            options.last()
+            options[2]
+        } else if (PiaPrefHandler.isSystemDnsResolverSelected(context)) {
+            options[1]
         } else {
-            options.first()
+            options[0]
         }
 
         // Build the dialog
@@ -148,10 +153,21 @@ class SettingsSectionNetworkFragment : Fragment() {
             val index = adapter.selectedIndex
             PiaPrefHandler.setDnsChanged(context, true)
             when (index) {
-                0 ->
-                    PiaPrefHandler.setCustomDnsSelected(context, false)
+                0 -> {
+                    PiaPrefHandler.resetCustomDnsSelected(context)
+                    PiaPrefHandler.resetSystemDnsResolverSelected(context)
+                }
                 1 -> {
+                    showDnsWarningDialog(context) {
+                        showDnsSystemResolverAllowLanWarningDialogIfNeeded(context) {
+                            showMaceWarningDialogIfNeeded(context)
+                            applySystemDnsResolverOption(context)
+                        }
+                    }
+                }
+                2 -> {
                     PiaPrefHandler.setCustomDnsSelected(context, true)
+                    PiaPrefHandler.resetSystemDnsResolverSelected(context)
                     showMaceWarningDialogIfNeeded(context)
                 }
                 else ->
@@ -177,7 +193,9 @@ class SettingsSectionNetworkFragment : Fragment() {
             }
         } else {
             builder.setNeutralButton(R.string.custom_dns) { dialogInterface, _ ->
-                showDnsWarningDialog(context)
+                showDnsWarningDialog(context) {
+                    showCustomDnsDialog(context)
+                }
                 dialogInterface.dismiss()
             }
         }
@@ -186,16 +204,46 @@ class SettingsSectionNetworkFragment : Fragment() {
         builder.show()
     }
 
-    private fun showDnsWarningDialog(context: Context) {
+    private fun showDnsWarningDialog(
+        context: Context,
+        acceptedCallback: () -> Unit
+    ) {
         val builder = AlertDialog.Builder(context)
         builder.setTitle(R.string.custom_dns)
         builder.setCancelable(false)
         builder.setMessage(R.string.custom_dns_warning_body)
         builder.setPositiveButton(R.string.ok) { dialogInterface, _ ->
-            showCustomDnsDialog(context)
+            acceptedCallback()
             dialogInterface.dismiss()
         }
-        builder.setNegativeButton(R.string.cancel, null)
+        builder.setNegativeButton(R.string.cancel) { dialogInterface, _ ->
+            showDNSDialog(context)
+            dialogInterface.dismiss()
+        }
+        builder.show()
+    }
+
+    private fun showDnsSystemResolverAllowLanWarningDialogIfNeeded(
+        context: Context,
+        acceptedCallback: () -> Unit
+    ) {
+        if (PiaPrefHandler.isAllowLocalLanEnabled(context)) {
+            acceptedCallback()
+            return
+        }
+
+        val builder = AlertDialog.Builder(context)
+        builder.setTitle(getString(R.string.system_resolver_dns))
+        builder.setCancelable(false)
+        builder.setMessage(getString(R.string.system_resolver_dns_body))
+        builder.setPositiveButton(R.string.ok) { dialogInterface, _ ->
+            acceptedCallback()
+            dialogInterface.dismiss()
+        }
+        builder.setNegativeButton(R.string.cancel)  { dialogInterface, _ ->
+            showDNSDialog(context)
+            dialogInterface.dismiss()
+        }
         builder.show()
     }
 
@@ -284,12 +332,24 @@ class SettingsSectionNetworkFragment : Fragment() {
         factory.setPositiveButton(getString(R.string.save)) { _ ->
             val typedCustomPrimaryDns = primaryInputEditText.text.toString()
             val typedCustomSecondaryDns = secondaryInputEditText.text.toString()
-            if (typedCustomPrimaryDns.isNotEmpty() && !Patterns.IP_ADDRESS.matcher(typedCustomPrimaryDns).matches()) {
+
+            val isValidCustomPrimaryDns = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                InetAddresses.isNumericAddress(typedCustomPrimaryDns)
+            } else {
+                Patterns.IP_ADDRESS.matcher(typedCustomPrimaryDns).matches()
+            }
+            val isValidCustomSecondaryDns = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                InetAddresses.isNumericAddress(typedCustomSecondaryDns)
+            } else {
+                Patterns.IP_ADDRESS.matcher(typedCustomSecondaryDns).matches()
+            }
+
+            if (isValidCustomPrimaryDns.not()) {
                 primaryInputEditText.error = getString(R.string.custom_primary_dns_invalid)
                 return@setPositiveButton
             }
 
-            if (typedCustomSecondaryDns.isNotEmpty() && !Patterns.IP_ADDRESS.matcher(typedCustomSecondaryDns).matches()) {
+            if (isValidCustomSecondaryDns.not()) {
                 secondaryInputEditText.error = getString(R.string.custom_secondary_dns_invalid)
                 return@setPositiveButton
             }
@@ -310,13 +370,24 @@ class SettingsSectionNetworkFragment : Fragment() {
                 dialog.dismiss()
             }
         }
-        factory.setNegativeButton(getString(R.string.cancel), null)
+        factory.setNegativeButton(getString(R.string.cancel)) {
+            dialog.dismiss()
+        }
         dialog.show()
+    }
+
+    private fun applySystemDnsResolverOption(context: Context) {
+        PiaPrefHandler.setCustomDnsSelected(context, false)
+        PiaPrefHandler.setAllowLocalLanEnabled(context, true)
+        PiaPrefHandler.setSystemDnsResolverSelected(context, true)
+        applyPersistedStateToUi(context)
     }
 
     private fun applyPersistedStateToUi(context: Context) {
         binding.dnsSummarySetting.text = if (PiaPrefHandler.isCustomDnsSelected(context)) {
             customDnsString(context)
+        } else if (PiaPrefHandler.isSystemDnsResolverSelected(context)) {
+            getString(R.string.system_resolver_dns)
         } else {
             getString(R.string.pia_dns)
         }
@@ -331,8 +402,8 @@ class SettingsSectionNetworkFragment : Fragment() {
         }
     }
 
-    private fun customDnsString(context: Context): String? {
-        var result: String? = null
+    private fun customDnsString(context: Context): String {
+        var result = ""
         val primaryDns = PiaPrefHandler.getPrimaryDns(context)
         if (!primaryDns.isNullOrEmpty()) {
             val secondaryDns = PiaPrefHandler.getSecondaryDns(context)

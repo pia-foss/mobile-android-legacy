@@ -52,8 +52,6 @@ import okhttp3.OkHttpClient;
  */
 public class PiaApi {
 
-    public static final String GEN4_MACE_ENABLED_DNS = "10.0.0.241";
-
     public static final String ANDROID_HTTP_CLIENT = "privateinternetaccess.com Android Client/" + BuildConfig.VERSION_NAME + "(" + BuildConfig.VERSION_CODE + ")";
 
     private OkHttpClient OKHTTPCLIENT;
