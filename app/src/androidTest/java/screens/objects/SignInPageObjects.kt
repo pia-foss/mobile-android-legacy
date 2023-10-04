@@ -16,5 +16,7 @@ class SignInPageObjects {
 
     val loginWithReceipt = LocatorHelper.findByResourceId("com.privateinternetaccess.android:id/fragment_login_receipt")
 
+    val subscribeButton = LocatorHelper.findByResourceId("com.privateinternetaccess.android:id/subscribe")
+
     val noUsernameOrPasswordError = LocatorHelper.findByResourceId("com.privateinternetaccess.android:id/piaxEditTextError")
 }

@@ -238,6 +238,8 @@ android {
             debuggable true
             buildConfigField 'String', 'PIA_VALID_USERNAME', "\"" + System.getenv("PIA_VALID_USERNAME") + "\""
             buildConfigField 'String', 'PIA_VALID_PASSWORD', "\"" + System.getenv("PIA_VALID_PASSWORD") + "\""
+            buildConfigField 'String', 'PIA_INVALID_USERNAME', "\"${System.getenv("PIA_INVALID_USERNAME")}\""
+            buildConfigField 'String', 'PIA_INVALID_PASSWORD', "\"${System.getenv("PIA_INVALID_PASSWORD")}\""
             buildConfigField 'String', 'PIA_VALID_DIP_TOKEN', "\"" + System.getenv("PIA_VALID_DIP_TOKEN") + "\""
         }
     }

@@ -26,8 +26,8 @@ class SignInTests : BaseUiAutomatorClass() {
     fun incorrectCredentialsReturnToSplashScreen() {
         stepObjects.allowNotifications()
         stepObjects.reachSignInScreen()
-        stepObjects.enterUsername("PLACEHOLDER")
-        stepObjects.enterPassword("PLACEHOLDER")
+        stepObjects.enterUsername(BuildConfig.PIA_INVALID_USERNAME)
+        stepObjects.enterPassword(BuildConfig.PIA_INVALID_PASSWORD)
         stepObjects.clickOnLoginButton()
         assert(SignInPageObjects().reachLoginScreenButton.exists())
     }
@@ -39,4 +39,24 @@ class SignInTests : BaseUiAutomatorClass() {
         stepObjects.clickOnLoginButton()
         assert(SignInPageObjects().noUsernameOrPasswordError.exists())
     }
+
+    @Test
+    fun errorMessageIfNoPasswordProvided() {
+        stepObjects.allowNotifications()
+        stepObjects.reachSignInScreen()
+        stepObjects.enterUsername(BuildConfig.PIA_VALID_USERNAME)
+        stepObjects.clickOnLoginButton()
+        assert(SignInPageObjects().noUsernameOrPasswordError.exists())
+    }
+
+    @Test
+    fun errorMessageIfNoUsernameProvided() {
+        stepObjects.allowNotifications()
+        stepObjects.reachSignInScreen()
+        stepObjects.enterUsername(BuildConfig.PIA_VALID_PASSWORD)
+        stepObjects.clickOnLoginButton()
+        assert(SignInPageObjects().noUsernameOrPasswordError.exists())
+    }
+
+
 }
