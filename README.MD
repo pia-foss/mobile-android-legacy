@@ -1,13 +1,7 @@
 [![PIA logo][pia-image]][pia-url]
 
-README v0.1 / XX Month XXXX
-
 # Private Internet Access
 Private Internet Access is the world's leading consumer VPN service. At Private Internet Access we believe in unfettered access for all, and as a firm supporter of the open source ecosystem we have made the decision to open source our VPN clients. For more information about the PIA service, please visit our website [privateinternetaccess.com](https://privateinternetaccess.com).
-
-# Android Application
-Description
-
 
 ## Installation
 
@@ -27,7 +21,7 @@ Please use these instructions to install and download Android Studio on your com
 #### Download Codebase
 Using the terminal:
 
-`git clone https://github.com/pia-foss/ *folder-name*`
+`git clone https://github.com/pia-foss/mobile-android.git`
 
 type in what folder you want to put in without the ** or use a graphical interface like Android Studio's to clone the repo.
 
@@ -71,13 +65,6 @@ Code structure via packages:
 
 PIA VPN is built using a similar style to MVI (Model View Intent) using an Event bus to communicate between different layers of the app. We use [GreenRobot's Eventbus](https://github.com/greenrobot/EventBus) in order to communicate events throughout the app and [OkHttp](http://square.github.io/okhttp/) for web calls. Our naming structure puts the class type or topic a class is in at the end of the name.
 
-#### Significant Classes and files
-
-* PIABuilder - Initializes the required notification channels, vpn logs cache, services and more. Should be initialized on Application.onCreate()
-* PIAFactory - Creates instances of interfaces that let you control the VPN, get account information and handle connection elements.
-* PiaOvpnConfig - Generates the vpn configuration to send to OpenVPN.
-* ConnectionResponder - Handles IP grabbing, port forwarding and MACE for all connections.
-
 ### Contributing
 
 By contributing to this project you are agreeing to the terms stated in the Contributor License Agreement (CLA) [here](/CLA.rst).
@@ -86,17 +73,9 @@ For more details please see [CONTRIBUTING](/CONTRIBUTING.md).
 
 Issues and Pull Requests should use these templates: [ISSUE](/.github/ISSUE_TEMPLATE.md) and [PULL REQUEST](/.github/PULL_REQUEST_TEMPLATE.md).
 
-### Authors
-
-* Harrison Frede - half47/slai47
-* Arne Schwabe - Arne
-* Tommie Podzemski - tommie
-* Justin Simpson - justin
-
 ### License
 
-NEED TO FILL THIS OUT!!!
-This project is licensed under the MIT (Expat) license, which can be found here.
+This project is licensed under the [MIT (Expat) license](https://choosealicense.com/licenses/mit/), which can be found [here](/LICENSE).
 
 ### Acknowledgements
 
@@ -106,6 +85,6 @@ This product includes software developed by the OpenSSL Project for use in the O
 
 
 <!-- Markdown link & img dfn's -->
-[pia-image]: https://www.privateinternetaccess.com/assets/PIALogo2x-0d1e1094ac909ea4c93df06e2da3db4ee8a73d8b2770f0f7d768a8603c62a82f.png
+[pia-image]: https://assets-cms.privateinternetaccess.com/img/frontend/pia_menu_logo_light.svg
 [pia-url]: https://www.privateinternetaccess.com/
 [wiki]: https://en.wikipedia.org/wiki/Private_Internet_Access
