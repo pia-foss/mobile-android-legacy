@@ -39,7 +39,6 @@ import com.privateinternetaccess.android.PIALifecycleObserver;
 import com.privateinternetaccess.android.pia.PIAFactory;
 import com.privateinternetaccess.android.pia.handlers.PiaPrefHandler;
 import com.privateinternetaccess.android.pia.interfaces.IAccount;
-import com.privateinternetaccess.android.pia.model.enums.RequestResponseStatus;
 import com.privateinternetaccess.android.pia.services.AutomationService;
 import com.privateinternetaccess.android.pia.utils.DLog;
 import com.privateinternetaccess.android.pia.utils.Prefs;
@@ -50,7 +49,6 @@ import com.privateinternetaccess.android.ui.loginpurchasing.LoginPurchaseActivit
 import com.privateinternetaccess.android.ui.tv.DashboardActivity;
 import com.privateinternetaccess.android.utils.AmazonPurchaseUtil;
 import com.privateinternetaccess.android.utils.DedicatedIpUtils;
-import com.privateinternetaccess.android.utils.InAppMessageManager;
 
 
 public class LauncherActivity extends AppCompatActivity {
@@ -101,8 +99,7 @@ public class LauncherActivity extends AppCompatActivity {
         DLog.i(TAG, "Starting app");
 
         final IAccount account = PIAFactory.getInstance().getAccount(this);
-
-        if (intent != null && intent.getData() != null) {
+        if (!account.loggedIn() && intent != null && intent.getData() != null) {
             Uri openUri = intent.getData();
             setIntent(null);
 
@@ -116,18 +113,16 @@ public class LauncherActivity extends AppCompatActivity {
             final String username = openUri.getQueryParameter(USERNAME);
             final String token = openUri.getQueryParameter(TOKEN);
             if (token != null) {
-                if (!account.loggedIn()) {
-                    account.migrateApiToken(token, requestResponseStatus -> {
-                        if (requestResponseStatus != SUCCEEDED) {
-                            DLog.d(TAG, "migrateApiToken failed");
-                            return null;
-                        }
-
-                        PiaPrefHandler.setUserIsLoggedIn(LauncherActivity.this, true);
-                        launchVPN(LauncherActivity.this);
+                account.migrateApiToken(token, requestResponseStatus -> {
+                    if (requestResponseStatus != SUCCEEDED) {
+                        DLog.d(TAG, "migrateApiToken failed");
                         return null;
-                    });
-                }
+                    }
+
+                    PiaPrefHandler.setUserIsLoggedIn(LauncherActivity.this, true);
+                    launchVPN(LauncherActivity.this);
+                    return null;
+                });
             }
 
             if (username != null) {
