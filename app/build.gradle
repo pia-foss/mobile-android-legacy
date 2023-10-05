@@ -24,6 +24,7 @@ repositories {
 
 dependencies {
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
+    implementation 'androidx.test.uiautomator:uiautomator:2.2.0'
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
 
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
@@ -235,6 +236,11 @@ android {
         }
         debug {
             debuggable true
+            buildConfigField 'String', 'PIA_VALID_USERNAME', "\"${System.getenv("PIA_VALID_USERNAME")}\""
+            buildConfigField 'String', 'PIA_VALID_PASSWORD', "\"${System.getenv("PIA_VALID_PASSWORD")}\""
+            buildConfigField 'String', 'PIA_INVALID_USERNAME', "\"${System.getenv("PIA_INVALID_USERNAME")}\""
+            buildConfigField 'String', 'PIA_INVALID_PASSWORD', "\"${System.getenv("PIA_INVALID_PASSWORD")}\""
+            buildConfigField 'String', 'PIA_VALID_DIP_TOKEN', "\"${System.getenv("PIA_VALID_DIP_TOKEN")}\""
         }
     }
     ndkVersion '21.1.6352462'
