@@ -25,7 +25,10 @@ class SignInTests : BaseUiAutomatorClass() {
     fun incorrectCredentialsReturnToSplashScreen() {
         stepObjects.allowNotifications()
         stepObjects.reachSignInScreen()
-        stepObjects.enterCredentials(BuildConfig.PIA_INVALID_USERNAME, BuildConfig.PIA_INVALID_PASSWORD)
+        stepObjects.enterCredentials(
+            BuildConfig.PIA_INVALID_USERNAME, 
+            BuildConfig.PIA_INVALID_PASSWORD
+        )
         stepObjects.clickOnLoginButton()
         assert(SignInPageObjects().reachLoginScreenButton.exists())
     }
