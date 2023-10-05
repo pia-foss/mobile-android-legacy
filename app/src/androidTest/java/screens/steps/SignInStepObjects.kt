@@ -3,6 +3,7 @@ package com.privateinternetaccess.android.screens.steps
 import com.privateinternetaccess.android.helpers.ActionHelpers.clickIfExists
 import com.privateinternetaccess.android.helpers.ActionHelpers.inputTextInField
 import com.privateinternetaccess.android.screens.objects.SignInPageObjects
+import com.privateinternetaccess.android.core.BaseUiAutomatorClass.Companion.defaultTimeOut
 
 class SignInStepObjects {
 
@@ -13,7 +14,7 @@ class SignInStepObjects {
     }
 
     fun reachSignInScreen() {
-        signInPageObjects.reachLoginScreenButton.clickAndWaitForNewWindow(5000)
+        signInPageObjects.reachLoginScreenButton.clickAndWaitForNewWindow(defaultTimeOut)
     }
 
     fun enterUsername(username : String?) {
@@ -25,7 +26,7 @@ class SignInStepObjects {
     }
 
     fun clickOnLoginButton() {
-        signInPageObjects.loginButton.clickAndWaitForNewWindow(5000)
+        signInPageObjects.loginButton.clickAndWaitForNewWindow(defaultTimeOut)
     }
 
     fun allowVpnProfileCreation() {

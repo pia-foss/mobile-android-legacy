@@ -29,4 +29,8 @@ open class BaseUiAutomatorClass {
         device.pressHome()
         startApp("com.privateinternetaccess.android")
     }
+
+    companion object {
+        const val defaultTimeOut = 5000L
+    }
 }
