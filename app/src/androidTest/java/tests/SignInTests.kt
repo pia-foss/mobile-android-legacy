@@ -15,8 +15,7 @@ class SignInTests : BaseUiAutomatorClass() {
     fun successfulLoginWithValidCredentials() {
         stepObjects.allowNotifications()
         stepObjects.reachSignInScreen()
-        stepObjects.enterUsername(BuildConfig.PIA_VALID_USERNAME)
-        stepObjects.enterPassword(BuildConfig.PIA_VALID_PASSWORD)
+        stepObjects.enterCredentials()
         stepObjects.clickOnLoginButton()
         stepObjects.allowVpnProfileCreation()
         assert(MainScreenPageObjects().connectButton.exists())
@@ -26,8 +25,7 @@ class SignInTests : BaseUiAutomatorClass() {
     fun incorrectCredentialsReturnToSplashScreen() {
         stepObjects.allowNotifications()
         stepObjects.reachSignInScreen()
-        stepObjects.enterUsername(BuildConfig.PIA_INVALID_USERNAME)
-        stepObjects.enterPassword(BuildConfig.PIA_INVALID_PASSWORD)
+        stepObjects.enterCredentials(BuildConfig.PIA_INVALID_USERNAME, BuildConfig.PIA_INVALID_PASSWORD)
         stepObjects.clickOnLoginButton()
         assert(SignInPageObjects().reachLoginScreenButton.exists())
     }
@@ -44,7 +42,7 @@ class SignInTests : BaseUiAutomatorClass() {
     fun errorMessageIfNoPasswordProvided() {
         stepObjects.allowNotifications()
         stepObjects.reachSignInScreen()
-        stepObjects.enterUsername(BuildConfig.PIA_VALID_USERNAME)
+        stepObjects.enterCredentials(BuildConfig.PIA_VALID_USERNAME, "")
         stepObjects.clickOnLoginButton()
         assert(SignInPageObjects().noUsernameOrPasswordError.exists())
     }
@@ -53,7 +51,7 @@ class SignInTests : BaseUiAutomatorClass() {
     fun errorMessageIfNoUsernameProvided() {
         stepObjects.allowNotifications()
         stepObjects.reachSignInScreen()
-        stepObjects.enterUsername(BuildConfig.PIA_VALID_PASSWORD)
+        stepObjects.enterCredentials("", BuildConfig.PIA_VALID_PASSWORD)
         stepObjects.clickOnLoginButton()
         assert(SignInPageObjects().noUsernameOrPasswordError.exists())
     }

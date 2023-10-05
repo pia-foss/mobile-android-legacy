@@ -1,5 +1,6 @@
 package com.privateinternetaccess.android.screens.steps
 
+import com.privateinternetaccess.android.BuildConfig
 import com.privateinternetaccess.android.helpers.ActionHelpers.clickIfExists
 import com.privateinternetaccess.android.helpers.ActionHelpers.inputTextInField
 import com.privateinternetaccess.android.screens.objects.SignInPageObjects
@@ -17,11 +18,8 @@ class SignInStepObjects {
         signInPageObjects.reachLoginScreenButton.clickAndWaitForNewWindow(defaultTimeOut)
     }
 
-    fun enterUsername(username : String?) {
+    fun enterCredentials(username : String = BuildConfig.PIA_VALID_USERNAME, password : String = BuildConfig.PIA_VALID_PASSWORD) {
         inputTextInField(signInPageObjects.usernameField, username)
-    }
-
-    fun enterPassword(password : String?) {
         inputTextInField(signInPageObjects.passwordField, password)
     }
 
