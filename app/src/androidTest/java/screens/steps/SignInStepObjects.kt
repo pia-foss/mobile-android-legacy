@@ -18,7 +18,10 @@ class SignInStepObjects {
         signInPageObjects.reachLoginScreenButton.clickAndWaitForNewWindow(defaultTimeOut)
     }
 
-    fun enterCredentials(username : String = BuildConfig.PIA_VALID_USERNAME, password : String = BuildConfig.PIA_VALID_PASSWORD) {
+    fun enterCredentials(
+        username : String = BuildConfig.PIA_VALID_USERNAME, 
+        password : String = BuildConfig.PIA_VALID_PASSWORD
+    ) {
         inputTextInField(signInPageObjects.usernameField, username)
         inputTextInField(signInPageObjects.passwordField, password)
     }
