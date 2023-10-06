@@ -6,4 +6,5 @@ import com.privateinternetaccess.android.helpers.LocatorHelper
 class SideMenuPageObject {
 
     val hamburgerMenu = LocatorHelper.findByContentDesc("Open")
+    val settings = LocatorHelper.findByText("Settings")
 }
