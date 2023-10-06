@@ -10,4 +10,10 @@ class SideMenuStepObjects {
     {
         sideMenuPageObject.hamburgerMenu.click()
     }
+
+    fun clickOnSettings()
+    {
+        sideMenuPageObject.settings.click()
+    }
+
 }

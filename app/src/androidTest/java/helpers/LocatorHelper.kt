@@ -16,4 +16,8 @@ object LocatorHelper {
     fun findByContentDesc(description: String): UiObject {
         return device.findObject(UiSelector().description(description))
     }
+
+    fun findByText(text : String) : UiObject {
+        return device.findObject(UiSelector().text(text))
+    }
 }
