@@ -1,19 +1,39 @@
-package com.privateiinternetaccess.android.screens.steps
+package com.privateinternetaccess.android.screens.steps
 
-import com.privateinternetaccess.android.screens.objects.SideMenuPageObject
+import com.privateinternetaccess.android.screens.objects.SideMenuPageObjects
 
 class SideMenuStepObjects {
 
-    private val sideMenuPageObject = SideMenuPageObject()
+    private val sideMenuPageObject = SideMenuPageObjects()
 
-    fun clickOnHamburgerIcon()
+    fun hamburgerMenu()
     {
         sideMenuPageObject.hamburgerMenu.click()
     }
 
-    fun clickOnSettings()
+    fun settings()
     {
         sideMenuPageObject.settings.click()
     }
 
+    fun general()
+    {
+        sideMenuPageObject.general.click()
+    }
+
+    fun launchOnSystemStartUp()
+    {
+        sideMenuPageObject.toggleLaunchOnSystemStartUp.click()
+    }
+
+    fun back()
+    {
+        sideMenuPageObject.backButton.click()
+    }
+
+    fun logout()
+    {
+        sideMenuPageObject.logout.click()
+        sideMenuPageObject.logoutConfirm.click()
+    }
 }
