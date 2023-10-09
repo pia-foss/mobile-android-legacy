@@ -5,6 +5,7 @@ import com.privateinternetaccess.android.core.BaseUiAutomatorClass
 import com.privateinternetaccess.android.screens.objects.MainScreenPageObjects
 import com.privateinternetaccess.android.screens.objects.SignInPageObjects
 import com.privateinternetaccess.android.screens.steps.SignInStepObjects
+import com.privateinternetaccess.android.helpers.ActionHelpers.userLoginSuccess
 import org.junit.Test
 
 class SignInTests : BaseUiAutomatorClass() {
@@ -13,11 +14,7 @@ class SignInTests : BaseUiAutomatorClass() {
 
     @Test
     fun successfulLoginWithValidCredentials() {
-        stepObjects.allowNotifications()
-        stepObjects.reachSignInScreen()
-        stepObjects.enterCredentials()
-        stepObjects.clickOnLoginButton()
-        stepObjects.allowVpnProfileCreation()
+        userLoginSuccess()
         assert(MainScreenPageObjects().connectButton.exists())
     }
 
