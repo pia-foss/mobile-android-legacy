@@ -1,9 +1,9 @@
-package com.privateinternetaccess.android.screens.objects //why do we declare this instead of just screens.object when we start createed the file?
+package com.privateinternetaccess.android.screens.objects
 
 import com.privateinternetaccess.android.helpers.LocatorHelper
 
 
-class SideMenuPageObject {
+class SideMenuPageObjects {
 
     val hamburgerMenu = LocatorHelper.findByContentDesc("Open")
     val settings = LocatorHelper.findByText("Settings")
