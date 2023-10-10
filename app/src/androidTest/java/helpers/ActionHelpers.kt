@@ -4,6 +4,7 @@ import androidx.test.uiautomator.UiObject
 import com.privateinternetaccess.android.core.BaseUiAutomatorClass.Companion.defaultTimeOut
 import com.privateinternetaccess.android.screens.steps.SideMenuStepObjects
 import com.privateinternetaccess.android.screens.steps.SignInStepObjects
+import com.privateinternetaccess.android.screens.steps.MainScreenStepObjects
 
 object ActionHelpers {
 
@@ -19,7 +20,7 @@ object ActionHelpers {
         field.text = data?.toString() ?: ""
     }
 
-    fun userLoginSuccess() {
+    fun successfulLogin() {
         SignInStepObjects().allowNotifications()
         SignInStepObjects().reachSignInScreen()
         SignInStepObjects().enterCredentials()
@@ -28,16 +29,9 @@ object ActionHelpers {
     }
 
     fun goToSettings(primarySettingsSection : UiObject, secondarySettingsSection : UiObject? = null ) {
-        SideMenuStepObjects().hamburgerMenu()
-        SideMenuStepObjects().settings()
-
-        if (primarySettingsSection.exists())
-        {
-            primarySettingsSection.click()
-        }
-        if (secondarySettingsSection != null)
-        {
-            secondarySettingsSection.click()
-        }
+        MainScreenStepObjects().clickOnHamburgerMenu()
+        SideMenuStepObjects().clickOnSettings()
+        primarySettingsSection.click()
+        secondarySettingsSection?.click()
     }
 }
