@@ -11,7 +11,7 @@ class SignInStepObjects {
     private val signInPageObjects = SignInPageObjects()
 
     fun allowNotifications() {
-        clickIfExists(signInPageObjects.notificationPrompt, signInPageObjects.allowNotifications)
+        clickIfExists(signInPageObjects.allowNotifications, signInPageObjects.allowNotifications)
     }
 
     fun reachSignInScreen() {
