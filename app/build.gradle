@@ -66,6 +66,7 @@ dependencies {
     androidTestImplementation 'com.github.gmazzo:okhttp-mock:1.3.2'
     androidTestImplementation 'androidx.test:runner:1.4.0'
     androidTestImplementation 'androidx.test:core:1.4.0'
+    androidTestUtil 'androidx.test:orchestrator:1.4.2'
 
     // EventBus
     implementation 'org.greenrobot:eventbus:3.1.1'
@@ -139,6 +140,7 @@ android {
             useSupportLibrary = true
         }
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+        testInstrumentationRunnerArguments clearPackageData: 'true'
     }
 
     sourceSets {
@@ -188,6 +190,7 @@ android {
     }
 
     testOptions { //Used for testing as TextUtils isn't available when testing.
+        execution 'ANDROIDX_TEST_ORCHESTRATOR'
         unitTests {
             all {
                 jvmArgs '-noverify'
