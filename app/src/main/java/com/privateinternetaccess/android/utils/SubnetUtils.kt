@@ -3,58 +3,50 @@ package com.privateinternetaccess.android.utils
 object SubnetUtils {
 
     fun excludeIpFromSubnet(subnet: String, excludeIp: String): String {
-        val (baseIp, cidr) = subnet.split('/')
-        val start = ipToInt(baseIp)
-        val size = 1 shl (32 - cidr.toInt())
-        val end = start + size - 1
-        val excludeIpInt = ipToInt(excludeIp)
+        val (baseIp, maskSize) = subnet.split("/")
+        val base = IpAddress(baseIp)
+        val excluded = IpAddress(excludeIp)
+        val subnets = mutableListOf<String>()
+        carveSubnets(base, maskSize.toInt(), excluded, subnets)
+        return subnets.joinToString(",")
+    }
 
-        // Quick check if the IP to exclude is part of the subnet
-        if (!isIpInSubnet(excludeIpInt, start, size)) {
-            return subnet
+    private fun carveSubnets(base: IpAddress, mask: Int, excluded: IpAddress, result: MutableList<String>) {
+        val currentSubnet = IpSubnet(base, mask)
+
+        if (!currentSubnet.contains(excluded)) {
+            result.add(currentSubnet.toString())
+            return
         }
 
-        val results = mutableListOf<String>()
+        // Edge case: If we reach a /32 mask containing the excluded IP, don't add it.
+        if (mask == 32) {
+            return
+        }
 
-        var currentStart = start
-        while (currentStart <= end) {
-            var mask = 32
-            while ((currentStart and (1 shl (32 - mask))) == 0 &&
-                (currentStart + (1 shl (32 - mask)) - 1) <= end) {
-                mask--
+        val step = 1 shl (32 - mask)
+        carveSubnets(base, mask + 1, excluded, result)
+        carveSubnets(base + step / 2, mask + 1, excluded, result)
+    }
+
+    private data class IpAddress(val intValue: Int) : Comparable<IpAddress> {
+        constructor(ip: String) : this(
+            ip.split(".").map { it.toInt() }.fold(0) { acc, part ->
+                (acc shl 8) or part
             }
-            val currentEnd = currentStart + (1 shl (32 - mask)) - 1
+        )
 
-            // If the excluded IP falls within this subnet, adjust the boundaries
-            if (excludeIpInt in currentStart..currentEnd) {
-                if (currentStart != excludeIpInt) {
-                    results.add("${intToIp(currentStart)}/${32 - Integer.numberOfTrailingZeros(excludeIpInt - currentStart)}")
-                }
-                if (currentEnd != excludeIpInt) {
-                    results.add("${intToIp(excludeIpInt + 1)}/${32 - Integer.numberOfTrailingZeros(currentEnd - excludeIpInt)}")
-                }
-                break
-            } else {
-                results.add("${intToIp(currentStart)}/$mask")
-            }
+        operator fun plus(value: Int): IpAddress = IpAddress(intValue + value)
+        override fun compareTo(other: IpAddress): Int = intValue.compareTo(other.intValue)
+        override fun toString(): String = "${(intValue ushr 24) and 0xFF}.${(intValue ushr 16) and 0xFF}.${(intValue ushr 8) and 0xFF}.${intValue and 0xFF}"
+    }
 
-            currentStart = currentEnd + 1
+    private data class IpSubnet(val base: IpAddress, val mask: Int) {
+        fun contains(address: IpAddress): Boolean {
+            val maskBits = (1 shl mask) - 1 shl (32 - mask)
+            return (base.intValue and maskBits) == (address.intValue and maskBits)
         }
 
-        return results.joinToString(",")
-    }
-
-    private fun isIpInSubnet(ip: Int, subnetStart: Int, size: Int): Boolean {
-        return ip >= subnetStart && ip < subnetStart + size
-    }
-
-    private fun ipToInt(ip: String): Int {
-        return ip.split('.').fold(0) { acc, part ->
-            (acc shl 8) or part.toInt()
-        }
-    }
-
-    private fun intToIp(intValue: Int): String {
-        return "${(intValue shr 24) and 0xFF}.${(intValue shr 16) and 0xFF}.${(intValue shr 8) and 0xFF}.${intValue and 0xFF}"
+        override fun toString(): String = "$base/$mask"
     }
 }
