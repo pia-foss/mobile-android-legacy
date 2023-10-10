@@ -3,30 +3,31 @@ package com.privateinternetaccess.android.tests
 import com.privateinternetaccess.android.screens.steps.SideMenuStepObjects
 import com.privateinternetaccess.android.core.BaseUiAutomatorClass
 import com.privateinternetaccess.android.screens.objects.SideMenuPageObjects
-import com.privateinternetaccess.android.helpers.ActionHelpers.userLoginSuccess
+import com.privateinternetaccess.android.helpers.ActionHelpers.successfulLogin
 import com.privateinternetaccess.android.helpers.ActionHelpers.goToSettings
-import org.junit.Before
+import com.privateinternetaccess.android.screens.objects.SettingsPageObjects
+import com.privateinternetaccess.android.screens.steps.GeneralStepObjects
+import com.privateinternetaccess.android.screens.steps.MainScreenStepObjects
 import org.junit.Test
+import scom.privateinternetaccess.android.screens.objects.GeneralPageObjects
 
 class SignOutTests : BaseUiAutomatorClass() {
 
     private val sideMenuStepObjects = SideMenuStepObjects()
-    private val sideMenuPageObjects = SideMenuPageObjects()
-    @Before
-    fun login () {
-        userLoginSuccess()
-    }
-
+    private val mainScreenStepObjects = MainScreenStepObjects()
+    private val settingsPageObjects = SettingsPageObjects()
+    private val generalStepObjects = GeneralStepObjects()
     @Test
-    fun logout() {
-        goToSettings(sideMenuPageObjects.general)
-        sideMenuStepObjects.launchOnSystemStartUp()
-        sideMenuStepObjects.back()
-        sideMenuStepObjects.back()
-        sideMenuStepObjects.hamburgerMenu()
-        sideMenuStepObjects.logout()
-        userLoginSuccess()
-        goToSettings(sideMenuPageObjects.general)
-        assert(!SideMenuPageObjects().toggleLaunchOnSystemStartUp.isChecked())
+    fun validatingDefaultSettingsAfterLogout() {
+        successfulLogin()
+        goToSettings(settingsPageObjects.general)
+        generalStepObjects.launchOnSystemStartUp()
+        generalStepObjects.clickOnBackArrow()
+        generalStepObjects.clickOnBackArrow()
+        mainScreenStepObjects.clickOnHamburgerMenu()
+        sideMenuStepObjects.clickOnLogout()
+        successfulLogin()
+        goToSettings(settingsPageObjects.general)
+        assert(!GeneralPageObjects().toggleLaunchOnSystemStartUp.isChecked())
     }
 }
