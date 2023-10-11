@@ -20,4 +20,8 @@ object LocatorHelper {
     fun findByText(text : String) : UiObject {
         return device.findObject(UiSelector().text(text))
     }
+
+    fun selectDropDownList(text : String, index : Int) : UiObject {
+        return device.findObject(UiSelector().resourceId(text).index(index))
+    }
 }
