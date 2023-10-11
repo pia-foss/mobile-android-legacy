@@ -34,4 +34,10 @@ object ActionHelpers {
         primarySettingsSection.click()
         secondarySettingsSection?.click()
     }
+
+    fun successfulLgout()
+    {
+        MainScreenStepObjects().clickOnHamburgerMenu()
+        SideMenuStepObjects().clickOnLogout()
+    }
 }
