@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <!--
+<!--
   ~  Copyright (c) 2020 Private Internet Access, Inc.
   ~
   ~  This file is part of the Private Internet Access Android Client.
@@ -38,7 +38,7 @@
     <!-- Please keep the %1$s, this is a formatted text. %1$s is a server location (ei London, Berlin) -->
     <string name="automatic_server_selection_main_region">Automatique (%1$s)</string>
     <!-- Please keep the %1$s, this is a formatted text. %1$s is an IP (ei 126.0.1.10)  -->
-    <string name="prompt_login">ie p1234567</string>
+    <string name="prompt_login">ex. : p1234567</string>
     <string name="use_udp_summary">L\'UDP sera utilisé pour se connecter</string>
     <string name="use_tcp_summary">Le TCP sera utilisé pour se connecter</string>
     <string name="transport">Transport</string>
@@ -147,7 +147,7 @@
     <string name="application_information">INFORMATIONS DE L\'APPLICATION</string>
     <string name="data_encyrption">Chiffrement des données</string>
     <string name="data_auth">Authentification des données</string>
-    <string name="handshake">Handshake</string>
+    <string name="handshake">Établissement de liaison</string>
     <string name="dismiss">Ignorer</string>
     <string name="recent_changes">Changements récents</string>
     <string name="refresh">Actualiser</string>
@@ -255,12 +255,12 @@
     <string name="startup_ads_message">Activez le MACE PIA empêche les pubs de s\'afficher peu importe où vous allez.</string>
     <string name="startup_connection_title">Protection par appli</string>
     <string name="startup_connection_message">Personnalisez votre expérience en contrôlant quelles applications passent par nos services (Android 5.0+ requis).</string>
-    <string name="speed_graph">PERFORMANCE</string>
+    <string name="speed_graph">PERFORMANCES</string>
     <string name="data_usage_over_time">UTILISATION DES DONNÉES AU FIL DU TEMPS</string>
     <!-- Please add in what word is the color red as we color it in code.  -->
     <string name="per_app_warning">Les applications en rouge possèdent certaines fonctionnalités qui peuvent provoquer des problèmes où notre service peut être contourné et vous rend vulnérable.</string>
     <string name="purchasing_bottom">Vous avez déjà un compte ? &lt;emph&gt; Connectez-vous&lt;/emph&gt;</string>
-    <string name="ok">Ok</string>
+    <string name="ok">OK</string>
     <string name="killswitch_title">L\'interrupteur est activé</string>
     <string name="skip">PASSER</string>
     <string name="next">SUIVANT</string>
@@ -431,6 +431,8 @@
     <string name="pia_dns">DNS PIA</string>
     <string name="edit_custom_dns">Modifier</string>
     <string name="custom_dns">DNS personnalisé</string>
+    <string name="system_resolver_dns">Résolveur DNS système</string>
+    <string name="system_resolver_dns_body">Pour accéder au résolveur DNS du système, nous devons autoriser le trafic LAN.</string>
     <string name="custom_dns_warning_body">Utiliser un DNS autre que celui de PIA peut exposer votre trafic DNS aux tiers et compromettre votre confidentialité.</string>
     <string name="custom_dns_warning_title">@string/custom_dns</string>
     <string name="custom_primary_dns">DNS primaire</string>
@@ -617,10 +619,13 @@
     <string name="inapp_pref_title">Afficher les messages de communication de service</string>
     <string name="settings_updated">Les paramètres ont été mis à jour</string>
     <string name="hide_payment">Suite à un problème technique, les achats via Google Play sont actuellement désactivés. Nous faisons tout notre possible pour résoudre ce problème.\n\nSi vous possédez déjà un compte avec un abonnement, vous pouvez vous connecter en appuyant sur le bouton Connexion.</string>
+    <string name="hide_payment_amazon">Suite à un problème technique, les achats via Amazon sont actuellement désactivés. Nous faisons tout notre possible pour résoudre ce problème.\n\nSi vous possédez déjà un compte avec un abonnement, vous pouvez vous connecter en appuyant sur le bouton Connexion.</string>
     <string name="settings_block_connections_title">La fonctionnalité « Arrêt d\'urgence PIA » requiert l\'activation de « VPN toujours activé » depuis les paramètres Android</string>
     <string name="settings_block_connections_description">Pour continuer, accédez à Paramètres - Réseau et Internet - Avancé - VPN - touchez l\'icône paramètres - <b>activez « VPN toujours activé ».</b></string>
     <string name="settings_block_connections_button">Accéder aux paramètres Réseau et Internet</string>
     <string name="settings_block_connections_error">Navigation impossible vers les paramètres réseau</string>
+    <string name="survey_message">Want to help make PIA better? Let us know how we can improve!</string>
+    <string name="survey_action">Take the Survey</string>
     <!-- KPI -->
     <string name="kpi_connection_attempts_onboarding_title">Veuillez nous aider à améliorer notre service</string>
     <string name="kpi_connection_attempts_onboarding_body">Pour nous aider à garantir les performances de connexion au service, vous pouvez partager vos statistiques de connexion avec nous de manière anonyme. Ces rapports n\'incluent aucune information d\'identification personnelle.</string>
@@ -630,17 +635,18 @@
     <string name="kpi_connection_attempts_no_events">Aucun événement récent</string>
     <string name="kpi_connection_attempts_stats">Statistiques de connexion</string>
     <string name="kpi_connection_attempts_more_information">Ces informations minimales nous aident à identifier et à corriger de potentiels problèmes de connexion. Veuillez noter que le partage de ces informations requiert votre consentement et une activation manuelle, car il est désactivé par défaut. Nous collectons les informations liées aux événements suivants :\n\n
-• Tentative de connexion\n
-• Annulation de connexion\n
-• Établissement de connexion\n\n
-Pour tous ces événements, nous collectons les informations suivantes :\n\n
-• Plateforme\n
-• Version de l\'application\n
-• Type d\'application (version préliminaire ou non)\n
-• Protocole utilisé\n
-• Source de la connexion (manuelle ou automatisée)\n\n
-Tous les événements contiennent un identifiant unique généré aléatoirement. Cet identifiant n\'est pas associé à votre compte utilisateur. Cet identifiant unique est généré de nouveau tous les jours pour des raisons de confidentialité.\n\n
-Vous êtes toujours maître de la situation. Vous pouvez consulter les données qui ont été collectées depuis les paramètres et êtes libre de désactiver cette fonctionnalité à tout moment.</string>
+            • Tentative de connexion\n
+            • Annulation de connexion\n
+            • Établissement de connexion\n
+            • Temps de connexion\n\n
+        Pour tous ces événements, nous collectons les informations suivantes :\n\n
+            • Plateforme\n
+            • Version de l\'application\n
+            • Type d\'application (version préliminaire ou non)\n
+            • Protocole utilisé\n
+            • Source de la connexion (manuelle ou automatisée)\n\n
+        Tous les événements contiennent un identifiant unique généré aléatoirement. Cet identifiant n\'est pas associé à votre compte utilisateur. Cet identifiant unique est généré de nouveau tous les jours pour des raisons de confidentialité.\n\n
+        Vous êtes toujours maître de la situation. Vous pouvez consulter les données qui ont été collectées depuis les paramètres et êtes libre de désactiver cette fonctionnalité à tout moment.</string>
     <!-- Renewal -->
     <string name="renewal_title">Bienvenue !</string>
     <string name="renewal_description">Afin d\'utiliser Private Internet Access, vous devrez renouveler votre abonnement.</string>

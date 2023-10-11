@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <!--
+<!--
   ~  Copyright (c) 2020 Private Internet Access, Inc.
   ~
   ~  This file is part of the Private Internet Access Android Client.
@@ -55,7 +55,7 @@
     <string name="portforwarding_summary">将允许传入连接通过外部端口与移动设备相连</string>
     <!-- Please keep the %s, this is a formatted text. %s is an error message.  -->
     <string name="portfwderror">请求转发端口时出错：％s</string>
-    <string name="mace_toggle">Mace Ad Blocker</string>
+    <string name="mace_toggle">Mace 广告拦截器</string>
     <string name="killswitch">VPN切断开关</string>
     <string name="killswitchsummary">在VPN断开连接时禁用您的互联网连接。</string>
     <string name="killswitchtext">INTERNET KILLSWITCH 已启用</string>
@@ -231,7 +231,7 @@
     <string name="purchasing_yearly_month_ending">%2$s%1$s/每月</string>
     <string name="change_region">更改地区</string>
     <!--Please keep the %1$s, this is a formatted text. %1$s is the up and down speeds on the connection. /s is per second-->
-    <string name="graph_under_formatting">%1$s/s</string>
+    <string name="graph_under_formatting">%1$s/秒</string>
     <string name="allowed_apps_protected_text">使用 PIA VPN 自动保护 App</string>
     <string name="allowed_apps_unprotected_text">选择哪些 App 使用 PIA VPN</string>
     <string name="allowed_apps_spotlight_text">对所有 App 是否默认使用 PIA VPN 进行切换。</string>
@@ -431,6 +431,8 @@
     <string name="pia_dns">PIA DNS</string>
     <string name="edit_custom_dns">编辑</string>
     <string name="custom_dns">自定义 DNS</string>
+    <string name="system_resolver_dns">系统 DNS 解析程序</string>
+    <string name="system_resolver_dns_body">要访问系统 DNS 解析程序，我们需要允许局域网流量。</string>
     <string name="custom_dns_warning_body">使用非 PIA DNS 可能会将您的 DNS 流量暴露给第三方并危及您的隐私。</string>
     <string name="custom_dns_warning_title">@string/custom_dns</string>
     <string name="custom_primary_dns">主 DNS</string>
@@ -617,10 +619,13 @@
     <string name="inapp_pref_title">显示服务通信消息</string>
     <string name="settings_updated">设置已更新</string>
     <string name="hide_payment">由于出现技术问题，目前无法通过 Google Play 进行购买。我们正在努力解决这种情况。\n\n如果您已经有一个订阅账户，可以按一下“登录”按钮来登录。</string>
+    <string name="hide_payment_amazon">由于出现技术问题，目前无法通过 Amazon 进行购买。我们正在努力解决这种情况。\n\n如果您已有订阅帐户，可按“登录”按钮登录。</string>
     <string name="settings_block_connections_title">PIA 的“VPN 切断开关”功能需要在 Android 设置中打开“永远在线 VPN”。</string>
     <string name="settings_block_connections_description">要继续操作，请进入设置 - 网络和互联网 - 高级 - VPN - 点击设置图标 - <b>永远在线 VPN。</b></string>
     <string name="settings_block_connections_button">进入网络和互联网设置</string>
     <string name="settings_block_connections_error">无法导航到网络设置</string>
+    <string name="survey_message">Want to help make PIA better? Let us know how we can improve!</string>
+    <string name="survey_action">Take the Survey</string>
     <!-- KPI -->
     <string name="kpi_connection_attempts_onboarding_title">请帮助我们改进服务</string>
     <string name="kpi_connection_attempts_onboarding_body">为了帮助我们保持服务的连接性能，您可以匿名与我们共享您的连接统计数据。这些报告不包括任何可识别个人身份的信息。</string>
@@ -630,17 +635,18 @@
     <string name="kpi_connection_attempts_no_events">没有近期事件。</string>
     <string name="kpi_connection_attempts_stats">连接统计</string>
     <string name="kpi_connection_attempts_more_information">这些有限的信息有助于我们识别并解决潜在的连接问题。请注意，分享这些信息需要您同意并手动激活，因为这是默认关闭的。我们将收集关于以下事件的信息：\n\n
-• 连接尝试\n
-• 连接已取消\n
-• 连接已建立\n
-对于上述所有事件，我们将收集以下信息：\n\n
-• 平台\n
-• 应用程序版本\n
-• 应用程序类型（预先发布或不预先发布）\n
-• 使用的协议\n
-• 连接来源（手动或使用自动化）\n\n
-所有事件都将包含一个随机生成的唯一 ID。这个 ID 与您的用户账户没有关联。为了保护隐私，这个唯一 ID 每天都会重新生成。\n\n
-您将始终处于掌控地位。您可以看到我们从设置中收集了哪些数据，您可以随时将其关闭。</string>
+            • 连接尝试\n
+            • 连接已取消\n
+            • 连接已建立\n
+            • 连接时间\n\n
+        对于上述所有事件，我们将收集以下信息：\n\n
+            • 平台\n
+            • 应用程序版本\n
+            • 应用程序类型（预先发布或不预先发布）\n
+            • 使用的协议\n
+            • 连接来源（手动或使用自动化）\n\n
+        所有事件都将包含一个随机生成的唯一 ID。这个 ID 与您的用户账户没有关联。为了保护隐私，这个唯一 ID 每天都会重新生成。\n\n
+        您将始终处于掌控地位。您可以看到我们从设置中收集了哪些数据，您可以随时将其关闭。</string>
     <!-- Renewal -->
     <string name="renewal_title">欢迎回来！</string>
     <string name="renewal_description">您需要续订才能使用 Private Internet Access。</string>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <!--
+<!--
   ~  Copyright (c) 2020 Private Internet Access, Inc.
   ~
   ~  This file is part of the Private Internet Access Android Client.
@@ -147,7 +147,7 @@
     <string name="application_information">UYGULAMA BİLGİLERİ</string>
     <string name="data_encyrption">Veri Şifrelemesi</string>
     <string name="data_auth">Veri doğrulama</string>
-    <string name="handshake">Handshake</string>
+    <string name="handshake">El sıkışma</string>
     <string name="dismiss">Kapat</string>
     <string name="recent_changes">Son Değişiklikler</string>
     <string name="refresh">Yenile</string>
@@ -431,6 +431,8 @@
     <string name="pia_dns">PIA DNS</string>
     <string name="edit_custom_dns">Düzenle</string>
     <string name="custom_dns">Özel DNS</string>
+    <string name="system_resolver_dns">DNS Sistem Çözümleyicisi</string>
+    <string name="system_resolver_dns_body">DNS Sistem Çözümleyicisine erişmek için LAN Trafiğine İzin Vermemiz gerekir.</string>
     <string name="custom_dns_warning_body">PIA harici bir DNS kullanmak DNS trafiğini üçüncü tarafların görmesine neden olur ve gizliliğini tehlikeye atar.</string>
     <string name="custom_dns_warning_title">@string/custom_dns</string>
     <string name="custom_primary_dns">Birincil DNS</string>
@@ -617,10 +619,13 @@
     <string name="inapp_pref_title">Servis İletişim Mesajlarını Göster</string>
     <string name="settings_updated">Ayarlar güncellendi</string>
     <string name="hide_payment">Teknik bir sorundan dolayı, Google Play üzerinden satın alma işlemleri şu anda devre dışı bırakıldı. Sorunu çözmeye çalışıyoruz.\n\nZaten üyeliği olan bir hesabınız varsa, Giriş Yap düğmesine basarak giriş yapabilirsiniz.</string>
+    <string name="hide_payment_amazon">Teknik bir sorundan dolayı, Amazon üzerinden satın alma işlemleri şu anda devre dışı bırakıldı. Sorunu çözmeye çalışıyoruz.\n\nZaten üyeliği olan bir hesabınız varsa, Giriş Yap düğmesine basarak giriş yapabilirsiniz.</string>
     <string name="settings_block_connections_title">PIA \"VPN Acil Anahtarı\" özelliği, Android Ayarlarından Her Zaman VPN AÇIK özelliğinin açılmasını gerektiriyor.</string>
     <string name="settings_block_connections_description">Devam etmek için Ayarlar - Ağ &amp; İnternet - Gelişmiş - VPN - bölümüne gidin Ayarlar simgesine dokunun - <b>VPN her Zaman Açık</b> özelliğini etkinleştirin.</string>
     <string name="settings_block_connections_button">Ağ ve İnternet Ayarlarına gidin</string>
     <string name="settings_block_connections_error">Ağ ayarlarına gidilemiyor</string>
+    <string name="survey_message">Want to help make PIA better? Let us know how we can improve!</string>
+    <string name="survey_action">Take the Survey</string>
     <!-- KPI -->
     <string name="kpi_connection_attempts_onboarding_title">Lütfen hizmetimizi geliştirmemize yardımcı olun</string>
     <string name="kpi_connection_attempts_onboarding_body">Hizmetimizin bağlantı performansını sağlamamıza yardımcı olmak için bağlantı istatistiklerinizi anonim olarak bizimle paylaşabilirsiniz. Bu raporlar herhangi bir kişisel olarak tanımlanabilir bilgi içermez.</string>
@@ -632,7 +637,8 @@
     <string name="kpi_connection_attempts_more_information">Bu minimum bilgiler, olası bağlantı sorunlarını belirlememize ve çözmemize yardımcı olur. Varsayılan olarak kapalı olduğundan, bu bilgilerin paylaşılmasının onaylanması ve manuel olarak etkinleştirilmesi gerektirdiğini unutmayın. Aşağıdaki etkinlikler hakkında bilgi toplayacağız:\n\n
             • Bağlantı Denemesi\n
             • Bağlantı İptal Edildi\n
-            • Bağlantı Kuruldu\n\n
+            • Bağlantı Kuruldu\n
+            • Bağlanma süresi\n\n
         Tüm bu etkinlikler için aşağıdaki bilgileri toplayacağız:\n\n
             • Platform\n
             • Uygulama sürümü\n

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <!--
+<!--
   ~  Copyright (c) 2020 Private Internet Access, Inc.
   ~
   ~  This file is part of the Private Internet Access Android Client.
@@ -181,7 +181,7 @@
     <string name="settings_widget_configuration">小工具配置</string>
     <string name="preferences_widget_title">小工具設定</string>
     <string name="preferences_widget_summary">讓我們的小工具可以在您的主畫面上開啟</string>
-    <string name="widget_flag_alpha">Flag Alpha</string>
+    <string name="widget_flag_alpha">旗幟 Alpha</string>
     <string name="widget_background">背景色彩</string>
     <string name="widget_color">文字色彩</string>
     <string name="widget_cc">PIA 指令中心</string>
@@ -433,6 +433,8 @@
     <string name="pia_dns">PIA DNS</string>
     <string name="edit_custom_dns">編輯</string>
     <string name="custom_dns">自訂 DNS</string>
+    <string name="system_resolver_dns">系統 DNS 解析器</string>
+    <string name="system_resolver_dns_body">如果要存取系統的 DNS 解析器，必須允許 LAN 流量通過。</string>
     <string name="custom_dns_warning_body">使用非 PIA DNS 可導致您的 DNS 傳輸資料洩露予第三方，對您的隱私造成損害。</string>
     <string name="custom_dns_warning_title">@string/custom_dns</string>
     <string name="custom_primary_dns">主要 DNS</string>
@@ -619,10 +621,13 @@
     <string name="inapp_pref_title">顯示服務通訊訊息</string>
     <string name="settings_updated">已更新設定</string>
     <string name="hide_payment">因技術問題，目前無法使用 Google Play 進行訂購。我們正努力解決此情況。\n\n若持有已訂閱帳戶，您可按下此「登入」按鈕登入。</string>
+    <string name="hide_payment_amazon">由於技術問題，目前無法透過 Amazon 進行消費。我們正在努力解決這個狀況。\n\n如果您的帳戶中已經有訂閱服務，可以按下 [登入] 按鈕登入。</string>
     <string name="settings_block_connections_title">PIA「VPN 切斷開關」功能需要在 Android 設定中啟用「總是啟用 VPN」</string>
     <string name="settings_block_connections_description">如要繼續，請前往「設定」-「網路和網際網路」-「進階」-「VPN」- 點擊「設定」圖示 - <b>啟用「總是啟用 VPN」。</b></string>
     <string name="settings_block_connections_button">前往「網路和網際網路設定」</string>
     <string name="settings_block_connections_error">無法瀏覽網路設定</string>
+    <string name="survey_message">Want to help make PIA better? Let us know how we can improve!</string>
+    <string name="survey_action">Take the Survey</string>
     <!-- KPI -->
     <string name="kpi_connection_attempts_onboarding_title">請協助我們改善服務</string>
     <string name="kpi_connection_attempts_onboarding_body">為了確保服務的連線品質，您可以匿名與我們分享您的連線統計資料。這些報告不會包含任何個人識別資訊。</string>
@@ -632,17 +637,18 @@
     <string name="kpi_connection_attempts_no_events">最近沒有事件</string>
     <string name="kpi_connection_attempts_stats">連線統計資料</string>
     <string name="kpi_connection_attempts_more_information">這些基本資訊可協助我們辨識及修正可能的連線問題。請注意，分享這些資訊需要您的同意，且該功能預設為關閉，因此必須手動開啟。我們會收集以下事件的資訊：\n\n
-• 連線嘗試\n
-• 取消的連線\n
-• 建立的連線\n\n
-我們會針對上述事件收集下列資訊：\n\n
-• 平台\n
-• 應用程式版本\n
-• 應用程式類型（是否為預先發布版）\n
-• 使用的通訊協定\n
-• 連線來源（手動或自動）\n\n
-所有事件均有一組隨機產生的不重複識別碼。此識別碼不會和您的使用者帳戶建立關聯。為保護隱私，這個唯一識別碼每天都會重新產生。\n\n
-控制權始終都在您的掌握中。您可以在「設定」中看到我們收集了哪些資料，且隨時可關閉此功能。</string>
+            • 連線嘗試\n
+            • 取消的連線\n
+            • 建立的連線\n
+            • 連線時間\n
+        我們會針對上述事件收集下列資訊：\n\n
+            • 平台\n
+            • 應用程式版本\n
+            • 應用程式類型（是否為預先發布版）\n
+            • 使用的通訊協定\n
+            • 連線來源（手動或自動）\n\n
+        所有事件均有一組隨機產生的不重複識別碼。此識別碼不會和您的使用者帳戶建立關聯。為保護隱私，這個唯一識別碼每天都會重新產生。\n\n
+        控制權始終都在您的掌握中。您可以在「設定」中看到我們收集了哪些資料，且隨時可關閉此功能。</string>
     <!-- Renewal -->
     <string name="renewal_title">歡迎回來！</string>
     <string name="renewal_description">如果要使用 Private Internet Access，您必須續訂。</string>

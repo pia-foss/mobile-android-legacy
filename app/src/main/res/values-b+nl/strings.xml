@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <!--
+<!--
   ~  Copyright (c) 2020 Private Internet Access, Inc.
   ~
   ~  This file is part of the Private Internet Access Android Client.
@@ -26,7 +26,7 @@
     <string name="menu_settings_privacy">Privacy</string>
     <string name="menu_settings_automation">Automatisering</string>
     <string name="menu_settings_obfuscation">Versluiering</string>
-    <string name="menu_settings_help">Help</string>
+    <string name="menu_settings_help">Hulp</string>
     <!-- Please keep the %s, this is a formatted text. %s is a port number (ei 1024) -->
     <string name="rportsummary">Maakt gebruik van poort %s voor verbinding</string>
     <!-- Please keep the %s, this is a formatted text. %s is a port number (ei 1024) -->
@@ -431,6 +431,8 @@
     <string name="pia_dns">PIA DNS</string>
     <string name="edit_custom_dns">Bewerken</string>
     <string name="custom_dns">Aangepaste DNS</string>
+    <string name="system_resolver_dns">DNS-resolver systeem</string>
+    <string name="system_resolver_dns_body">Om toegang te krijgen tot de DNS-revolver van het systeem, moeten we LAN-verkeer toestaan.</string>
     <string name="custom_dns_warning_body">Als u een DNS gebruikt die niet van PIA is, kunnen externe partijen uw DNS-verkeer bekijken en loopt uw privacy gevaar.</string>
     <string name="custom_dns_warning_title">@string/custom_dns</string>
     <string name="custom_primary_dns">Primaire DNS</string>
@@ -617,10 +619,13 @@
     <string name="inapp_pref_title">Servicecommunicatieberichten tonen</string>
     <string name="settings_updated">De instellingen zijn bijgewerkt</string>
     <string name="hide_payment">Vanwege een technisch probleem zijn aankopen via Google Play momenteel niet mogelijk. We proberen deze situatie op te lossen.\n\nAls u al een account met een abonnement hebt, kunt u inloggen door op de knop Inloggen te drukken.</string>
+    <string name="hide_payment_amazon">Vanwege een technisch probleem zijn aankopen via Amazon momenteel uitgeschakeld. We proberen deze situatie op te lossen.\n\nAls u al een account met een abonnement hebt, kunt u inloggen door op de knop Inloggen te drukken.</string>
     <string name="settings_block_connections_title">Voor de functie \'VPN-killswitch\' van PIA moet de optie VPN altijd aan op AAN worden gezet in de Android-instellingen</string>
     <string name="settings_block_connections_description">Wilt u doorgaan, ga dan naar Instellingen - Netwerk en internet - Geavanceerd - VPN - tik op het Instellingen-pictogram - <b>activeer VPN altijd aan.</b></string>
     <string name="settings_block_connections_button">Naar Netwerk en internetinstellingen</string>
     <string name="settings_block_connections_error">Kan netwerkinstellingen niet openen</string>
+    <string name="survey_message">Want to help make PIA better? Let us know how we can improve!</string>
+    <string name="survey_action">Take the Survey</string>
     <!-- KPI -->
     <string name="kpi_connection_attempts_onboarding_title">Help ons bij het verbeteren van onze dienstverlening</string>
     <string name="kpi_connection_attempts_onboarding_body">Om ons te helpen bij het verbeteren van de prestaties van onze verbindingen, kunt u anoniem statistische gegevens over uw verbinding met ons delen. Deze rapporten bevatten geen persoonlijke informatie.</string>
@@ -630,17 +635,18 @@
     <string name="kpi_connection_attempts_no_events">Er zijn geen recente gebeurtenissen</string>
     <string name="kpi_connection_attempts_stats">Verbindingsstatistieken</string>
     <string name="kpi_connection_attempts_more_information">Deze minimale informatie helpt ons bij het herkennen en verhelpen van potentiële problemen met uw verbinding. Houd er rekening mee er toestemming en handmatige activering nodig is om deze informatie te delen. Deze optie is standaard uitgeschakeld. We verzamelen informatie over de volgende gebeurtenissen:\n\n
-• Verbindingspoging\n
-• Geannuleerde verbinding\n
-• Verbinding tot stand gebracht\n\n
-Voor al deze gebeurtenissen zullen we de volgende informatie verzamelen:\n\n
-• Platform\n
-• Appversie\n
-• Type app (voorlopige release of niet)\n
-• Gebruikt protocol\n
-• Verbindingsbron (handmatig of met behulp van automatisering)\n\n
-Alle gebeurtenissen bevatten een unieke ID, die willekeurig gegenereerd wordt. Deze ID is niet gekoppeld aan uw gebruikersaccount. Uit privacyoverwegingen wordt deze unieke ID elke dag opnieuw gegenereerd.\n\n
-U behoudt altijd de controle. U kunt via Instellingen zien welke gegevens we verzameld hebben en u kunt deze optie op elk moment uitschakelen.</string>
+            • Verbindingspoging\n
+            • Geannuleerde verbinding\n
+            • Verbinding tot stand gebracht\n
+            • Tijd voor verbinding\n\n
+        Voor al deze gebeurtenissen zullen we de volgende informatie verzamelen:\n\n
+            • Platform\n
+            • Appversie\n
+            • Type app (voorlopige release of niet)\n
+            • Gebruikt protocol\n
+            • Verbindingsbron (handmatig of met behulp van automatisering)\n\n
+        Alle gebeurtenissen bevatten een unieke ID, die willekeurig gegenereerd wordt. Deze ID is niet gekoppeld aan uw gebruikersaccount. Uit privacyoverwegingen wordt deze unieke ID elke dag opnieuw gegenereerd.\n\n
+        U behoudt altijd de controle. U kunt via Instellingen zien welke gegevens we verzameld hebben en u kunt deze optie op elk moment uitschakelen.</string>
     <!-- Renewal -->
     <string name="renewal_title">Welkom terug!</string>
     <string name="renewal_description">U moet uw abonnement vernieuwen om Private Internet Access te kunnen gebruiken.</string>
