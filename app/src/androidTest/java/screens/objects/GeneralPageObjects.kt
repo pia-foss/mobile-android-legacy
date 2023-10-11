@@ -1,4 +1,4 @@
-package scom.privateinternetaccess.android.screens.objects
+package com.privateinternetaccess.android.screens.objects
 
 import com.privateinternetaccess.android.helpers.LocatorHelper
 

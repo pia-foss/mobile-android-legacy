@@ -1,7 +1,7 @@
 package com.privateinternetaccess.android.screens.steps
 
 import com.privateinternetaccess.android.screens.objects.SettingsPageObjects
-import scom.privateinternetaccess.android.screens.objects.GeneralPageObjects
+import com.privateinternetaccess.android.screens.objects.GeneralPageObjects
 
 
 class GeneralStepObjects {
