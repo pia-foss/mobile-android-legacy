@@ -2,6 +2,8 @@ package com.privateinternetaccess.android.helpers
 
 import androidx.test.uiautomator.UiObject
 import com.privateinternetaccess.android.core.BaseUiAutomatorClass.Companion.defaultTimeOut
+import com.privateinternetaccess.android.screens.objects.MainScreenPageObjects
+import com.privateinternetaccess.android.screens.steps.GeneralStepObjects
 import com.privateinternetaccess.android.screens.steps.SideMenuStepObjects
 import com.privateinternetaccess.android.screens.steps.SignInStepObjects
 import com.privateinternetaccess.android.screens.steps.MainScreenStepObjects
@@ -15,7 +17,6 @@ object ActionHelpers {
     }
 
     fun <T> inputTextInField(field: UiObject, data: T? = null) {
-        field.clearTextField()
         field.click()
         field.text = data?.toString() ?: ""
     }
@@ -39,5 +40,11 @@ object ActionHelpers {
     {
         MainScreenStepObjects().clickOnHamburgerMenu()
         SideMenuStepObjects().clickOnLogout()
+    }
+
+    fun returnOnMainScreen() {
+        while (!MainScreenPageObjects().connectButton.exists()) {
+            GeneralStepObjects().clickOnBackArrow()
+        }
     }
 }
