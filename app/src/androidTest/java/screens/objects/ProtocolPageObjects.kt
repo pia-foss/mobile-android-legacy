@@ -7,6 +7,7 @@ class ProtocolPageObjects {
 
     val protocolSettings = LocatorHelper.findByResourceId("com.privateinternetaccess.android:id/protocolsSettings")
     val protocolSelection = LocatorHelper.findByResourceId("com.privateinternetaccess.android:id/protocolSetting")
-    val openVPN = LocatorHelper.selectDropDownList("com.privateinternetaccess.android:id/list_settings_radio", 0)
+    val openVPN = LocatorHelper.selectFromRadioButton("OpenVPN")
+    val wireGuard = LocatorHelper.selectFromRadioButton("WireGuard")
     val save = LocatorHelper.findByResourceId("android:id/button1")
 }
