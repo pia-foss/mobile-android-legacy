@@ -525,10 +525,8 @@
     <string name="settings_protocol">Protocolselectie</string>
     <string name="protocol_ovpn">OpenVPN</string>
     <string name="protocol_wireguard">WireGuard</string>
-    <string name="wg_per_app_warning">Als u naar WireGuard overschakelt, wordt de functie \'Per app-instellingen\' uitgeschakeld.</string>
-    <string name="wg_protocol_warning">De volgende functies zijn niet beschikbaar op WireGuard:</string>
-    <string name="wg_connecting">Verbinden</string>
-    <string name="wg_connected">VPN verbonden</string>
+    <string name="connecting">Verbinden</string>
+    <string name="connected">VPN verbonden</string>
     <string name="block_connections_body_1">Voor de functie \'Verbindingen zonder VPN blokkeren\' moet de optie VPN altijd aan op AAN worden gezet in de Android-instellingen.</string>
     <string name="block_connections_body_2">Wilt u doorgaan, ga dan naar Instellingen - Netwerk en internet - Geavanceerd - VPN - tik op het Instellingen-pictogram - activeer VPN altijd aan.</string>
     <string name="block_connections_button">Naar Netwerk en internetinstellingen</string>

@@ -525,10 +525,8 @@
     <string name="settings_protocol">Выбор протокола</string>
     <string name="protocol_ovpn">OpenVPN</string>
     <string name="protocol_wireguard">WireGuard</string>
-    <string name="wg_per_app_warning">Переключение на WireGuard отключит функцию «Настройки по каждому приложению»</string>
-    <string name="wg_protocol_warning">Следующие функции недоступны в WireGuard:</string>
-    <string name="wg_connecting">Идет подключение</string>
-    <string name="wg_connected">VPN подключен</string>
+    <string name="connecting">Идет подключение</string>
+    <string name="connected">VPN подключен</string>
     <string name="block_connections_body_1">Функция PIA «Блокировать соединения без VPN» требует включения Always-ON VPN в настройках Android.</string>
     <string name="block_connections_body_2">Чтобы продолжить, перейдите в «Настройки» - «Сеть и Интернет» - «Дополнительно» - «VPN» - нажмите на значок «Настройки» - активируйте «Always-on VPN».</string>
     <string name="block_connections_button">Перейдите в «Настройки» - «Сеть и Интернет».</string>

@@ -115,7 +115,9 @@
     <string name="full_licenses">Full licenses</string>
     <string name="email">Email</string>
     <string name="please_wait">Please wait</string>
+    <string name="connecting">Connecting</string>
     <string name="still_connecting">Still trying to connect</string>
+    <string name="connected">VPN Connected</string>
     <string name="enabled">Enabled</string>
     <string name="disabled">Disabled</string>
     <string name="account_details_password_bottom_text">Tap \"eye\" to reveal. Tap again to copy Password to clipboard.</string>
@@ -544,10 +546,6 @@
     <string name="settings_protocol">Protocol Selection</string>
     <string name="protocol_ovpn">OpenVPN</string>
     <string name="protocol_wireguard">WireGuard</string>
-    <string name="wg_per_app_warning">Switching to WireGuard will disable the Per App Settings-feature</string>
-    <string name="wg_protocol_warning">The following features are not available on WireGuard:</string>
-    <string name="wg_connecting">Connecting</string>
-    <string name="wg_connected">VPN Connected</string>
     <string name="block_connections_body_1">The PIA \"Block connections without VPN\" feature requires turning ON the Always-ON VPN in the Android Settings.</string>
     <string name="block_connections_body_2">To proceed, go to Settings - Network &amp; Internet - Advanced - VPN - tap on the Settings icon - activate Always-on VPN.</string>
     <string name="block_connections_button">Go to Network &amp; Internet Settings</string>

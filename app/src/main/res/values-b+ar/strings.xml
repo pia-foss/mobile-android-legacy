@@ -525,10 +525,8 @@
     <string name="settings_protocol">اختيار البروتوكول</string>
     <string name="protocol_ovpn">OpenVPN</string>
     <string name="protocol_wireguard">WireGuard</string>
-    <string name="wg_per_app_warning">سيؤدي الانتقال إلى WireGuard إلى تعطيل خاصية الإعدادات لكل تطبيق</string>
-    <string name="wg_protocol_warning">الخصائص التالية غير متوفرة على WireGuard:</string>
-    <string name="wg_connecting">جارٍ الاتصال</string>
-    <string name="wg_connected">متصل بـVPN</string>
+    <string name="connecting">جارٍ الاتصال</string>
+    <string name="connected">متصل بـVPN</string>
     <string name="block_connections_body_1">تتطلب ميزة \"حظر الاتصالات بدون VPN\" من PIA تشغيل VPN الدائم في إعدادات Android.</string>
     <string name="block_connections_body_2">للمتابعة، انتقل إلى الإعدادات - الشبكة والإنترنت - متقدم - VPN - اضغط على أيقونة الإعدادات - قم بتنشيط VPN قيد التشغيل دائمًا.</string>
     <string name="block_connections_button">انتقل إلى إعدادات الشبكة والإنترنت</string>

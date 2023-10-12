@@ -525,10 +525,8 @@
     <string name="settings_protocol">Protokol Seçimi</string>
     <string name="protocol_ovpn">OpenVPN</string>
     <string name="protocol_wireguard">WireGuard</string>
-    <string name="wg_per_app_warning">WireGuard\'a geçmek Tek Uygulama Ayarları özelliğini devreden çıkarır</string>
-    <string name="wg_protocol_warning">Şu özellikler WireGuard\'da  mevcut değildir:</string>
-    <string name="wg_connecting">Bağlanılıyor</string>
-    <string name="wg_connected">VPN Bağlandı</string>
+    <string name="connecting">Bağlanılıyor</string>
+    <string name="connected">VPN Bağlandı</string>
     <string name="block_connections_body_1">PIA \"VPN’siz bağlantıları engelle\" özelliği, Android Ayarlarından Her Zaman VPN AÇIK özelliğinin açılmasını gerektiriyor.</string>
     <string name="block_connections_body_2">Devam etmek için Ayarlar - Ağ ve İnternet - Gelişmiş - VPN - bölümüne gidin Ayarlar simgesine dokunun - VPN her Zaman Açık özelliğini etkinleştirin.</string>
     <string name="block_connections_button">Ağ ve İnternet Ayarlarına gidin</string>

@@ -148,7 +148,7 @@ class VPNFallbackEndpointProvider : CoroutineScope {
     private fun updateState(attemptNumber: Int) {
         val stringId = when {
             attemptNumber == 0 -> {
-                R.string.wg_connecting
+                R.string.connecting
             }
             attemptNumber == 1 -> {
                 R.string.please_wait
@@ -157,7 +157,7 @@ class VPNFallbackEndpointProvider : CoroutineScope {
                 R.string.still_connecting
             }
             else -> {
-                R.string.wg_connecting
+                R.string.connecting
             }
         }
 

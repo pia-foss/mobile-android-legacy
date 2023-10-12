@@ -360,7 +360,7 @@ public final class GoBackend implements Backend {
             VpnStateEvent event = new VpnStateEvent(
                     "CONNECT",
                     "Wireguard Connect",
-                    R.string.wg_connected,
+                    R.string.connected,
                     ConnectionStatus.LEVEL_CONNECTED
             );
             EventBus.getDefault().postSticky(event);
@@ -553,7 +553,7 @@ public final class GoBackend implements Backend {
         EventBus.getDefault().postSticky(new VpnStateEvent(
                 "CONNECT",
                 "Wireguard Connecting",
-                R.string.wg_connecting,
+                R.string.connecting,
                 ConnectionStatus.LEVEL_CONNECTING_NO_SERVER_REPLY_YET
         ));
 

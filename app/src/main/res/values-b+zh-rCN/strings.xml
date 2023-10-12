@@ -525,10 +525,8 @@
     <string name="settings_protocol">协议选择</string>
     <string name="protocol_ovpn">OpenVPN</string>
     <string name="protocol_wireguard">WireGuard</string>
-    <string name="wg_per_app_warning">切换到 WireGuard 将禁用“按应用程序设置”功能</string>
-    <string name="wg_protocol_warning">以下功能将在 WireGuard 上失效：</string>
-    <string name="wg_connecting">正在连接</string>
-    <string name="wg_connected">VPN 已连接</string>
+    <string name="connecting">正在连接</string>
+    <string name="connected">VPN 已连接</string>
     <string name="block_connections_body_1">PIA 的“阻止未使用 VPN 时的连接”功能需要在 Android 设置中打开“永远在线 VPN”。</string>
     <string name="block_connections_body_2">要继续操作，请进入设置 - 网络和互联网 - 高级 - VPN - 点击设置图标 - 激活永远在线 VPN。</string>
     <string name="block_connections_button">进入网络和互联网设置</string>
