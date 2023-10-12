@@ -1,12 +1,12 @@
 package com.privateinternetaccess.android.screens.steps
 
 import com.privateinternetaccess.android.screens.objects.SettingsPageObjects
-import com.privateinternetaccess.android.screens.objects.GeneralPageObjects
+import com.privateinternetaccess.android.screens.objects.GeneralSettingsPageObjects
 
 
-class GeneralStepObjects {
+class GeneralSettingslStepObjects {
 
-    val generalPageObjects = GeneralPageObjects()
+    val generalPageObjects = GeneralSettingsPageObjects()
     val settingsPageObjects = SettingsPageObjects()
 
     fun launchOnSystemStartUp() {

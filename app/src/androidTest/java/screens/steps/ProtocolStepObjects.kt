@@ -6,11 +6,8 @@ class ProtocolStepObjects {
 
     val protocolPageObjects = ProtocolPageObjects()
 
-    fun clickProtocol()
-    {
+    fun selectOpenVPN() {
         protocolPageObjects.openVPN.click()
         protocolPageObjects.save.click()
     }
-
-
 }
