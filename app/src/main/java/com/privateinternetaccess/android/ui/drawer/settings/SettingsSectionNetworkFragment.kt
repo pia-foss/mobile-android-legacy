@@ -123,11 +123,13 @@ class SettingsSectionNetworkFragment : Fragment() {
     private fun showDNSDialog(context: Context) {
 
         // Prepare the list of options.
+        val piaDnsString = getString(R.string.pia_dns)
         val options = mutableListOf(
-            getString(R.string.pia_dns),
+            piaDnsString,
         )
+        val systemDnsResolverString = getString(R.string.system_resolver_dns)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            options.add(getString(R.string.system_resolver_dns))
+            options.add(systemDnsResolverString)
         }
         val customDnsString = customDnsString(context)
         if (customDnsString.isNotEmpty()) {
@@ -135,11 +137,11 @@ class SettingsSectionNetworkFragment : Fragment() {
         }
 
         val selectedOption = if (PiaPrefHandler.isCustomDnsSelected(context)) {
-            options[2]
+            customDnsString
         } else if (PiaPrefHandler.isSystemDnsResolverSelected(context)) {
-            options[1]
+            systemDnsResolverString
         } else {
-            options[0]
+            piaDnsString
         }
 
         // Build the dialog
