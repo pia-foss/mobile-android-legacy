@@ -68,7 +68,6 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.4.0'
     androidTestImplementation 'androidx.test:core:1.4.0'
     androidTestUtil 'androidx.test:orchestrator:1.4.2'
-    implementation 'com.google.code.gson:gson:2.10.1'
 
     // EventBus
     implementation 'org.greenrobot:eventbus:3.1.1'
