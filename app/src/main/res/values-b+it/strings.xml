@@ -526,10 +526,8 @@ privateinternetaccess.com</string>
     <string name="settings_protocol">Selezione del protocollo</string>
     <string name="protocol_ovpn">OpenVPN</string>
     <string name="protocol_wireguard">WireGuard</string>
-    <string name="wg_per_app_warning">Il passaggio a WireGuard disabiliterà la funzione delle impostazioni per ogni singola app</string>
-    <string name="wg_protocol_warning">Le seguenti funzioni non sono disponibili su WireGuard:</string>
-    <string name="wg_connecting">Connessione in corso</string>
-    <string name="wg_connected">VPN connessa</string>
+    <string name="connecting">Connessione in corso</string>
+    <string name="connected">VPN connessa</string>
     <string name="block_connections_body_1">La funzione \"Blocca connessioni senza VPN\" di PIA richiede l\'attivazione di \"VPN sempre attiva\" nelle impostazioni di Android.</string>
     <string name="block_connections_body_2">Per procedere, vai su Impostazioni - Rete e Internet - Avanzate - VPN - tocca l\'icona Impostazioni - attiva \"VPN sempre attiva\".</string>
     <string name="block_connections_button">Vai a Impostazioni di rete e Internet</string>

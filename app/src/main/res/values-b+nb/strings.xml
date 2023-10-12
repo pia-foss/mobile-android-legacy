@@ -525,10 +525,8 @@
     <string name="settings_protocol">Protokollvalg</string>
     <string name="protocol_ovpn">OpenVPN</string>
     <string name="protocol_wireguard">WireGuard</string>
-    <string name="wg_per_app_warning">Bytte til WireGuard deaktiverer funksjonen per appinnstillinger</string>
-    <string name="wg_protocol_warning">Følgende funksjoner er ikke tilgjengelige på WireGuard:</string>
-    <string name="wg_connecting">Kobler til</string>
-    <string name="wg_connected">VPN-tilkoblet</string>
+    <string name="connecting">Kobler til</string>
+    <string name="connected">VPN-tilkoblet</string>
     <string name="block_connections_body_1">PIA-funksjonen «Blokker tilkoblinger uten VPN» krever at du slår PÅ Alltid VPN PÅ i Android-innstillingene.</string>
     <string name="block_connections_body_2">For å fortsette, gå til Innstillinger – Nettverk og Internett – Avansert – VPN – trykk på Innstillinger-ikonet – aktiver Alltid VPN PÅ.</string>
     <string name="block_connections_button">Gå til Nettverks- og Internettinnstillinger</string>

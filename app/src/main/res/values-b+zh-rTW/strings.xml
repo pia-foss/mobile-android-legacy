@@ -527,10 +527,8 @@
     <string name="settings_protocol">選擇通訊協定</string>
     <string name="protocol_ovpn">OpenVPN</string>
     <string name="protocol_wireguard">WireGuard</string>
-    <string name="wg_per_app_warning">切換至 WireGuard 將停用按應用程式而定的設定功能</string>
-    <string name="wg_protocol_warning">以下功能不適用於 WireGuard：</string>
-    <string name="wg_connecting">連線中</string>
-    <string name="wg_connected">已連接 VPN</string>
+    <string name="connecting">連線中</string>
+    <string name="connected">已連接 VPN</string>
     <string name="block_connections_body_1">PIA「封鎖未使用 VPN 的連線」功能需要在 Android 設定中啟用「總是啟用 VPN」。</string>
     <string name="block_connections_body_2">如要繼續，請前往「設定」-「網路和網際網路」-「進階」-「VPN」- 點擊「設定」圖示 - 啟動「總是啟用 VPN」。</string>
     <string name="block_connections_button">前往「網路和網際網路」設定</string>
