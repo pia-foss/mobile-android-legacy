@@ -6,11 +6,8 @@ import com.privateinternetaccess.android.helpers.ActionHelpers.goToSettings
 import com.privateinternetaccess.android.helpers.ActionHelpers.successfulLogout
 import com.privateinternetaccess.android.helpers.ActionHelpers.returnOnMainScreen
 import com.privateinternetaccess.android.screens.objects.ProtocolPageObjects
-import com.privateinternetaccess.android.screens.steps.DedicateIPStepObjects
-import com.privateinternetaccess.android.screens.steps.MainScreenStepObjects
-import com.privateinternetaccess.android.screens.steps.ProtocolStepObjects
-import com.privateinternetaccess.android.screens.steps.SideMenuStepObjects
 import com.privateinternetaccess.android.screens.objects.DedicateIPPageObjects
+import com.privateinternetaccess.android.screens.steps.*
 
 import org.junit.Test
 
