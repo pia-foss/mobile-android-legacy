@@ -140,7 +140,7 @@ public class ConnectionSlider extends FrameLayout implements NetworkConnectionLi
                 EventBus.getDefault().getStickyEvent(VpnStateEvent.class).getLevel();
         switch (status) {
             case LEVEL_CONNECTED:
-                background.setContentDescription(getContext().getString(R.string.wg_connected));
+                background.setContentDescription(getContext().getString(R.string.connected));
                 background.setImageDrawable(
                         getResources().getDrawable(R.drawable.ic_connection_on)
                 );
@@ -164,7 +164,7 @@ public class ConnectionSlider extends FrameLayout implements NetworkConnectionLi
             case LEVEL_START:
             case LEVEL_CONNECTING_NO_SERVER_REPLY_YET:
             case LEVEL_CONNECTING_SERVER_REPLIED:
-                background.setContentDescription(getContext().getString(R.string.wg_connecting));
+                background.setContentDescription(getContext().getString(R.string.connecting));
                 background.setImageDrawable(
                         getResources().getDrawable(R.drawable.ic_connection_connecting)
                 );

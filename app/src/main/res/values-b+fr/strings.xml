@@ -525,10 +525,8 @@
     <string name="settings_protocol">Sélection du protocole</string>
     <string name="protocol_ovpn">OpenVPN</string>
     <string name="protocol_wireguard">WireGuard</string>
-    <string name="wg_per_app_warning">Passer à WireGuard déconnectera la fonctionnalité Paramètres par application</string>
-    <string name="wg_protocol_warning">Les fonctionnalités suivantes ne sont pas disponibles sur WireGuard :</string>
-    <string name="wg_connecting">Connexion</string>
-    <string name="wg_connected">Connecté au VPN</string>
+    <string name="connecting">Connexion</string>
+    <string name="connected">Connecté au VPN</string>
     <string name="block_connections_body_1">La fonctionnalité PIA « Bloquer les connexions sans VPN » requiert l\'ACTIVATION de « VPN toujours ACTIVÉ » dans les paramètres Android.</string>
     <string name="block_connections_body_2">Pour continuer, veuillez accéder à Paramètres - Réseau et Internet - Avancé - VPN - touchez l\'icône Paramètres - Activez « VPN Toujours activé ».</string>
     <string name="block_connections_button">Accéder aux paramètres réseau et Internet</string>

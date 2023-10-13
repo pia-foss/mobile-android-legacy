@@ -525,10 +525,8 @@
     <string name="settings_protocol">Wybór protokołu</string>
     <string name="protocol_ovpn">OpenVPN</string>
     <string name="protocol_wireguard">WireGuard</string>
-    <string name="wg_per_app_warning">Przełączenie na WireGuard wyłączy funkcję Ustawienia aplikacji</string>
-    <string name="wg_protocol_warning">Następujące funkcje nie są dostępne w WireGuard:</string>
-    <string name="wg_connecting">Łączenie</string>
-    <string name="wg_connected">Połączono z VPN</string>
+    <string name="connecting">Łączenie</string>
+    <string name="connected">Połączono z VPN</string>
     <string name="block_connections_body_1">Funkcja PIA „Blokuj połączenia bez VPN” wymaga włączenia Zawsze przez VPN w ustawieniach Androida.</string>
     <string name="block_connections_body_2">Aby kontynuować, przejdź do Ustawienia - Sieć i Internet - Zaawansowane - VPN - dotknij ikony Ustawienia - aktywuj Zawsze przez VPN.</string>
     <string name="block_connections_button">Przejdź do ustawień sieci i internetu</string>

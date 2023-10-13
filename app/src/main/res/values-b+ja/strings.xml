@@ -525,10 +525,8 @@
     <string name="settings_protocol">プロトコル選択</string>
     <string name="protocol_ovpn">OpenVPN</string>
     <string name="protocol_wireguard">WireGuard</string>
-    <string name="wg_per_app_warning">WireGuardに切り替えると、アプリ別の設定機能がオフになります。</string>
-    <string name="wg_protocol_warning">WireGuardでは次の機能をご利用いただけます。</string>
-    <string name="wg_connecting">接続中</string>
-    <string name="wg_connected">VPN接続済み</string>
+    <string name="connecting">接続中</string>
+    <string name="connected">VPN接続済み</string>
     <string name="block_connections_body_1">PIAの「VPNなしで接続をブロック」機能を利用するには、Androidの「設定」で「VPNを常にオン」をオンにする必要があります。</string>
     <string name="block_connections_body_2">続行するには、「設定」&gt;「ネットワークとインターネット」&gt;「高度な設定」&gt;「VPN」の順に進み、「設定」アイコンをタップして「VPNを常にオン」を有効にします。</string>
     <string name="block_connections_button">ネットワークとインターネット設定に移動</string>

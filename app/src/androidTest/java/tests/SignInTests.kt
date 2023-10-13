@@ -7,6 +7,7 @@ import com.privateinternetaccess.android.core.DataFactory
 import com.privateinternetaccess.android.screens.objects.MainScreenPageObjects
 import com.privateinternetaccess.android.screens.objects.SignInPageObjects
 import com.privateinternetaccess.android.screens.steps.SignInStepObjects
+import com.privateinternetaccess.android.helpers.ActionHelpers.successfulLogin
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.junit.runners.Parameterized

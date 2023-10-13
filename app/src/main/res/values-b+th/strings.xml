@@ -527,10 +527,8 @@
     <string name="settings_protocol">การเลือกโปรโตคอล</string>
     <string name="protocol_ovpn">OpenVPN</string>
     <string name="protocol_wireguard">WireGuard</string>
-    <string name="wg_per_app_warning">การเปลี่ยนเป็น WireGuard จะปิดใช้งานคุณสมบัติการตั้งค่าแอปรายตัว</string>
-    <string name="wg_protocol_warning">คุณสมบัติต่อไปนี้ไม่สามารถใช้ได้ใน WireGuard:</string>
-    <string name="wg_connecting">กำลังเชื่อมต่อ</string>
-    <string name="wg_connected">เชื่อมต่อ VPN แล้ว</string>
+    <string name="connecting">กำลังเชื่อมต่อ</string>
+    <string name="connected">เชื่อมต่อ VPN แล้ว</string>
     <string name="block_connections_body_1">คุณสมบัติ \"บล็อกการเชื่อมต่อที่ไม่มี VPN\" ของ PIA ต้องให้เปิด \"เปิด VPN เสมอ\" ในการตั้งค่า Android</string>
     <string name="block_connections_body_2">ในการดำเนินการต่อ ให้ไปยัง การตั้งค่า - เครือข่ายและอินเทอร์เน็ต - ขั้นสูง - VPN - แตะที่ไอคอนการตั้งค่า - เปิด \"เปิด VPN เสมอ\"</string>
     <string name="block_connections_button">ไปยังการตั้งค่าเครือข่ายและอินเทอร์เน็ต</string>

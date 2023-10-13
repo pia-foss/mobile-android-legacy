@@ -20,7 +20,7 @@ class SignOutTests : BaseUiAutomatorClass() {
     private val dedicateIPStepObjects = DedicateIPStepObjects()
 
     @Test
-    fun validatingDefaultProtocolSettingsAfterLogout() {
+    fun validateDefaultProtocolSettingsAtLogout() {
         successfulLogin()
         goToSettings(protocolPageObjects.protocolSettings, protocolPageObjects.protocolSelection)
         protocolStepObjects.selectOpenVPN()
@@ -32,7 +32,7 @@ class SignOutTests : BaseUiAutomatorClass() {
     }
 
     @Test
-    fun validateDIPSettingsAfterLogout() {
+    fun validateDIPSettingsAtLogout() {
         successfulLogin()
         mainScreenStepObjects.clickOnHamburgerMenu()
         sideMenuStepObjects.clickOnDedicatedIP()
