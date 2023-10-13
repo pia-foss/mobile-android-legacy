@@ -1,6 +1,5 @@
 package com.privateinternetaccess.android.screens.objects
 
-import androidx.test.uiautomator.UiSelector
 import com.privateinternetaccess.android.helpers.LocatorHelper
 
 class ProtocolPageObjects {

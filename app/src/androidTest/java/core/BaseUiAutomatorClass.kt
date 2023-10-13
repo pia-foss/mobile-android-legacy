@@ -31,6 +31,6 @@ open class BaseUiAutomatorClass {
     }
 
     companion object {
-        const val defaultTimeOut = 5000L
+        const val defaultTimeOut = 7000L
     }
 }

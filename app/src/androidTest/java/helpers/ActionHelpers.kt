@@ -9,7 +9,6 @@ import com.privateinternetaccess.android.screens.steps.SignInStepObjects
 import com.privateinternetaccess.android.screens.steps.MainScreenStepObjects
 
 object ActionHelpers {
-
     fun clickIfExists(primaryUiObject : UiObject, secondaryUiObj: UiObject? = null) {
         if (primaryUiObject.exists()) {
             (secondaryUiObj ?: primaryUiObject).clickAndWaitForNewWindow(defaultTimeOut)
