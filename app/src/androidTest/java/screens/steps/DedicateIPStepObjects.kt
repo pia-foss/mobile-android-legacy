@@ -14,6 +14,7 @@ class DedicateIPStepObjects {
 
     fun activateButton() {
         dedicateIPPageObjects.activateButton.click()
+        dedicateIPPageObjects.activateButton.waitForExists(5000)
     }
 
 }
