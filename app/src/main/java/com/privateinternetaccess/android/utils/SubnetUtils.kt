@@ -43,7 +43,7 @@ object SubnetUtils {
 
     private data class IpSubnet(val base: IpAddress, val mask: Int) {
         fun contains(address: IpAddress): Boolean {
-            val maskBits = (1 shl mask) - 1 shl (32 - mask)
+            val maskBits = ((1 shl mask) - 1) shl (32 - mask)
             return (base.intValue and maskBits) == (address.intValue and maskBits)
         }
 
