@@ -5,8 +5,8 @@ import com.privateinternetaccess.android.helpers.ActionHelpers.successfulLogin
 import com.privateinternetaccess.android.helpers.ActionHelpers.goToSettings
 import com.privateinternetaccess.android.helpers.ActionHelpers.successfulLogout
 import com.privateinternetaccess.android.helpers.ActionHelpers.returnOnMainScreen
-import com.privateinternetaccess.android.screens.objects.ProtocolPageObjects
-import com.privateinternetaccess.android.screens.objects.DedicateIPPageObjects
+import com.privateinternetaccess.android.helpers.ActionHelpers.goToSideMenu
+import com.privateinternetaccess.android.screens.objects.*
 import com.privateinternetaccess.android.screens.steps.*
 
 import org.junit.Test
@@ -15,8 +15,7 @@ class SignOutTests : BaseUiAutomatorClass() {
 
     private val protocolPageObjects = ProtocolPageObjects()
     private val protocolStepObjects = ProtocolStepObjects()
-    private val mainScreenStepObjects = MainScreenStepObjects()
-    private val sideMenuStepObjects = SideMenuStepObjects()
+    private val sideMenuPageObjects = SideMenuPageObjects()
     private val dedicateIPStepObjects = DedicateIPStepObjects()
 
     @Test
@@ -34,10 +33,23 @@ class SignOutTests : BaseUiAutomatorClass() {
     @Test
     fun validateDIPSettingsAtLogout() {
         successfulLogin()
-        mainScreenStepObjects.clickOnHamburgerMenu()
-        sideMenuStepObjects.clickOnDedicatedIP()
-        dedicateIPStepObjects.enterDedicateIP()
-        dedicateIPStepObjects.activateButton()
-        assert(DedicateIPPageObjects().serverName.exists())
+        goToSideMenu(sideMenuPageObjects.dedicateIP)
+        dedicateIPStepObjects.enterDedicatedIP()
+        returnOnMainScreen()
+        successfulLogout()
+        successfulLogin()
+        goToSideMenu(sideMenuPageObjects.dedicateIP)
+
+        val conditions = listOf(
+            { DedicateIPPageObjects().dedicateIPField.text.equals("Paste your token here") },
+            { !DedicateIPPageObjects().serverFlag.exists() },
+            { !DedicateIPPageObjects().serverName.exists() },
+            { !DedicateIPPageObjects().serverIPAddress.exists() }
+        )
+
+        for (condition in conditions) {
+            assert(condition())
+        }
+
     }
 }

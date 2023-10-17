@@ -46,4 +46,10 @@ object ActionHelpers {
             GeneralSettingslStepObjects().clickOnBackArrow()
         }
     }
+
+    fun goToSideMenu(sideMenuOption : UiObject) {
+        MainScreenStepObjects().clickOnHamburgerMenu()
+        sideMenuOption.click()
+    }
+
 }
