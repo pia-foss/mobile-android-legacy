@@ -16,7 +16,7 @@ class SignOutTests : BaseUiAutomatorClass() {
     private val protocolPageObjects = ProtocolPageObjects()
     private val protocolStepObjects = ProtocolStepObjects()
     private val sideMenuPageObjects = SideMenuPageObjects()
-    private val dedicateIPStepObjects = DedicateIPStepObjects()
+    private val dedicatedIPStepObjects = DedicatedIPStepObjects()
 
     @Test
     fun validateDefaultProtocolSettingsAtLogout() {
@@ -34,17 +34,17 @@ class SignOutTests : BaseUiAutomatorClass() {
     fun validateDIPSettingsAtLogout() {
         successfulLogin()
         goToSideMenu(sideMenuPageObjects.dedicateIP)
-        dedicateIPStepObjects.enterDedicatedIP()
+        dedicatedIPStepObjects.enterDedicatedIP()
         returnOnMainScreen()
         successfulLogout()
         successfulLogin()
         goToSideMenu(sideMenuPageObjects.dedicateIP)
 
         val conditions = listOf(
-            { DedicateIPPageObjects().dedicateIPField.text.equals("Paste your token here") },
-            { !DedicateIPPageObjects().serverFlag.exists() },
-            { !DedicateIPPageObjects().serverName.exists() },
-            { !DedicateIPPageObjects().serverIPAddress.exists() }
+            { DedicatedIPPageObjects().dedicatedIPField.text.equals("Paste your token here") },
+            { !DedicatedIPPageObjects().serverFlag.exists() },
+            { !DedicatedIPPageObjects().serverName.exists() },
+            { !DedicatedIPPageObjects().serverIPAddress.exists() }
         )
 
         for (condition in conditions) {
