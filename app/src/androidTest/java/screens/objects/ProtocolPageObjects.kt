@@ -8,5 +8,6 @@ class ProtocolPageObjects {
     val protocolSelection = LocatorHelper.findByResourceId("com.privateinternetaccess.android:id/protocolSetting")
     val protocolSummarySetting = LocatorHelper.findByResourceId("com.privateinternetaccess.android:id/protocolSummarySetting")
     val openVPN = LocatorHelper.findByText("OpenVPN")
+    val wireGuard = LocatorHelper.findByText("WireGuard")
     val save = LocatorHelper.findByResourceId("android:id/button1")
 }
