@@ -8,7 +8,7 @@ import com.privateinternetaccess.android.helpers.ActionHelpers.returnOnMainScree
 import com.privateinternetaccess.android.helpers.ActionHelpers.goToSideMenu
 import com.privateinternetaccess.android.screens.objects.*
 import com.privateinternetaccess.android.screens.steps.*
-
+import com.privateinternetaccess.android.BuildConfig
 import org.junit.Test
 
 class SignOutTests : BaseUiAutomatorClass() {
@@ -32,12 +32,12 @@ class SignOutTests : BaseUiAutomatorClass() {
     @Test
     fun validateDIPSettingsAtLogout() {
         successfulLogin()
-        goToSideMenu(sideMenuPageObjects.dedicateIP)
-        dedicatedIPStepObjects.enterDedicatedIP()
+        goToSideMenu(sideMenuPageObjects.dedicatedIP)
+        dedicatedIPStepObjects.enterDedicatedIPToken(BuildConfig.PIA_VALID_DIP_TOKEN)
         returnOnMainScreen()
         successfulLogout()
         successfulLogin()
-        goToSideMenu(sideMenuPageObjects.dedicateIP)
+        goToSideMenu(sideMenuPageObjects.dedicatedIP)
 
         val conditions = listOf(
             { DedicatedIPPageObjects().dedicatedIPField.text.equals("Paste your token here") },
