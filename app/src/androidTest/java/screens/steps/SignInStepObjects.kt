@@ -27,7 +27,7 @@ class SignInStepObjects {
     }
 
     fun clickOnLoginButton() {
-        signInPageObjects.loginButton.clickAndWaitForNewWindow(defaultTimeOut)
+        clickIfExists(signInPageObjects.loginButton)
     }
 
     fun allowVpnProfileCreation() {

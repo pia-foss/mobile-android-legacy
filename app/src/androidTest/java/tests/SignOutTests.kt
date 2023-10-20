@@ -27,9 +27,8 @@ class SignOutTests : BaseUiAutomatorClass() {
         successfulLogout()
         successfulLogin()
         goToSettings(protocolPageObjects.protocolSettings)
-        assert(protocolPageObjects.wireGuard.exists())
+        assert(ProtocolPageObjects().protocolSummarySetting.text.equals("WireGuard"))
     }
-
     @Test
     fun validateDIPSettingsAtLogout() {
         successfulLogin()

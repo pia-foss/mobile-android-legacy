@@ -76,7 +76,7 @@ Issues and Pull Requests should use these templates: [ISSUE](/.github/ISSUE_TEMP
 ### Testing
 
 In order to run the instrumented test we need to set environment variables containing valid credentials.
-They need to have the format `PIA_VALID_USERNAME` and `PIA_VALID_PASSWORD`.
+They need to have the format `PIA_VALID_USERNAME`, `PIA_VALID_PASSWORD` and `PIA_VALID_DIP_TOKEN`.
 
 ### License
 
