@@ -73,6 +73,11 @@ For more details please see [CONTRIBUTING](/CONTRIBUTING.md).
 
 Issues and Pull Requests should use these templates: [ISSUE](/.github/ISSUE_TEMPLATE.md) and [PULL REQUEST](/.github/PULL_REQUEST_TEMPLATE.md).
 
+### Testing
+
+In order to run the instrumented test we need to set environment variables containing valid credentials.
+They need to have the format `PIA_VALID_USERNAME`, `PIA_VALID_PASSWORD` and `PIA_VALID_DIP_TOKEN`.
+
 ### License
 
 This project is licensed under the [MIT (Expat) license](https://choosealicense.com/licenses/mit/), which can be found [here](/LICENSE).
