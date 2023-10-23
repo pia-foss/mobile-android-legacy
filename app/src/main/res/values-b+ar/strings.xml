@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <!--
+<!--
   ~  Copyright (c) 2020 Private Internet Access, Inc.
   ~
   ~  This file is part of the Private Internet Access Android Client.
@@ -385,7 +385,7 @@
     <string name="settings_orbot_udp_problem_message">TCP اجباري كي يعمل Orbot. هل ترغب في تمكين TCP؟</string>
     <string name="settings_orbot_udp_problem_title">متطلبات البروكسي</string>
     <!-- %d is a digit for ping latency(ie, 0-10000). ms is milliseconds. -->
-    <string name="ping_string">%d ms</string>
+    <string name="ping_string">%d مل ث</string>
     <string name="status_server_ping">جارٍ البحث عن أفضل خادم</string>
     <!-- &lt;emph> and &lt;/emph> should not be touched. These are how we know what to color in this string. -->
     <string name="trial_account">هل لديكة بطاقة هدية أو بطاقة تجربة؟ &lt;emph&gt;استخدمها الآن&lt;/emph&gt;</string>
@@ -422,7 +422,7 @@
     <string name="favorites_title">إدارة التفضيلات</string>
     <string name="favorites_panel_title">التفضيلات</string>
     <string name="logout_title">تسجيل الخروج</string>
-    <string name="pia_access">PIA Access</string>
+    <string name="pia_access">إتاحة PIA</string>
     <string name="preference_app_update_title">اتصال عند تحديث التطبيق</string>
     <string name="preference_app_update_message">بعد تحديث التطبيق، سيقوم التطبيق بالاتصال تلقائيًا للحفاظ على حمايتك.</string>
     <string name="server_search">بحث</string>
@@ -431,6 +431,8 @@
     <string name="pia_dns">PIA DNS</string>
     <string name="edit_custom_dns">تحرير</string>
     <string name="custom_dns">عنوان DNS مخصص</string>
+    <string name="system_resolver_dns">محلل DNS النظام</string>
+    <string name="system_resolver_dns_body">نحتاج السماح حركة مرور البيانات عبر الشبكة المحلية للوصول إلى محلل DNS النظام.</string>
     <string name="custom_dns_warning_body">قد يؤدي استخدام عناوين DNS غير المزودة عن طريق PIA إلى كشف حركة مرور DNS بأجهزتك لأطراف ثالثة وتهديد خصوصيتك.</string>
     <string name="custom_dns_warning_title">@string/custom_dns</string>
     <string name="custom_primary_dns">عنوان DNS أساسي</string>
@@ -615,10 +617,13 @@
     <string name="inapp_pref_title">إظهار رسائل اتصالات الخدمة</string>
     <string name="settings_updated">تم تحديث الإعدادات</string>
     <string name="hide_payment">نظرًا لوجود مشكلة فنية، تم تعطيل عمليات الشراء عبر Google Play حاليًا. نحن نعمل حاليًا على حل المشكلة.\n\nإذا كان لديك بالفعل حساب به اشتراك، يمكنك تسجيل الدخول بالضغط على زر تسجيل الدخول.</string>
+    <string name="hide_payment_amazon">نظرًا لوجود مشكلة فنية، تم تعطيل عمليات الشراء عبر Amazon حاليًا. نحن نعمل حاليًا على حل المشكلة.\n\nإذا كان لديك بالفعل حساب له اشتراك، يمكنك تسجيل الدخول بالضغط على زر تسجيل الدخول.</string>
     <string name="settings_block_connections_title">تتطلب ميزة \"مفتاح إنهاء VPN\" من PIA تشغيل VPN الدائم في إعدادات Android</string>
     <string name="settings_block_connections_description">للمتابعة، انتقل إلى الإعدادات - الشبكة &amp; والإنترنت - متقدم - VPN - اضغط على أيقونة الإعدادات - <b>قم بتنشيط VPN قيد التشغيل دائمًا</b>.</string>
     <string name="settings_block_connections_button">انتقل إلى إعدادات الشبكة والإنترنت</string>
     <string name="settings_block_connections_error">تعذر الانتقال إلى إعدادات الشبكة</string>
+    <string name="survey_message">Want to help make PIA better? Let us know how we can improve!</string>
+    <string name="survey_action">Take the Survey</string>
     <!-- KPI -->
     <string name="kpi_connection_attempts_onboarding_title">يرجى مساعدتنا في تحسين خدماتنا</string>
     <string name="kpi_connection_attempts_onboarding_body">لمساعدتنا في ضمان أداء اتصال خدمتنا، يمكنك مشاركة إحصائيات اتصالك معنا دون الكشف عن هويتك. لا تتضمن هذه التقارير أي معلومات محددة للشخصية.</string>
@@ -628,17 +633,18 @@
     <string name="kpi_connection_attempts_no_events">لا توجد أحداث مؤخرًا</string>
     <string name="kpi_connection_attempts_stats">إحصائيات الاتصال</string>
     <string name="kpi_connection_attempts_more_information">يساعدنا هذا الحد الأدنى من المعلومات في تحديد مشكلات الاتصال المحتملة وإصلاحها. لاحظ أن مشاركة هذه المعلومات تتطلب الموافقة والتفعيل اليدوي حيث أنها متوقفة بشكل افتراضي. سنجمع معلومات حول الأحداث التالية:\n\n
-• محاولة الاتصال\n
-• الاتصال الملغى\n
-• الاتصال المؤسس\n\n
-لجميع هذه الأحداث، سنجمع المعلومات التالية:\n\n
-• المنصة\n
-• إصدار التطبيق\n
-• نوع التطبيق (إصدار تجريبي أم لا)\n
-• البروتوكول المستخدم\n
-• مصدر الاتصال (يدوي أو مؤتمت)\n\n
-ستحتوي جميع الأحداث على معرّف فريد يتم إنشاؤه عشوائيًا. هذا المعرّف غير مرتبط بحساب المستخدم الخاص بك. يتم إعادة إنشاء هذا المعرف الفريد يوميًا لأغراض الخصوصية.\n\n
-ستكون دائمًا أنت المتحكم. يمكنك معرفة البيانات التي جمعناها من الإعدادات، ويمكنك إيقافها في أي وقت.</string>
+            • محاولة الاتصال\n
+            • الاتصال الملغى\n
+            • الاتصال المؤسس\n
+            • زمن الاتصال\n\n
+        لجميع هذه الأحداث، سنجمع المعلومات التالية:\n\n
+            • المنصة\n
+            • إصدار التطبيق\n
+            • نوع التطبيق (إصدار تجريبي أم لا)\n
+            • البروتوكول المستخدم\n
+            • مصدر الاتصال (يدوي أو مؤتمت)\n\n
+        ستحتوي جميع الأحداث على معرّف فريد يتم إنشاؤه عشوائيًا. هذا المعرّف غير مرتبط بحساب المستخدم الخاص بك. يتم إعادة إنشاء هذا المعرف الفريد يوميًا لأغراض الخصوصية.\n\n
+        ستكون دائمًا أنت المتحكم. يمكنك معرفة البيانات التي جمعناها من الإعدادات، ويمكنك إيقافها في أي وقت.</string>
     <!-- Renewal -->
     <string name="renewal_title">مرحبًا بعودتك!</string>
     <string name="renewal_description">لاستخدام Private Internet Access، تحتاج إلى تجديد اشتراكك.</string>
@@ -655,6 +661,6 @@
     <string name="always_oreo_message">للتأكد من عدم اتصالك مطلقًا بدون VPN، نقترح تفعيل خاصية حظر الاتصال بدون VPN من إعدادات Android. يمكن تفعيل هذه الخاصية بعد تشغيل خاصية التشغيل الدائم لـ VPN في PIA. سيضمن ذلك أن يقوم Android بأفضل ما في وسعه لتشغيل PIA VPN في جميع الأوقات عند الاتصال وحظر الاتصالات دون VPN - ويعرف أيضًا باسم خدمة اغلاق الإنترنت في VPN. تم إيقاف إعداد خدمة اغلاق الإنترنت (Killswitch) في تطبيق PIA VPN لصالح إعداد \"حظر الاتصال بدون VPN\" على مستوى النظام في إعدادات Android منذ أن تم تضمين هذه الميزة الآن في Android 8.0+. إذا حدث أي مشكلة، فسيتم إعلامك وسيحظر Android جميع اتصالات الإنترنت التي لا تمر عبر VPN الموجود على جهازك.</string>
     <string-array name="dns_names">
         <item>PIA DNS</item>
-        <item>Custom DNS</item>
+        <item>DNS مخصص</item>
     </string-array>
 </resources>

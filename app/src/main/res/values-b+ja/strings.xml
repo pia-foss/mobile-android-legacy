@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <!--
+<!--
   ~  Copyright (c) 2020 Private Internet Access, Inc.
   ~
   ~  This file is part of the Private Internet Access Android Client.
@@ -431,6 +431,8 @@
     <string name="pia_dns">PIA DNS</string>
     <string name="edit_custom_dns">編集</string>
     <string name="custom_dns">カスタムDNS</string>
+    <string name="system_resolver_dns">システムのDNSリゾルバ</string>
+    <string name="system_resolver_dns_body">システムのDNSリゾルバにアクセスするには、LANトラフィックを許可する必要があります。</string>
     <string name="custom_dns_warning_body">非PIA DNSを使用すると、DNSトラフィックがサードパーティーに暴露され、プライバシーが損なわれる場合があります。</string>
     <string name="custom_dns_warning_title">@string/custom_dns</string>
     <string name="custom_primary_dns">プライマリDNS</string>
@@ -615,10 +617,13 @@
     <string name="inapp_pref_title">サービス通信メッセージを表示</string>
     <string name="settings_updated">設定が更新されました</string>
     <string name="hide_payment">技術的な問題により、Google Play経由での購入が現在無効になっています。現在当社はこの状況を解決するために取り組んでいます。\n\nサブスクリプション登録済みのアカウントをすでにお持ちの場合は、ログインボタンを押すとログインできます。</string>
+    <string name="hide_payment_amazon">現在、技術的な問題により、Amazonを通じた購入が無効になっています。弊社は、この状況の解決に取り組んでいます。\n\nご契約とアカウントをすでにお持ちの場合は、[ログイン] ボタンを押すとログインできます。</string>
     <string name="settings_block_connections_title">PIAの「VPNキルスイッチ」機能を利用するには、Androidの「設定」で「VPNを常にオン」をオンにする必要があります。</string>
     <string name="settings_block_connections_description">続行するには、「設定」&gt;「ネットワークとインターネット」&gt;「高度な設定」&gt;「VPN」の順に進み、「設定」アイコンをタップして<b>「VPNを常にオン」を有効にします。</b></string>
     <string name="settings_block_connections_button">ネットワークとインターネット設定に移動</string>
     <string name="settings_block_connections_error">ネットワーク設定に移動できません</string>
+    <string name="survey_message">Want to help make PIA better? Let us know how we can improve!</string>
+    <string name="survey_action">Take the Survey</string>
     <!-- KPI -->
     <string name="kpi_connection_attempts_onboarding_title">弊社のサービス改善にご協力ください</string>
     <string name="kpi_connection_attempts_onboarding_body">弊社のサービスの接続パフォーマンス確保にご協力いただくには、接続データを匿名で弊社と共有してください。これらのレポートには、個人を特定できる情報は含まれません。</string>
@@ -628,17 +633,18 @@
     <string name="kpi_connection_attempts_no_events">最近のイベントはありません</string>
     <string name="kpi_connection_attempts_stats">接続状態</string>
     <string name="kpi_connection_attempts_more_information">この最小限の情報は、潜在的な接続の問題を特定して修正するのに役立ちます。この情報を共有するには、同意と手動による有効化が必要であることに注意してください（この設定はデフォルトでオフになっています）。弊社は次のイベントに関する情報を収集します:\n\n
-• 接続の試み\n
-• キャンセルされた接続\n
-• 確立された接続\n\n
-これらすべてののイベントについて、弊社は次の情報を収集します:\n\n
-• プラットフォーム\n
-• アプリのバージョン\n
-• アプリの種類（プレリリースか否か）\n
-• 使用されたプロトコル\n
-• 接続ソース（手動または自動を使用）\n\n
-すべてのイベントには、ランダムに生成される一意のIDが含まれます。このIDはユーザーアカウントに関連付けられているものではありません。この一意のIDは、プライバシー保護のために毎日再生成されます。\n\n
-主導権は常にお客様にあります。収集したデータは、設定から確認することができ、いつでもオフにすることができます。</string>
+            • 接続の試み\n
+            • キャンセルされた接続\n
+            • 確立された接続\n
+            • 接続時間\n\n
+        これらすべてののイベントについて、弊社は次の情報を収集します:\n\n
+            • プラットフォーム\n
+            • アプリのバージョン\n
+            • アプリの種類（プレリリースか否か）\n
+            • 使用されたプロトコル\n
+            • 接続ソース（手動または自動を使用）\n\n
+        すべてのイベントには、ランダムに生成される一意のIDが含まれます。このIDはユーザーアカウントに関連付けられているものではありません。この一意のIDは、プライバシー保護のために毎日再生成されます。\n\n
+        主導権は常にお客様にあります。収集したデータは、設定から確認することができ、いつでもオフにすることができます。</string>
     <!-- Renewal -->
     <string name="renewal_title">おかえりなさい！</string>
     <string name="renewal_description">Private Internet Accessのご利用を継続するには、サブスクリプションを更新する必要があります。</string>

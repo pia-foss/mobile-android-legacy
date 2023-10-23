@@ -27,6 +27,7 @@ import com.privateinternetaccess.android.R;
 import com.privateinternetaccess.android.pia.PIAFactory;
 import com.privateinternetaccess.android.pia.handlers.PIAServerHandler;
 import com.privateinternetaccess.android.pia.handlers.PiaPrefHandler;
+import com.privateinternetaccess.android.pia.providers.DnsProvider;
 import com.privateinternetaccess.android.pia.providers.VPNFallbackEndpointProvider;
 import com.privateinternetaccess.android.pia.utils.DLog;
 import com.privateinternetaccess.android.pia.utils.Prefs;
@@ -47,8 +48,7 @@ import de.blinkt.openvpn.VpnProfile;
 import de.blinkt.openvpn.core.ConfigParser;
 import de.blinkt.openvpn.core.Connection;
 import de.blinkt.openvpn.core.ProfileManager;
-
-import static com.privateinternetaccess.android.pia.api.PiaApi.GEN4_MACE_ENABLED_DNS;
+import kotlin.Pair;
 
 
 public class PiaOvpnConfig {
@@ -104,20 +104,12 @@ public class PiaOvpnConfig {
 
         vp.mDNS1 = "";
         vp.mDNS2 = "";
+        vp.mOverrideDNS = true;
 
-        String dns = PiaPrefHandler.getPrimaryDns(context);
-        if (PiaPrefHandler.isMaceEnabled(context)) {
-            dns = GEN4_MACE_ENABLED_DNS;
-        }
-        DLog.d("PiaOvpnConfig", "Custom DNS: " + dns);
-        if(!TextUtils.isEmpty(dns)){
-            vp.mDNS1 = dns;
-            vp.mOverrideDNS = true;
-        }
-
-        String secondaryDns = PiaPrefHandler.getSecondaryDns(context);
-        if (!TextUtils.isEmpty(secondaryDns)) {
-            vp.mDNS2 = secondaryDns;
+        Pair<String, String> dnsServers = DnsProvider.INSTANCE.getTargetDns(context, null);
+        vp.mDNS1 = dnsServers.getFirst();
+        if (!TextUtils.isEmpty(dnsServers.getSecond())) {
+            vp.mDNS2 = dnsServers.getSecond();
         }
 
         if (PiaPrefHandler.getOvpnSmallPacketSizeEnabled(context)) {

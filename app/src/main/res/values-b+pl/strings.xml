@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <!--
+<!--
   ~  Copyright (c) 2020 Private Internet Access, Inc.
   ~
   ~  This file is part of the Private Internet Access Android Client.
@@ -63,7 +63,7 @@
     <string name="requestingportfw">Żądanie przekierowanego portu</string>
     <string name="killswitch_button">Wyłącz</string>
     <string name="action_sign_in_short">Login</string>
-    <string name="login">LOGIN</string>
+    <string name="login">ZALOGUJ</string>
     <string name="logout">Wyloguj</string>
     <string name="accept">akceptuj</string>
     <string name="no_thanks">nie, dziękuję</string>
@@ -260,7 +260,7 @@
     <!-- Please add in what word is the color red as we color it in code.  -->
     <string name="per_app_warning">Aplikacje oznaczone na czerwono mają pewne funkcje, które mogą powodować problemy, a to może sprawić. że dojdzie do obejścia naszej usługi lub narażenia cię na niebezpieczeństwo.</string>
     <string name="purchasing_bottom">Masz już konto? &lt;emph&gt; Zaloguj się&lt;/emph&gt;</string>
-    <string name="ok">Ok</string>
+    <string name="ok">OK</string>
     <string name="killswitch_title">Aktywowano wyłącznik awaryjny</string>
     <string name="skip">POMIŃ</string>
     <string name="next">DALEJ</string>
@@ -431,6 +431,8 @@
     <string name="pia_dns">PIA DNS</string>
     <string name="edit_custom_dns">Edytuj</string>
     <string name="custom_dns">Niestandardowy DNS</string>
+    <string name="system_resolver_dns">Resolver DNS systemu</string>
+    <string name="system_resolver_dns_body">Aby uzyskać dostęp do resolvera DNS systemu, musimy zezwolić na ruch LAN.</string>
     <string name="custom_dns_warning_body">Korzystanie z DNS nienależącego do PIA może ujawnić twój ruch z DNS osobom trzecim i grozić naruszeniem twojej prywatności.</string>
     <string name="custom_dns_warning_title">@string/custom_dns</string>
     <string name="custom_primary_dns">Nadrzędny DNS</string>
@@ -473,7 +475,7 @@
     <string name="enter_email">Wpisz swój adres e-mail</string>
     <string name="you_are_purchasing">Kupujesz plan %1$s</string>
     <string name="continue_only">KONTYNUUJ</string>
-    <string name="plan_only">Plan</string>
+    <string name="plan_only">Subskrypcja</string>
     <string name="yearly_only">rocznie</string>
     <string name="monthly_only">miesięcznie</string>
     <string name="search_region">Szukaj regionu</string>
@@ -615,10 +617,13 @@
     <string name="inapp_pref_title">Pokaż serwisowe wiadomości komunikacyjne</string>
     <string name="settings_updated">Ustawienia zostały zaktualizowane</string>
     <string name="hide_payment">Z powodu problemu technicznego zakupy w Google Play są obecnie wyłączone. Pracujemy nad rozwiązaniem tej sytuacji.\n\nJeśli masz już konto z subskrypcją, możesz zalogować się, naciskając przycisk Zaloguj.</string>
+    <string name="hide_payment_amazon">Z powodu problemu technicznego zakupy w witrynie Amazon są obecnie wyłączone. Pracujemy nad rozwiązaniem tej sytuacji.\n\nJeśli masz już konto z subskrypcją, możesz zalogować się, naciskając przycisk Zaloguj.</string>
     <string name="settings_block_connections_title">Funkcja PIA „Wyłącznik awaryjny VPN” wymaga włączenia Zawsze przez VPN w ustawieniach Androida</string>
     <string name="settings_block_connections_description">Aby kontynuować, przejdź do Ustawienia – Sieć i Internet - Zaawansowane - VPN - dotknij ikony Ustawienia - <b>aktywuj Zawsze przez VPN.</b></string>
     <string name="settings_block_connections_button">Przejdź do ustawień sieci i internetu</string>
     <string name="settings_block_connections_error">Nie można przejść do ustawień sieci</string>
+    <string name="survey_message">Want to help make PIA better? Let us know how we can improve!</string>
+    <string name="survey_action">Take the Survey</string>
     <!-- KPI -->
     <string name="kpi_connection_attempts_onboarding_title">Prosimy o pomoc w ulepszeniu naszych usług</string>
     <string name="kpi_connection_attempts_onboarding_body">Aby pomóc nam zapewnić najlepszą wydajność naszych usług, możesz anonimowo udostępniać nam swoje statystyki połączeń. Raporty te nie zawierają żadnych informacji umożliwiających identyfikację osób.</string>
@@ -628,17 +633,18 @@
     <string name="kpi_connection_attempts_no_events">Brak ostatnich zdarzeń</string>
     <string name="kpi_connection_attempts_stats">Statystyki połączenia</string>
     <string name="kpi_connection_attempts_more_information">Te minimalne informacje pomagają nam zidentyfikować i naprawić potencjalne problemy z połączeniem. Pamiętaj, że udostępnianie tych informacji wymaga zgody i ręcznej aktywacji, ponieważ jest domyślnie wyłączone. Będziemy zbierać informacje o następujących zdarzeniach:\n\n
-• Próba połączenia\n
-• Połączenie anulowane\n
-• Połączenie ustanowione\n\n
-W przypadku wszystkich tych wydarzeń zbieramy następujące informacje:\n\n
-• Platforma\n
-• Wersja aplikacji\n
-• Typ aplikacji (w wersji wstępnej lub nie)\n
-• Używany protokół\n
-• Źródło połączenia (ręcznie lub za pomocą automatyzacji)\n\n
-Wszystkie zdarzenia będą zawierały unikalny identyfikator, który jest generowany losowo. Ten identyfikator nie jest powiązany z Twoim kontem użytkownika. Ten unikalny identyfikator jest codziennie ponownie generowany w celu zachowania prywatności.\n\n
-Zawsze będziesz mieć kontrolę. Możesz zobaczyć, jakie dane zebraliśmy w Ustawieniach, i możesz wyłączyć zbieranie danych w dowolnym momencie.</string>
+            • Próba połączenia\n
+            • Połączenie anulowane\n
+            • Połączenie ustanowione\n
+            • Czas na połączenie\n\n
+        W przypadku wszystkich tych wydarzeń zbieramy następujące informacje:\n\n
+            • Platforma\n
+            • Wersja aplikacji\n
+            • Typ aplikacji (w wersji wstępnej lub nie)\n
+            • Używany protokół\n
+            • Źródło połączenia (ręcznie lub za pomocą automatyzacji)\n\n
+        Wszystkie zdarzenia będą zawierały unikalny identyfikator, który jest generowany losowo. Ten identyfikator nie jest powiązany z Twoim kontem użytkownika. Ten unikalny identyfikator jest codziennie ponownie generowany w celu zachowania prywatności.\n\n
+        Zawsze będziesz mieć kontrolę. Możesz zobaczyć, jakie dane zebraliśmy w Ustawieniach, i możesz wyłączyć zbieranie danych w dowolnym momencie.</string>
     <!-- Renewal -->
     <string name="renewal_title">Witaj ponownie!</string>
     <string name="renewal_description">Aby korzystać z Private Internet Access, musisz odnowić swoją subskrypcję.</string>

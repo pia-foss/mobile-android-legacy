@@ -24,6 +24,6 @@
     <string name="updater_alert_dismiss">Herinner me er later aan</string>
     <string name="updater_notification_title">Bijwerken</string>
     <string name="updater_notification_body">Er is een nieuwe versie van Private Internet Access beschikbaar.</string>
-    <string name="pia_update_channel_title">PIA Updates</string>
+    <string name="pia_update_channel_title">PIA-updates</string>
     <string name="pia_update_channel_description">App-updateberichten</string>
 </resources>

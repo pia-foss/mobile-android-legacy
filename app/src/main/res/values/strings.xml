@@ -452,6 +452,8 @@
     <string name="pia_dns">PIA DNS</string>
     <string name="edit_custom_dns">Edit</string>
     <string name="custom_dns">Custom DNS</string>
+    <string name="system_resolver_dns">System DNS Resolver</string>
+    <string name="system_resolver_dns_body">To access the System\'s DNS Resolver, we need to Allow LAN Traffic.</string>
     <string name="custom_dns_warning_body">Using a non PIA DNS could expose your DNS traffic to third parties and compromise your privacy.</string>
     <string name="custom_dns_warning_title">@string/custom_dns</string>
     <string name="custom_primary_dns">Primary DNS</string>
