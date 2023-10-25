@@ -6,10 +6,6 @@ class SideMenuStepObjects {
 
     private val sideMenuPageObjects = SideMenuPageObjects()
 
-    fun clickOnDedicatedIP(){
-        sideMenuPageObjects.dedicateIP.click()
-    }
-
     fun clickOnSettings() {
         sideMenuPageObjects.settings.click()
     }
