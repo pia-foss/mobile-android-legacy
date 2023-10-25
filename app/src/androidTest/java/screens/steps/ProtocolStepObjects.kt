@@ -10,4 +10,9 @@ class ProtocolStepObjects {
         protocolPageObjects.openVPN.click()
         protocolPageObjects.save.click()
     }
+
+    fun selectWireGuard() {
+        protocolPageObjects.wireGuard.click()
+        protocolPageObjects.save.click()
+    }
 }
