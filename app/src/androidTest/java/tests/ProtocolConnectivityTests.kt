@@ -16,8 +16,12 @@ class ProtocolConnectivityTests : BaseUiAutomatorClass() {
     val protocolStepObjects = ProtocolStepObjects()
     val mainScreenStepObjects = MainScreenStepObjects()
 
+    /* OpenVPN protocol by default has small packets option disabled.
+    (i) First test scenario is to validate that OpenVPN can connect while small packet is disabled
+    (ii) Second test is to validate that OpenVPN can connect while small packet is enabled.
+     */
     @Test
-    fun openVPNConnectivity() {
+    fun openVPNConnectivityWhenSmallPacketDisabled() {
         successfulLogin()
         goToSettings(protocolPageObjects.protocolSettings, protocolPageObjects.protocolSelection)
         protocolStepObjects.selectOpenVPN()
@@ -27,7 +31,33 @@ class ProtocolConnectivityTests : BaseUiAutomatorClass() {
     }
 
     @Test
-    fun wireGuardConnectivity() {
+    fun openVPNConnectivityWhenSmallPacketEnabled() {
+        successfulLogin()
+        goToSettings(protocolPageObjects.protocolSettings, protocolPageObjects.protocolSelection)
+        protocolStepObjects.selectOpenVPN()
+        protocolPageObjects.smallPacketsSwitchSetting.click()
+        returnOnMainScreen()
+        mainScreenStepObjects.clickConnect()
+        assert(MainScreenPageObjects().connectButton.contentDescription.equals("VPN Connected"))
+    }
+
+    /* WireGuard protocol by default has small packets enabled.
+    (i) First test scenario is to validate that WireGuard can connect while small packet is disabled.
+    (ii) Second test is to validate that WireGuard can connect while small packet is enabled.
+     */
+    @Test
+    fun wireGuardConnectivityWhenSmallPacketDisabled() {
+        successfulLogin()
+        goToSettings(protocolPageObjects.protocolSettings, protocolPageObjects.protocolSelection)
+        protocolStepObjects.selectWireGuard()
+        protocolPageObjects.smallPacketsSwitchSetting.click()
+        returnOnMainScreen()
+        mainScreenStepObjects.clickConnect()
+        assert(MainScreenPageObjects().connectButton.contentDescription.equals("VPN Connected"))
+    }
+
+    @Test
+    fun wireGuardConnectivityWhenSmallPacketEnabled() {
         successfulLogin()
         goToSettings(protocolPageObjects.protocolSettings, protocolPageObjects.protocolSelection)
         protocolStepObjects.selectWireGuard()
