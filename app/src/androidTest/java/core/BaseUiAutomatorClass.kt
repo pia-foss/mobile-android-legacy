@@ -8,7 +8,7 @@ import org.junit.Before
 
 open class BaseUiAutomatorClass {
 
-    private lateinit var device: UiDevice
+    protected val device: UiDevice = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
     private lateinit var context: Context
 
     private fun startApp(packageName: String, activityName: String? = null) {
@@ -25,7 +25,6 @@ open class BaseUiAutomatorClass {
 
     @Before
     fun setUp() {
-        device = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
         device.pressHome()
         startApp("com.privateinternetaccess.android")
     }

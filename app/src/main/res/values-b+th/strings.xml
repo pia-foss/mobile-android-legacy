@@ -16,7 +16,6 @@
   ~  You should have received a copy of the GNU General Public License along with the Private
   ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
   -->
-
 <resources>
     <string name="launcher_name">PIA VPN</string>
     <string name="app_name">VPN โดย Private Internet Access</string>
@@ -56,7 +55,7 @@
     <string name="portforwarding_summary">จะอนุญาตการเชื่อมต่อเข้ามายังอุปกรณ์มือถือของคุณผ่านพอร์ตภายนอก</string>
     <!-- Please keep the %s, this is a formatted text. %s is an error message.  -->
     <string name="portfwderror">การส่งคำขอฟอร์เวิร์ดพอร์ตล้มเหลว: %s</string>
-    <string name="mace_toggle">Mace Ad Blocker</string>
+    <string name="mace_toggle">ตัวบล็อกโฆษณา Mace</string>
     <string name="killswitch">ปุ่มตัดการทำงาน VPN</string>
     <string name="killswitchsummary">ปิดการเชื่อมต่ออินเทอร์เน็ตเมื่อ VPN ขาดการเชื่อมต่อ</string>
     <string name="killswitchtext">เปิดใช้งานปุ่มตัดการทำงานอินเตอร์เน็ต</string>
@@ -424,7 +423,7 @@
     <string name="favorites_title">จัดการรายการโปรด</string>
     <string name="favorites_panel_title">รายการโปรด</string>
     <string name="logout_title">ออกจากระบบ</string>
-    <string name="pia_access">PIA Access</string>
+    <string name="pia_access">การเข้าถึง PIA</string>
     <string name="preference_app_update_title">เชื่อมต่อกับการอัปเดตแอป</string>
     <string name="preference_app_update_message">หลังจากอัปเดตแอป แอปจะเชื่อมต่ออัตโนมัติเพื่อให้คุณได้รับการปกป้องตลอด</string>
     <string name="server_search">ค้นหา</string>
@@ -433,6 +432,8 @@
     <string name="pia_dns">PIA DNS</string>
     <string name="edit_custom_dns">แก้ไข</string>
     <string name="custom_dns">DNS ที่กำหนดเอง</string>
+    <string name="system_resolver_dns">โปรแกรมแยก DNS ระบบ</string>
+    <string name="system_resolver_dns_body">เพื่อเข้าถึงโปรแกรมแยก DNS ของระบบ เราจำเป็นต้องอนุญาตการใช้งานผ่าน LAN</string>
     <string name="custom_dns_warning_body">การใช้ DNS ที่ไม่ใช่ PIA อาจเปิดเผยการเข้าใช้ DNS ของคุณแก่บุคคลที่สามและทำลายความเป็นส่วนตัวของคุณ</string>
     <string name="custom_dns_warning_title">@string/custom_dns</string>
     <string name="custom_primary_dns">DNS หลัก</string>
@@ -527,10 +528,8 @@
     <string name="settings_protocol">การเลือกโปรโตคอล</string>
     <string name="protocol_ovpn">OpenVPN</string>
     <string name="protocol_wireguard">WireGuard</string>
-    <string name="wg_per_app_warning">การเปลี่ยนเป็น WireGuard จะปิดใช้งานคุณสมบัติการตั้งค่าแอปรายตัว</string>
-    <string name="wg_protocol_warning">คุณสมบัติต่อไปนี้ไม่สามารถใช้ได้ใน WireGuard:</string>
-    <string name="wg_connecting">กำลังเชื่อมต่อ</string>
-    <string name="wg_connected">เชื่อมต่อ VPN แล้ว</string>
+    <string name="connecting">กำลังเชื่อมต่อ</string>
+    <string name="connected">เชื่อมต่อ VPN แล้ว</string>
     <string name="block_connections_body_1">คุณสมบัติ \"บล็อกการเชื่อมต่อที่ไม่มี VPN\" ของ PIA ต้องให้เปิด \"เปิด VPN เสมอ\" ในการตั้งค่า Android</string>
     <string name="block_connections_body_2">ในการดำเนินการต่อ ให้ไปยัง การตั้งค่า - เครือข่ายและอินเทอร์เน็ต - ขั้นสูง - VPN - แตะที่ไอคอนการตั้งค่า - เปิด \"เปิด VPN เสมอ\"</string>
     <string name="block_connections_button">ไปยังการตั้งค่าเครือข่ายและอินเทอร์เน็ต</string>
@@ -619,10 +618,13 @@
     <string name="inapp_pref_title">แสดงข้อความสื่อสารจากบริการ</string>
     <string name="settings_updated">อัปเดตการตั้งค่าแล้ว</string>
     <string name="hide_payment">เนื่องด้วยปัญหาทางเทคนิค การซื้อผ่าน Google Play จึงถูกปิดใช้งานในขณะนี้ เรากำลังดำเนินการแก้ไขสถานการณ์\n\nหากคุณมีบัญชีที่เป็นสมาชิกอยู่แล้ว คุณสามารถเข้าสู่ระบบได้โดยกดปุ่ม \'เข้าสู่ระบบ\'</string>
+    <string name="hide_payment_amazon">เนื่องด้วยปัญหาทางเทคนิค การซื้อผ่าน Amazon จึงถูกปิดใช้งานในขณะนี้ เรากำลังดำเนินการแก้ไขสถานการณ์\n\nหากคุณมีบัญชีที่เป็นสมาชิกอยู่แล้ว คุณสามารถเข้าสู่ระบบได้โดยกดปุ่ม \'เข้าสู่ระบบ\'</string>
     <string name="settings_block_connections_title">คุณสมบัติ \"ปุ่มตัดการทำงาน VPN\" ของ VPN ต้องให้เปิด \"เปิด VPN เสมอ\" ในการตั้งค่า Android</string>
     <string name="settings_block_connections_description">ในการดำเนินการต่อ ให้ไปยัง การตั้งค่า - เครือข่ายและอินเทอร์เน็ต - ขั้นสูง - VPN - แตะที่ไอคอนการตั้งค่า - <b>เปิด \"เปิด VPN เสมอ\"</b></string>
     <string name="settings_block_connections_button">ไปยังการตั้งค่าเครือข่ายและอินเทอร์เน็ต</string>
     <string name="settings_block_connections_error">ไม่สามารถไปยังการตั้งค่าเครือข่ายได้</string>
+    <string name="survey_message">Want to help make PIA better? Let us know how we can improve!</string>
+    <string name="survey_action">Take the Survey</string>
     <!-- KPI -->
     <string name="kpi_connection_attempts_onboarding_title">โปรดช่วยเราปรับปรุงบริการของเรา</string>
     <string name="kpi_connection_attempts_onboarding_body">เพื่อช่วยให้เรามั่นใจในประสิทธิภาพการเชื่อมต่อของบริการของเรา คุณสามารถแชร์สถิติการเชื่อมต่อของคุณกับเราโดยไม่ระบุชื่อ รายงานเหล่านี้ไม่รวมข้อมูลส่วนบุคคลที่สามารถระบุตัวตนได้</string>
@@ -632,17 +634,18 @@
     <string name="kpi_connection_attempts_no_events">ไม่มีกิจกรรมล่าสุด</string>
     <string name="kpi_connection_attempts_stats">สถิติการเชื่อมต่อ</string>
     <string name="kpi_connection_attempts_more_information">ข้อมูลเพียงเล็กน้อยนี้ช่วยเราในการระบุและแก้ไขปัญหาการเชื่อมต่อที่อาจเกิดขึ้น โปรดทราบว่าการแชร์ข้อมูลนี้ต้องได้รับความยินยอมและเปิดใช้งานด้วยตนเอง เนื่องจากข้อมูลดังกล่าวจะปิดอยู่โดยค่าเริ่มต้น เราจะรวบรวมข้อมูลเกี่ยวกับเหตุการณ์ต่อไปนี้:\n\n
-• ความพยายามในการเชื่อมต่อ\n 
-• การเชื่อมต่อที่ถูกยกเลิก\n 
-• การเชื่อมต่อที่สร้างแล้ว\n\n
-สำหรับกิจกรรมเหล่านี้ เราจะรวบรวมข้อมูลต่อไปนี้:\n\n
-• แพลตฟอร์ม\n
-• เวอร์ชันแอป\n
-• ประเภทแอป (ทั้งก่อนและหลังเปิดตัว)\n
-• โปรโตคอลที่ใช้\n
-• แหล่งการเชื่อมต่อ (ด้วยตนเองหรือโดยใช้ระบบอัตโนมัติ)\n\n
-เหตุการณ์ทั้งหมดจะมี ID ที่ไม่ซ้ำ ซึ่งสร้างขึ้นแบบสุ่ม ID นี้ไม่เชื่อมโยงกับบัญชีผู้ใช้ของคุณ และ ID ที่ไม่ซ้ำนี้ถูกสร้างขึ้นใหม่ทุกวันเพื่อความเป็นส่วนตัว\n\n
-คุณจะเป็นผู้ควบคุมเสมอ คุณดูข้อมูลที่เรารวบรวมได้จากการตั้งค่า และปิดใช้งานได้ทุกเมื่อ</string>
+            • ความพยายามในการเชื่อมต่อ\n 
+            • การเชื่อมต่อที่ถูกยกเลิก\n 
+            • การเชื่อมต่อที่สร้างแล้ว\n
+            • เวลาในการเชื่อมต่อ\n\n
+        สำหรับกิจกรรมเหล่านี้ เราจะรวบรวมข้อมูลต่อไปนี้:\n\n
+            • แพลตฟอร์ม\n
+            • เวอร์ชันแอป\n
+            • ประเภทแอป (ทั้งก่อนและหลังเปิดตัว)\n
+            • โปรโตคอลที่ใช้\n
+            • แหล่งการเชื่อมต่อ (ด้วยตนเองหรือโดยใช้ระบบอัตโนมัติ)\n\n
+        เหตุการณ์ทั้งหมดจะมี ID ที่ไม่ซ้ำ ซึ่งสร้างขึ้นแบบสุ่ม ID นี้ไม่เชื่อมโยงกับบัญชีผู้ใช้ของคุณ และ ID ที่ไม่ซ้ำนี้ถูกสร้างขึ้นใหม่ทุกวันเพื่อความเป็นส่วนตัว\n\n
+        คุณจะเป็นผู้ควบคุมเสมอ คุณดูข้อมูลที่เรารวบรวมได้จากการตั้งค่า และปิดใช้งานได้ทุกเมื่อ</string>
     <!-- Renewal -->
     <string name="renewal_title">ยินดีต้อนรับกลับมา!</string>
     <string name="renewal_description">หากต้องการใช้ Private Internet Access คุณจะต้องต่ออายุสมาชิกของคุณ</string>

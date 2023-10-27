@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <!--
+<!--
   ~  Copyright (c) 2020 Private Internet Access, Inc.
   ~
   ~  This file is part of the Private Internet Access Android Client.
@@ -180,7 +180,7 @@
     <string name="settings_widget_configuration">Widgetkonfiguration</string>
     <string name="preferences_widget_title">Widgetindstillinger</string>
     <string name="preferences_widget_summary">Få vores widgets til at fungere på din startskærm</string>
-    <string name="widget_flag_alpha">Flag Alpha</string>
+    <string name="widget_flag_alpha">Flagalfa</string>
     <string name="widget_background">Baggrundsfarve</string>
     <string name="widget_color">Tekstfarve</string>
     <string name="widget_cc">PIA-kommandocenter</string>
@@ -260,7 +260,7 @@
     <!-- Please add in what word is the color red as we color it in code.  -->
     <string name="per_app_warning">Apps, der er farvet røde, har visse funktioner, der kan forårsage problemer, hvor vores service kan blive omgået eller muligvis forlade dig sårbar.</string>
     <string name="purchasing_bottom">Har du allerede en konto? &lt;emph&gt; Log ind&lt;/emph&gt;</string>
-    <string name="ok">Ok</string>
+    <string name="ok">OK</string>
     <string name="killswitch_title">Afbryderknap aktiveret</string>
     <string name="skip">SPRING OVER</string>
     <string name="next">NÆSTE</string>
@@ -431,6 +431,8 @@
     <string name="pia_dns">PIA DNS</string>
     <string name="edit_custom_dns">Rediger</string>
     <string name="custom_dns">Brugerdefineret DNS</string>
+    <string name="system_resolver_dns">Systemets DNS-resolver</string>
+    <string name="system_resolver_dns_body">For at få adgang til systemets DNS-resolver er vi nødt til at tillade LAN-trafik.</string>
     <string name="custom_dns_warning_body">Brug af ikke-PIA DNS kunne blotlægge din DNS-trafik for tredjepart og kompromittere beskyttelsen af dine personoplysninger.</string>
     <string name="custom_dns_warning_title">@string/custom_dns</string>
     <string name="custom_primary_dns">Primær DNS</string>
@@ -525,10 +527,8 @@
     <string name="settings_protocol">Protokolvalg</string>
     <string name="protocol_ovpn">OpenVPN</string>
     <string name="protocol_wireguard">WireGuard</string>
-    <string name="wg_per_app_warning">Hvis du skifter til WireGuard, vil Per App-indstillinger-funktionen blive deaktiveret</string>
-    <string name="wg_protocol_warning">Følgende funktioner er ikke tilgængelige på WireGuard:</string>
-    <string name="wg_connecting">Forbinder</string>
-    <string name="wg_connected">VPN forbundet</string>
+    <string name="connecting">Forbinder</string>
+    <string name="connected">VPN forbundet</string>
     <string name="block_connections_body_1">PIA-funktionen \"Bloker forbindelser uden VPN\" kræver, at du tænder for VPN altid til i Android-indstillingerne.</string>
     <string name="block_connections_body_2">For at fortsætte skal du gå til Indstillinger - Netværk og internet - Avanceret - VPN - trykke på ikonet Indstillinger - aktivere VPN altid til.</string>
     <string name="block_connections_button">Gå til Netværks- og internetindstillinger</string>
@@ -617,10 +617,13 @@
     <string name="inapp_pref_title">Vis servicekommunikationsmeddelelser</string>
     <string name="settings_updated">Indstillinger er blevet opdateret</string>
     <string name="hide_payment">På grund af et teknisk problem er køb i Google Play i øjeblikket deaktiveret. Vi arbejder på at løse situationen.\n\nHvis du allerede har en konto med et abonnement, kan du logge ind ved at trykke på knappen Log ind.</string>
+    <string name="hide_payment_amazon">På grund af et teknisk problem er køb hos Amazon i øjeblikket deaktiveret. Vi arbejder på at løse situationen.\n\nHvis du allerede har en konto med et abonnement, kan du logge ind ved at trykke på knappen Log ind.</string>
     <string name="settings_block_connections_title">PIA-funktionen \"VPN afbryderknap\" kræver, at du tænder for VPN altid til i Android-indstillingerne</string>
     <string name="settings_block_connections_description">For at fortsætte skal du gå til Indstillinger - Netværk og internet - Avanceret - VPN - tryk på ikonet Indstillinger - <b>aktiver VPN altid til.</b></string>
     <string name="settings_block_connections_button">Gå til Netværks- og internetindstillinger</string>
     <string name="settings_block_connections_error">Kan ikke navigere til netværksindstillinger</string>
+    <string name="survey_message">Want to help make PIA better? Let us know how we can improve!</string>
+    <string name="survey_action">Take the Survey</string>
     <!-- KPI -->
     <string name="kpi_connection_attempts_onboarding_title">Hjælp os med at forbedre vores tjeneste</string>
     <string name="kpi_connection_attempts_onboarding_body">For at hjælpe os med at sikre vores tjenestes forbindelsesydelse kan du anonymt dele din forbindelsesstatistik med os. Disse rapporter inkluderer ikke personligt identificerbare oplysninger.</string>
@@ -630,17 +633,18 @@
     <string name="kpi_connection_attempts_no_events">Der er ingen nylige begivenheder</string>
     <string name="kpi_connection_attempts_stats">Forbindelsesstatistikker</string>
     <string name="kpi_connection_attempts_more_information">Denne minimale information hjælper os med at identificere og løse potentielle forbindelsesproblemer. Bemærk, at deling af disse oplysninger kræver samtykke og manuel aktivering, da de er slået fra som standard. Vi indsamler oplysninger om følgende begivenheder:\n\n
-• Forbindelsesforsøg\n
-• Afbrudt forbindelse\n
-• Forbindelse oprettet\n\n
-For alle disse begivenheder indsamler vi følgende oplysninger:\n\n
-• Platform\n
-• Appversion\n
-• Apptype (forudgivelse eller ej)\n
-• Protokol anvendt\n
-• Forbindelseskilde (manuel eller ved hjælp af automatisering)\n\n
-Alle begivenheder vil indeholde et unikt id, der genereres tilfældigt. Dette id er ikke knyttet til din brugerkonto. Dette unikke id genoprettes dagligt for din fortroligheds skyld.\n\n
-Du vil altid have kontrol. Du kan se, hvilke data vi har indsamlet fra Indstillinger, og du kan til enhver tid slå dem fra.</string>
+            • Forbindelsesforsøg\n
+            • Afbrudt forbindelse\n
+            • Forbindelse oprettet\n
+            • Tid til forbindelse\n\n
+        For alle disse begivenheder indsamler vi følgende oplysninger:\n\n
+            • Platform\n
+            • Appversion\n
+            • Apptype (forudgivelse eller ej)\n
+            • Protokol anvendt\n
+            • Forbindelseskilde (manuel eller ved hjælp af automatisering)\n\n
+        Alle begivenheder vil indeholde et unikt id, der genereres tilfældigt. Dette id er ikke knyttet til din brugerkonto. Dette unikke id genoprettes dagligt for din fortroligheds skyld.\n\n
+        Du vil altid have kontrol. Du kan se, hvilke data vi har indsamlet fra Indstillinger, og du kan til enhver tid slå dem fra.</string>
     <!-- Renewal -->
     <string name="renewal_title">Velkommen tilbage!</string>
     <string name="renewal_description">For at bruge Private Internet Access skal du forny dit abonnement.</string>

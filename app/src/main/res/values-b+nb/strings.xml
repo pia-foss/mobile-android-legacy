@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <!--
+<!--
   ~  Copyright (c) 2020 Private Internet Access, Inc.
   ~
   ~  This file is part of the Private Internet Access Android Client.
@@ -431,6 +431,8 @@
     <string name="pia_dns">PIA DNS</string>
     <string name="edit_custom_dns">Rediger</string>
     <string name="custom_dns">Tilpasset DNS</string>
+    <string name="system_resolver_dns">Systemets DNS-løsningsprogram</string>
+    <string name="system_resolver_dns_body">Vi må tillate LAN-trafikk for å få tilgang til DNS-løsningsprogrammet.</string>
     <string name="custom_dns_warning_body">Ved å bruke en DNS som ikke er PIA, kan du utsette DNS-trafikken din for tredjeparter, noe som kan påvirke personvernet ditt.</string>
     <string name="custom_dns_warning_title">@string/custom_dns</string>
     <string name="custom_primary_dns">Primær DNS</string>
@@ -525,10 +527,8 @@
     <string name="settings_protocol">Protokollvalg</string>
     <string name="protocol_ovpn">OpenVPN</string>
     <string name="protocol_wireguard">WireGuard</string>
-    <string name="wg_per_app_warning">Bytte til WireGuard deaktiverer funksjonen per appinnstillinger</string>
-    <string name="wg_protocol_warning">Følgende funksjoner er ikke tilgjengelige på WireGuard:</string>
-    <string name="wg_connecting">Kobler til</string>
-    <string name="wg_connected">VPN-tilkoblet</string>
+    <string name="connecting">Kobler til</string>
+    <string name="connected">VPN-tilkoblet</string>
     <string name="block_connections_body_1">PIA-funksjonen «Blokker tilkoblinger uten VPN» krever at du slår PÅ Alltid VPN PÅ i Android-innstillingene.</string>
     <string name="block_connections_body_2">For å fortsette, gå til Innstillinger – Nettverk og Internett – Avansert – VPN – trykk på Innstillinger-ikonet – aktiver Alltid VPN PÅ.</string>
     <string name="block_connections_button">Gå til Nettverks- og Internettinnstillinger</string>
@@ -617,10 +617,13 @@
     <string name="inapp_pref_title">Vis tjenestekommunikasjonsmeldinger</string>
     <string name="settings_updated">Innstillingene er oppdatert</string>
     <string name="hide_payment">På grunn av et teknisk problem er kjøp via Google Play for øyeblikket deaktivert. Vi jobber med å løse problemet.\n\nHvis du allerede har en konto med et abonnement, kan du logge inn ved å trykke på Logg inn-knappen.</string>
+    <string name="hide_payment_amazon">På grunn av et teknisk problem er kjøp via Amazon for øyeblikket deaktivert. Vi jobber med å løse problemet.\n\nHvis du allerede har en konto med et abonnement, kan du logge på ved å trykke på Logg på-knappen.</string>
     <string name="settings_block_connections_title">PIA-funksjonen «VPN-nødbryter» krever at du slår PÅ Alltid VPN PÅ i Android-innstillingene</string>
     <string name="settings_block_connections_description">For å fortsette, gå til Innstillinger – Nettverk og Internett – Avansert – VPN – trykk på Innstillinger-ikonet – <b>aktiver Alltid VPN PÅ.</b></string>
     <string name="settings_block_connections_button">Gå til nettverks- og Internettinnstillinger</string>
     <string name="settings_block_connections_error">Kan ikke navigere til nettverksinnstillinger</string>
+    <string name="survey_message">Want to help make PIA better? Let us know how we can improve!</string>
+    <string name="survey_action">Take the Survey</string>
     <!-- KPI -->
     <string name="kpi_connection_attempts_onboarding_title">Hjelp oss med å forbedre tjenesten vår</string>
     <string name="kpi_connection_attempts_onboarding_body">For å hjelpe oss med å sikre tjenestens tilkoblingsytelse, kan du anonymt dele tilkoblingsstatistikken din med oss. Disse rapportene inkluderer informasjon som ikke er personlig identifiserbar.</string>

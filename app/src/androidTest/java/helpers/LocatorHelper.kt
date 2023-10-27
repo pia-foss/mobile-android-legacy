@@ -12,4 +12,12 @@ object LocatorHelper {
     fun findByResourceId(id: String, instance: Int = 0): UiObject {
         return device.findObject(UiSelector().resourceId(id).instance(instance))
     }
+
+    fun findByContentDesc(description: String): UiObject {
+        return device.findObject(UiSelector().description(description))
+    }
+
+    fun findByText(text : String, instance: Int = 0 ) : UiObject {
+        return device.findObject(UiSelector().textMatches(text).instance(instance))
+    }
 }

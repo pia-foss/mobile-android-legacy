@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <!--
+<!--
   ~  Copyright (c) 2020 Private Internet Access, Inc.
   ~
   ~  This file is part of the Private Internet Access Android Client.
@@ -17,7 +17,7 @@
   ~  Internet Access Android Client.  If not, see <https://www.gnu.org/licenses/>.
   -->
 <resources>
-    <string name="launcher_name">PIA VPN</string>
+    <string name="launcher_name">VPN PIA</string>
     <string name="app_name">VPN by Private Internet Access</string>
     <string name="menu_settings">Impostazioni</string>
     <string name="menu_settings_general">Generale</string>
@@ -56,7 +56,7 @@ privateinternetaccess.com</string>
     <string name="portforwarding_summary">Consentirà le connessioni in arrivo al tuo dispositivo mobile tramite una porta esterna</string>
     <!-- Please keep the %s, this is a formatted text. %s is an error message.  -->
     <string name="portfwderror">Errore di richiesta d\'inoltro della porta: %s</string>
-    <string name="mace_toggle">Mace Ad Blocker</string>
+    <string name="mace_toggle">Blocco annunci Mace</string>
     <string name="killswitch">Kill Switch VPN</string>
     <string name="killswitchsummary">Disabilita la tua connessione Internet quando la VPN si disconnette.</string>
     <string name="killswitchtext">INTERRUTTORE INTERNET ABILITATO</string>
@@ -114,7 +114,7 @@ privateinternetaccess.com</string>
     <string name="copy_toast_text">Testo copiato sugli appunti</string>
     <string name="current_region">REGIONE ATTUALE</string>
     <string name="full_licenses">Licenze complete</string>
-    <string name="email">Email</string>
+    <string name="email">E-mail</string>
     <string name="please_wait">Attendi</string>
     <string name="still_connecting">Tentativo di riconnessione ancora in corso</string>
     <string name="enabled">Attivato</string>
@@ -184,7 +184,7 @@ privateinternetaccess.com</string>
     <string name="widget_flag_alpha">Bandiera Alpha</string>
     <string name="widget_background">Colore di sfondo</string>
     <string name="widget_color">Colore del testo</string>
-    <string name="widget_cc">PIA Command Center</string>
+    <string name="widget_cc">Centro di comando PIA</string>
     <string name="clear">Cancella</string>
     <string name="save">Salva</string>
     <string name="saved">Salvato</string>
@@ -423,7 +423,7 @@ privateinternetaccess.com</string>
     <string name="favorites_title">Gestisci Preferiti</string>
     <string name="favorites_panel_title">PREFERITI</string>
     <string name="logout_title">Esci</string>
-    <string name="pia_access">PIA Access</string>
+    <string name="pia_access">Accesso PIA</string>
     <string name="preference_app_update_title">Connetti all\'aggiornamento dell\'app</string>
     <string name="preference_app_update_message">Dopo che l\'app è stata aggiornata, si connetterà automaticamente per proteggerti.</string>
     <string name="server_search">Cerca</string>
@@ -432,6 +432,8 @@ privateinternetaccess.com</string>
     <string name="pia_dns">PIA DNS</string>
     <string name="edit_custom_dns">Modifica</string>
     <string name="custom_dns">DNS personalizzato</string>
+    <string name="system_resolver_dns">Resolver DNS del sistema</string>
+    <string name="system_resolver_dns_body">Per accedere al resolver DNS del sistema, è necessario attivare l\'opzione “Consenti traffico LAN”.</string>
     <string name="custom_dns_warning_body">Utilizzando un DNS non PIA potresti esporre il tuo traffico DNS a terzi e pregiudicare la tua privacy.</string>
     <string name="custom_dns_warning_title">@string/custom_dns</string>
     <string name="custom_primary_dns">DNS principale</string>
@@ -526,10 +528,8 @@ privateinternetaccess.com</string>
     <string name="settings_protocol">Selezione del protocollo</string>
     <string name="protocol_ovpn">OpenVPN</string>
     <string name="protocol_wireguard">WireGuard</string>
-    <string name="wg_per_app_warning">Il passaggio a WireGuard disabiliterà la funzione delle impostazioni per ogni singola app</string>
-    <string name="wg_protocol_warning">Le seguenti funzioni non sono disponibili su WireGuard:</string>
-    <string name="wg_connecting">Connessione in corso</string>
-    <string name="wg_connected">VPN connessa</string>
+    <string name="connecting">Connessione in corso</string>
+    <string name="connected">VPN connessa</string>
     <string name="block_connections_body_1">La funzione \"Blocca connessioni senza VPN\" di PIA richiede l\'attivazione di \"VPN sempre attiva\" nelle impostazioni di Android.</string>
     <string name="block_connections_body_2">Per procedere, vai su Impostazioni - Rete e Internet - Avanzate - VPN - tocca l\'icona Impostazioni - attiva \"VPN sempre attiva\".</string>
     <string name="block_connections_button">Vai a Impostazioni di rete e Internet</string>
@@ -618,10 +618,13 @@ privateinternetaccess.com</string>
     <string name="inapp_pref_title">Mostra comunicazioni di servizio</string>
     <string name="settings_updated">Impostazioni aggiornate</string>
     <string name="hide_payment">A causa di un problema tecnico, gli acquisti tramite Google Play sono temporaneamente disabilitati. Stiamo lavorando per risolvere la situazione.\n\nSe hai già un account con un abbonamento, puoi effettuare l\'accesso premendo il pulsante Accedi.</string>
+    <string name="hide_payment_amazon">A causa di un problema tecnico, gli acquisti tramite Amazon sono temporaneamente disabilitati. Stiamo lavorando per risolvere la situazione.\n\nSe hai già un account con un abbonamento, puoi effettuare l’accesso premendo il pulsante Accedi.</string>
     <string name="settings_block_connections_title">La funzione \"Kill Switch VPN\" di PIA richiede l\'attivazione di \"VPN sempre attiva\" nelle impostazioni di Android</string>
     <string name="settings_block_connections_description">Per procedere, vai su Impostazioni - Rete e Internet - Avanzate - VPN - tocca l\'icona Impostazioni - <b>attiva \"VPN sempre attiva\".</b></string>
     <string name="settings_block_connections_button">Vai a Impostazioni di rete e Internet</string>
     <string name="settings_block_connections_error">Impossibile accedere alle impostazioni di rete</string>
+    <string name="survey_message">Want to help make PIA better? Let us know how we can improve!</string>
+    <string name="survey_action">Take the Survey</string>
     <!-- KPI -->
     <string name="kpi_connection_attempts_onboarding_title">Aiutaci a migliorare il nostro servizio</string>
     <string name="kpi_connection_attempts_onboarding_body">Per aiutarci a garantire le prestazioni di connessione del nostro servizio, puoi condividere in modo anonimo le tue statistiche di connessione con noi. Questi rapporti non includono alcuna informazione di identificazione personale.</string>
@@ -633,15 +636,16 @@ privateinternetaccess.com</string>
     <string name="kpi_connection_attempts_more_information">Queste informazioni essenziali ci aiutano a identificare e risolvere potenziali problemi di connessione. Tieni presente che la condivisione di queste informazioni richiede il consenso e l\'attivazione manuale poiché è disattivata per impostazione predefinita. Raccoglieremo informazioni sui seguenti eventi:\n\n
             • Tentativo di connessione\n
             • Connessione annullata\n
-            • Connessione stabilita\n\n
+            • Connessione stabilita\n
+            • Tempo di connessione\n\n
         Per tutti questi eventi, raccoglieremo le seguenti informazioni:\n\n
             • Piattaforma\n
             • Versione dell\'app\n
             • Tipo di app (pre-release o meno)\n
             • Protocollo utilizzato\n
             • Origine della connessione (manuale o automatizzata)\n\n
-        Tutti gli eventi conterranno un ID univoco, generato casualmente. Questo ID non è associato al tuo account utente. Questo ID univoco viene rigenerato giornalmente per motivi di privacy.Avrai sempre il controllo. Puoi vedere quali dati abbiamo raccolto da Impostazioni e puoi disattivarlo in qualsiasi momento.
-Avrai sempre il controllo. Puoi vedere quali dati abbiamo raccolto dalle Impostazioni e puoi disattivare in qualsiasi momento.</string>
+        Tutti gli eventi conterranno un ID univoco, generato casualmente. Questo ID non è associato al tuo account utente. Questo ID univoco viene rigenerato giornalmente per motivi di privacy.\n\n
+        Avrai sempre il controllo. Puoi vedere quali dati abbiamo raccolto da Impostazioni e puoi disattivarlo in qualsiasi momento.</string>
     <!-- Renewal -->
     <string name="renewal_title">Bentornato!</string>
     <string name="renewal_description">Per usare Private Internet Access, devi rinnovare l\'abbonamento.</string>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <!--
+<!--
   ~  Copyright (c) 2020 Private Internet Access, Inc.
   ~
   ~  This file is part of the Private Internet Access Android Client.
@@ -41,9 +41,9 @@
     <string name="prompt_login">d. h. p1234567</string>
     <string name="use_udp_summary">UDP wird zum Verbinden verwendet</string>
     <string name="use_tcp_summary">TCP wird zum Verbinden verwendet</string>
-    <string name="transport">Transport</string>
+    <string name="transport">Übertragung</string>
     <string name="select_port">Wähl den Port der für die Verbindung privateinternetaccess.com genutzt wird</string>
-    <string name="remote_port">Remote Port</string>
+    <string name="remote_port">Remote-Port</string>
     <string name="remote_port_cap">WEITERGELEITETER PORT</string>
     <string name="remote_port_vpn_ip">VPN-IP</string>
     <string name="local_port">Lokaler Port</string>
@@ -180,7 +180,7 @@
     <string name="settings_widget_configuration">Widget-Konfiguration</string>
     <string name="preferences_widget_title">Widget-Einstellungen</string>
     <string name="preferences_widget_summary">Nutze unsere Widgets auf deinem Startbildschirm.</string>
-    <string name="widget_flag_alpha">Flag Alpha</string>
+    <string name="widget_flag_alpha">Flaggen-Alpha</string>
     <string name="widget_background">Hintergrundfarbe</string>
     <string name="widget_color">Textfarbe</string>
     <string name="widget_cc">PIA-Befehlszentrale</string>
@@ -364,7 +364,7 @@
     <string name="pia_channel_name">PIA</string>
     <string name="pia_channel_description">Allgemeine Ereignisse und Benachrichtigungen</string>
     <string name="tv_startup_press_right">RECHTS DRÜCKEN</string>
-    <string name="androidalwayson">VPN Kill Switch</string>
+    <string name="androidalwayson">VPN-Killswitch</string>
     <string name="androidalwaysonsummary">Android bietet eine bessere Alternative zur Kill-Switch-Funktion. Für weitere Informationen hier klicken.</string>
     <string name="preference_blocking">WIRD BLOCKIERT</string>
     <string name="preference_connect_proxy">Über Proxy verbinden</string>
@@ -427,10 +427,12 @@
     <string name="preference_app_update_message">Nach dem Update der App stellt sie automatisch eine Verbindung her, damit du geschützt bleibst.</string>
     <string name="server_search">Suche</string>
     <string name="tile_killswitch">Kill Switch aktiv</string>
-    <string name="auto_dns_setting_summary">PIA DNS</string>
+    <string name="auto_dns_setting_summary">PIA-DNS</string>
     <string name="pia_dns">PIA-DNS</string>
     <string name="edit_custom_dns">Bearbeiten</string>
     <string name="custom_dns">Benutzerdefiniertes DNS</string>
+    <string name="system_resolver_dns">System-DNS-Resolver</string>
+    <string name="system_resolver_dns_body">Um auf den DNS-Resolver des Systems zuzugreifen, müssen wir den Datenverkehr über LAN erlauben.</string>
     <string name="custom_dns_warning_body">Die Verwendung eines Nicht-PIA-DNS kann deinen DNS-Verkehr Dritten zugänglich machen und deine Privatsphäre gefährden.</string>
     <string name="custom_dns_warning_title">@string/custom_dns</string>
     <string name="custom_primary_dns">Primäres DNS</string>
@@ -525,10 +527,8 @@
     <string name="settings_protocol">Protokollauswahl</string>
     <string name="protocol_ovpn">OpenVPN</string>
     <string name="protocol_wireguard">WireGuard</string>
-    <string name="wg_per_app_warning">Wenn du zu WireGuard wechselst, wird die Funktion „Pro App-Einstellungen“ deaktiviert.</string>
-    <string name="wg_protocol_warning">Folgende Funktionen sind bei WireGuard nicht verfügbar:</string>
-    <string name="wg_connecting">Verbindung wird hergestellt</string>
-    <string name="wg_connected">VPN verbunden</string>
+    <string name="connecting">Verbindung wird hergestellt</string>
+    <string name="connected">VPN verbunden</string>
     <string name="block_connections_body_1">Für die PIA-Funktion „Verbindungen ohne VPN blockieren“ muss „VPN immer ein“ in den Android-Einstellungen aktiviert sein.</string>
     <string name="block_connections_body_2">Um fortzufahren, gehe zu Einstellungen - Netzwerk &amp; Internet - Erweitert - VPN - tippe auf das Einstellungen-Symbol - aktiviere „VPN immer ein“.</string>
     <string name="block_connections_button">Netzwerk- &amp; Interneteinstellungen öffnen</string>
@@ -617,10 +617,13 @@
     <string name="inapp_pref_title">Meldungen der Servicekommunikation anzeigen</string>
     <string name="settings_updated">Die Einstellungen wurden aktualisiert.</string>
     <string name="hide_payment">Aufgrund eines technischen Problems sind Käufe über Google Play derzeit deaktiviert. Wir kümmern uns um das Problem. \n\nWenn Sie bereits ein Konto und ein Abonnement haben, können Sie sich anmelden, indem Sie auf „Anmelden“ klicken.</string>
+    <string name="hide_payment_amazon">Aufgrund eines technischen Problems sind Käufe über Amazon derzeit deaktiviert. Wir arbeiten daran, das Problem zu beheben.\n\nWenn du bereits ein Konto mit einem Abonnement hast, kannst du dich anmelden, indem du auf „Anmelden“ drückst.</string>
     <string name="settings_block_connections_title">Für die PIA-Funktion „VPN Kill Switch“ muss „VPN immer ein“ in den Android-Einstellungen aktiviert sein.</string>
     <string name="settings_block_connections_description">Um fortzufahren, gehe zu Einstellungen - Netzwerk &amp; Internet - Erweitert - VPN - tippe auf das Einstellungssymbol - <b>aktiviere „VPN immer ein“.</b></string>
     <string name="settings_block_connections_button">Netzwerk- &amp; Interneteinstellungen öffnen</string>
     <string name="settings_block_connections_error">Die Netzwerkeinstellungen können nicht geöffnet werden.</string>
+    <string name="survey_message">Want to help make PIA better? Let us know how we can improve!</string>
+    <string name="survey_action">Take the Survey</string>
     <!-- KPI -->
     <string name="kpi_connection_attempts_onboarding_title">Bitte hilf uns, unseren Service zu verbessern.</string>
     <string name="kpi_connection_attempts_onboarding_body">Um uns zu helfen, die Verbindungsleistung unseres Dienstes sicherzustellen, kannst du deine Verbindungsstatistiken anonym mit uns teilen. Diese Berichte enthalten keine persönlich identifizierbaren Informationen.</string>
@@ -630,17 +633,18 @@
     <string name="kpi_connection_attempts_no_events">Keine kürzlichen Ereignisse</string>
     <string name="kpi_connection_attempts_stats">Verbindungsstatistiken</string>
     <string name="kpi_connection_attempts_more_information">Diese minimalen Informationen helfen uns, mögliche Verbindungsprobleme zu erkennen und zu beheben. Beachte bitte, dass die Weitergabe dieser Informationen eine Zustimmung und manuelle Aktivierung erfordert, da sie standardmäßig deaktiviert ist. Wir erfassen Daten über folgende Ereignisse:\n\n
-- Verbindungsversuche\n
-- Abgebrochene Verbindungen\n
-- Hergestellte Verbindungen\n\n
-Für alle diese Ereignisse werden wir folgende Daten erfassen:\n\n
-- Plattform\n
-- App-Version\n
-- App-Typ (Vorabversion oder nicht)\n
-- Verwendetes Protokoll\n
-- Verbindungsquelle (manuell oder über Automatisierung)\n\n
-Alle Ereignisse enthalten eine eindeutige ID, die zufällig generiert wird. Diese ID ist nicht mit deinem Benutzerkonto verknüpft. Diese eindeutige ID wird aus Datenschutzgründen täglich neu generiert.\n\n
-Du wirst immer die Kontrolle haben. Du kannst über die Einstellungen sehen, welche Daten wir erfasst haben, und du kannst sie jederzeit deaktivieren.</string>
+            - Verbindungsversuche\n
+            - Abgebrochene Verbindungen\n
+            - Hergestellte Verbindungen\n
+            - Zeit für Verbindungsaufbau\n\n
+        Für alle diese Ereignisse werden wir folgende Daten erfassen:\n\n
+            - Plattform\n
+            - App-Version\n
+            - App-Typ (Vorabversion oder nicht)\n
+            - Verwendetes Protokoll\n
+            - Verbindungsquelle (manuell oder über Automatisierung)\n\n
+        Alle Ereignisse enthalten eine eindeutige ID, die zufällig generiert wird. Diese ID ist nicht mit deinem Benutzerkonto verknüpft. Diese eindeutige ID wird aus Datenschutzgründen täglich neu generiert.\n\n
+        Du wirst immer die Kontrolle haben. Du kannst über die Einstellungen sehen, welche Daten wir erfasst haben, und du kannst sie jederzeit deaktivieren.</string>
     <!-- Renewal -->
     <string name="renewal_title">Willkommen zurück!</string>
     <string name="renewal_description">Du musst dein Abonnement erneuern, um Private Internet Access nutzen zu können.</string>

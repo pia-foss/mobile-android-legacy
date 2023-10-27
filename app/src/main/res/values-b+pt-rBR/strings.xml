@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <!--
+<!--
   ~  Copyright (c) 2020 Private Internet Access, Inc.
   ~
   ~  This file is part of the Private Internet Access Android Client.
@@ -38,7 +38,7 @@
     <!-- Please keep the %1$s, this is a formatted text. %1$s is a server location (ei London, Berlin) -->
     <string name="automatic_server_selection_main_region">Automática (%1$s)</string>
     <!-- Please keep the %1$s, this is a formatted text. %1$s is an IP (ei 126.0.1.10)  -->
-    <string name="prompt_login">ie p1234567</string>
+    <string name="prompt_login">isto é, p1234567</string>
     <string name="use_udp_summary">O UDP será usado para conectar</string>
     <string name="use_tcp_summary">O TCP será usado para conectar</string>
     <string name="transport">Transporte</string>
@@ -359,8 +359,8 @@
     <string name="pref_block_dialog_message">Observe que alguns aplicativos (como o aplicativo do Google) podem ignorar o VPN quando o acesso à rede local for permitido.</string>
     <string name="killswitch_notification_title">Killswitch ativo</string>
     <string name="open_android_settings">Abrir configurações do Android</string>
-    <string name="data_in">down</string>
-    <string name="data_out">up</string>
+    <string name="data_in">abaixo</string>
+    <string name="data_out">acima</string>
     <string name="pia_channel_name">PIA</string>
     <string name="pia_channel_description">Eventos e notificações gerais</string>
     <string name="tv_startup_press_right">PRESSIONE A DIREITA</string>
@@ -431,6 +431,8 @@
     <string name="pia_dns">DNS PIA</string>
     <string name="edit_custom_dns">Editar</string>
     <string name="custom_dns">DNS personalizado</string>
+    <string name="system_resolver_dns">Resolvedor de DNS do sistema</string>
+    <string name="system_resolver_dns_body">Para acessar o resolvedor de DNS do sistema, precisamos permitir tráfego de LAN.</string>
     <string name="custom_dns_warning_body">Não usar um DNS PIA pode expôr o seu tráfego de DNS a terceiros e comprometer a sua privacidade.</string>
     <string name="custom_dns_warning_title">@string/custom_dns</string>
     <string name="custom_primary_dns">DNS primário</string>
@@ -525,10 +527,8 @@
     <string name="settings_protocol">Seleção de protocolo</string>
     <string name="protocol_ovpn">OpenVPN</string>
     <string name="protocol_wireguard">WireGuard</string>
-    <string name="wg_per_app_warning">Trocar para WireGuard irá desabilitar o recurso de Configurações por Aplicativo</string>
-    <string name="wg_protocol_warning">Os seguintes recursos não estão disponíveis no WireGuard:</string>
-    <string name="wg_connecting">Conectando</string>
-    <string name="wg_connected">VPN Conectada</string>
+    <string name="connecting">Conectando</string>
+    <string name="connected">VPN Conectada</string>
     <string name="block_connections_body_1">O recurso \"Bloquear conexões sem VPN\" do PIA exige que você ativer a opção \"VPN sempre ativa\" nas configurações do Android.</string>
     <string name="block_connections_body_2">Para continuar, vá até Configurações - Rede e Internet - Avançado - VPN - toque no ícone de Configurações - ative a opção \"VPN sempre ativa\".</string>
     <string name="block_connections_button">Vá até Configurações de rede e internet</string>
@@ -617,10 +617,13 @@
     <string name="inapp_pref_title">Mostrar mensagens de comunicação de serviço</string>
     <string name="settings_updated">As configurações foram atualizadas</string>
     <string name="hide_payment">Por problemas técnicos, compras através do Google Play foram desativadas. Estamos trabalhando para resolver a situação.\n\nSe você já tem uma conta com uma assinatura, pode fazer login pressionando o botão Entrar.</string>
+    <string name="hide_payment_amazon">Devido a um problema técnico, as compras pela Amazon estão desabilitadas no momento. Estamos trabalhando para resolver a situação.\n\nSe já tem uma conta com uma assinatura, você pode iniciar sessão pressionando o botão correspondente.</string>
     <string name="settings_block_connections_title">O recurso \"Kill Switch de VPN\" do PIA exige que você ATIVE a opção \"VPN sempre ativa\" nas configurações do Android</string>
     <string name="settings_block_connections_description">Para continuar, vá até Configurações - Rede e Internet - Avançado - VPN - toque no ícone de Configurações - <b>ative a opção \"VPN sempre ativa\".</b></string>
     <string name="settings_block_connections_button">Vá até Configurações de rede e internet</string>
     <string name="settings_block_connections_error">Não foi possível navegar até as configurações de rede</string>
+    <string name="survey_message">Want to help make PIA better? Let us know how we can improve!</string>
+    <string name="survey_action">Take the Survey</string>
     <!-- KPI -->
     <string name="kpi_connection_attempts_onboarding_title">Ajude-nos a melhorar nosso serviço</string>
     <string name="kpi_connection_attempts_onboarding_body">Para nos ajudar a garantir o desempenho de conexão do nosso serviço, você pode compartilhar suas estatísticas de conexão conosco de forma anônima. Estes relatórios não incluem informações pessoais identificáveis.</string>
@@ -632,7 +635,8 @@
     <string name="kpi_connection_attempts_more_information">Estas informações mínimas nos ajudam a identificar e a corrigir possíveis problemas de conexão. Observe que o compartilhamento destas informações requer consentimento e ativação manual, pois ele é desativado por padrão. Coletaremos informações sobre os seguintes eventos:\n\n
             • Tentativa de conexão\n
             • Conexão cancelada\n
-            • Conexão estabelecida\n\n
+            • Conexão estabelecida\n
+            • Tempo para conectar\n\n
         Para todos esses eventos, coletaremos as seguintes informações:\n\n
             • Plataforma\n
             • Versão do app\n

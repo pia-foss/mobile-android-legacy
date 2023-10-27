@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <!--
+<!--
   ~  Copyright (c) 2020 Private Internet Access, Inc.
   ~
   ~  This file is part of the Private Internet Access Android Client.
@@ -38,7 +38,7 @@
     <!-- Please keep the %1$s, this is a formatted text. %1$s is a server location (ei London, Berlin) -->
     <string name="automatic_server_selection_main_region">Automática (%1$s)</string>
     <!-- Please keep the %1$s, this is a formatted text. %1$s is an IP (ei 126.0.1.10)  -->
-    <string name="prompt_login">ie p1234567</string>
+    <string name="prompt_login">p. ej., p1234567</string>
     <string name="use_udp_summary">Se usará UDP para la conexión</string>
     <string name="use_tcp_summary">Se usará TCP para la conexión</string>
     <string name="transport">Transporte</string>
@@ -113,7 +113,7 @@
     <string name="copy_toast_text">Texto copiado al portapapeles</string>
     <string name="current_region">REGIÓN ACTUAL</string>
     <string name="full_licenses">Licencias completas</string>
-    <string name="email">Email</string>
+    <string name="email">Correo electrónico</string>
     <string name="please_wait">Espera por favor</string>
     <string name="still_connecting">Todavía intentando conectar</string>
     <string name="enabled">Habilitado</string>
@@ -431,6 +431,8 @@
     <string name="pia_dns">DNS de PIA</string>
     <string name="edit_custom_dns">Editar</string>
     <string name="custom_dns">DNS Personalizado</string>
+    <string name="system_resolver_dns">Resolución de DNS del sistema</string>
+    <string name="system_resolver_dns_body">Para tener acceso al mecanismo de resolución de DNS del sistema, debemos permitir el tráfico de la LAN (red de área local).</string>
     <string name="custom_dns_warning_body">Si usas un DNS no facilitado por PIA podría exponer tu tráfico DNS a terceros y comprometer tu privacidad.</string>
     <string name="custom_dns_warning_title">@string/custom_dns</string>
     <string name="custom_primary_dns">DNS primario</string>
@@ -525,10 +527,8 @@
     <string name="settings_protocol">Selección de protocolo</string>
     <string name="protocol_ovpn">OpenVPN</string>
     <string name="protocol_wireguard">WireGuard</string>
-    <string name="wg_per_app_warning">Si cambia a WireGuard se deshabilitará la función de configuración por aplicación</string>
-    <string name="wg_protocol_warning">Las siguientes funciones no están disponibles en WireGuard:</string>
-    <string name="wg_connecting">Conectando</string>
-    <string name="wg_connected">VPN conectada</string>
+    <string name="connecting">Conectando</string>
+    <string name="connected">VPN conectada</string>
     <string name="block_connections_body_1">La función \"Bloquear conexiones sin VPN\" de PIA requiere ENCENDER VPN siempre ENCENDIDO en la Configuración de Android.</string>
     <string name="block_connections_body_2">Para proceder, vaya a Configuración - Red e Internet - Avanzado - VPN - toque el icono de Configuración - active VPN siempre encendido.</string>
     <string name="block_connections_button">Ir a Configuración de Red e Internet</string>
@@ -617,10 +617,13 @@
     <string name="inapp_pref_title">Mostrar mensajes de comunicación de servicio</string>
     <string name="settings_updated">Se actualizó la configuración</string>
     <string name="hide_payment">Debido a un problema técnico, las compras a través de Google Pay están deshabilitadas en este momento. Estamos trabajando para resolver la situación.\n\nSi ya tienes una cuenta con una suscripción puedes iniciar sesión presionando el botón de Inicio de sesión.</string>
+    <string name="hide_payment_amazon">Debido a un problema técnico, las compras a través de Amazon están deshabilitadas. Estamos trabajando para solucionarlo.\n\nSi ya tienes una cuenta con una suscripción, puedes entrar presionando el botón Iniciar sesión.</string>
     <string name="settings_block_connections_title">La función \"Interruptor de emergencia de VPN\" de PIA requiere ENCENDER VPN siempre ENCENDIDO en la Configuración de Android</string>
     <string name="settings_block_connections_description">Para proceder vaya a Configuración - Red e Internet - Avanzado - VPN - toque en el icono de Configuración - <b>active VPN siempre encendido.</b></string>
     <string name="settings_block_connections_button">Ir a Configuración de Red e Internet</string>
     <string name="settings_block_connections_error">No es posible navegar en la configuración de la red</string>
+    <string name="survey_message">Want to help make PIA better? Let us know how we can improve!</string>
+    <string name="survey_action">Take the Survey</string>
     <!-- KPI -->
     <string name="kpi_connection_attempts_onboarding_title">Ayúdenos a mejorar nuestro servicio</string>
     <string name="kpi_connection_attempts_onboarding_body">Para ayudarnos a garantizar el rendimiento de la conexión de nuestro servicio, puede compartir con nosotros sus estadísticas de conexión de forma anónima. Estos informes no contienen ninguna información personal identificable.</string>
@@ -632,13 +635,14 @@
     <string name="kpi_connection_attempts_more_information">Esta información mínima nos ayuda a identificar y solucionar posibles problemas de conexión. Tenga en cuenta que compartir esta información requiere el consentimiento y la activación manual, ya que está desactivada por defecto. Recopilaremos información sobre los siguientes eventos:\n\n
             • Intento de conexión\n
             • Conexión cancelada\n
-            • Conexión establecida\n\n
+            • Conexión establecida\n
+            • Tiempo para conectarse\n\n
         En todos estos eventos, recopilaremos la siguiente información:\n\n
             • Plataforma\n
             • Versión de la aplicación\n
             • Tipo de aplicación (previa al lanzamiento o no)\n
             • Protocolo utilizado\n
-            • Origen de la conexión (manual o mediante automatización)\n
+            • Origen de la conexión (manual o mediante automatización)\n\n
         Todos los eventos contendrán una ID única, generada aleatoriamente. Esta ID no está asociado a su cuenta de usuario. Esta ID única se genera de nuevo a diario por motivos de privacidad.\n\n
         Siempre tendrá el control. Podrá ver qué datos hemos recopilado en Ajustes y podrá desactivarlos en cualquier momento.</string>
     <!-- Renewal -->

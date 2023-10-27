@@ -18,7 +18,6 @@
 
 package com.privateinternetaccess.android.wireguard.backend;
 
-import static com.privateinternetaccess.android.pia.api.PiaApi.GEN4_MACE_ENABLED_DNS;
 import static de.blinkt.openvpn.core.OpenVPNService.NOTIFICATION_CHANNEL_NEWSTATUS_ID;
 
 import android.app.AlarmManager;
@@ -37,7 +36,6 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.collection.ArraySet;
 
-import com.privateinternetaccess.android.BuildConfig;
 import com.privateinternetaccess.android.PIAApplication;
 import com.privateinternetaccess.android.PIAOpenVPNTunnelLibrary;
 import com.privateinternetaccess.android.R;
@@ -48,6 +46,7 @@ import com.privateinternetaccess.android.pia.api.PiaApi;
 import com.privateinternetaccess.android.pia.handlers.PIAServerHandler;
 import com.privateinternetaccess.android.pia.handlers.PiaPrefHandler;
 import com.privateinternetaccess.android.pia.model.events.VpnStateEvent;
+import com.privateinternetaccess.android.pia.providers.DnsProvider;
 import com.privateinternetaccess.android.pia.providers.VPNFallbackEndpointProvider;
 import com.privateinternetaccess.android.pia.receivers.PortForwardingReceiver;
 import com.privateinternetaccess.android.pia.utils.DLog;
@@ -58,6 +57,7 @@ import com.privateinternetaccess.android.ui.connection.MainActivity;
 import com.privateinternetaccess.android.ui.notifications.PIANotifications;
 import com.privateinternetaccess.android.utils.DedicatedIpUtils;
 import com.privateinternetaccess.android.utils.SnoozeUtils;
+import com.privateinternetaccess.android.utils.SubnetUtils;
 import com.privateinternetaccess.android.wireguard.config.Config;
 import com.privateinternetaccess.android.wireguard.config.InetNetwork;
 import com.privateinternetaccess.android.wireguard.config.Interface;
@@ -99,13 +99,52 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public final class GoBackend implements Backend {
-    private String IPV4_PUBLIC_NETWORKS =
-            "0.0.0.0/5, 8.0.0.0/7, 11.0.0.0/8, 12.0.0.0/6, 16.0.0.0/4, 32.0.0.0/3, " +
-                    "64.0.0.0/2, 128.0.0.0/3, 160.0.0.0/5, 168.0.0.0/6, 172.0.0.0/12, " +
-                    "172.32.0.0/11, 172.64.0.0/10, 172.128.0.0/9, 173.0.0.0/8, 174.0.0.0/7, " +
-                    "176.0.0.0/4, 192.0.0.0/9, 192.128.0.0/11, 192.160.0.0/13, 192.169.0.0/16, " +
-                    "192.170.0.0/15, 192.172.0.0/14, 192.176.0.0/12, 192.192.0.0/10, " +
-                    "193.0.0.0/8, 194.0.0.0/7, 196.0.0.0/6, 200.0.0.0/5, 208.0.0.0/4";
+    private final String IPV4_PUBLIC_NETWORKS =
+            "0.0.0.0/8, 1.0.0.0/8, 2.0.0.0/8, 3.0.0.0/8, 4.0.0.0/8, 5.0.0.0/8, 6.0.0.0/8, " +
+                    "7.0.0.0/8, 8.0.0.0/8, 9.0.0.0/8, 11.0.0.0/8, 12.0.0.0/8, 13.0.0.0/8, " +
+                    "14.0.0.0/8, 15.0.0.0/8, 16.0.0.0/8, 17.0.0.0/8, 18.0.0.0/8, 19.0.0.0/8, " +
+                    "20.0.0.0/8, 21.0.0.0/8, 22.0.0.0/8, 23.0.0.0/8, 24.0.0.0/8, 25.0.0.0/8, " +
+                    "26.0.0.0/8, 27.0.0.0/8, 28.0.0.0/8, 29.0.0.0/8, 30.0.0.0/8, 31.0.0.0/8, " +
+                    "32.0.0.0/8, 33.0.0.0/8, 34.0.0.0/8, 35.0.0.0/8, 36.0.0.0/8, 37.0.0.0/8, " +
+                    "38.0.0.0/8, 39.0.0.0/8, 40.0.0.0/8, 41.0.0.0/8, 42.0.0.0/8, 43.0.0.0/8, " +
+                    "44.0.0.0/8, 45.0.0.0/8, 46.0.0.0/8, 47.0.0.0/8, 48.0.0.0/8, 49.0.0.0/8, " +
+                    "50.0.0.0/8, 51.0.0.0/8, 52.0.0.0/8, 53.0.0.0/8, 54.0.0.0/8, 55.0.0.0/8, " +
+                    "56.0.0.0/8, 57.0.0.0/8, 58.0.0.0/8, 59.0.0.0/8, 60.0.0.0/8, 61.0.0.0/8, " +
+                    "62.0.0.0/8, 63.0.0.0/8, 64.0.0.0/8, 65.0.0.0/8, 66.0.0.0/8, 67.0.0.0/8, " +
+                    "68.0.0.0/8, 69.0.0.0/8, 70.0.0.0/8, 71.0.0.0/8, 72.0.0.0/8, 73.0.0.0/8, " +
+                    "74.0.0.0/8, 75.0.0.0/8, 76.0.0.0/8, 77.0.0.0/8, 78.0.0.0/8, 79.0.0.0/8, " +
+                    "80.0.0.0/8, 81.0.0.0/8, 82.0.0.0/8, 83.0.0.0/8, 84.0.0.0/8, 85.0.0.0/8, " +
+                    "86.0.0.0/8, 87.0.0.0/8, 88.0.0.0/8, 89.0.0.0/8, 90.0.0.0/8, 91.0.0.0/8, " +
+                    "92.0.0.0/8, 93.0.0.0/8, 94.0.0.0/8, 95.0.0.0/8, 96.0.0.0/8, 97.0.0.0/8, " +
+                    "98.0.0.0/8, 99.0.0.0/8, 100.0.0.0/8, 101.0.0.0/8, 102.0.0.0/8, 103.0.0.0/8, " +
+                    "104.0.0.0/8, 105.0.0.0/8, 106.0.0.0/8, 107.0.0.0/8, 108.0.0.0/8, 109.0.0.0/8, " +
+                    "110.0.0.0/8, 111.0.0.0/8, 112.0.0.0/8, 113.0.0.0/8, 114.0.0.0/8, 115.0.0.0/8, " +
+                    "116.0.0.0/8, 117.0.0.0/8, 118.0.0.0/8, 119.0.0.0/8, 120.0.0.0/8, 121.0.0.0/8, " +
+                    "122.0.0.0/8, 123.0.0.0/8, 124.0.0.0/8, 125.0.0.0/8, 126.0.0.0/8, 128.0.0.0/8, " +
+                    "129.0.0.0/8, 130.0.0.0/8, 131.0.0.0/8, 132.0.0.0/8, 133.0.0.0/8, 134.0.0.0/8, " +
+                    "135.0.0.0/8, 136.0.0.0/8, 137.0.0.0/8, 138.0.0.0/8, 139.0.0.0/8, 140.0.0.0/8, " +
+                    "141.0.0.0/8, 142.0.0.0/8, 143.0.0.0/8, 144.0.0.0/8, 145.0.0.0/8, 146.0.0.0/8, " +
+                    "147.0.0.0/8, 148.0.0.0/8, 149.0.0.0/8, 150.0.0.0/8, 151.0.0.0/8, 152.0.0.0/8, " +
+                    "153.0.0.0/8, 154.0.0.0/8, 155.0.0.0/8, 156.0.0.0/8, 157.0.0.0/8, 158.0.0.0/8, " +
+                    "159.0.0.0/8, 160.0.0.0/8, 161.0.0.0/8, 162.0.0.0/8, 163.0.0.0/8, 164.0.0.0/8, " +
+                    "165.0.0.0/8, 166.0.0.0/8, 167.0.0.0/8, 168.0.0.0/8, 169.0.0.0/8, 170.0.0.0/8, " +
+                    "171.0.0.0/8, 172.0.0.0/12, 172.32.0.0/11, 172.64.0.0/10, 172.128.0.0/9, " +
+                    "173.0.0.0/8, 174.0.0.0/8, 175.0.0.0/8, 176.0.0.0/8, 177.0.0.0/8, 178.0.0.0/8, " +
+                    "179.0.0.0/8, 180.0.0.0/8, 181.0.0.0/8, 182.0.0.0/8, 183.0.0.0/8, 184.0.0.0/8, " +
+                    "185.0.0.0/8, 186.0.0.0/8, 187.0.0.0/8, 188.0.0.0/8, 189.0.0.0/8, 190.0.0.0/8, " +
+                    "191.0.0.0/8, 192.0.0.0/9, 192.128.0.0/11, 192.160.0.0/13, 192.169.0.0/16, " +
+                    "192.170.0.0/15, 192.172.0.0/14, 192.176.0.0/12, 192.192.0.0/10, 193.0.0.0/8, " +
+                    "194.0.0.0/8, 195.0.0.0/8, 196.0.0.0/8, 197.0.0.0/8, 198.0.0.0/8, 199.0.0.0/8, " +
+                    "200.0.0.0/8, 201.0.0.0/8, 202.0.0.0/8, 203.0.0.0/8, 204.0.0.0/8, 205.0.0.0/8, " +
+                    "206.0.0.0/8, 207.0.0.0/8, 208.0.0.0/8, 209.0.0.0/8, 210.0.0.0/8, 211.0.0.0/8, " +
+                    "212.0.0.0/8, 213.0.0.0/8, 214.0.0.0/8, 215.0.0.0/8, 216.0.0.0/8, 217.0.0.0/8, " +
+                    "218.0.0.0/8, 219.0.0.0/8, 220.0.0.0/8, 221.0.0.0/8, 222.0.0.0/8, 223.0.0.0/8, " +
+                    "224.0.0.0/8, 225.0.0.0/8, 226.0.0.0/8, 227.0.0.0/8, 228.0.0.0/8, 229.0.0.0/8, " +
+                    "230.0.0.0/8, 231.0.0.0/8, 232.0.0.0/8, 233.0.0.0/8, 234.0.0.0/8, 235.0.0.0/8, " +
+                    "236.0.0.0/8, 237.0.0.0/8, 238.0.0.0/8, 239.0.0.0/8, 240.0.0.0/8, 241.0.0.0/8, " +
+                    "242.0.0.0/8, 243.0.0.0/8, 244.0.0.0/8, 245.0.0.0/8, 246.0.0.0/8, 247.0.0.0/8, " +
+                    "248.0.0.0/8, 249.0.0.0/8, 250.0.0.0/8, 251.0.0.0/8, 252.0.0.0/8, 253.0.0.0/8, " +
+                    "254.0.0.0/8, 255.0.0.0/8";
 
     private static final String TAG = "WireGuard/" + GoBackend.class.getSimpleName();
     private static GhettoCompletableFuture<VpnService> vpnService = new GhettoCompletableFuture<>();
@@ -310,8 +349,9 @@ public final class GoBackend implements Backend {
             }
 
             for (final Peer peer : config.getPeers()) {
-                for (final InetNetwork addr : peer.getAllowedIps())
+                for (final InetNetwork addr : peer.getAllowedIps()) {
                     builder.addRoute(addr.getAddress(), addr.getMask());
+                }
             }
 
             builder.setMtu(config.getInterface().getMtu().orElse(1280));
@@ -360,7 +400,7 @@ public final class GoBackend implements Backend {
             VpnStateEvent event = new VpnStateEvent(
                     "CONNECT",
                     "Wireguard Connect",
-                    R.string.wg_connected,
+                    R.string.connected,
                     ConnectionStatus.LEVEL_CONNECTED
             );
             EventBus.getDefault().postSticky(event);
@@ -553,7 +593,7 @@ public final class GoBackend implements Backend {
         EventBus.getDefault().postSticky(new VpnStateEvent(
                 "CONNECT",
                 "Wireguard Connecting",
-                R.string.wg_connecting,
+                R.string.connecting,
                 ConnectionStatus.LEVEL_CONNECTING_NO_SERVER_REPLY_YET
         ));
 
@@ -670,23 +710,15 @@ public final class GoBackend implements Backend {
 
     private List<String> generateInterface(KeyPair keys, JSONObject response) throws JSONException {
         List<String> wgSettings = new ArrayList<>();
-        Object dns = response.getJSONArray("dns_servers").get(0);
+        Object defaultDns = response.getJSONArray("dns_servers").get(0);
+        Pair<String, String> dnsServers = DnsProvider.INSTANCE.getTargetDns(context, defaultDns.toString());
+        String dns = dnsServers.getFirst();
+        if (!TextUtils.isEmpty(dnsServers.getSecond())) {
+            dns = dns  + "," + dnsServers.getSecond();
+        }
 
         wgSettings.add("privatekey=" + keys.getPrivateKey().toBase64());
-
-        if (PiaPrefHandler.isCustomDnsSelected(context)) {
-            String customPrimaryDns = PiaPrefHandler.getPrimaryDns(context);
-            if (TextUtils.isEmpty(customPrimaryDns)) {
-                customPrimaryDns = dns.toString();
-            }
-            wgSettings.add("dns=" + customPrimaryDns);
-        }
-        else {
-            if (PiaPrefHandler.isMaceEnabled(context) && !BuildConfig.FLAVOR_store.equals("playstore")) {
-                dns = GEN4_MACE_ENABLED_DNS;
-            }
-            wgSettings.add("dns=" + dns);
-        }
+        wgSettings.add("dns=" + dns);
 
         if (PiaPrefHandler.getWireguardSmallPacketSizeEnabled(context)) {
             wgSettings.add("mtu=1280");
@@ -708,12 +740,9 @@ public final class GoBackend implements Backend {
         wgSettings.add("persistentkeepalive=25");
 
         if (PiaPrefHandler.isAllowLocalLanEnabled(context)) {
-            if (PiaPrefHandler.isMaceEnabled(context)) {
-                wgSettings.add("allowedips=" + getAllowedIps(GEN4_MACE_ENABLED_DNS));
-            }
-            else {
-                wgSettings.add("allowedips=" + getAllowedIps(response.getJSONArray("dns_servers").get(0).toString()));
-            }
+            String defaultDns = response.getJSONArray("dns_servers").get(0).toString();
+            Pair<String, String> dnsServers = DnsProvider.INSTANCE.getTargetDns(context, defaultDns);
+            wgSettings.add("allowedips=" + getAllowedPublicAddressSpaces(dnsServers.getFirst()));
         } else {
             wgSettings.add("allowedips=0.0.0.0/0");
         }
@@ -721,13 +750,25 @@ public final class GoBackend implements Backend {
         return wgSettings;
     }
 
-    private String getAllowedIps(String dnsServer) {
-        if (dnsServer != null) {
-            return IPV4_PUBLIC_NETWORKS + "," + dnsServer;
+    private String getAllowedPublicAddressSpaces(String dnsServer) {
+        String publicAddressSpaces = IPV4_PUBLIC_NETWORKS  + "," + dnsServer;
+
+        // By default we sent DNS traffic through the tunnel interface. However, if
+        // the system dns resolvers is selected. It goes through Android's active interface.
+        if (PiaPrefHandler.isSystemDnsResolverSelected(context)) {
+            publicAddressSpaces =  calculateAddressSpacesWithoutSystemDnsResolver(dnsServer);
         }
-        else {
-            return IPV4_PUBLIC_NETWORKS + "10.0.0.240/29";
+
+        return publicAddressSpaces;
+    }
+
+    private String calculateAddressSpacesWithoutSystemDnsResolver(String dnsServer) {
+        String[] subnets = IPV4_PUBLIC_NETWORKS.replace(" ", "").split(",");
+        List<String> result = new ArrayList<>();
+        for (String subnet: subnets) {
+            result.add(SubnetUtils.INSTANCE.excludeIpFromSubnet(subnet, dnsServer));
         }
+        return String.join(",", result);
     }
 
     private void setDisallowedApps(VpnService.Builder builder) {

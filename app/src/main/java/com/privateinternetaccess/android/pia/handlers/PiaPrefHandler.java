@@ -193,6 +193,7 @@ public class PiaPrefHandler {
     public static final String CUSTOM_DNS = "CUSTOM_DNS";
     public static final String CUSTOM_SECONDARY_DNS = "CUSTOM_SECONDARY_DNS";
     public static final String CUSTOM_DNS_SELECTED = "CUSTOM_SELECTED";
+    public static final String SYSTEM_DNS_RESOLVER_SELECTED = "SYSTEM_DNS_RESOLVER_SELECTED";
     public static final String DNS_PREF = "dns_pref";
 
     public static final String CONNECTION_ENDED = "connectionEndedByUser";
@@ -1260,6 +1261,18 @@ public class PiaPrefHandler {
         Prefs.with(context).remove(CUSTOM_DNS_SELECTED);
     }
 
+    public static void setSystemDnsResolverSelected(Context context, boolean value) {
+        Prefs.with(context).set(SYSTEM_DNS_RESOLVER_SELECTED, value);
+    }
+
+    public static boolean isSystemDnsResolverSelected(Context context) {
+        return Prefs.with(context).get(SYSTEM_DNS_RESOLVER_SELECTED, false);
+    }
+
+    public static void resetSystemDnsResolverSelected(Context context) {
+        Prefs.with(context).remove(SYSTEM_DNS_RESOLVER_SELECTED);
+    }
+
     public static void setPrimaryDns(Context context, String value) {
         Prefs.with(context).set(DNS, value);
     }
@@ -1525,6 +1538,8 @@ public class PiaPrefHandler {
         PiaPrefHandler.resetConnectOnAppUpdate(context);
         PiaPrefHandler.resetHapticFeedbackEnabled(context);
         PiaPrefHandler.resetShowInAppMessagesEnabled(context);
+        PiaPrefHandler.resetSystemDnsResolverSelected(context);
+        PiaPrefHandler.resetCustomDnsSelected(context);
 
         // Per App Settings
         prefs.set(PiaPrefHandler.VPN_PER_APP_ARE_ALLOWED, false);
