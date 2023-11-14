@@ -324,7 +324,7 @@ public class PIAApplication extends Application {
     public static boolean isAmazon(){
         String brand = Build.BRAND;
         DLog.d("isAmazon"," " + Build.MODEL + " " + Build.DEVICE + " " + Build.BRAND + " " + Build.PRODUCT + " " + Build.BOARD);
-        if(!TextUtils.isEmpty(brand))
+        if(!TextUtils.isEmpty(brand) && BuildConfig.FLAVOR_store.equals("amazonstore"))
             return brand.toLowerCase().contains("amazon");
         else
             return false;
