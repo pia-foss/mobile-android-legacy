@@ -39,6 +39,7 @@ import com.privateinternetaccess.android.R;
 import com.privateinternetaccess.android.model.events.SeverListUpdateEvent;
 import com.privateinternetaccess.android.model.events.SeverListUpdateEvent.ServerListUpdateState;
 import com.privateinternetaccess.android.pia.PIAFactory;
+import com.privateinternetaccess.android.pia.interfaces.IAccount;
 import com.privateinternetaccess.android.pia.providers.ModuleClientStateProvider;
 import com.privateinternetaccess.android.pia.receivers.FetchServersReceiver;
 import com.privateinternetaccess.android.pia.receivers.PingReceiver;
@@ -99,7 +100,7 @@ public class PIAServerHandler implements PlatformInstancesProvider {
     private static PIAServer randomServer;
 
     public static PIAServerHandler getInstance(Context context){
-        if(instance == null){
+        if (instance == null){
             startup(context);
         }
         return instance;
@@ -272,6 +273,14 @@ public class PIAServerHandler implements PlatformInstancesProvider {
     }
 
     public void triggerLatenciesUpdate(@Nullable Function1<Error, Unit> callback) {
+        IAccount account = PIAFactory.getInstance().getAccount(context);
+        if (!account.loggedIn()) {
+            if (callback != null) {
+                callback.invoke(new Error("Error when updating latencies. User not logged in"));
+            }
+            return;
+        }
+
         if (PiaPrefHandler.isStopPingingServersEnabled(context)) {
             DLog.e(TAG, "Error when updating latencies. Disabled on developer options");
             if (callback != null) {
@@ -351,6 +360,14 @@ public class PIAServerHandler implements PlatformInstancesProvider {
     }
 
     public void triggerFetchServers(@Nullable Function1<Error, Unit> callback) {
+        IAccount account = PIAFactory.getInstance().getAccount(context);
+        if (!account.loggedIn()) {
+            if (callback != null) {
+                callback.invoke(new Error("Fetch servers cancelled. User not logged in"));
+            }
+            return;
+        }
+
         if (SystemUtils.INSTANCE.isDozeModeEnabled(context)) {
             DLog.e(TAG, "Error when updating list of servers. Doze mode enabled.");
             if (callback != null) {

@@ -40,8 +40,12 @@ class PIALifecycleObserver(private val context: Context) : LifecycleObserver {
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     fun onForeground() {
         DLog.d(TAG, "Application Foregrounded")
-        PIAServerHandler.getInstance(context).triggerLatenciesUpdate()
-        migrateApiTokenIfNeeded()
+        val account = PIAFactory.getInstance().getAccount(context)
+        if (account.loggedIn()) {
+            PIAServerHandler.startup(context)
+            PIAServerHandler.getInstance(context).triggerLatenciesUpdate()
+            migrateApiTokenIfNeeded()
+        }
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
