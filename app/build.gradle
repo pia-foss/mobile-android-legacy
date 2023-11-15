@@ -54,13 +54,13 @@ dependencies {
 
     // Tests
     testImplementation 'com.github.gmazzo:okhttp-mock:1.3.2'
-    testImplementation "org.json:json:20180813"
+    testImplementation "org.json:json:20231013"
     testImplementation 'junit:junit:4.13.2'
-    testImplementation 'androidx.test:core:1.4.0'
-    testImplementation 'org.robolectric:robolectric:4.4'
-    testImplementation 'org.mockito:mockito-inline:2.23.0'
-    testImplementation "org.mockito.kotlin:mockito-kotlin:3.2.0"
-    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.0"
+    testImplementation 'androidx.test:core:1.5.0'
+    testImplementation 'org.robolectric:robolectric:4.10.3'
+    testImplementation 'org.mockito:mockito-inline:4.4.0'
+    testImplementation "org.mockito.kotlin:mockito-kotlin:4.0.0"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3"
     androidTestImplementation 'com.github.gmazzo:okhttp-mock:1.3.2'
     androidTestImplementation 'androidx.test:runner:1.4.0'
     androidTestImplementation 'androidx.test:core:1.4.0'
