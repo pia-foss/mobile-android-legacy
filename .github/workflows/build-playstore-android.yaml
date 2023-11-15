@@ -10,7 +10,7 @@ jobs:
       - uses: actions/setup-java@v3
         with:
           distribution: temurin
-          java-version: 11
+          java-version: 17
           cache: gradle
       - name: key
         run: openssl base64 -d -A -out /home/runner/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/app/key.keystore <<< ${{ secrets.SIGNING_PLAYSTORE_KEYSTORE }}
