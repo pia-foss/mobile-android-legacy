@@ -103,6 +103,10 @@ public class ThemeHandler {
      * @param app
      */
     public static void setAppTheme(Application app){
+        if (PIAApplication.isAndroidTV(app)) {
+            return;
+        }
+
         Theme theme = getPrefTheme(app);
         int mode = AppCompatDelegate.MODE_NIGHT_NO;
         switch (theme){
