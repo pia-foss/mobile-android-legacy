@@ -17,6 +17,8 @@ jobs:
       - name: build AAB
         run: ./gradlew bundleProductionPlaystoreRelease --parallel
         env:
+          GITHUB_USERNAME: ${{ secrets.USERNAME_GITHUB }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
           SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_PLAYSTORE_KEY_ALIAS }}
           SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_PLAYSTORE_KEY_PASSWORD }}
           SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_PLAYSTORE_STORE_PASSWORD }}

@@ -14,3 +14,6 @@ jobs:
           cache: gradle
       - name: unit-tests
         run: ./gradlew testProductionPlaystoreReleaseUnitTest testProductionNoinappReleaseUnitTest --parallel
+        env:
+          GITHUB_USERNAME: ${{ secrets.USERNAME_GITHUB }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}

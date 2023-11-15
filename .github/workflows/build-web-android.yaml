@@ -27,6 +27,8 @@ jobs:
       - name: build APK
         run: ./gradlew assembleProductionNoinappRelease --parallel
         env:
+          GITHUB_USERNAME: ${{ secrets.USERNAME_GITHUB }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
           SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_WEB_KEY_ALIAS }}
           SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_WEB_KEY_PASSWORD }}
           SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_WEB_STORE_PASSWORD }}
