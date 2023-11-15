@@ -18,8 +18,7 @@
   -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.privateinternetaccess.android">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <queries>
         <intent>
@@ -69,7 +68,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/pia_theme_3_0"
         android:name=".PIAApplication"
-        android:extractNativeLibs="true"
         android:usesCleartextTraffic="true"
         android:label="@string/launcher_name"
         android:appCategory="productivity"

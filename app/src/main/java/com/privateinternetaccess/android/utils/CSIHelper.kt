@@ -19,7 +19,7 @@ import com.privateinternetaccess.csi.ProviderType
 import com.privateinternetaccess.csi.ReportType
 import com.privateinternetaccess.regions.RegionsUtils.parse
 import com.privateinternetaccess.regions.RegionsUtils.stringify
-import com.privateinternetaccess.regions.model.RegionsResponse
+import com.privateinternetaccess.regions.model.VpnRegionsResponse
 import java.util.*
 
 
@@ -190,11 +190,11 @@ class CSIHelper(private val context: Context) {
             return "Unknown"
         }
 
-        val redactedRegions: ArrayList<RegionsResponse.Region> = ArrayList<RegionsResponse.Region>()
+        val redactedRegions: ArrayList<VpnRegionsResponse.Region> = ArrayList<VpnRegionsResponse.Region>()
         val (groups, regions) = parse(lastServerBody)
         for ((id, name, country, dns, geo, offline, latitude, longitude, autoRegion, portForward, proxy) in regions) {
             redactedRegions.add(
-                RegionsResponse.Region(
+                VpnRegionsResponse.Region(
                     id,
                     name,
                     country,
@@ -209,7 +209,7 @@ class CSIHelper(private val context: Context) {
                 )
             )
         }
-        val redactedResponse = RegionsResponse(
+        val redactedResponse = VpnRegionsResponse(
             groups,
             redactedRegions
         )

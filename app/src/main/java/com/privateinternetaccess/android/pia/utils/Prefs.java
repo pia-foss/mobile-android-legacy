@@ -60,8 +60,6 @@ public class Prefs {
             PiaPrefHandler.TRIAL_EMAIL,
             PiaPrefHandler.TRIAL_EMAIL_TEMP,
             PiaPrefHandler.DIP_TOKENS,
-            PiaPrefHandler.GEN4_LAST_SERVER_BODY,
-            PiaPrefHandler.GEN4_QUICK_CONNECT_LIST,
             PiaPrefHandler.FAVORITE_REGIONS,
             PiaPrefHandler.SELECTED_REGION,
     };

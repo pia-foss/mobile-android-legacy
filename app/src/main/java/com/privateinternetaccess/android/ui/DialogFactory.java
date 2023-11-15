@@ -40,7 +40,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.ktor.http.cio.websocket.Frame;
 
 public class DialogFactory {
 

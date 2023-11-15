@@ -218,7 +218,6 @@ class Rating(val context: Context) : CoroutineScope {
         } ?: RatingState(active = true, counter = 0)
     }
     
-    @UseExperimental(ExperimentalTime::class)
     private fun daysPassedSinceNotEnjoyingReply(
             dateString: String
     ): Long {

@@ -22,12 +22,14 @@ package com.privateinternetaccess.android.pia.handlers;
 import static com.privateinternetaccess.android.pia.api.PiaApi.ANDROID_HTTP_CLIENT;
 
 import android.app.AlarmManager;
+import android.app.Application;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.os.ConfigurationCompat;
@@ -49,11 +51,12 @@ import com.privateinternetaccess.android.utils.SystemUtils;
 import com.privateinternetaccess.core.model.PIAServer;
 import com.privateinternetaccess.core.model.PIAServerInfo;
 import com.privateinternetaccess.core.model.ServerResponse;
+import com.privateinternetaccess.regions.PlatformInstancesProvider;
 import com.privateinternetaccess.regions.RegionLowerLatencyInformation;
 import com.privateinternetaccess.regions.RegionsAPI;
 import com.privateinternetaccess.regions.RegionsBuilder;
 import com.privateinternetaccess.regions.RegionsUtils;
-import com.privateinternetaccess.regions.model.RegionsResponse;
+import com.privateinternetaccess.regions.model.VpnRegionsResponse;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -80,7 +83,7 @@ import kotlin.jvm.functions.Function1;
  * Handler class for helping with the servers and pings to those servers.
  *
  */
-public class PIAServerHandler {
+public class PIAServerHandler implements PlatformInstancesProvider {
 
     private static final String TAG = "PIAServerHandler";
     public static final String LAST_SERVER_GRAB = "LAST_SERVER_GRAB";
@@ -189,8 +192,18 @@ public class PIAServerHandler {
                     .setEndpointProvider(new ModuleClientStateProvider(context))
                     .setCertificate(ModuleClientStateProvider.Companion.getCERTIFICATE())
                     .setUserAgent(ANDROID_HTTP_CLIENT)
+                    .setMetadataRequestPath("/vpninfo/regions/v2")
+                    .setVpnRegionsRequestPath("/vpninfo/servers/v6")
+                    .setShadowsocksRegionsRequestPath("/shadow_socks")
+                    .setPlatformInstancesProvider(this)
                 .build();
         }
+    }
+
+    @NonNull
+    @Override
+    public Application provideApplicationContext() {
+        return (Application) context.getApplicationContext();
     }
 
     private void offLoadResponse(ServerResponse response, boolean fromWeb){
@@ -228,7 +241,7 @@ public class PIAServerHandler {
             }
         }
 
-        RegionsResponse regionsResponse = RegionsUtils.INSTANCE.parse(gen4LastBody);
+        VpnRegionsResponse regionsResponse = RegionsUtils.INSTANCE.parse(gen4LastBody);
         Map<String, PIAServer> serverMap =
                 ServerResponseHelper.Companion.adaptServers(context, regionsResponse);
         PIAServerInfo serverInfo =
@@ -283,12 +296,11 @@ public class PIAServerHandler {
             return;
         }
 
-        regionModule.pingRequests((response, errors) -> {
-            if (errors.size() > 0) {
-                Error lastKnownError = errors.get(errors.size() - 1);
-                DLog.e(TAG, "Error when updating latencies " + lastKnownError.getMessage());
+        regionModule.pingRequests((response, error) -> {
+            if (error != null) {
+                DLog.e(TAG, "Error when updating latencies " + error.getMessage());
                 if (callback != null) {
-                    callback.invoke(lastKnownError);
+                    callback.invoke(error);
                 }
                 return null;
             }
@@ -356,12 +368,11 @@ public class PIAServerHandler {
         }
 
         Locale locale = ConfigurationCompat.getLocales(context.getResources().getConfiguration()).get(0);
-        regionModule.fetchRegions(locale.getLanguage(), (regionsResponse, errors) -> {
-            if (errors.size() > 0) {
-                Error lastKnownError = errors.get(errors.size() - 1);
-                DLog.e(TAG, "Error fetching the list of servers " + lastKnownError.getMessage());
+        regionModule.fetchVpnRegions(locale.getLanguage(), (regionsResponse, error) -> {
+            if (error != null) {
+                DLog.e(TAG, "Error fetching the list of servers " + error.getMessage());
                 if (callback != null) {
-                    callback.invoke(lastKnownError);
+                    callback.invoke(error);
                 }
                 return null;
             }

@@ -12,12 +12,12 @@ import android.view.ViewGroup
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import butterknife.ButterKnife
 import com.amazon.device.iap.model.PurchaseResponse
 import com.privateinternetaccess.account.model.response.AmazonSubscriptionsInformation
 import com.privateinternetaccess.android.BuildConfig
 import com.privateinternetaccess.android.PIAApplication
 import com.privateinternetaccess.android.R
+import com.privateinternetaccess.android.databinding.FragmentGetStartedNewBinding
 import com.privateinternetaccess.android.model.events.PricingLoadedEvent
 import com.privateinternetaccess.android.pia.PIAFactory
 import com.privateinternetaccess.android.pia.handlers.PiaPrefHandler
@@ -28,41 +28,40 @@ import com.privateinternetaccess.android.pia.utils.DLog
 import com.privateinternetaccess.android.pia.utils.Toaster
 import com.privateinternetaccess.android.ui.drawer.settings.DeveloperActivity
 import com.privateinternetaccess.android.utils.toAndroidSubscription
-import kotlinx.android.synthetic.main.fragment_get_started_new.*
 import java.text.DecimalFormat
 import java.util.*
 
 class AmazonGetStartedFragment : Fragment() {
 
     private var pricesLoaded = false
+    private lateinit var binding: FragmentGetStartedNewBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val view: View = inflater.inflate(R.layout.fragment_get_started_new, container, false)
-        ButterKnife.bind(this, view)
-        return view
+        binding = FragmentGetStartedNewBinding.inflate(inflater)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        yearlySpinner.isVisible = true
-        monthlySpinner.isVisible = true
+        binding.yearlySpinner.isVisible = true
+        binding.monthlySpinner.isVisible = true
 
         if (PIAApplication.isRelease()) {
-            devButton.visibility = View.GONE
+            binding.devButton.visibility = View.GONE
         } else {
-            devButton.visibility = View.VISIBLE
-            devButton.setOnClickListener {
+            binding.devButton.visibility = View.VISIBLE
+            binding.devButton.setOnClickListener {
                 val i = Intent(context, DeveloperActivity::class.java)
                 startActivity(i)
             }
         }
 
-        footer.movementMethod = LinkMovementMethod.getInstance()
+        binding.footer.movementMethod = LinkMovementMethod.getInstance()
 
         if (PiaPrefHandler.availableSubscriptions(requireContext()) == null) {
             requestPrices()
@@ -70,16 +69,16 @@ class AmazonGetStartedFragment : Fragment() {
             pricesLoaded()
         }
 
-        yearly.setOnClickListener {
+        binding.yearly.setOnClickListener {
             handleSelection(true)
         }
 
-        monthly.setOnClickListener {
+        binding.monthly.setOnClickListener {
             handleSelection(false)
         }
 
-        subscribe.setOnClickListener { subscribe() }
-        login.setOnClickListener { login() }
+        binding.subscribe.setOnClickListener { subscribe() }
+        binding.login.setOnClickListener { login() }
 
         PIAApplication.amazonPurchaseUtil.observableProducts.observe(viewLifecycleOwner) {
             showAmazonPricing(it!!)
@@ -91,10 +90,10 @@ class AmazonGetStartedFragment : Fragment() {
     }
 
     private fun showAmazonPricing(event: PricingLoadedEvent) {
-        yearlySpinner.isGone = true
-        monthlySpinner.isGone = true
+        binding.yearlySpinner.isGone = true
+        binding.monthlySpinner.isGone = true
         pricesLoaded = !TextUtils.isEmpty(event.yearlyCost)
-        description.text = getString(R.string.startup_region_message_new, event.yearlyCost)
+        binding.description.text = getString(R.string.startup_region_message_new, event.yearlyCost)
         setUpCosts(event.monthlyCost, event.yearlyCost)
     }
 
@@ -160,23 +159,23 @@ class AmazonGetStartedFragment : Fragment() {
     private fun handleSelection(yearlySelected: Boolean) {
         val theme = ThemeHandler.getCurrentTheme(requireContext())
         if (yearlySelected) {
-            yearly.isSelected = true
-            monthly.isSelected = false
+            binding.yearly.isSelected = true
+            binding.monthly.isSelected = false
             PIAApplication.amazonPurchaseUtil.selectProduct(true)
-            yearlyIcon.setImageResource(if (theme == ThemeHandler.Theme.DAY) R.drawable.ic_selection_checked else R.drawable.ic_selection_checked_dark)
-            monthlyIcon.setImageResource(if (theme == ThemeHandler.Theme.DAY) R.drawable.ic_selection else R.drawable.ic_selection_dark)
+            binding.yearlyIcon.setImageResource(if (theme == ThemeHandler.Theme.DAY) R.drawable.ic_selection_checked else R.drawable.ic_selection_checked_dark)
+            binding.monthlyIcon.setImageResource(if (theme == ThemeHandler.Theme.DAY) R.drawable.ic_selection else R.drawable.ic_selection_dark)
         } else {
-            monthly.isSelected = true
-            yearly.isSelected = false
+            binding.monthly.isSelected = true
+            binding.yearly.isSelected = false
             PIAApplication.amazonPurchaseUtil.selectProduct(false)
-            yearlyIcon.setImageResource(if (theme == ThemeHandler.Theme.DAY) R.drawable.ic_selection else R.drawable.ic_selection_dark)
-            monthlyIcon.setImageResource(if (theme == ThemeHandler.Theme.DAY) R.drawable.ic_selection_checked else R.drawable.ic_selection_checked_dark)
+            binding.yearlyIcon.setImageResource(if (theme == ThemeHandler.Theme.DAY) R.drawable.ic_selection else R.drawable.ic_selection_dark)
+            binding.monthlyIcon.setImageResource(if (theme == ThemeHandler.Theme.DAY) R.drawable.ic_selection_checked else R.drawable.ic_selection_checked_dark)
         }
     }
 
     private fun setUpCosts(monthly: String, yearly: String) {
-        monthlyCost.text = String.format(getString(R.string.purchasing_monthly_ending), monthly)
-        yearlyCost.text = getString(R.string.yearly_sub_text, yearly)
+        binding.monthlyCost.text = String.format(getString(R.string.purchasing_monthly_ending), monthly)
+        binding.yearlyCost.text = getString(R.string.yearly_sub_text, yearly)
         if (!TextUtils.isEmpty(yearly)) {
             pricesLoaded = true
             val sb = StringBuilder()
@@ -197,7 +196,7 @@ class AmazonGetStartedFragment : Fragment() {
                 DLog.d("Purchasing", "year = $year cleaned = $cleaned")
                 year = year / 100 / 12
                 DLog.d("PurchasingFragment", "mYearlyCost = " + format.format(year))
-                yearlyTotal.text = String.format(
+                binding.yearlyTotal.text = String.format(
                     getString(R.string.purchasing_yearly_month_ending),
                     format.format(year),
                     currency
