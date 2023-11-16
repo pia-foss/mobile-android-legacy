@@ -20,33 +20,63 @@ package com.privateinternetaccess.android.pia.handler
 
 import android.content.Context
 import androidx.test.core.app.ApplicationProvider
+import com.privateinternetaccess.account.AndroidAccountAPI
+import com.privateinternetaccess.android.pia.PIAFactory
 import com.privateinternetaccess.android.pia.handlers.PIAServerHandler
+import com.privateinternetaccess.android.pia.impl.AccountImpl
+import com.privateinternetaccess.android.pia.interfaces.IAccount
+import com.privateinternetaccess.android.pia.interfaces.IFactory
+import com.privateinternetaccess.android.pia.interfaces.IVPN
 import com.privateinternetaccess.android.pia.utils.Prefs
 import com.privateinternetaccess.android.utils.KeyStoreUtils
 import com.privateinternetaccess.regions.RegionLowerLatencyInformation
 import com.privateinternetaccess.regions.RegionsAPI
-import com.privateinternetaccess.regions.model.RegionsResponse
+import com.privateinternetaccess.regions.model.ShadowsocksRegionsResponse
+import com.privateinternetaccess.regions.model.VpnRegionsResponse
+import org.junit.After
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.mockito.MockedStatic
 import org.mockito.Mockito
 import org.mockito.Mockito.verify
 import org.mockito.MockitoAnnotations
 import org.mockito.kotlin.any
+import org.mockito.kotlin.mock
 import org.robolectric.RobolectricTestRunner
 
 @RunWith(RobolectricTestRunner::class)
 class PIAServerHandlerTest {
 
     private lateinit var context: Context
+    private lateinit var mockedStatic: MockedStatic<PIAFactory>
 
     @Before
     fun setup() {
         MockitoAnnotations.initMocks(this)
         context = ApplicationProvider.getApplicationContext()
         Prefs.setKeyStoreUtils(Mockito.mock(KeyStoreUtils::class.java))
+
+        val accountMock = mock<IAccount>()
+        Mockito.`when`(accountMock.loggedIn()).thenReturn(true)
+
+        val vpnMock = mock<IVPN>()
+        Mockito.`when`(vpnMock.isVPNActive()).thenReturn(false)
+
+        val factoryMock = mock<IFactory>()
+        Mockito.`when`(factoryMock.getAccount(context)).thenReturn(accountMock)
+        Mockito.`when`(factoryMock.getVPN(context)).thenReturn(vpnMock)
+
+        mockedStatic = Mockito.mockStatic(PIAFactory::class.java)
+        mockedStatic.`when`<IFactory> { PIAFactory.getInstance() }.thenReturn(factoryMock)
+
         PIAServerHandler.releaseInstance()
+    }
+
+    @After
+    fun cleanup() {
+        mockedStatic.close()
     }
 
     @Test
@@ -62,7 +92,7 @@ class PIAServerHandlerTest {
         PIAServerHandler.setRegionModule(regionsSpy)
 
         PIAServerHandler.getInstance(context)
-        verify(regionsSpy).fetchRegions(any(), any())
+        verify(regionsSpy).fetchVpnRegions(any(), any())
     }
 
     @Test
@@ -71,7 +101,7 @@ class PIAServerHandlerTest {
         PIAServerHandler.setRegionModule(regionsSpy)
 
         PIAServerHandler.getInstance(context)
-        verify(regionsSpy).fetchRegions(any(), any())
+        verify(regionsSpy).fetchVpnRegions(any(), any())
     }
 
     @Test
@@ -88,15 +118,27 @@ class PIAServerHandlerTest {
 
 private class MockRegionsApi(private val mockResponse: Boolean) : RegionsAPI {
 
-    override fun fetchRegions(locale: String, callback: (response: RegionsResponse?, List<Error>) -> Unit) {
+    override fun fetchShadowsocksRegions(
+        locale: String,
+        callback: (response: List<ShadowsocksRegionsResponse>, error: Error?) -> Unit
+    ) {
+        callback(emptyList(), null)
+    }
+
+    override fun fetchVpnRegions(
+        locale: String,
+        callback: (response: VpnRegionsResponse?, Error?) -> Unit
+    ) {
         if (mockResponse) {
-            callback(Mockito.mock(RegionsResponse::class.java), emptyList())
+            callback(Mockito.mock(VpnRegionsResponse::class.java), null)
         } else {
-            callback(null, listOf(Error("Tests")))
+            callback(null, Error("Tests"))
         }
     }
 
-    override fun pingRequests(callback: (response: List<RegionLowerLatencyInformation>, List<Error>) -> Unit) {
-        callback(emptyList(), emptyList())
+    override fun pingRequests(
+        callback: (response: List<RegionLowerLatencyInformation>, Error?) -> Unit
+    ) {
+        callback(emptyList(), null)
     }
 }

@@ -45,6 +45,7 @@ import com.privateinternetaccess.android.pia.connection.ConnectionResponder;
 import com.privateinternetaccess.android.pia.handlers.PIAServerHandler;
 import com.privateinternetaccess.android.pia.handlers.PiaPrefHandler;
 import com.privateinternetaccess.android.pia.handlers.ThemeHandler;
+import com.privateinternetaccess.android.pia.interfaces.IAccount;
 import com.privateinternetaccess.android.pia.model.events.VpnStateEvent;
 import com.privateinternetaccess.android.pia.utils.DLog;
 import com.privateinternetaccess.android.pia.utils.Prefs;
@@ -199,8 +200,6 @@ public class PIAApplication extends Application {
                 .initVPNLibrary(new OVPNNotificationsBridge(), mCallBacks, listener)
                 .enableLogging(notRelease)
                 .setDebugParameters(debugMode, debugLevel, context.getFilesDir());
-
-        PIAServerHandler.startup(context);
 
         updateOrResetValues();
 

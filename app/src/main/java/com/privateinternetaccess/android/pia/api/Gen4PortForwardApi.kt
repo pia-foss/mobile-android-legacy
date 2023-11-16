@@ -204,7 +204,6 @@ class Gen4PortForwardApi : PIACertPinningAPI() {
         }
     }
 
-    @UseExperimental(ExperimentalTime::class)
     private fun tokenExpirationDateDaysLeft(
             tokenExpirationDate: String
     ): Long {

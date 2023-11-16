@@ -10,13 +10,15 @@ jobs:
       - uses: actions/setup-java@v3
         with:
           distribution: temurin
-          java-version: 11
+          java-version: 17
           cache: gradle
       - name: key
         run: openssl base64 -d -A -out /home/runner/work/${{ github.event.repository.name }}/${{ github.event.repository.name }}/app/key.keystore <<< ${{ secrets.SIGNING_PLAYSTORE_KEYSTORE }}
       - name: build AAB
         run: ./gradlew bundleProductionPlaystoreRelease --parallel
         env:
+          GITHUB_USERNAME: ${{ secrets.USERNAME_GITHUB }}
+          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
           SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_PLAYSTORE_KEY_ALIAS }}
           SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_PLAYSTORE_KEY_PASSWORD }}
           SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_PLAYSTORE_STORE_PASSWORD }}

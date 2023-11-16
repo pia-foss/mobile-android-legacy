@@ -21,15 +21,15 @@ package com.privateinternetaccess.android.pia.utils
 import android.content.Context
 import com.privateinternetaccess.android.pia.handlers.PiaPrefHandler
 import com.privateinternetaccess.regions.RegionsProtocol
-import com.privateinternetaccess.regions.model.RegionsResponse
 import com.privateinternetaccess.core.model.PIAServer
 import com.privateinternetaccess.core.model.PIAServer.PIAServerEndpointDetails
 import com.privateinternetaccess.core.model.PIAServerInfo
+import com.privateinternetaccess.regions.model.VpnRegionsResponse
 
 
 class ServerResponseHelper {
     companion object {
-        fun adaptServers(context: Context, regionsResponse: RegionsResponse): Map<String, PIAServer> {
+        fun adaptServers(context: Context, regionsResponse: VpnRegionsResponse): Map<String, PIAServer> {
             val servers = mutableMapOf<String, PIAServer>()
             for (region in regionsResponse.regions) {
                 val wireguardEndpoints = region.servers[RegionsProtocol.WIREGUARD.protocol]
@@ -125,7 +125,7 @@ class ServerResponseHelper {
             return servers
         }
 
-        fun adaptServersInfo(regionsResponse: RegionsResponse): PIAServerInfo {
+        fun adaptServersInfo(regionsResponse: VpnRegionsResponse): PIAServerInfo {
             val autoRegions = mutableListOf<String>()
             regionsResponse.regions.filter { it.autoRegion }.forEach { region ->
                 autoRegions.add(region.id)

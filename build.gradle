@@ -1,5 +1,5 @@
 buildscript {
-    ext.kotlin_version = '1.5.31'
+    ext.kotlin_version = '1.9.20'
     repositories {
         google()
         jcenter()
@@ -19,11 +19,40 @@ allprojects{
         google()
         jcenter()
         mavenCentral()
+        mavenLocal()
         maven { url "https://jitpack.io" }
         maven { url 'https://maven.google.com' }
         maven {
             url 'https://maven.google.com/'
             name 'Google'
+        }
+        maven {
+            url = uri("https://maven.pkg.github.com/pia-foss/mobile-shared-regions")
+            credentials {
+                username = System.getenv("GITHUB_USERNAME")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+        maven {
+            url = uri("https://maven.pkg.github.com/pia-foss/mobile-shared-account")
+            credentials {
+                username = System.getenv("GITHUB_USERNAME")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+        maven {
+            url = uri("https://maven.pkg.github.com/pia-foss/mobile-shared-csi")
+            credentials {
+                username = System.getenv("GITHUB_USERNAME")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+        maven {
+            url = uri("https://maven.pkg.github.com/pia-foss/mobile-shared-kpi")
+            credentials {
+                username = System.getenv("GITHUB_USERNAME")
+                password = System.getenv("GITHUB_TOKEN")
+            }
         }
     }
 }
