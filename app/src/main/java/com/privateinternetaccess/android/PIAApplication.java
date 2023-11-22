@@ -320,13 +320,17 @@ public class PIAApplication extends Application {
      *
      * @return if Build.BRAND == amazon
      */
-    public static boolean isAmazon(){
+    public static boolean isAmazon() {
+        return isAmazonBrand() && isAmazonFlavour();
+    }
+
+    public static boolean isAmazonBrand() {
         String brand = Build.BRAND;
-        DLog.d("isAmazon"," " + Build.MODEL + " " + Build.DEVICE + " " + Build.BRAND + " " + Build.PRODUCT + " " + Build.BOARD);
-        if(!TextUtils.isEmpty(brand) && BuildConfig.FLAVOR_store.equals("amazonstore"))
-            return brand.toLowerCase().contains("amazon");
-        else
-            return false;
+        return !TextUtils.isEmpty(brand) && brand.toLowerCase().contains("amazon");
+    }
+
+    public static boolean isAmazonFlavour() {
+        return BuildConfig.FLAVOR_store.equals("amazonstore");
     }
 
     public static boolean isChromebook(Context context){
