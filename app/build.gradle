@@ -81,7 +81,7 @@ dependencies {
     implementation "androidx.databinding:databinding-runtime:3.5.3"
 
     // amazon
-    implementation 'com.amazon.device:amazon-appstore-sdk:3.0.2'
+    implementation 'com.amazon.device:amazon-appstore-sdk:3.0.4'
 
     //google
     def billing_version = "5.2.1"
