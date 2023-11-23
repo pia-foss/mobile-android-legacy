@@ -194,7 +194,11 @@ public class LoginPurchaseActivity extends BaseActivity {
                     && !BuildConfig.FLAVOR_store.equals("noinapp")) {
                 frag = new NewGetStartedFragment();
             } else {
-                frag = new GetStartedFragment();
+                if (PIAApplication.isAmazonBrand()) {
+                    frag = new LoginFragment();
+                } else {
+                    frag = new GetStartedFragment();
+                }
             }
             FragmentTransaction trans = getSupportFragmentManager().beginTransaction();
             trans.replace(R.id.container, frag);
