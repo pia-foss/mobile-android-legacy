@@ -2,7 +2,6 @@ package com.privateinternetaccess.android.utils
 
 import android.content.Context
 import androidx.lifecycle.MutableLiveData
-import com.amazon.device.drm.LicensingService
 import com.amazon.device.iap.PurchasingListener
 import com.amazon.device.iap.PurchasingService
 import com.amazon.device.iap.model.*
@@ -12,9 +11,9 @@ import com.privateinternetaccess.android.pia.model.AmazonPurchaseData
 
 class AmazonPurchaseUtil(private val context: Context) {
 
-    private val monthlyPlan = "MONTHLY"
-    private val yearlyPlan = "YEARLY"
-    private val products = hashSetOf(monthlyPlan, yearlyPlan, "PIA-M1", "PIA-Y1")
+    private val monthlySkuPlan = "PIA-M1"
+    private val yearlySkuPlan = "PIA-Y1"
+    private val products = setOf(monthlySkuPlan, yearlySkuPlan)
 
     val observableProducts = MutableLiveData<PricingLoadedEvent?>()
     val observablePurchase = MutableLiveData<PurchaseResponse?>()
@@ -23,9 +22,6 @@ class AmazonPurchaseUtil(private val context: Context) {
     private var selectedProduct: String? = null
 
     init {
-        LicensingService.verifyLicense(context) {
-            // currently do nothing
-        }
         PurchasingService.registerListener(context, object : PurchasingListener {
             override fun onUserDataResponse(userData: UserDataResponse?) {
                 // currently do nothing
@@ -34,8 +30,8 @@ class AmazonPurchaseUtil(private val context: Context) {
             override fun onProductDataResponse(productData: ProductDataResponse?) {
                 productData?.let {
                     observableProducts.postValue(PricingLoadedEvent(
-                        it.productData[monthlyPlan]!!.price,
-                        it.productData[yearlyPlan]!!.price
+                        it.productData[monthlySkuPlan]!!.price,
+                        it.productData[yearlySkuPlan]!!.price
                     ))
                 }
             }
@@ -62,9 +58,9 @@ class AmazonPurchaseUtil(private val context: Context) {
 
     fun selectProduct(isYearly: Boolean) {
         selectedProduct = if (isYearly) {
-            yearlyPlan
+            yearlySkuPlan
         } else {
-            monthlyPlan
+            monthlySkuPlan
         }
     }
 

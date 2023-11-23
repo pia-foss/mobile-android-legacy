@@ -66,6 +66,11 @@ public class LauncherActivity extends AppCompatActivity {
         if (PIAApplication.isAmazon()) {
             PIAApplication.amazonPurchaseUtil = new AmazonPurchaseUtil(this);
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (!NotificationManagerCompat.from(this).areNotificationsEnabled()) {
                 requestPermissions(new String[]{"android.permission.POST_NOTIFICATIONS"}, 0);
@@ -73,11 +78,6 @@ public class LauncherActivity extends AppCompatActivity {
                 loadData();
             }
         }
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
     }
 
     private void loadData() {
