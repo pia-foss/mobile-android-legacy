@@ -107,12 +107,5 @@ public class PanelFragment extends Fragment {
     public void onResume() {
         super.onResume();
         portWidget.updateState();
-
-        if (VPNProtocol.activeProtocol(getContext()) == VPNProtocol.Protocol.OpenVPN) {
-            perAppSettingsPanelItem.setVisibility(View.VISIBLE);
-        }
-        else {
-            perAppSettingsPanelItem.setVisibility(View.GONE);
-        }
     }
 }
