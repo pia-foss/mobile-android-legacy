@@ -47,7 +47,7 @@ dependencies {
     implementation project(":core")
 
     // Commons
-    implementation("com.kape.android:account-android:1.4.5")
+    implementation("com.kape.android:account-android:1.4.6")
     implementation("com.kape.android:regions-android:1.6.2")
     implementation("com.kape.android:csi-android:1.3.2")
     implementation("com.kape.android:kpi-android:1.2.2")
