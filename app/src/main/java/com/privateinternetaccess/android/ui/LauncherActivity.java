@@ -77,6 +77,8 @@ public class LauncherActivity extends AppCompatActivity {
             } else {
                 loadData();
             }
+        } else {
+            loadData();
         }
     }
 
