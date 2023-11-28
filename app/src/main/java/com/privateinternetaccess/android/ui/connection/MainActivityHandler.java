@@ -127,38 +127,34 @@ public class MainActivityHandler {
                 .withIcon(R.drawable.ic_drawer_region)
                 .withTextColorRes(textColor)
         );
-        if(!isAndroidTv)
+        if(!isAndroidTv) {
             drawerItems.add(new PIAPrimaryDrawerItem()
                     .withIdentifier(IDEN_ACCOUNT).withName(R.string.drawer_account)
                     .withIcon(R.drawable.ic_drawer_account)
-                            .withTextColorRes(textColor)
-                    );
-
-        if (!isAndroidTv) {
-            if (PiaPrefHandler.isFeatureActive(act, DIP_FEATURE) || PIAApplication.isQA())
-            drawerItems.add(new PIAPrimaryDrawerItem()
-                    .withIdentifier(IDEN_DIP).withName(R.string.dip_menu_title)
-                    .withIcon(R.drawable.ic_dip_settings_wrapper).withTextColorRes(textColor)
+                    .withTextColorRes(textColor)
             );
+            if (PiaPrefHandler.isFeatureActive(act, DIP_FEATURE) || PIAApplication.isQA()) {
+                drawerItems.add(new PIAPrimaryDrawerItem()
+                        .withIdentifier(IDEN_DIP).withName(R.string.dip_menu_title)
+                        .withIcon(R.drawable.ic_dip_settings_wrapper).withTextColorRes(textColor)
+                );
+            }
         }
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            drawerItems.add(new PIAPrimaryDrawerItem()
-                    .withIdentifier(IDEN_PER_APP)
-                    .withName(R.string.per_app_settings)
-                    .withIcon(R.drawable.ic_drawer_per_app)
-                            .withTextColorRes(textColor)
-                    );
-        }
-
+        drawerItems.add(new PIAPrimaryDrawerItem()
+                .withIdentifier(IDEN_PER_APP)
+                .withName(R.string.per_app_settings)
+                .withIcon(R.drawable.ic_drawer_per_app)
+                .withTextColorRes(textColor)
+        );
         drawerItems.add(new PIAPrimaryDrawerItem()
                 .withIdentifier(IDEN_SETTINGS).withName(R.string.menu_settings).withIcon(R.drawable.ic_drawer_settings)
-                        .withTextColorRes(textColor)
-                );
+                .withTextColorRes(textColor)
+        );
         drawerItems.add(new PIAPrimaryDrawerItem()
                 .withIdentifier(IDEN_LOGOUT).withName(R.string.logout).withIcon(R.drawable.ic_drawer_logout)
-                        .withTextColorRes(textColor)
-                );
+                .withTextColorRes(textColor)
+        );
 
         if(!isAndroidTv) {
             drawerItems.add(new DividerDrawerItem());
@@ -170,10 +166,12 @@ public class MainActivityHandler {
                     .withIdentifier(IDEN_PRIVACY).withName(R.string.about_privacy_policy).withIcon(R.drawable.ic_privacy_link)
                     .withTextColorRes(textColor)
             );
-            drawerItems.add(new PIAPrimaryDrawerItem()
-                    .withIdentifier(IDEN_HOME_PAGE).withName(R.string.drawer_home_page).withIcon(R.drawable.ic_drawer_homepage)
-                    .withTextColorRes(textColor)
-            );
+            if (!PIAApplication.isAmazonBrand()) {
+                drawerItems.add(new PIAPrimaryDrawerItem()
+                        .withIdentifier(IDEN_HOME_PAGE).withName(R.string.drawer_home_page).withIcon(R.drawable.ic_drawer_homepage)
+                        .withTextColorRes(textColor)
+                );
+            }
             drawerItems.add(new PIAPrimaryDrawerItem()
                     .withIdentifier(IDEN_HELP).withName(R.string.drawer_contact_support).withIcon(R.drawable.ic_drawer_support)
                     .withTextColorRes(textColor)

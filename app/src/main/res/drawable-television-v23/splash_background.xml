@@ -7,8 +7,8 @@
 
     <item
         android:drawable="@drawable/ic_pia_logo_opposite"
-        android:left="150dp"
-        android:right="150dp"
+        android:width="200dp"
+        android:height="64dp"
         android:gravity="center"/>
 
 </layer-list>
