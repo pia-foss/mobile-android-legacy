@@ -184,7 +184,13 @@ class SettingsSectionNetworkFragment : Fragment() {
         val builder = AlertDialog.Builder(context)
         builder.setTitle(R.string.dns_pref_header)
         builder.setCancelable(false)
-        builder.setAdapter(adapter, selectionCallback)
+        builder.setSingleChoiceItems(
+            adapter,
+            adapter.selectedIndex
+        ) { _, which ->
+            adapter.selected = options[which]
+            adapter.notifyDataSetChanged()
+        }
         builder.setPositiveButton(R.string.save, selectionCallback)
 
         // If there is more than the default option

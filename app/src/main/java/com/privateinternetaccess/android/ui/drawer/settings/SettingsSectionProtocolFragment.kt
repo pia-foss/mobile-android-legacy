@@ -172,7 +172,8 @@ class SettingsSectionProtocolFragment : Fragment() {
         val builder = AlertDialog.Builder(context)
         builder.setTitle(R.string.settings_protocol)
         builder.setSingleChoiceItems(
-            adapter, protocols.indexOf(PiaPrefHandler.getProtocol(requireContext()))
+            adapter,
+            protocols.indexOf(PiaPrefHandler.getProtocol(requireContext()))
         ) { _, which ->
             adapter.selected = protocols[which]
             adapter.notifyDataSetChanged()
@@ -207,7 +208,8 @@ class SettingsSectionProtocolFragment : Fragment() {
         builder.setTitle(R.string.transport)
         builder.setCancelable(true)
         builder.setSingleChoiceItems(
-            adapter, protocolTransportList.indexOf(PiaPrefHandler.getProtocol(requireContext()))
+            adapter,
+            protocolTransportList.indexOf(PiaPrefHandler.getProtocol(requireContext()))
         ) { _, which ->
             adapter.selected = protocolTransportList[which]
             adapter.notifyDataSetChanged()
@@ -240,7 +242,8 @@ class SettingsSectionProtocolFragment : Fragment() {
         builder.setTitle(R.string.data_encyrption)
         builder.setCancelable(true)
         builder.setSingleChoiceItems(
-            adapter, values.indexOf(PiaPrefHandler.getDataCipher(context))
+            adapter,
+            values.indexOf(PiaPrefHandler.getDataCipher(context))
         ) { _, which ->
             adapter.selected = values[which]
             adapter.notifyDataSetChanged()
@@ -283,7 +286,8 @@ class SettingsSectionProtocolFragment : Fragment() {
         builder.setTitle(R.string.remote_port)
         builder.setCancelable(true)
         builder.setSingleChoiceItems(
-            adapter, options.indexOf(PiaPrefHandler.getRemotePort(context))
+            adapter,
+            options.indexOf(PiaPrefHandler.getRemotePort(context))
         ) { _, which ->
             adapter.selected = options[which]
             adapter.notifyDataSetChanged()
