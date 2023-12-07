@@ -41,6 +41,7 @@ import com.privateinternetaccess.android.model.events.ServerClickedEvent;
 import com.privateinternetaccess.android.model.listModel.ServerItem;
 import com.privateinternetaccess.android.pia.PIAFactory;
 import com.privateinternetaccess.android.pia.handlers.PIAServerHandler;
+import com.privateinternetaccess.android.pia.handlers.PiaPrefHandler;
 import com.privateinternetaccess.android.pia.model.events.VpnStateEvent;
 import com.privateinternetaccess.android.ui.adapters.ServerListAdapter;
 import com.privateinternetaccess.android.ui.tv.views.ServerSelectionItemDecoration;
@@ -51,6 +52,7 @@ import org.greenrobot.eventbus.Subscribe;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -118,7 +120,16 @@ public class SearchFragment extends Fragment {
         PIAServerHandler handler = PIAServerHandler.getInstance(context);
         mServerItems = new ArrayList<>();
 
-        for (PIAServer ps : handler.getServers(context, PIAServerHandler.ServerSortingType.NAME, PIAServerHandler.ServerSortingType.FAVORITES)) {
+        Vector<PIAServer> servers = handler.getServers(
+                context,
+                PIAServerHandler.ServerSortingType.NAME,
+                PIAServerHandler.ServerSortingType.FAVORITES
+        );
+        for (PIAServer ps : servers) {
+            if (!PiaPrefHandler.isGeoServersEnabled(context) && ps.isGeo()) {
+                continue;
+            }
+
             mServerItems.add(
                     new ServerItem(
                             ps.getKey(),
