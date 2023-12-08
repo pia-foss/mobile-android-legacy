@@ -137,8 +137,8 @@ android {
         renderscriptTargetApi rootProject.minSdkVersion
         renderscriptSupportModeEnabled true
 
-        versionCode 595
-        versionName "3.26.0"
+        versionCode 596
+        versionName "3.27.0"
 
         setProperty("archivesBaseName", "pia-$versionName-$versionCode")
         vectorDrawables {
