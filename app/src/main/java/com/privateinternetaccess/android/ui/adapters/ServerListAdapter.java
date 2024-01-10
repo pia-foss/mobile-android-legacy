@@ -88,6 +88,8 @@ public class ServerListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     private ServerItem selectedServer = null;
     private boolean isNetworkAvailable = true;
 
+    private static final int LOW_LATENCY_MAX_THRESHOLD_MS = 100;
+    private static final int MID_LATENCY_MAX_THRESHOLD_MS = 250;
 
     public ServerListAdapter(List<ServerItem> items, Activity context) {
         this.mContext = context;
@@ -185,9 +187,9 @@ public class ServerListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                     sHolder.name.setTextColor(ContextCompat.getColor(mContext, R.color.text_fade));
 
                     if (ping != null && ping > 0L && ping < REGIONS_PING_TIMEOUT) {
-                        if (ping < 200) {
+                        if (ping < LOW_LATENCY_MAX_THRESHOLD_MS) {
                             sHolder.ping.setTextColor(ContextCompat.getColor(mContext, R.color.latency_green_faded));
-                        } else if (ping < 500) {
+                        } else if (ping < MID_LATENCY_MAX_THRESHOLD_MS) {
                             sHolder.ping.setTextColor(ContextCompat.getColor(mContext, R.color.latency_yellow_faded));
                         } else {
                             sHolder.ping.setTextColor(ContextCompat.getColor(mContext, R.color.latency_red_faded));
@@ -205,9 +207,9 @@ public class ServerListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                     sHolder.name.setTextColor(sHolder.originalColor);
 
                     if (ping != null && ping > 0L && ping < REGIONS_PING_TIMEOUT) {
-                        if (ping < 200) {
+                        if (ping < LOW_LATENCY_MAX_THRESHOLD_MS) {
                             sHolder.ping.setTextColor(ContextCompat.getColor(mContext, R.color.pia_gen_green));
-                        } else if (ping < 500) {
+                        } else if (ping < MID_LATENCY_MAX_THRESHOLD_MS) {
                             sHolder.ping.setTextColor(ContextCompat.getColor(mContext, R.color.md_yellow_800));
                         } else {
                             sHolder.ping.setTextColor(ContextCompat.getColor(mContext, R.color.pia_gen_red));
@@ -286,9 +288,9 @@ public class ServerListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                 ping = Long.valueOf(item.getLatency());
             }
             if (ping != null && ping > 0L && ping < REGIONS_PING_TIMEOUT) {
-                if (ping < 200) {
+                if (ping < LOW_LATENCY_MAX_THRESHOLD_MS) {
                     sHolder.ping.setTextColor(ContextCompat.getColor(mContext, R.color.pia_gen_green));
-                } else if (ping < 500) {
+                } else if (ping < MID_LATENCY_MAX_THRESHOLD_MS) {
                     sHolder.ping.setTextColor(ContextCompat.getColor(mContext, R.color.md_yellow_800));
                 } else {
                     sHolder.ping.setTextColor(ContextCompat.getColor(mContext, R.color.pia_gen_red));
