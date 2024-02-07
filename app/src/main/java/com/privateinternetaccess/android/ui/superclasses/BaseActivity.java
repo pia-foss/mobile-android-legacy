@@ -683,6 +683,9 @@ public abstract class BaseActivity extends SwipeBackBaseActivity implements Netw
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onExpiredApiTokenEvent(ExpiredApiTokenEvent event) {
-        navigateToLogin();
+        IAccount account = PIAFactory.getInstance().getAccount(this);
+        if (account.loggedIn()) {
+            navigateToLogin();
+        }
     }
 }
