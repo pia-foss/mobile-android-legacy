@@ -258,7 +258,7 @@ public class LoginPurchaseActivity extends BaseActivity {
             frag.setFireOffPurchasing(fireOffPurchasing);
             frag.setTrial(isTrial);
             frag.setLoginWithReceipt(isLoginWithReceipt);
-            getSupportFragmentManager().beginTransaction().replace(R.id.container, frag).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.container, frag).commitAllowingStateLoss();
         });
     }
 
