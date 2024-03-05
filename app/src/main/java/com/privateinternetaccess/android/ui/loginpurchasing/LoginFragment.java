@@ -44,6 +44,7 @@ import android.widget.TextView;
 import com.privateinternetaccess.android.PIAApplication;
 import com.privateinternetaccess.android.R;
 import com.privateinternetaccess.android.pia.PIAFactory;
+import com.privateinternetaccess.android.pia.handlers.PIAServerHandler;
 import com.privateinternetaccess.android.pia.handlers.PiaPrefHandler;
 import com.privateinternetaccess.android.pia.interfaces.IAccount;
 import com.privateinternetaccess.android.pia.model.AmazonPurchaseData;
@@ -271,7 +272,6 @@ public class LoginFragment extends Fragment {
                 handleLoginResponseStatus(context, requestResponseStatus);
                 return null;
             }
-
             account.accountInformation((accountInformation, accountResponseStatus) -> {
                 if (accountResponseStatus != RequestResponseStatus.SUCCEEDED) {
                     DLog.d(TAG, "Check account information unsuccessful " + accountResponseStatus);
@@ -283,6 +283,7 @@ public class LoginFragment extends Fragment {
                 PiaPrefHandler.setUserIsLoggedIn(context, true);
                 PiaPrefHandler.saveAccountInformation(context, accountInformation);
                 PiaPrefHandler.clearPurchasingInfo(context);
+                updateListOfServersAndLatencies();
                 handleLoginResponseStatus(context, accountResponseStatus);
                 return null;
             });
@@ -402,5 +403,14 @@ public class LoginFragment extends Fragment {
     @Nullable
     private LoginPurchaseActivity getLoginPurchaseActivity() {
         return ((LoginPurchaseActivity) getActivity());
+    }
+
+    private void updateListOfServersAndLatencies() {
+        PIAServerHandler.getInstance(getContext()).triggerFetchServers(error -> {
+            if (error == null) {
+                PIAServerHandler.getInstance(getContext()).triggerLatenciesUpdate();
+            }
+            return null;
+        });
     }
 }
